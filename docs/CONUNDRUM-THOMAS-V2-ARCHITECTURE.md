@@ -106,6 +106,8 @@ CT-V2-05 proves that the permit can govern a broader ordinary repertoire. The or
 
 CT-V2-06 adds the independent longitudinal domain foundation. Personal source records, user assertions, life structure, user interpretations, Thomas hypotheses, temporal uncertainty, contradiction, correction, supersession, identity uncertainty, and hypothesis dependencies are typed in a dependency-free module. It implements no admission, persistence, extraction, retrieval, mode behavior, or therapeutic authority.
 
+CT-V2-07 adds two downstream pure-JVM modules without wiring them into production. A deterministic admission policy validates synthetic structured writes; a qualification-only SQLite store owns trusted record time, optimistic concurrency, idempotency, append-only accepted history, rebuildable current projection, revision/lifecycle audit, controlled replay, and exact reads. The application, runtime, modes, therapeutic engine, safety gate, models, and V1 components have zero write authority. Production personal-data storage and language-to-evidence formation remain unopened.
+
 ### E. Intervention Engine
 
 Converts the governed therapeutic strategy into a precise communicative instruction and explicit constraints. The result states what acts to express and what is forbidden, including advice, diagnosis, reassurance, question count, interpretation count, certainty, and target length.

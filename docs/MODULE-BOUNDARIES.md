@@ -33,6 +33,15 @@ These are production compile dependencies. `:qualification` may depend on each l
 :thomas:longitudinal
   -> (no project dependencies)
 
+:thomas:longitudinal-admission
+  -> :thomas:longitudinal
+
+:thomas:longitudinal-store (synthetic qualification only)
+  -> :thomas:longitudinal-admission
+
+:qualification
+  -> :thomas:longitudinal-store
+
 :platform:persistence-android
   -> :thomas:domain
 
@@ -52,7 +61,9 @@ These are production compile dependencies. `:qualification` may depend on each l
 - `:thomas:domain` is platform independent.
 - `:thomas:domain` owns the three mode-authority contracts because Therapist, Biographer, and Journal identity precedes therapeutic policy. All three deny model decision authority and direct profile mutation; Journal defaults to `NO_RESPONSE`.
 - `:thomas:ontology` is platform independent and depends only on domain and provenance contracts. It defines typed vocabulary and source bindings, never decisions.
-- `:thomas:longitudinal` is platform independent and dependency-free. It defines immutable personal-source, assertion, life-structure, temporal, relationship, identity, coverage, and validation contracts. It does not reuse clinical-source provenance, depend on therapeutic policy, expose a writer/store, or persist personal data. CT-V2-06 wires it only to `:qualification`.
+- `:thomas:longitudinal` is platform independent and dependency-free. It defines immutable personal-source, assertion, life-structure, temporal, relationship, identity, coverage, and validation contracts. It does not reuse clinical-source provenance, depend on therapeutic policy, expose a writer/store, or persist personal data.
+- `:thomas:longitudinal-admission` depends only on the longitudinal domain. It defines typed synthetic requests, deterministic policy, lifecycle and privacy consequences, canonical request/state encoding, and mutation plans. It cannot persist, create an accepted receipt, or assign record time.
+- `:thomas:longitudinal-store` depends only on admission and its transitive domain. It owns the JVM SQLite qualification adapter, injected store clock, append-only ledger, current projection, schema, transactions, replay, redacted audit, and read interfaces. Only `:qualification` consumes it in CT-V2-07; it has no application or production wiring.
 - CT-V2-03 explicitly authorizes `:thomas:engine` to consume the ontology for a qualification-only ruleset. Ontology remains behavior-free and has no dependency back to engine.
 - `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policies accept typed structured state, never raw user prose. CT-V2-05 adds hierarchical ordinary-route, action, and progression rules while preserving qualification execution authority and explicit production denial. Every ordinary evaluator requires a matching safety-issued permit.
 - `:thomas:safety` does not depend on `:thomas:engine`. It consumes typed ontology/provenance contracts, and only it can normally construct an `OrdinaryTherapyPermit`. This preserves an acyclic graph while preventing ordinary policy from bypassing the gate.
