@@ -22,10 +22,12 @@ dependencies {
     implementation(project(":thomas:engine"))
     implementation(project(":thomas:safety"))
     implementation(project(":thomas:longitudinal"))
+    implementation(project(":thomas:longitudinal-store"))
     testImplementation(libs.junit)
     testImplementation(project(":thomas:runtime"))
 }
 
 tasks.test {
     systemProperty("thomas.repositoryRoot", rootProject.projectDir.absolutePath)
+    jvmArgs("--enable-native-access=ALL-UNNAMED")
 }

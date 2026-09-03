@@ -132,8 +132,10 @@ internal class SQLiteQualificationLongitudinalStore private constructor(
         } catch (failure: Exception) {
             runCatching { connection.rollback() }
             connection.autoCommit = true
-            val detail = if (failure is java.io.NotSerializableException) ":${failure.message}" else ""
-            rejection(AdmissionDisposition.FAILED_WITHOUT_COMMIT, listOf("TRANSACTION_ROLLED_BACK:${failure.javaClass.simpleName}$detail"))
+            rejection(
+                AdmissionDisposition.FAILED_WITHOUT_COMMIT,
+                listOf("TRANSACTION_ROLLED_BACK:${failure.javaClass.simpleName}"),
+            )
         }
     }
 
