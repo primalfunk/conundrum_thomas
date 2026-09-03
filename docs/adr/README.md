@@ -15,3 +15,4 @@
 | [0011](0011-core-ordinary-route-and-progression.md) | Hierarchical ordinary routes and evidence-revision progression | Accepted for CT-V2-05 qualification |
 | [0012](0012-evidence-first-longitudinal-domain.md) | Evidence-first longitudinal and temporal domain | Accepted for CT-V2-06 qualification |
 | [0013](0013-governed-longitudinal-admission-store.md) | Governed longitudinal admission and synthetic store | Accepted for CT-V2-07 qualification |
+| [0014](0014-source-first-language-evidence-boundary.md) | Source-first language evidence and canonical Git metadata stability | Accepted for CT-V2-08 qualification |
