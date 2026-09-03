@@ -29,7 +29,7 @@ Command:
 gradlew clean build lint generateRuntimeProvenanceDb --rerun-tasks --console=plain
 ```
 
-Result: `BUILD SUCCESSFUL in 50s`; 325 actionable tasks, all executed.
+Final committed-state result: `BUILD SUCCESSFUL in 55s`; 325 actionable tasks, all executed.
 
 - Repository tests: 348; failures 0; errors 0; skipped 0.
 - New CT-V2-08 tests: 66; failures 0; errors 0; skipped 0.
@@ -37,7 +37,7 @@ Result: `BUILD SUCCESSFUL in 50s`; 325 actionable tasks, all executed.
 - Property/random seed: none; the phase uses named deterministic fixtures only.
 - Lint reports: 4; error-severity findings 0.
 - Debug APK: 31,205,813 bytes; SHA-256 `e5dc7ca705ce5e6e3bda3173eee255d0abe4632241b4564b0dd20a1dfceea049`.
-- Unsigned release APK: 22,738,930 bytes; SHA-256 `4d5b6aef1e59d95799862c84143735fca226d36b72d21ce1786681a0acb8301c`.
+- Unsigned release APK: 22,738,930 bytes; SHA-256 `10d41589d9afda323f82745ac5f2974d4d2773003dbe90e75c125c2114417597`.
 - APK forbidden-content matches: 0 for fixture/qualification/CT-V2-08 names, longitudinal databases, models, and PDFs.
 - Tracked databases: 0; model artifacts: 0; raw/restricted artifacts: 0; build outputs: 0.
 - Generated provenance database: present, ignored, untracked.
