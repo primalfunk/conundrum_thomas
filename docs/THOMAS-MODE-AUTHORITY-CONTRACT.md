@@ -18,6 +18,8 @@ All three contracts carry `PRODUCTION_RUNTIME_NOT_GRANTED`, `NONE` direct profil
 
 Therapist's responsibility is governed therapeutic-action selection, subject to independent safety authority. CT-V2-03 implements one qualification-only bounded-problem ruleset; it is not wired to production runtime and grants no production authority. A language model may eventually render an already selected act; it cannot choose it.
 
+CT-V2-04 makes the independent safety boundary compile-visible: the ordinary Therapist evaluator requires a state- and evidence-revision-bound `OrdinaryTherapyPermit`. Journal and Biographer cannot receive that capability through their mode contracts. The permit remains qualification-only and grants no production runtime authority.
+
 ## Biographer
 
 Biographer's future responsibility is governed information-gap selection. Its intended conceptual loop is:

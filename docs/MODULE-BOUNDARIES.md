@@ -16,10 +16,12 @@ These are production compile dependencies. `:qualification` may depend on each l
   -> :thomas:domain
   -> :thomas:provenance
   -> :thomas:ontology
+  -> :thomas:safety
 
 :thomas:safety
   -> :thomas:domain
   -> :thomas:provenance
+  -> :thomas:ontology
 
 :thomas:provenance
   -> :thomas:domain
@@ -48,8 +50,8 @@ These are production compile dependencies. `:qualification` may depend on each l
 - `:thomas:domain` owns the three mode-authority contracts because Therapist, Biographer, and Journal identity precedes therapeutic policy. All three deny model decision authority and direct profile mutation; Journal defaults to `NO_RESPONSE`.
 - `:thomas:ontology` is platform independent and depends only on domain and provenance contracts. It defines typed vocabulary and source bindings, never decisions.
 - CT-V2-03 explicitly authorizes `:thomas:engine` to consume the ontology for a qualification-only ruleset. Ontology remains behavior-free and has no dependency back to engine.
-- `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policy accepts `StructuredPolicyState`, never raw user prose. Its CT-V2-03 rules carry qualification execution authority and explicit production denial.
-- `:thomas:safety` does not depend on `:thomas:engine`. Its result governs an ordinary action proposal; ordinary policy cannot override it.
+- `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policy accepts `StructuredPolicyState`, never raw user prose. Its CT-V2-03 rules carry qualification execution authority and explicit production denial. CT-V2-04 removes the state-only evaluator entry point and requires a matching safety-issued permit.
+- `:thomas:safety` does not depend on `:thomas:engine`. It consumes typed ontology/provenance contracts, and only it can normally construct an `OrdinaryTherapyPermit`. This preserves an acyclic graph while preventing ordinary policy from bypassing the gate.
 - `:thomas:runtime` is the only production module allowed to depend on both engine and safety and is the sole future owner of ordered end-to-end orchestration.
 - `:app` does not depend on engine, safety, persistence, speech, or a renderer implementation. It cannot directly invoke a model.
 - A renderer receives only a `RenderRequest`: one `RenderCommand` and explicitly authorized supporting text. Its output is an untrusted `RenderedDraft`.

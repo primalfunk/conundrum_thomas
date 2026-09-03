@@ -15,6 +15,7 @@ import com.conundrum.thomas.v2.engine.verticalslice.RuleProvenance
 import com.conundrum.thomas.v2.ontology.RuntimeAuthorizationStatus
 import com.conundrum.thomas.v2.ontology.TherapeuticOntologyCatalog
 import com.conundrum.thomas.v2.qualification.verticalslice.CanonicalBoundedProblemScenario
+import com.conundrum.thomas.v2.qualification.safety.QualificationSafetyGate
 import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -53,7 +54,7 @@ class ProceduralPolicyInvariantTest {
     @Test
     fun `selected actions satisfy prerequisites and no exclusions`() {
         CanonicalBoundedProblemScenario.states().forEach { state ->
-            val decision = BoundedProblemPolicyEvaluator().evaluate(state)
+            val decision = QualificationSafetyGate.evaluateOrdinary(BoundedProblemPolicyEvaluator(), state)
             val winner = decision.ruleTrace.single { it.ruleId == decision.selectedAction?.selectedByRuleId }
             assertTrue(winner.preconditions.all { it.matched })
             assertTrue(winner.exclusions.none { it.matched })

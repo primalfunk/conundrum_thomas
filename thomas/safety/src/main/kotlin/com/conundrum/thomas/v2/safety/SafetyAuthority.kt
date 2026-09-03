@@ -6,7 +6,7 @@ interface SafetyReviewInput
 /** Marker for the safety-governed result that may allow, constrain, replace, defer, or escalate. */
 interface SafetyGovernedResult
 
-/** Authority contract only; CT-V2-00 provides no safety classification or clinical pathway. */
+/** Independent authority contract; concrete gates remain typed, deterministic, and non-predictive. */
 fun interface SafetyGovernor<INPUT : SafetyReviewInput, RESULT : SafetyGovernedResult> {
     fun govern(input: INPUT): RESULT
 }

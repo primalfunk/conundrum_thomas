@@ -20,8 +20,8 @@ dependencies {
     implementation(project(":thomas:provenance"))
     implementation(project(":thomas:ontology"))
     implementation(project(":thomas:engine"))
+    implementation(project(":thomas:safety"))
     testImplementation(libs.junit)
-    testImplementation(project(":thomas:safety"))
     testImplementation(project(":thomas:runtime"))
 }
 

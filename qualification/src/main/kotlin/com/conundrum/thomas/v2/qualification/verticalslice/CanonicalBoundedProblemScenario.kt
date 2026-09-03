@@ -15,6 +15,7 @@ import com.conundrum.thomas.v2.engine.verticalslice.ProblemInfluence
 import com.conundrum.thomas.v2.engine.verticalslice.SharedUnderstanding
 import com.conundrum.thomas.v2.engine.verticalslice.SupportIntent
 import com.conundrum.thomas.v2.engine.verticalslice.UpstreamSafetyDisposition
+import com.conundrum.thomas.v2.qualification.safety.QualificationSafetyGate
 
 data class CanonicalScenarioTurn(
     val state: BoundedProblemPolicyState,
@@ -34,7 +35,7 @@ object CanonicalBoundedProblemScenario {
         val evaluator = BoundedProblemPolicyEvaluator()
         val renderer = DeterministicQualificationRenderer()
         return states().map { state ->
-            val decision = evaluator.evaluate(state)
+            val decision = QualificationSafetyGate.evaluateOrdinary(evaluator, state)
             val request = PolicyRenderRequestFactory.create(decision, state)
             CanonicalScenarioTurn(state, decision, request, renderer.renderNow(request))
         }

@@ -21,6 +21,7 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(project(":thomas:ontology"))
     testImplementation(project(":thomas:engine"))
+    testImplementation(project(":thomas:safety"))
 }
 
 tasks.register<JavaExec>("generateRuntimeProvenanceDb") {

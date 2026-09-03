@@ -3,6 +3,7 @@ package com.conundrum.thomas.v2.engine.verticalslice
 import com.conundrum.thomas.v2.domain.mode.ThomasMode
 import com.conundrum.thomas.v2.engine.StructuredPolicyState
 import com.conundrum.thomas.v2.ontology.EpistemicResolution
+import com.conundrum.thomas.v2.safety.SafetyEvidenceRevision
 
 enum class UpstreamSafetyDisposition {
     ORDINARY_SLICE_ALLOWED,
@@ -133,6 +134,7 @@ data class PolicyEvidence<T>(
 
 data class BoundedProblemPolicyState(
     val stateId: String,
+    val safetyEvidenceRevision: SafetyEvidenceRevision = SafetyEvidenceRevision.of(1),
     val mode: ThomasMode,
     val upstreamSafetyDisposition: UpstreamSafetyDisposition,
     val scope: BoundedProblemScope,

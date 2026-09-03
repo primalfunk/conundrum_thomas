@@ -34,6 +34,10 @@ data class RenderCommand(
     val advicePermitted: Boolean,
     val form: RenderForm,
     val outputDisposition: RenderOutputDisposition = RenderOutputDisposition.GENERATE_TEXT,
+    val directWordingRequired: Boolean = false,
+    val ordinaryTherapeuticContentPermitted: Boolean = true,
+    val externalHelpInformationRequired: Boolean = false,
+    val conversationContinuationPermitted: Boolean = true,
 ) {
     init {
         require(policyDecisionReference.isNotBlank())

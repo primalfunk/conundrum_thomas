@@ -98,6 +98,8 @@ Independently evaluates immediate safety, self-harm or suicide signals, violence
 
 Its dispositions include `ALLOW`, `ALLOW_WITH_CONSTRAINTS`, `REPLACE_ACTION`, `CLARIFY_FIRST`, `DEFER`, `ENCOURAGE_HUMAN_SUPPORT`, and `URGENT_ESCALATION`. Ordinary policy cannot bypass it.
 
+CT-V2-04 provides the first qualification-only implementation of this boundary. It evaluates typed established facts, not raw text or predicted risk, and issues a revision-bound `OrdinaryTherapyPermit` only for `ORDINARY_POLICY_ALLOWED`. Every other disposition withholds the capability. Specialized and emergency procedures remain unopened; no production safety authority is granted.
+
 ### E. Intervention Engine
 
 Converts the governed therapeutic strategy into a precise communicative instruction and explicit constraints. The result states what acts to express and what is forbidden, including advice, diagnosis, reassurance, question count, interpretation count, certainty, and target length.

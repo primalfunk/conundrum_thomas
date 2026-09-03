@@ -20,6 +20,7 @@ import com.conundrum.thomas.v2.engine.verticalslice.SharedUnderstanding
 import com.conundrum.thomas.v2.engine.verticalslice.SupportIntent
 import com.conundrum.thomas.v2.engine.verticalslice.UpstreamSafetyDisposition
 import com.conundrum.thomas.v2.qualification.verticalslice.CanonicalBoundedProblemScenario
+import com.conundrum.thomas.v2.qualification.safety.QualificationSafetyGate
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
@@ -43,7 +44,7 @@ class ProceduralDecisionTableTest {
             "wait-for-outcome",
             "review-reported-outcome",
         )
-        val decisions = CanonicalBoundedProblemScenario.states().map(evaluator::evaluate)
+        val decisions = CanonicalBoundedProblemScenario.states().map(::evaluate)
         assertEquals(expected, decisions.map { it.selectedAction?.definition?.id?.value })
         assertTrue(decisions.all { it.disposition == PolicyDecisionDisposition.ACTION_SELECTED })
         assertTrue(decisions.all { it.activeGoalId != null && it.nextStateExpectations != null })
@@ -51,7 +52,7 @@ class ProceduralDecisionTableTest {
 
     @Test
     fun `known intent is not asked again and missing problem is requested`() {
-        val decision = evaluator.evaluate(base().copy(
+        val decision = evaluate(base().copy(
             supportIntent = PolicyEvidence.reported(SupportIntent.PRACTICAL_HELP, "user-intent"),
         ))
         assertSelected("ask-problem-description", decision)
@@ -62,7 +63,7 @@ class ProceduralDecisionTableTest {
 
     @Test
     fun `tentative intent causes clarification rather than downstream action`() {
-        val decision = evaluator.evaluate(base().copy(
+        val decision = evaluate(base().copy(
             supportIntent = PolicyEvidence.tentative(SupportIntent.PRACTICAL_HELP, "tentative-extraction"),
         ))
         assertSelected("ask-support-preference", decision)
@@ -70,7 +71,7 @@ class ProceduralDecisionTableTest {
 
     @Test
     fun `unwillingness selects first-class no response`() {
-        val decision = evaluator.evaluate(base().copy(
+        val decision = evaluate(base().copy(
             willingness = PolicyEvidence.reported(ParticipationWillingness.UNWILLING_TO_CONTINUE, "user-refusal"),
         ))
         assertSelected("pause-without-response", decision)
@@ -82,7 +83,7 @@ class ProceduralDecisionTableTest {
         val state = establishedProblem().copy(
             supportIntent = PolicyEvidence.reported(SupportIntent.LISTENING, "user-intent"),
         )
-        val decision = evaluator.evaluate(state)
+        val decision = evaluate(state)
         assertSelected("reflect-for-listening", decision)
         assertEquals("intervention.supportive-listening", decision.selectedAction?.definition?.candidateInterventionFamilyId?.value)
     }
@@ -93,16 +94,16 @@ class ProceduralDecisionTableTest {
             supportIntent = PolicyEvidence.reported(SupportIntent.UNDERSTANDING, "user-intent"),
             sharedUnderstanding = PolicyEvidence.tentative(SharedUnderstanding.TENTATIVE, "thomas-summary"),
         )
-        assertSelected("verify-problem-understanding", evaluator.evaluate(tentative))
+        assertSelected("verify-problem-understanding", evaluate(tentative))
         val confirmed = tentative.copy(
             sharedUnderstanding = PolicyEvidence.reported(SharedUnderstanding.CONFIRMED, "user-confirmation"),
         )
-        assertSelected("summarize-for-understanding", evaluator.evaluate(confirmed))
+        assertSelected("summarize-for-understanding", evaluate(confirmed))
     }
 
     @Test
     fun `unknown safety cannot silently become ordinary-safe`() {
-        val decision = evaluator.evaluate(base().copy(upstreamSafetyDisposition = UpstreamSafetyDisposition.UNKNOWN))
+        val decision = evaluate(base().copy(upstreamSafetyDisposition = UpstreamSafetyDisposition.UNKNOWN))
         assertEquals(PolicyDecisionDisposition.INSUFFICIENT_INFORMATION, decision.disposition)
         assertNull(decision.selectedAction)
         assertEquals("UPSTREAM_SAFETY_AUTHORITY_REQUIRED", decision.handoffRequirement)
@@ -110,13 +111,13 @@ class ProceduralDecisionTableTest {
 
     @Test
     fun `specialized safety and specialized scope terminate the ordinary slice`() {
-        val safety = evaluator.evaluate(base().copy(
+        val safety = evaluate(base().copy(
             upstreamSafetyDisposition = UpstreamSafetyDisposition.SPECIALIZED_POLICY_REQUIRED,
         ))
         assertEquals(PolicyDecisionDisposition.SPECIALIZED_POLICY_REQUIRED, safety.disposition)
         assertEquals("SPECIALIZED_SAFETY_POLICY_REQUIRED", safety.handoffRequirement)
 
-        val scope = evaluator.evaluate(base().copy(scope = BoundedProblemScope.SPECIALIZED_POLICY_REQUIRED))
+        val scope = evaluate(base().copy(scope = BoundedProblemScope.SPECIALIZED_POLICY_REQUIRED))
         assertEquals(PolicyDecisionDisposition.SPECIALIZED_POLICY_REQUIRED, scope.disposition)
         assertEquals("SPECIALIZED_POLICY_REQUIRED", scope.handoffRequirement)
     }
@@ -125,17 +126,17 @@ class ProceduralDecisionTableTest {
     fun `wrong mode and explicit outside scope return out of scope`() {
         assertEquals(
             PolicyDecisionDisposition.OUT_OF_SCOPE,
-            evaluator.evaluate(base().copy(mode = ThomasMode.BIOGRAPHER)).disposition,
+            evaluate(base().copy(mode = ThomasMode.BIOGRAPHER)).disposition,
         )
         assertEquals(
             PolicyDecisionDisposition.OUT_OF_SCOPE,
-            evaluator.evaluate(base().copy(scope = BoundedProblemScope.OUT_OF_SCOPE)).disposition,
+            evaluate(base().copy(scope = BoundedProblemScope.OUT_OF_SCOPE)).disposition,
         )
     }
 
     @Test
     fun `non-influenceable problem exits rather than improvising another intervention`() {
-        val decision = evaluator.evaluate(practicalConfirmed().copy(
+        val decision = evaluate(practicalConfirmed().copy(
             problemInfluence = PolicyEvidence.reported(ProblemInfluence.NOT_INFLUENCEABLE, "user-influence"),
         ))
         assertEquals(PolicyDecisionDisposition.OUT_OF_SCOPE, decision.disposition)
@@ -144,7 +145,7 @@ class ProceduralDecisionTableTest {
 
     @Test
     fun `conflicting evidence produces a visible policy conflict`() {
-        val decision = evaluator.evaluate(base().copy(
+        val decision = evaluate(base().copy(
             supportIntent = PolicyEvidence.conflicting("user-said-listen", "user-said-practical"),
         ))
         assertEquals(PolicyDecisionDisposition.POLICY_CONFLICT, decision.disposition)
@@ -155,7 +156,7 @@ class ProceduralDecisionTableTest {
     fun `review blocked matching rule cannot execute`() {
         val source = BoundedProblemRuleCatalog.rules.single { it.id.value == "ctv203-r009-establish-support-intent" }
         val blocked = source.copy(executionAuthority = RuleExecutionAuthority.CANDIDATE_RULE)
-        val decision = BoundedProblemPolicyEvaluator(listOf(blocked)).evaluate(base())
+        val decision = evaluate(BoundedProblemPolicyEvaluator(listOf(blocked)), base())
         assertEquals(PolicyDecisionDisposition.REVIEW_BLOCKED, decision.disposition)
         assertNull(decision.selectedAction)
         assertTrue(decision.unresolvedRequirements.contains("RULE_NOT_QUALIFICATION_EXECUTABLE"))
@@ -168,7 +169,7 @@ class ProceduralDecisionTableTest {
             id = PolicyRuleId.parse("ctv203-synthetic-conflict"),
             result = RuleResult.SelectAction(PolicyActionId.parse("ask-problem-description")),
         )
-        val decision = BoundedProblemPolicyEvaluator(listOf(original, competing)).evaluate(base())
+        val decision = evaluate(BoundedProblemPolicyEvaluator(listOf(original, competing)), base())
         assertEquals(PolicyDecisionDisposition.POLICY_CONFLICT, decision.disposition)
         assertEquals(2, decision.tieBreakTrace.contenderRuleIds.size)
         assertEquals("CONFLICT_NOT_GUESSED", decision.tieBreakTrace.resolution)
@@ -182,7 +183,7 @@ class ProceduralDecisionTableTest {
             priority = original.priority - 1,
             result = RuleResult.SelectAction(PolicyActionId.parse("ask-problem-description")),
         )
-        val decision = BoundedProblemPolicyEvaluator(listOf(original, lower)).evaluate(base())
+        val decision = evaluate(BoundedProblemPolicyEvaluator(listOf(original, lower)), base())
         assertSelected("ask-support-preference", decision)
         assertEquals(2, decision.eligibleCandidateActions.size)
         assertEquals("UNIQUE_HIGHEST_PRIORITY_RULE", decision.tieBreakTrace.resolution)
@@ -190,7 +191,7 @@ class ProceduralDecisionTableTest {
 
     @Test
     fun `no rule match is a typed no-authorized-action result`() {
-        val decision = BoundedProblemPolicyEvaluator(emptyList()).evaluate(base())
+        val decision = evaluate(BoundedProblemPolicyEvaluator(emptyList()), base())
         assertEquals(PolicyDecisionDisposition.NO_AUTHORIZED_ACTION, decision.disposition)
         assertNull(decision.selectedAction)
         assertTrue(decision.unresolvedRequirements.contains("POLICY_GRAPH_HAS_NO_MATCH"))
@@ -199,19 +200,23 @@ class ProceduralDecisionTableTest {
     @Test
     fun `identical state and policy version produce identical decisions`() {
         val state = practicalConfirmed()
-        assertEquals(evaluator.evaluate(state), evaluator.evaluate(state))
+        assertEquals(evaluate(state), evaluate(state))
     }
 
     @Test
     fun `reported outcome changes reassessment from waiting to review`() {
         val states = CanonicalBoundedProblemScenario.states()
-        assertSelected("wait-for-outcome", evaluator.evaluate(states[7]))
-        assertSelected("review-reported-outcome", evaluator.evaluate(states[8]))
+        assertSelected("wait-for-outcome", evaluate(states[7]))
+        assertSelected("review-reported-outcome", evaluate(states[8]))
     }
 
     @Test
     fun `malformed input is rejected before rules execute`() {
-        val decision = evaluator.evaluate(base().copy(stateId = "INVALID STATE"))
+        val valid = base()
+        val decision = evaluator.evaluate(
+            valid.copy(stateId = "INVALID STATE"),
+            QualificationSafetyGate.permitFor(valid),
+        )
         assertEquals(PolicyDecisionDisposition.INVALID_INPUT, decision.disposition)
         assertTrue(decision.ruleTrace.isEmpty())
         assertTrue(decision.unresolvedRequirements.any { it.contains("stateId") })
@@ -235,6 +240,14 @@ class ProceduralDecisionTableTest {
         sharedUnderstanding = PolicyEvidence.reported(SharedUnderstanding.CONFIRMED, "user-confirmation"),
         willingness = PolicyEvidence.reported(ParticipationWillingness.WILLING_TO_ACT, "user-readiness"),
     )
+
+    private fun evaluate(state: BoundedProblemPolicyState) =
+        QualificationSafetyGate.evaluateOrdinary(evaluator, state)
+
+    private fun evaluate(
+        customEvaluator: BoundedProblemPolicyEvaluator,
+        state: BoundedProblemPolicyState,
+    ) = customEvaluator.evaluate(state, QualificationSafetyGate.permitFor(state))
 
     private fun assertSelected(actionId: String, decision: com.conundrum.thomas.v2.engine.verticalslice.PolicyDecision) {
         assertEquals(PolicyDecisionDisposition.ACTION_SELECTED, decision.disposition)

@@ -52,7 +52,10 @@ class RendererBoundaryQualificationTest {
     @Test
     fun `no-response action renders exact silence`() {
         val state = CanonicalBoundedProblemScenario.states()[7]
-        val decision = com.conundrum.thomas.v2.engine.verticalslice.BoundedProblemPolicyEvaluator().evaluate(state)
+        val decision = com.conundrum.thomas.v2.qualification.safety.QualificationSafetyGate.evaluateOrdinary(
+            com.conundrum.thomas.v2.engine.verticalslice.BoundedProblemPolicyEvaluator(),
+            state,
+        )
         val request = PolicyRenderRequestFactory.create(decision, state)
         val result = DeterministicQualificationRenderer().renderNow(request)
         assertEquals(RenderOutputDisposition.NO_RESPONSE, request.command.outputDisposition)

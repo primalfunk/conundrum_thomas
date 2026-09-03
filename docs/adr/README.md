@@ -11,3 +11,4 @@
 | [0007](0007-governed-source-authority.md) | Governed source authority and rights gates | Accepted for CT-V2-01 |
 | [0008](0008-mode-authority-and-ontology.md) | Mode authority and behavior-free ontology | Accepted for CT-V2-02 |
 | [0009](0009-qualification-only-procedural-vertical-slice.md) | Qualification-only procedural vertical slice | Accepted for CT-V2-03 |
+| [0010](0010-safety-scope-capability-gate.md) | Ordinary Therapist policy requires a safety/scope capability | Accepted for CT-V2-04 qualification |

@@ -18,4 +18,5 @@ java {
 dependencies {
     implementation(project(":thomas:domain"))
     implementation(project(":thomas:provenance"))
+    implementation(project(":thomas:ontology"))
 }

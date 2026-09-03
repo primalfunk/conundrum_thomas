@@ -8,6 +8,7 @@ import com.conundrum.thomas.v2.provenance.SourceDocumentId
 import com.conundrum.thomas.v2.provenance.SourceLocatorId
 import com.conundrum.thomas.v2.provenance.SourceSectionId
 import com.conundrum.thomas.v2.provenance.SourceVersionId
+import com.conundrum.thomas.v2.safety.OrdinaryTherapyPermit
 
 const val CT_V2_03_POLICY_VERSION = "ct-v2-03-bounded-problem-1.0.0"
 
@@ -444,13 +445,20 @@ class BoundedProblemPolicyEvaluator(
         require(actionsById.size == actions.size)
     }
 
-    fun evaluate(state: BoundedProblemPolicyState): PolicyDecision {
+    fun evaluate(state: BoundedProblemPolicyState, permit: OrdinaryTherapyPermit): PolicyDecision {
         val invalid = state.validationErrors()
         if (invalid.isNotEmpty()) return terminalWithoutRules(
             state,
             PolicyDecisionDisposition.INVALID_INPUT,
             invalid,
             "STRUCTURED_INPUT_CORRECTION_REQUIRED",
+        )
+
+        if (!permit.authorizes(state.stateId, state.safetyEvidenceRevision)) return terminalWithoutRules(
+            state,
+            PolicyDecisionDisposition.INVALID_INPUT,
+            listOf("ORDINARY_THERAPY_PERMIT_DOES_NOT_MATCH_STATE_OR_EVIDENCE_REVISION"),
+            "FRESH_SAFETY_SCOPE_GATE_DECISION_REQUIRED",
         )
 
         val traces = orderedRules.map { it.evaluate(state) }

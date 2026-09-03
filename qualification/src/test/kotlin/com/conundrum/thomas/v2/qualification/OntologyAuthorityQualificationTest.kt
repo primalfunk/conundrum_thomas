@@ -43,8 +43,8 @@ class OntologyAuthorityQualificationTest {
         forbidden.forEach { assertFalse("Ontology reached forbidden dependency $it", ontologyBuild.contains(it)) }
 
         assertTrue(text("thomas/engine/build.gradle.kts").contains(":thomas:ontology"))
+        assertTrue(text("thomas/safety/build.gradle.kts").contains(":thomas:ontology"))
         listOf(
-            "thomas/safety/build.gradle.kts",
             "thomas/runtime/build.gradle.kts",
             "app/build.gradle.kts",
         ).forEach { path ->

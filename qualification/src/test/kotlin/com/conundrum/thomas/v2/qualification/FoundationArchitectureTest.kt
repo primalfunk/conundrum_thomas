@@ -55,11 +55,11 @@ class FoundationArchitectureTest {
             projectDependencies("thomas/ontology/build.gradle.kts").filterNot { it == ":qualification" }.toSet(),
         )
         assertEquals(
-            setOf(":thomas:domain", ":thomas:provenance", ":thomas:ontology"),
+            setOf(":thomas:domain", ":thomas:provenance", ":thomas:ontology", ":thomas:safety"),
             projectDependencies("thomas/engine/build.gradle.kts"),
         )
         assertEquals(
-            setOf(":thomas:domain", ":thomas:provenance"),
+            setOf(":thomas:domain", ":thomas:provenance", ":thomas:ontology"),
             projectDependencies("thomas/safety/build.gradle.kts"),
         )
         assertEquals(
