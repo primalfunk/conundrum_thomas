@@ -36,6 +36,7 @@ class FoundationArchitectureTest {
             ":platform:renderer-llama-android",
             ":platform:speech-android",
             ":qualification",
+            ":tools:provenance",
         )
 
         modules.forEach { module ->
@@ -133,19 +134,53 @@ class FoundationArchitectureTest {
             .toList()
 
         assertTrue(files.none { it.extension.lowercase() in forbiddenExtensions })
-        assertFalse(file("provenance/raw").exists())
+        assertTrue(text(".gitignore").contains("/provenance/raw/"))
+        assertTrue(text("provenance/.gitignore").contains("/raw/"))
+        assertTrue(
+            repositoryRoot.walkTopDown()
+                .onEnter { it.name !in setOf(".git", ".git-ct-v2-01-work", ".gradle", ".idea", "build", "raw") }
+                .filter { it.isFile }
+                .none { it.extension.lowercase() == "pdf" },
+        )
         assertFalse(file("provenance/sources").exists())
         assertFalse(file("clinical-sources").exists())
         assertFalse(file("restricted-sources").exists())
     }
 
     @Test
-    fun `CT-V2-01 records and production persistence remain absent`() {
+    fun `raw source cache is absent from the Git index`() {
+        val gitDirectory = listOf(file(".git"), file(".git-ct-v2-01-work"))
+            .firstOrNull { it.exists() }
+        assertNotNull("Repository Git metadata is required for the tracked-raw-source audit", gitDirectory)
+
+        val process = ProcessBuilder(
+            "git",
+            "--git-dir=${gitDirectory!!.absolutePath}",
+            "--work-tree=${repositoryRoot.absolutePath}",
+            "ls-files",
+            "--",
+            "provenance/raw",
+            "provenance/sources",
+            "clinical-sources",
+            "restricted-sources",
+        )
+            .redirectErrorStream(true)
+            .start()
+        val output = process.inputStream.bufferedReader().use { it.readText() }
+
+        assertEquals("git ls-files failed: $output", 0, process.waitFor())
+        assertTrue("Raw or restricted source material is tracked: $output", output.isBlank())
+    }
+
+    @Test
+    fun `CT-V2-01 records stay build time and CT-V2-02 remains unopened`() {
         val seedDirectory = file("provenance/seeds")
         val persistenceSource = file("platform/persistence-android/src")
 
         assertNotNull(seedDirectory.listFiles())
-        assertTrue(seedDirectory.listFiles()!!.all { it.name == "README.md" })
+        assertTrue(seedDirectory.listFiles()!!.any { it.extension == "sql" })
         assertFalse(persistenceSource.exists())
+        assertFalse(text("thomas/runtime/build.gradle.kts").contains(":tools:provenance"))
+        assertFalse(text("app/build.gradle.kts").contains(":tools:provenance"))
     }
 }

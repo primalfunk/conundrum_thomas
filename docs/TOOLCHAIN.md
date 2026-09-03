@@ -19,6 +19,7 @@ Recorded on 2026-09-03 for the foundation baseline.
 - Gradle wrapper JAR SHA-256: `76805e32c009c0cf0dd5d206bddc9fb22ea42e84db904b764f3047de095493f3`
 - Android Gradle Plugin: `9.3.2`
 - Kotlin plugin: `2.2.10`
+- SQLite JDBC (build/qualification only): `3.53.2.1`
 - Compose BOM: `2026.02.01`
 - Compile SDK: Android API 37 extension 0 (`release(37)`)
 - Target SDK: 37
