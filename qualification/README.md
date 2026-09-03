@@ -5,3 +5,5 @@ Executable architecture qualification. CT-V2-02 retains the foundation and prove
 These tests qualify structure and authority denial, not clinical correctness or therapeutic behavior.
 
 Phase records are in [`docs/qualification`](../docs/qualification/).
+
+The current record is [`CT-V2-02-QUALIFICATION.md`](../docs/qualification/CT-V2-02-QUALIFICATION.md).
