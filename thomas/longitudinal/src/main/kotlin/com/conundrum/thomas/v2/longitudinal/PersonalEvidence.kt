@@ -115,12 +115,31 @@ data class EvidenceAssertion(
     val kind: UserEvidenceKind,
     val uncertainty: AssertionUncertainty,
     val eventTime: EventTime = EventTime.Unknown("No event time supplied"),
+    val epistemicClass: EvidenceEpistemicClass = when (kind) {
+        UserEvidenceKind.EXPLICIT_USER_ASSERTION -> EvidenceEpistemicClass.EXPLICIT_USER_ASSERTION
+        UserEvidenceKind.USER_INTERPRETATION -> EvidenceEpistemicClass.USER_INTERPRETATION
+    },
+    val polarity: AssertionPolarity = AssertionPolarity.AFFIRMATIVE,
+    val sourceGrounding: SourceSpanGrounding? = null,
 ) : Serializable {
     init {
         require(
             kind != UserEvidenceKind.EXPLICIT_USER_ASSERTION ||
                 predicate.semantics != PredicateSemantics.THIRD_PARTY_INTERNAL_STATE,
         ) { "A third party's internal state cannot be admitted as a direct user-established fact" }
+        require(
+            epistemicClass !in setOf(EvidenceEpistemicClass.SELF_BELIEF, EvidenceEpistemicClass.USER_INTERPRETATION) ||
+                kind == UserEvidenceKind.USER_INTERPRETATION,
+        ) { "Belief and interpretation classes require USER_INTERPRETATION evidence kind" }
+        require(
+            epistemicClass !in setOf(
+                EvidenceEpistemicClass.EXPLICIT_USER_ASSERTION,
+                EvidenceEpistemicClass.EXPLICIT_SELF_REPORT,
+                EvidenceEpistemicClass.THIRD_PARTY_REPORT,
+                EvidenceEpistemicClass.ENTITY_REFERENCE,
+                EvidenceEpistemicClass.EVENT_REFERENCE,
+            ) || kind == UserEvidenceKind.EXPLICIT_USER_ASSERTION,
+        ) { "Extractive report classes require EXPLICIT_USER_ASSERTION evidence kind" }
     }
 }
 

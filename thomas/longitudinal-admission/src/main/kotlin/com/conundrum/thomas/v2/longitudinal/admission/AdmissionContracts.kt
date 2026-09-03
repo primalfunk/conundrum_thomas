@@ -118,6 +118,7 @@ data class EvidenceBundle(
     val assertions: List<EvidenceAssertion> = emptyList(),
     val entities: List<LifeEntity> = emptyList(),
     val contradictions: List<ContradictionRelation> = emptyList(),
+    val corrections: List<CorrectionRelation> = emptyList(),
     val supersessions: List<SupersessionRelation> = emptyList(),
     val hypothesisDrafts: List<HypothesisDraft> = emptyList(),
     val hypothesisDependencies: List<HypothesisDependency> = emptyList(),
@@ -126,7 +127,7 @@ data class EvidenceBundle(
 ) : Serializable {
     init {
         require(
-            assertions.isNotEmpty() || entities.isNotEmpty() || contradictions.isNotEmpty() ||
+            assertions.isNotEmpty() || entities.isNotEmpty() || contradictions.isNotEmpty() || corrections.isNotEmpty() ||
                 supersessions.isNotEmpty() || hypothesisDrafts.isNotEmpty() ||
                 hypothesisDependencies.isNotEmpty() || identityLinks.isNotEmpty() || coverageTopics.isNotEmpty(),
         ) { "Evidence bundle cannot be empty" }

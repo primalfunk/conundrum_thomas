@@ -80,6 +80,7 @@ class SyntheticLongitudinalStoreHarness(
     fun admitBasicSnapshot(snapshot: LongitudinalEvidenceSnapshot) {
         snapshot.sources.sortedBy { it.id }.forEach { requireAccepted(submitSource(it)) }
         if (snapshot.assertions.isNotEmpty() || snapshot.entities.isNotEmpty() || snapshot.contradictions.isNotEmpty() ||
+            snapshot.corrections.isNotEmpty() ||
             snapshot.supersessions.isNotEmpty() || snapshot.identityLinks.isNotEmpty() || snapshot.coverageTopics.isNotEmpty()
         ) {
             requireAccepted(
@@ -88,6 +89,7 @@ class SyntheticLongitudinalStoreHarness(
                         assertions = snapshot.assertions,
                         entities = snapshot.entities,
                         contradictions = snapshot.contradictions,
+                        corrections = snapshot.corrections,
                         supersessions = snapshot.supersessions,
                         identityLinks = snapshot.identityLinks,
                         coverageTopics = snapshot.coverageTopics,

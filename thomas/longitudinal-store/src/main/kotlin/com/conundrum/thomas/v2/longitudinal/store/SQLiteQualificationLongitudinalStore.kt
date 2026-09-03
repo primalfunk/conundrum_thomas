@@ -389,7 +389,8 @@ internal class SQLiteQualificationLongitudinalStore private constructor(
         is LongitudinalWriteOperation.AppendSourceRevision -> listOf("SOURCE_REVISION" to operation.newRevisionId.value)
         is LongitudinalWriteOperation.AdmitEvidenceBundle -> with(operation.bundle) {
             assertions.map { "ASSERTION" to it.id.value } + entities.map { "ENTITY" to it.id.value } +
-                contradictions.map { "CONTRADICTION" to it.id.value } + supersessions.map { "SUPERSESSION" to it.id.value } +
+                contradictions.map { "CONTRADICTION" to it.id.value } + corrections.map { "CORRECTION" to it.id.value } +
+                supersessions.map { "SUPERSESSION" to it.id.value } +
                 hypothesisDrafts.map { "HYPOTHESIS" to it.id.value } + hypothesisDependencies.map { "DEPENDENCY" to it.id.value } +
                 identityLinks.map { "IDENTITY_DECISION" to it.id.value } + coverageTopics.map { "COVERAGE" to it.id.value }
         }

@@ -21,6 +21,7 @@ import com.conundrum.thomas.v2.longitudinal.SourceRecord
 import com.conundrum.thomas.v2.longitudinal.SupersessionKind
 import com.conundrum.thomas.v2.longitudinal.ThomasHypothesis
 import com.conundrum.thomas.v2.longitudinal.UserEvidenceKind
+import com.conundrum.thomas.v2.longitudinal.sourceTextSha256
 
 /** Deterministic qualification policy. It plans immutable state; it cannot persist or issue receipts. */
 class LongitudinalAdmissionPolicy {
@@ -171,6 +172,11 @@ class LongitudinalAdmissionPolicy {
         if (bundle.coverageTopics.any { it.status == InformationCoverageStatus.DECLINED && it.sourceRecordIds.isNotEmpty() }) {
             fail(AdmissionDisposition.REJECTED_PRIVACY, "DECLINED_IS_NOT_EVIDENCE")
         }
+        if (bundle.corrections.isNotEmpty() &&
+            (request.actor != AdmissionActor.USER || request.origin != AdmissionOrigin.USER_CORRECTION)
+        ) {
+            fail(AdmissionDisposition.REJECTED_AUTHORITY, "USER_CORRECTION_REQUIRES_USER_ORIGIN")
+        }
 
         val hypotheses = bundle.hypothesisDrafts.map { draft ->
             ThomasHypothesis(draft.id, draft.subject, draft.predicate, draft.proposedValue, draft.status, recordTime, draft.rationale)
@@ -179,6 +185,7 @@ class LongitudinalAdmissionPolicy {
             assertions = current.snapshot.assertions + bundle.assertions,
             entities = current.snapshot.entities + bundle.entities,
             contradictions = current.snapshot.contradictions + bundle.contradictions,
+            corrections = current.snapshot.corrections + bundle.corrections,
             supersessions = current.snapshot.supersessions + bundle.supersessions,
             hypotheses = current.snapshot.hypotheses + hypotheses,
             hypothesisDependencies = current.snapshot.hypothesisDependencies + bundle.hypothesisDependencies,
@@ -187,6 +194,24 @@ class LongitudinalAdmissionPolicy {
         )
         if (snapshot.validationIssues().any { it.code.contains("CYCLE") }) {
             fail(AdmissionDisposition.REJECTED_RELATION_CYCLE, "RELATION_CYCLE")
+        }
+        bundle.assertions.forEach { validateSourceGrounding(it, snapshot) }
+        bundle.corrections.forEach { correction ->
+            val correcting = snapshot.assertions.firstOrNull { it.id == correction.correctingAssertionId }
+                ?: fail(AdmissionDisposition.REJECTED_MISSING_REFERENCE, "CORRECTION_ASSERTION_NOT_FOUND")
+            val source = snapshot.sources.firstOrNull { it.id == correcting.sourceRecordId }
+                ?: fail(AdmissionDisposition.REJECTED_MISSING_REFERENCE, "CORRECTION_SOURCE_NOT_FOUND")
+            if (source.provenance.acquisitionMode != AcquisitionMode.USER_CORRECTION || source.authorRole != SourceAuthorRole.USER) {
+                fail(AdmissionDisposition.REJECTED_AUTHORITY, "CORRECTION_SOURCE_AUTHORITY_INVALID")
+            }
+            if (correction.effect == CorrectionEffect.CORRECTS_AND_SUPERSEDES && snapshot.supersessions.none {
+                    it.successor == ClaimReference.Assertion(correction.correctingAssertionId) &&
+                        it.predecessor == ClaimReference.Assertion(correction.correctedAssertionId) &&
+                        it.kind == SupersessionKind.CORRECTS
+                }
+            ) {
+                fail(AdmissionDisposition.REJECTED_VALIDATION, "CORRECTION_SUPERSESSION_REQUIRED")
+            }
         }
         val newAssertionIds = bundle.assertions.map { it.id }.toSet()
         val newHypothesisIds = hypotheses.map { it.id }.toSet()
@@ -215,11 +240,22 @@ class LongitudinalAdmissionPolicy {
         bundle.entities.forEach { lifecycle[ref(StoredObjectType.ENTITY, it.id.value)] = active(revision, true, "ENTITY_ADMITTED") }
         hypotheses.forEach { lifecycle[hypothesisRef(it.id)] = active(revision, true, "HYPOTHESIS_ADMITTED") }
         bundle.contradictions.forEach { lifecycle[ref(StoredObjectType.CONTRADICTION, it.id.value)] = active(revision, true, "CONTRADICTION_RECORDED") }
+        bundle.corrections.forEach { lifecycle[ref(StoredObjectType.CORRECTION, it.id.value)] = active(revision, true, "USER_CORRECTION_RECORDED") }
         bundle.supersessions.forEach { lifecycle[ref(StoredObjectType.SUPERSESSION, it.id.value)] = active(revision, true, "SUPERSESSION_RECORDED") }
         bundle.hypothesisDependencies.forEach { lifecycle[ref(StoredObjectType.HYPOTHESIS_DEPENDENCY, it.id.value)] = active(revision, true, "DEPENDENCY_RECORDED") }
         bundle.identityLinks.forEach { lifecycle[ref(StoredObjectType.IDENTITY_DECISION, it.id.value)] = active(revision, true, "IDENTITY_UNRESOLVED") }
         bundle.coverageTopics.forEach { lifecycle[ref(StoredObjectType.COVERAGE, it.id.value)] = active(revision, it.status !in setOf(InformationCoverageStatus.PRIVATE, InformationCoverageStatus.DECLINED), "COVERAGE_RECORDED") }
         bundle.supersessions.forEach { markClaimAndDependents(it.predecessor, LongitudinalLifecycleStatus.SUPERSEDED, "EXPLICIT_SUPERSESSION", snapshot, lifecycle, revision) }
+        bundle.corrections.filter { it.effect == CorrectionEffect.CORRECTS_DETAIL }.forEach {
+            markClaimAndDependents(
+                ClaimReference.Assertion(it.correctedAssertionId),
+                LongitudinalLifecycleStatus.CONTESTED,
+                "USER_CORRECTION",
+                snapshot,
+                lifecycle,
+                revision,
+            )
+        }
         val affected = objectIds(bundle) + hypotheses.map { it.id.value }
         val identity = current.currentIdentityDecisionByPair.toMutableMap()
         bundle.identityLinks.forEach { link ->
@@ -260,7 +296,11 @@ class LongitudinalAdmissionPolicy {
             recordTime,
             revision,
         )
-        var snapshot = sourceMutation.state.snapshot.copy(
+        validateSourceGrounding(
+            operation.correctingAssertion,
+            sourceMutation.state.snapshot.copy(assertions = sourceMutation.state.snapshot.assertions + operation.correctingAssertion),
+        )
+        val snapshot = sourceMutation.state.snapshot.copy(
             assertions = sourceMutation.state.snapshot.assertions + operation.correctingAssertion,
             corrections = sourceMutation.state.snapshot.corrections + operation.correction,
             supersessions = sourceMutation.state.snapshot.supersessions + listOfNotNull(operation.supersession),
@@ -543,9 +583,31 @@ class LongitudinalAdmissionPolicy {
 
     private fun objectIds(bundle: EvidenceBundle): List<String> =
         bundle.assertions.map { it.id.value } + bundle.entities.map { it.id.value } +
-            bundle.contradictions.map { it.id.value } + bundle.supersessions.map { it.id.value } +
+            bundle.contradictions.map { it.id.value } + bundle.corrections.map { it.id.value } + bundle.supersessions.map { it.id.value } +
             bundle.hypothesisDependencies.map { it.id.value } + bundle.identityLinks.map { it.id.value } +
             bundle.coverageTopics.map { it.id.value }
+
+    private fun validateSourceGrounding(
+        assertion: com.conundrum.thomas.v2.longitudinal.EvidenceAssertion,
+        snapshot: LongitudinalEvidenceSnapshot,
+    ) {
+        val grounding = assertion.sourceGrounding ?: return
+        if (grounding.sourceRevisionId != assertion.sourceRecordId) {
+            fail(AdmissionDisposition.REJECTED_VALIDATION, "SOURCE_SPAN_REVISION_MISMATCH")
+        }
+        val source = snapshot.sources.firstOrNull { it.id == assertion.sourceRecordId }
+            ?: fail(AdmissionDisposition.REJECTED_MISSING_REFERENCE, "SOURCE_SPAN_SOURCE_NOT_FOUND")
+        val text = (source.originalContent as? com.conundrum.thomas.v2.longitudinal.OriginalSourceContent.Inline)?.exactContent
+            ?: fail(AdmissionDisposition.REJECTED_VALIDATION, "SOURCE_SPAN_CONTENT_UNAVAILABLE")
+        if (sourceTextSha256(text) != grounding.sourceRevisionSha256) {
+            fail(AdmissionDisposition.REJECTED_VALIDATION, "SOURCE_SPAN_FINGERPRINT_MISMATCH")
+        }
+        if (grounding.startOffsetInclusive >= text.length || grounding.endOffsetExclusive > text.length ||
+            text.substring(grounding.startOffsetInclusive, grounding.endOffsetExclusive) != grounding.exactFragment
+        ) {
+            fail(AdmissionDisposition.REJECTED_VALIDATION, "SOURCE_SPAN_CONTENT_MISMATCH")
+        }
+    }
 
     private fun claimExists(claim: ClaimReference, snapshot: LongitudinalEvidenceSnapshot) = when (claim) {
         is ClaimReference.Assertion -> snapshot.assertions.any { it.id == claim.assertionId }
