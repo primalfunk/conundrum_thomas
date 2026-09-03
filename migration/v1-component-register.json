@@ -1,0 +1,382 @@
+{
+  "$schema": "schemas/v1-component-register.schema.json",
+  "schemaVersion": 1,
+  "policy": {
+    "phase": "CT-V2-00",
+    "defaultApprovalState": "DENIED",
+    "v1CodeMigrationAuthorized": false,
+    "therapeuticImplementationAuthorized": false,
+    "dirtyStateDirectMigrationAllowed": false,
+    "classificationIsAuthorization": false
+  },
+  "components": [
+    {
+      "componentId": "android-build-compose-foundation",
+      "name": "Android Gradle and Compose application foundation",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/build.gradle.kts", "identityType": "GIT_BLOB_SHA1", "identity": "e4c0b5f685fd81595fd5e783d37ff6b49bf94e0c" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "app and Gradle convention configuration",
+      "adaptationRequirements": ["Preserve V2 identity and module graph", "Re-evaluate every dependency", "Do not carry V1 therapeutic wiring"],
+      "requiredQualification": ["clean build", "minimal app launch", "dependency-boundary verification"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null,
+      "notes": "The V2 starter is already independent; this entry concerns only later engineering comparison."
+    },
+    {
+      "componentId": "android-process-lifecycle-container",
+      "name": "Android process and lifecycle container",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/ThomasApplication.kt", "identityType": "GIT_BLOB_SHA1", "identity": "31dc8fbed5ab52b5ae826c41cb6e35b738b58cb9" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "platform composition boundary, if later created",
+      "adaptationRequirements": ["Remove autonomous controller ownership", "Expose only V2 runtime entry points"],
+      "requiredQualification": ["lifecycle tests", "process recreation tests", "authority-boundary tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "modes-session-identity",
+      "name": "Mode and session identity concepts",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/modes", "identityType": "GIT_TREE_SHA1", "identity": "5fa7f72e04f22fdfd255bc493631e7aacc46c1bb" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "thomas/domain",
+      "adaptationRequirements": ["Re-derive semantics from V2 ontology", "Keep mode-specific authority policies separate"],
+      "requiredQualification": ["identity invariants", "mode authority tests", "session lifecycle tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "android-tts-audio",
+      "name": "Android TTS, audio focus, routing, normalization, and chunking",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/speech", "identityType": "GIT_TREE_SHA1", "identity": "a67bb4d870dc9f30a0229352c9fe293190d344f0" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "platform/speech-android",
+      "adaptationRequirements": ["Separate speech output from therapeutic decisions", "Rebind lifecycle and cancellation to V2 runtime", "Remove transcript logging"],
+      "requiredQualification": ["TTS lifecycle", "audio focus", "route changes", "completion versus cancellation", "privacy/log audit"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "android-stt-r009e",
+      "name": "R009E Android speech input",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": null,
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/speech/AndroidSpeechInputController.kt", "identityType": "SHA256", "identity": "0ba691b1244a09b2c3d20a26524d928fcbdf9182ab54d8b1c65fed9714e80b31" },
+        { "path": "app/src/main/java/com/conundrum/thomas/speech/SpeechInputContracts.kt", "identityType": "SHA256", "identity": "ab34bdd9c28086fa734ac95de9ca180e8ce41a7b44baca6f75dbf0c38b302ad6" }
+      ],
+      "auditClassification": "UNDETERMINED",
+      "proposedDestination": "platform/speech-android",
+      "adaptationRequirements": ["Cannot migrate from dirty state", "First establish an accepted immutable source", "Preserve distinct commit and cancel semantics"],
+      "requiredQualification": ["permission handling", "speech lifecycle", "done commits", "cancel discards", "device tests", "privacy/log audit"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null,
+      "notes": "Dirty, unaccepted R009E evidence only. Direct copying is prohibited."
+    },
+    {
+      "componentId": "desktop-faster-whisper-stt",
+      "name": "Desktop faster-whisper speech input",
+      "sourceRepository": "C:/Thomas/R003-AMD-Workspace",
+      "immutableSourceCommit": "05283e82db26b1266dcb1eef58309d4202aec302",
+      "sourceArtifacts": [
+        { "path": ".", "identityType": "COMMIT_TREE_SHA1", "identity": "a3b56bd67e78f2cdd1324b1e57a35411a0252b55" }
+      ],
+      "auditClassification": "REFERENCE_ONLY",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Use only as behavioral reference; desktop process assumptions do not cross"],
+      "requiredQualification": ["not applicable unless reclassified"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "inference-contract-state-cancel-metrics",
+      "name": "Inference contract, lifecycle state, cancellation, and metrics concepts",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/inference", "identityType": "GIT_TREE_SHA1", "identity": "558928497e83857da2301df8e70e1214e0d26854" }
+      ],
+      "auditClassification": "REUSE_LIKELY",
+      "proposedDestination": "platform/renderer-llama-android behind thomas/domain renderer contract",
+      "adaptationRequirements": ["Rename model-centric concepts to renderer semantics", "Remove prompt or therapeutic decision authority", "Return untrusted drafts only"],
+      "requiredQualification": ["contract tests", "cancellation and timeout tests", "metrics privacy review", "renderer fidelity tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "jni-llama-load-generation",
+      "name": "JNI and llama.cpp loading/generation integration",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/cpp", "identityType": "GIT_TREE_SHA1", "identity": "0de8bff38ec45fda3bf7f9c31146e5ac4566f5f7" },
+        { "path": "app/src/main/java/com/conundrum/thomas/inference", "identityType": "GIT_TREE_SHA1", "identity": "558928497e83857da2301df8e70e1214e0d26854" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "platform/renderer-llama-android",
+      "adaptationRequirements": ["Pin native upstream provenance", "Constrain to arm64-v8a initially", "Expose only narrow renderer interface", "Remove V1 model assumptions"],
+      "requiredQualification": ["native build reproducibility", "artifact confinement", "load/generate/cancel", "memory and thermal tests", "renderer leakage tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "vulkan-integration",
+      "name": "V1 Vulkan integration",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/cpp", "identityType": "GIT_TREE_SHA1", "identity": "0de8bff38ec45fda3bf7f9c31146e5ac4566f5f7" }
+      ],
+      "auditClassification": "RETIRE",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Do not migrate; re-evaluate acceleration from V2 renderer measurements if ever needed"],
+      "requiredQualification": [],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "model-artifact-confinement-hash",
+      "name": "Model artifact confinement and hash-verification concepts",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/assets", "identityType": "GIT_TREE_SHA1", "identity": "930c93f2af2f23a2e8a788a665dc4cd5fdb943a9" },
+        { "path": "docs/MODEL_ARTIFACT_POLICY.md", "identityType": "GIT_BLOB_SHA1", "identity": "32ad8a2edaa1864729ad9242d04dca8c73ae5a96" }
+      ],
+      "auditClassification": "REUSE_LIKELY",
+      "proposedDestination": "future governed artifact admission tooling",
+      "adaptationRequirements": ["Re-derive allowlists for renderer-only admission", "Keep binaries outside Git", "Separate research from admitted artifacts"],
+      "requiredQualification": ["tamper tests", "path confinement", "hash mismatch refusal", "release packaging audit"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "room-transcript-session-persistence",
+      "name": "Room transcript and session persistence",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/persistence", "identityType": "GIT_TREE_SHA1", "identity": "d3e36e7012b61eabbb853f8109d8a595f0f83d8f" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "platform/persistence-android",
+      "adaptationRequirements": ["No admission before ADR 0003 gate", "Redesign schema for separated V2 state kinds", "Add at-rest protection, OS keys, deletion, retention, and log controls", "No automatic V1 continuity"],
+      "requiredQualification": ["security review", "migration tests", "deletion verification", "retention tests", "backup exclusion", "log audit"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "final-response-only-authority",
+      "name": "Final-response-only persistence authority concept",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/conversation", "identityType": "GIT_TREE_SHA1", "identity": "a14bb9e6f702e171f5fc7bb1976e144134e157f7" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "thomas/runtime",
+      "adaptationRequirements": ["Generalize to validated-output commit authority", "Ensure drafts and rejected outputs never become transcript facts"],
+      "requiredQualification": ["failed-render tests", "regeneration tests", "fallback tests", "transaction boundary tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "durable-profile-state-concepts",
+      "name": "Durable profile facts, beliefs, hypotheses, and corrections",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/profile", "identityType": "GIT_TREE_SHA1", "identity": "7319b5f81f0be0bc619cbf62c2587d947d089187" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "thomas/domain and platform/persistence-android",
+      "adaptationRequirements": ["Re-derive from V2 state separation", "Preserve provenance and uncertainty", "Prevent hypotheses becoming facts", "Pass ADR 0003 before persistence"],
+      "requiredQualification": ["state-kind tests", "correction/reversal tests", "provenance tests", "privacy and deletion tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "biographer-persistence",
+      "name": "Biographer persistence concepts",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/profile", "identityType": "GIT_TREE_SHA1", "identity": "7319b5f81f0be0bc619cbf62c2587d947d089187" },
+        { "path": "app/src/main/java/com/conundrum/thomas/modes", "identityType": "GIT_TREE_SHA1", "identity": "5fa7f72e04f22fdfd255bc493631e7aacc46c1bb" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "future Biographer policy and persistence modules",
+      "adaptationRequirements": ["Keep acquisition authority distinct from Therapy", "Adopt V2 provenance and data-security boundaries"],
+      "requiredQualification": ["mode separation", "fact-versus-inference tests", "privacy and deletion tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "feature-hash-retrieval-context",
+      "name": "Feature-hash retrieval and compact-context concepts",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/retrieval", "identityType": "GIT_TREE_SHA1", "identity": "87d2c76ae4cabc4d12f5c24b48980bc597a263ee" }
+      ],
+      "auditClassification": "REFERENCE_ONLY",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Reconsider only after V2 state and authorization semantics exist"],
+      "requiredQualification": ["not applicable unless reclassified"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "v1-therapeutic-planner-prompt",
+      "name": "V1 therapeutic planner and autonomous therapist prompt",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/core", "identityType": "GIT_TREE_SHA1", "identity": "c13e57f93e27fc57738ee13897a1e8787117be0e" }
+      ],
+      "auditClassification": "RETIRE",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Do not migrate or reimplement; V2 owns therapeutic reasoning procedurally"],
+      "requiredQualification": [],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "v1-safety-router-output-guards",
+      "name": "V1 safety router and output guards",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/guards", "identityType": "GIT_TREE_SHA1", "identity": "d89bd993344d3d0b08f1b3be83526b88b7c972a1" }
+      ],
+      "auditClassification": "REFERENCE_ONLY",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Use only as failure-history input; derive independent V2 safety authority from governed sources"],
+      "requiredQualification": ["not applicable unless reclassified"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "deterministic-therapeutic-fallbacks",
+      "name": "V1 deterministic therapeutic fallback language",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/core", "identityType": "GIT_TREE_SHA1", "identity": "c13e57f93e27fc57738ee13897a1e8787117be0e" }
+      ],
+      "auditClassification": "REFERENCE_ONLY",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Future fallbacks require V2 source provenance and policy authorization; wording is not reusable by default"],
+      "requiredQualification": ["not applicable unless reclassified"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "v1-models-and-adapters",
+      "name": "R007, R008, R010, R011, and other V1 model artifacts/adapters",
+      "sourceRepository": "C:/Thomas/R010-Mobile-Model-Lab",
+      "immutableSourceCommit": "d94278b6cf3853bab9b89b6b05db36f7002dd0be",
+      "sourceArtifacts": [
+        { "path": ".", "identityType": "COMMIT_TREE_SHA1", "identity": "25e6a1f21aa27c9a86f95807e85e195961bca5b7" }
+      ],
+      "auditClassification": "REFERENCE_ONLY",
+      "proposedDestination": null,
+      "adaptationRequirements": ["No binary admission from classification alone", "Evaluate only against the narrow renderer contract"],
+      "requiredQualification": ["renderer instruction fidelity", "forbidden acts", "unsupported additions", "therapeutic-policy leakage", "target-device resource tests"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "v1-conversation-controller",
+      "name": "V1 monolithic conversation controller",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/conversation", "identityType": "GIT_TREE_SHA1", "identity": "a14bb9e6f702e171f5fc7bb1976e144134e157f7" }
+      ],
+      "auditClassification": "RETIRE",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Do not migrate; runtime orchestration and authority boundaries replace it"],
+      "requiredQualification": [],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "v1-android-ui",
+      "name": "V1 Android conversation UI",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "app/src/main/java/com/conundrum/thomas/ui", "identityType": "GIT_TREE_SHA1", "identity": "7b063b38544e573a50db206095583d663b84860b" }
+      ],
+      "auditClassification": "REFERENCE_ONLY",
+      "proposedDestination": null,
+      "adaptationRequirements": ["V2 interaction semantics govern future UI; reuse only individually admitted non-behavioral assets"],
+      "requiredQualification": ["not applicable unless reclassified"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "evidence-checksum-conventions",
+      "name": "Evidence manifests and checksum conventions",
+      "sourceRepository": "C:/Android Studio Projects/Conundrum Thomas Android",
+      "immutableSourceCommit": "eb3efd8c318ef56d4cce9e2e12c9ffd4b973358d",
+      "sourceArtifacts": [
+        { "path": "docs/ct-r009d-evidence-manifest.json", "identityType": "GIT_BLOB_SHA1", "identity": "f16c690615d349948b2aa416e42cda306e1c511d" },
+        { "path": "docs/ct-r009d-checksums.sha256", "identityType": "GIT_BLOB_SHA1", "identity": "abd8c2158bb1a7c30a4aa1cef3a401ffecf1e063" }
+      ],
+      "auditClassification": "REUSE_LIKELY",
+      "proposedDestination": "qualification evidence tooling",
+      "adaptationRequirements": ["Use V2 layer-specific result taxonomy", "Separate generated evidence from governing expectations"],
+      "requiredQualification": ["schema validation", "deterministic hashes", "tamper detection"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "qualification-harness",
+      "name": "V1 automated qualification harness concepts",
+      "sourceRepository": "C:/Thomas/R010-Mobile-Model-Lab",
+      "immutableSourceCommit": "d94278b6cf3853bab9b89b6b05db36f7002dd0be",
+      "sourceArtifacts": [
+        { "path": "scripts/qualify-therapy-electron.cjs", "identityType": "GIT_BLOB_SHA1", "identity": "a4cbf625a7675547caae70fcd166e4e8a2ffadab" },
+        { "path": "docs/qualification", "identityType": "GIT_TREE_SHA1", "identity": "aa4e2de0b18f621780dfe53e41fa883f235b05d0" }
+      ],
+      "auditClassification": "REUSE_WITH_ADAPTATION",
+      "proposedDestination": "qualification and qualification-corpus",
+      "adaptationRequirements": ["Evaluate each V2 layer independently", "Replace conversation-vibe criteria with structured expectations", "Do not import clinical expectations before CT-V2-01/02 authority"],
+      "requiredQualification": ["self-tests", "locked-corpus determinism", "failure localization", "evidence integrity"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    },
+    {
+      "componentId": "desktop-electron-fastapi-lmstudio",
+      "name": "Desktop Electron, FastAPI, and LM Studio runtime stack",
+      "sourceRepository": "C:/Thomas/R003-AMD-Workspace",
+      "immutableSourceCommit": "05283e82db26b1266dcb1eef58309d4202aec302",
+      "sourceArtifacts": [
+        { "path": ".", "identityType": "COMMIT_TREE_SHA1", "identity": "a3b56bd67e78f2cdd1324b1e57a35411a0252b55" }
+      ],
+      "auditClassification": "REFERENCE_ONLY",
+      "proposedDestination": null,
+      "adaptationRequirements": ["Desktop topology is outside the V2 mobile architecture"],
+      "requiredQualification": ["not applicable unless reclassified"],
+      "approvalState": "DENIED",
+      "eventualMigrationCommit": null
+    }
+  ]
+}

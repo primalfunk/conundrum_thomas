@@ -24,3 +24,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "Conundrum Thomas V2"
 include(":app")
+include(":thomas:domain")
+include(":thomas:provenance")
+include(":thomas:engine")
+include(":thomas:safety")
+include(":thomas:runtime")
+include(":platform:persistence-android")
+include(":platform:renderer-llama-android")
+include(":platform:speech-android")
+include(":qualification")

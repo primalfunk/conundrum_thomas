@@ -1,15 +1,33 @@
 *.iml
-.gradle
+/.gradle/
+/.android/
+/.kotlin/
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+/.idea/
 .DS_Store
-/build
+**/build/
 /captures
 .externalNativeBuild
 .cxx
-local.properties
+
+# Local credentials and signing material
+.env
+.env.*
+secrets.properties
+*.jks
+*.keystore
+
+# Model assets are admitted only through a future governed artifact process.
+/models/
+/artifacts/models/
+*.gguf
+*.safetensors
+*.onnx
+*.tflite
+*.pte
+
+# Raw or restricted source material is never a normal Git input.
+/provenance/raw/
+/provenance/sources/
+/clinical-sources/
+/restricted-sources/

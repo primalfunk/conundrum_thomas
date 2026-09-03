@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://conundrum.local/schemas/lineage.schema.json",
+  "title": "Conundrum Thomas lineage record",
+  "type": "object",
+  "required": ["schemaVersion", "recordedAt", "v2Origin", "statusDefinitions", "references"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "recordedAt": { "type": "string", "format": "date" },
+    "v2Origin": { "type": "object" },
+    "statusDefinitions": { "type": "object" },
+    "references": { "type": "array", "items": { "type": "object" } },
+    "modelDisposition": { "type": "object" }
+  },
+  "additionalProperties": false
+}

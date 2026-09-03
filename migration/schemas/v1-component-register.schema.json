@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://conundrum.local/schemas/v1-component-register.schema.json",
+  "title": "Conundrum Thomas V1 component migration register",
+  "type": "object",
+  "required": ["schemaVersion", "policy", "components"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "policy": {
+      "type": "object",
+      "required": ["defaultApprovalState", "v1CodeMigrationAuthorized", "therapeuticImplementationAuthorized"],
+      "properties": {
+        "defaultApprovalState": { "const": "DENIED" },
+        "v1CodeMigrationAuthorized": { "const": false },
+        "therapeuticImplementationAuthorized": { "const": false }
+      },
+      "additionalProperties": true
+    },
+    "components": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/component" }
+    }
+  },
+  "$defs": {
+    "sourceArtifact": {
+      "type": "object",
+      "required": ["path", "identityType", "identity"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "identityType": { "enum": ["GIT_BLOB_SHA1", "GIT_TREE_SHA1", "SHA256", "COMMIT_TREE_SHA1"] },
+        "identity": { "type": "string", "pattern": "^[0-9a-f]{40}([0-9a-f]{24})?$" }
+      },
+      "additionalProperties": false
+    },
+    "component": {
+      "type": "object",
+      "required": [
+        "componentId",
+        "name",
+        "sourceRepository",
+        "immutableSourceCommit",
+        "sourceArtifacts",
+        "auditClassification",
+        "proposedDestination",
+        "adaptationRequirements",
+        "requiredQualification",
+        "approvalState",
+        "eventualMigrationCommit"
+      ],
+      "properties": {
+        "componentId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "sourceRepository": { "type": "string", "minLength": 1 },
+        "immutableSourceCommit": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+            { "type": "null" }
+          ]
+        },
+        "sourceArtifacts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceArtifact" } },
+        "auditClassification": {
+          "enum": ["REUSE_LIKELY", "REUSE_WITH_ADAPTATION", "REFERENCE_ONLY", "RETIRE", "UNDETERMINED"]
+        },
+        "proposedDestination": { "type": ["string", "null"] },
+        "adaptationRequirements": { "type": "array", "items": { "type": "string" } },
+        "requiredQualification": { "type": "array", "items": { "type": "string" } },
+        "approvalState": { "enum": ["DENIED", "APPROVED_FOR_MIGRATION", "MIGRATED"] },
+        "eventualMigrationCommit": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+            { "type": "null" }
+          ]
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

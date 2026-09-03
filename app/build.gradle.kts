@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    namespace = "com.example.conundrumthomasv2"
+    namespace = "com.conundrum.thomas.v2"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.conundrumthomasv2"
-        minSdk = 24
+        applicationId = "com.conundrum.thomas.v2"
+        minSdk = 31
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":thomas:runtime"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)

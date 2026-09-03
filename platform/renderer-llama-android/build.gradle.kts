@@ -1,0 +1,26 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace = "com.conundrum.thomas.v2.platform.renderer.llama"
+    compileSdk {
+        version = release(37)
+    }
+
+    defaultConfig {
+        minSdk = 31
+        ndk {
+            abiFilters += "arm64-v8a"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation(project(":thomas:domain"))
+}

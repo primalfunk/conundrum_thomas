@@ -1,0 +1,4 @@
+/generated/*
+!/generated/README.md
+/raw/
+/sources/
