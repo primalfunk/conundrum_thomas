@@ -1,3 +1,5 @@
-# Provenance seed placeholder
+# Provenance seed records
 
-Reserved for human-reviewable provenance seed records after CT-V2-01 authorization. No clinical source or therapeutic rule record is admitted in CT-V2-00.
+Human-reviewable seed records are applied in lexical order after migrations. Each independently executable statement follows a `-- @statement` marker. Seeds contain bibliographic identity, governance metadata, short Thomas-authored relevance abstracts, and review gates only.
+
+No seed is a therapeutic conclusion, rule, safety algorithm, or authorization to use copyrighted material.

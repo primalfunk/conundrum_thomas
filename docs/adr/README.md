@@ -8,3 +8,4 @@
 | [0004](0004-provenance-storage.md) | Versioned relational provenance | Accepted direction; implementation held |
 | [0005](0005-renderer-authority.md) | Narrow renderer authority | Accepted |
 | [0006](0006-v1-migration-governance.md) | V1 migration is deny by default | Accepted |
+| [0007](0007-governed-source-authority.md) | Governed source authority and rights gates | Accepted for CT-V2-01 |

@@ -8,4 +8,6 @@ This repository is the canonical architecture root for Conundrum Thomas V2.
 
 V1 repositories, commits, binaries, and dirty worktrees are historical references, not dependencies. Migration is denied unless a component is individually admitted through the governed register in [`migration/v1-component-register.json`](migration/v1-component-register.json).
 
-The governing plan is [`docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md`](docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md). CT-V2-00 establishes the repository, lineage, security posture, module authority boundaries, and empty qualification surfaces. It contains no therapeutic implementation and no CT-V2-01 source records.
+The governing plan is [`docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md`](docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md). CT-V2-00 established the sealed foundation. CT-V2-01 adds a governed source/provenance corpus under [`provenance/`](provenance/) and remains evidence-only: it implements no therapeutic rule, intervention, dialogue, safety algorithm, or model authority.
+
+The initial inventory is documented in [`docs/provenance/INITIAL-SOURCE-INVENTORY.md`](docs/provenance/INITIAL-SOURCE-INVENTORY.md). Generate the ignored relational database with `gradlew generateRuntimeProvenanceDb`.

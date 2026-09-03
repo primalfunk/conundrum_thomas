@@ -1,3 +1,16 @@
-# Provenance schema placeholder
+# Provenance schema
 
-Reserved for the versioned relational source schema after CT-V2-01 authorization. No schema is admitted in CT-V2-00.
+Migration `0001_governed_source_provenance.sql` defines:
+
+- distinct authority domains, including a structurally separate engineering-governance domain;
+- canonical documents and multiple immutable versions;
+- many-to-many source classes with one primary class;
+- official landing, artifact, web, rights, and surveillance locators;
+- immutable acquired-artifact SHA-256 and byte-size identity;
+- precise section/recommendation/tool/annex addresses without source excerpts;
+- per-version rights, applicability, freshness, and review requirements;
+- directed version relationships, open conflicts, and scope differences;
+- constrained review states and allowed transitions;
+- unopened candidate subjects that explicitly confer no rule authority.
+
+Generated databases record the SHA-256 of every applied migration and seed. They are disposable build products, not the editable source of truth.

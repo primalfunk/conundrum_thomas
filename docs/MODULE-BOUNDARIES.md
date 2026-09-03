@@ -31,6 +31,9 @@ These are production compile dependencies. `:qualification` may depend on each l
 
 :platform:speech-android
   -> :thomas:domain
+
+:tools:provenance (build/qualification only)
+  -> :thomas:provenance
 ```
 
 ## Authority rules
@@ -43,5 +46,6 @@ These are production compile dependencies. `:qualification` may depend on each l
 - A renderer receives only a `RenderRequest`: one `RenderCommand` and explicitly authorized supporting text. Its output is an untrusted `RenderedDraft`.
 - `:platform:renderer-llama-android` has no dependency on persistence, policy, safety, transcript, profile, or provenance implementations.
 - Platform adapters implement technical capabilities. They do not acquire therapeutic decision authority.
+- `:tools:provenance` owns the SQLite driver and source-to-database build. No production or Android module depends on it; `:thomas:provenance` remains platform independent.
 
-The adapter modules are intentionally unwired and empty in CT-V2-00. Future composition must preserve these rules; a platform composition root may be introduced only when actual adapters are authorized.
+The adapter modules remain unwired. Future composition must preserve these rules; a platform composition root may be introduced only when actual adapters are authorized.

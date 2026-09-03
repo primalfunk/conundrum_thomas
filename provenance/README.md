@@ -1,7 +1,14 @@
-# Provenance workspace
+# Governed source provenance
 
-This is the future source-of-truth workspace for CT-V2-01. The accepted direction is:
+This directory is the reviewable source of truth for CT-V2-01:
 
-`reviewable source metadata and seed records -> versioned relational migrations -> generated runtime database`
+`official authority -> document -> version -> locator/section -> candidate subject -> future abstraction/rule/test`
 
-CT-V2-00 contains no clinical/source record, therapeutic proposition, relational schema, migration, or generated database. Raw source documents are prohibited here and remain outside Git and runtime artifacts unless redistribution rights are explicitly established.
+Only the left side through candidate subject exists. Candidate subjects carry `no_rule_authority = 1`; they are unopened inputs to a later authorized phase.
+
+- `migrations/` contains the versioned relational schema.
+- `seeds/` contains reviewable metadata and Thomas-authored abstracts.
+- `generated/` is ignored output rebuilt with `gradlew generateRuntimeProvenanceDb`.
+- `raw/` is an ignored local acquisition cache. Raw artifacts never become a runtime dependency.
+
+Source registration, metadata verification, and hash capture do not constitute clinical approval, rights clearance, or authorization to implement behavior.

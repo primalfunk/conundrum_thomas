@@ -5,3 +5,9 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.jvm) apply false
 }
+
+tasks.register("generateRuntimeProvenanceDb") {
+    group = "provenance"
+    description = "Builds the ignored SQLite provenance database from tracked migrations and seeds."
+    dependsOn(":tools:provenance:generateRuntimeProvenanceDb")
+}
