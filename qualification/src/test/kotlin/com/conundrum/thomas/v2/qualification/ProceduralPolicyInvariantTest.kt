@@ -2,6 +2,7 @@ package com.conundrum.thomas.v2.qualification
 
 import com.conundrum.thomas.v2.domain.mode.DefaultResponseDisposition
 import com.conundrum.thomas.v2.domain.mode.LanguageModelDecisionAuthority
+import com.conundrum.thomas.v2.domain.mode.ModeRuntimeAuthority
 import com.conundrum.thomas.v2.domain.mode.ThomasModeAuthorityContracts
 import com.conundrum.thomas.v2.engine.verticalslice.BoundedProblemActions
 import com.conundrum.thomas.v2.engine.verticalslice.BoundedProblemPolicyEvaluator
@@ -90,7 +91,32 @@ class ProceduralPolicyInvariantTest {
         assertTrue(ThomasModeAuthorityContracts.all.all {
             it.languageModelDecisionAuthority == LanguageModelDecisionAuthority.NONE
         })
+        assertTrue(ThomasModeAuthorityContracts.all.all {
+            it.runtimeAuthority == ModeRuntimeAuthority.PRODUCTION_RUNTIME_NOT_GRANTED
+        })
         assertEquals("dialogue.no-response", BoundedProblemActions.waitForOutcome.dialogueActId.value)
+    }
+
+    @Test
+    fun `qualification policy and deterministic renderer are not wired into app runtime safety or platform adapters`() {
+        val productionPaths = listOf(
+            "app",
+            "thomas/runtime",
+            "thomas/safety",
+            "platform/persistence-android",
+            "platform/renderer-llama-android",
+            "platform/speech-android",
+        )
+        productionPaths.forEach { path ->
+            val root = File(repositoryRoot, path)
+            val material = root.walkTopDown()
+                .onEnter { it.name != "build" }
+                .filter { it.isFile && (it.extension == "kt" || it.name.endsWith(".gradle.kts")) }
+                .joinToString("\n") { it.readText() }
+            assertFalse("$path wired the qualification evaluator", material.contains("BoundedProblemPolicyEvaluator"))
+            assertFalse("$path wired the qualification renderer", material.contains("DeterministicQualificationRenderer"))
+            assertFalse("$path depends on the qualification module", material.contains(":qualification"))
+        }
     }
 
     @Test
