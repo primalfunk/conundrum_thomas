@@ -1,6 +1,8 @@
 package com.conundrum.thomas.v2.longitudinal
 
-sealed interface LifeEntity {
+import java.io.Serializable
+
+sealed interface LifeEntity : Serializable {
     val id: LifeEntityId
     val label: String
     val supportingAssertionIds: Set<AssertionId>
@@ -111,7 +113,7 @@ data class EntityIdentityLink(
     val status: EntityIdentityStatus,
     val supportingAssertionIds: Set<AssertionId> = emptySet(),
     val rationale: String,
-) {
+) : Serializable {
     init {
         require(leftEntityId != rightEntityId) { "An identity link cannot compare an entity with itself" }
         require(rationale.isNotBlank())
@@ -140,6 +142,6 @@ data class CoverageTopic(
     val label: String,
     val status: InformationCoverageStatus,
     val sourceRecordIds: Set<SourceRecordId> = emptySet(),
-) {
+) : Serializable {
     init { require(label.isNotBlank()) }
 }

@@ -1,5 +1,7 @@
 package com.conundrum.thomas.v2.longitudinal
 
+import java.io.Serializable
+
 enum class ContradictionAdjudication {
     UNRESOLVED,
     EXPLICIT_CORRECTION_EXISTS,
@@ -13,7 +15,7 @@ data class ContradictionRelation(
     val rightAssertionId: AssertionId,
     val adjudication: ContradictionAdjudication = ContradictionAdjudication.UNRESOLVED,
     val rationale: String,
-) {
+) : Serializable {
     init {
         require(leftAssertionId != rightAssertionId)
         require(rationale.isNotBlank())
@@ -28,7 +30,7 @@ data class CorrectionRelation(
     val correctedAssertionId: AssertionId,
     val effect: CorrectionEffect,
     val rationale: String,
-) {
+) : Serializable {
     init {
         require(correctingAssertionId != correctedAssertionId)
         require(rationale.isNotBlank())
@@ -43,7 +45,7 @@ data class SupersessionRelation(
     val predecessor: ClaimReference,
     val kind: SupersessionKind,
     val rationale: String,
-) {
+) : Serializable {
     init {
         require(successor != predecessor)
         require(rationale.isNotBlank())
@@ -58,7 +60,7 @@ data class HypothesisDependency(
     val prerequisite: ClaimReference,
     val role: DependencyRole,
     val rationale: String,
-) {
+) : Serializable {
     init {
         require(prerequisite != ClaimReference.Hypothesis(dependentHypothesisId))
         require(rationale.isNotBlank())

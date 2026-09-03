@@ -1,5 +1,7 @@
 package com.conundrum.thomas.v2.longitudinal
 
+import java.io.Serializable
+
 enum class AcquisitionMode {
     JOURNAL,
     BIOGRAPHER_OPEN_NARRATIVE,
@@ -8,7 +10,7 @@ enum class AcquisitionMode {
     USER_CORRECTION,
 }
 
-sealed interface OriginalSourceContent {
+sealed interface OriginalSourceContent : Serializable {
     data class Inline(val exactContent: String) : OriginalSourceContent {
         init { require(exactContent.isNotBlank()) }
     }
@@ -30,7 +32,7 @@ data class PersonalEvidenceProvenance(
     val sourceRevision: Int = 1,
     val previousRevisionId: SourceRecordId? = null,
     val metadata: Map<String, String> = emptyMap(),
-) {
+) : Serializable {
     init {
         require(sourceRevision > 0)
         require(sourceRevision > 1 || previousRevisionId == null)
@@ -46,12 +48,17 @@ data class SourceRecord(
     val reportTime: ReportTime,
     val recordTime: RecordTime,
     val originalContent: OriginalSourceContent,
-) {
+    val stableSourceId: SourceIdentityId = SourceIdentityId.parse(id.value),
+    val eventTime: EventTime = EventTime.Unknown("No source-level event time supplied"),
+    val authorRole: SourceAuthorRole = SourceAuthorRole.USER,
+) : Serializable {
     init {
         require(!recordTime.value.isBefore(reportTime.value))
         require(provenance.previousRevisionId != id)
     }
 }
+
+enum class SourceAuthorRole { USER, THOMAS, SYSTEM }
 
 enum class UserEvidenceKind {
     EXPLICIT_USER_ASSERTION,
@@ -81,14 +88,14 @@ enum class PredicateSemantics {
 data class AssertionPredicate(
     val conceptId: PersonalConceptId,
     val semantics: PredicateSemantics,
-)
+) : Serializable
 
-sealed interface AssertionSubject {
+sealed interface AssertionSubject : Serializable {
     data object User : AssertionSubject
     data class Entity(val entityId: LifeEntityId) : AssertionSubject
 }
 
-sealed interface AssertionValue {
+sealed interface AssertionValue : Serializable {
     data class Text(val value: String) : AssertionValue { init { require(value.isNotBlank()) } }
     data class EntityReference(val entityId: LifeEntityId) : AssertionValue
     data class EntityReferences(val entityIds: Set<LifeEntityId>) : AssertionValue { init { require(entityIds.isNotEmpty()) } }
@@ -108,7 +115,7 @@ data class EvidenceAssertion(
     val kind: UserEvidenceKind,
     val uncertainty: AssertionUncertainty,
     val eventTime: EventTime = EventTime.Unknown("No event time supplied"),
-) {
+) : Serializable {
     init {
         require(
             kind != UserEvidenceKind.EXPLICIT_USER_ASSERTION ||
@@ -134,14 +141,14 @@ data class ThomasHypothesis(
     val status: HypothesisStatus,
     val createdAt: RecordTime,
     val rationale: String,
-) {
+) : Serializable {
     init {
         require(rationale.isNotBlank())
         require(status != HypothesisStatus.PARTIALLY_SUPPORTED || rationale.length >= 10)
     }
 }
 
-sealed interface ClaimReference {
+sealed interface ClaimReference : Serializable {
     data class Assertion(val assertionId: AssertionId) : ClaimReference
     data class Hypothesis(val hypothesisId: HypothesisId) : ClaimReference
 }

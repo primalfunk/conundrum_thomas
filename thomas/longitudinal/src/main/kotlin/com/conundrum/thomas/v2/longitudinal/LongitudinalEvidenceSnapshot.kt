@@ -1,6 +1,8 @@
 package com.conundrum.thomas.v2.longitudinal
 
-data class LongitudinalValidationIssue(val code: String, val detail: String)
+import java.io.Serializable
+
+data class LongitudinalValidationIssue(val code: String, val detail: String) : Serializable
 
 /**
  * Immutable evidence-oriented aggregate. It validates references and history; it is not a store,
@@ -17,7 +19,7 @@ data class LongitudinalEvidenceSnapshot(
     val hypothesisDependencies: List<HypothesisDependency> = emptyList(),
     val identityLinks: List<EntityIdentityLink> = emptyList(),
     val coverageTopics: List<CoverageTopic> = emptyList(),
-) {
+) : Serializable {
     fun validationIssues(): List<LongitudinalValidationIssue> {
         val issues = mutableListOf<LongitudinalValidationIssue>()
         fun issue(code: String, detail: String) { issues += LongitudinalValidationIssue(code, detail) }

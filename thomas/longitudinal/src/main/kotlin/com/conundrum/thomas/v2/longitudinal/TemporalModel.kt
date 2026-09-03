@@ -1,19 +1,20 @@
 package com.conundrum.thomas.v2.longitudinal
 
+import java.io.Serializable
 import java.time.Instant
 import java.time.LocalDate
 import java.time.Year
 import java.time.YearMonth
 
-@JvmInline value class ReportTime(val value: Instant)
+@JvmInline value class ReportTime(val value: Instant) : Serializable
 
-@JvmInline value class RecordTime(val value: Instant)
+@JvmInline value class RecordTime(val value: Instant) : Serializable
 
 enum class ApproximationPrecision { DAYS, WEEKS, MONTHS, SEASON, YEAR }
 
 enum class RelativeTemporalRelation { BEFORE, AFTER, DURING, AROUND, DURATION }
 
-sealed interface CalendarBoundary {
+sealed interface CalendarBoundary : Serializable {
     val earliest: LocalDate
     val latest: LocalDate
 
@@ -34,7 +35,7 @@ sealed interface CalendarBoundary {
 }
 
 /** Event-time expression. It never supplies a current time or invents precision. */
-sealed interface EventTime {
+sealed interface EventTime : Serializable {
     data class ExactInstant(val value: Instant) : EventTime
     data class CalendarDate(val value: LocalDate) : EventTime
     data class ApproximateDate(val center: LocalDate, val precision: ApproximationPrecision) : EventTime
@@ -92,7 +93,7 @@ data class TemporalCoordinates(
     val eventTime: EventTime,
     val reportTime: ReportTime,
     val recordTime: RecordTime,
-) {
+) : Serializable {
     init {
         require(!recordTime.value.isBefore(reportTime.value)) {
             "Record time cannot precede the source report time"
