@@ -1,6 +1,6 @@
 # Thomas mode-authority contract
 
-**Status:** Locked by CT-V2-02; qualification-only Therapist policy added by CT-V2-03
+**Status:** Locked by CT-V2-02; qualification-only Therapist repertoire expanded by CT-V2-05
 
 **Runtime authority granted by this contract:** None
 
@@ -19,6 +19,8 @@ All three contracts carry `PRODUCTION_RUNTIME_NOT_GRANTED`, `NONE` direct profil
 Therapist's responsibility is governed therapeutic-action selection, subject to independent safety authority. CT-V2-03 implements one qualification-only bounded-problem ruleset; it is not wired to production runtime and grants no production authority. A language model may eventually render an already selected act; it cannot choose it.
 
 CT-V2-04 makes the independent safety boundary compile-visible: the ordinary Therapist evaluator requires a state- and evidence-revision-bound `OrdinaryTherapyPermit`. Journal and Biographer cannot receive that capability through their mode contracts. The permit remains qualification-only and grants no production runtime authority.
+
+CT-V2-05 adds qualification-only listening/support, understanding/clarification, bounded practical problem solving, and consolidate/close routes. User preference selects among them, correction withdraws tentative interpretation, and unchanged evidence cannot drive indefinite repetition. None of these routes is wired to runtime, and none changes Biographer or Journal authority.
 
 ## Biographer
 

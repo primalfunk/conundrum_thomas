@@ -38,6 +38,9 @@ data class RenderCommand(
     val ordinaryTherapeuticContentPermitted: Boolean = true,
     val externalHelpInformationRequired: Boolean = false,
     val conversationContinuationPermitted: Boolean = true,
+    val interpretationMustRemainTentative: Boolean = false,
+    val userAgencyMustBeExplicitlyPreserved: Boolean = false,
+    val responseRequired: Boolean = outputDisposition == RenderOutputDisposition.GENERATE_TEXT,
 ) {
     init {
         require(policyDecisionReference.isNotBlank())
@@ -52,8 +55,10 @@ data class RenderCommand(
         require(maximumWords >= 0 && maximumQuestions >= 0)
         if (outputDisposition == RenderOutputDisposition.NO_RESPONSE) {
             require(maximumWords == 0 && maximumQuestions == 0 && form == RenderForm.SILENCE)
+            require(!responseRequired)
         } else {
             require(maximumWords > 0 && form != RenderForm.SILENCE)
+            require(responseRequired)
         }
     }
 }

@@ -1,6 +1,9 @@
 package com.conundrum.thomas.v2.qualification.safety
 
 import com.conundrum.thomas.v2.domain.mode.ThomasMode
+import com.conundrum.thomas.v2.engine.ordinary.CoreOrdinaryTherapyEvaluator
+import com.conundrum.thomas.v2.engine.ordinary.CoreOrdinaryTherapyState
+import com.conundrum.thomas.v2.engine.ordinary.CorePolicyDecision
 import com.conundrum.thomas.v2.engine.verticalslice.BoundedProblemPolicyEvaluator
 import com.conundrum.thomas.v2.engine.verticalslice.BoundedProblemPolicyState
 import com.conundrum.thomas.v2.engine.verticalslice.PolicyDecision
@@ -70,4 +73,15 @@ object QualificationSafetyGate {
         evaluator: BoundedProblemPolicyEvaluator,
         state: BoundedProblemPolicyState,
     ): PolicyDecision = evaluator.evaluate(state, permitFor(state))
+
+    fun permitFor(state: CoreOrdinaryTherapyState): OrdinaryTherapyPermit {
+        val decision = SafetyScopeGate().govern(ordinaryInput(state.stateId, state.safetyEvidenceRevision))
+        require(decision.authorityState == SafetyAuthorityState.ORDINARY_POLICY_ALLOWED)
+        return requireNotNull(decision.ordinaryTherapyPermit)
+    }
+
+    fun evaluateCoreOrdinary(
+        evaluator: CoreOrdinaryTherapyEvaluator,
+        state: CoreOrdinaryTherapyState,
+    ): CorePolicyDecision = evaluator.evaluate(state, permitFor(state))
 }

@@ -13,4 +13,6 @@ Migration `0001_governed_source_provenance.sql` defines:
 - constrained review states and allowed transitions;
 - unopened candidate subjects that explicitly confer no rule authority.
 
+Migration `0002_source_discovery_needs.sql` adds governed source gaps. These rows explicitly carry neither source authority nor rule authority.
+
 Generated databases record the SHA-256 of every applied migration and seed. They are disposable build products, not the editable source of truth.

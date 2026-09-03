@@ -100,6 +100,8 @@ Its dispositions include `ALLOW`, `ALLOW_WITH_CONSTRAINTS`, `REPLACE_ACTION`, `C
 
 CT-V2-04 provides the first qualification-only implementation of this boundary. It evaluates typed established facts, not raw text or predicted risk, and issues a revision-bound `OrdinaryTherapyPermit` only for `ORDINARY_POLICY_ALLOWED`. Every other disposition withholds the capability. Specialized and emergency procedures remain unopened; no production safety authority is granted.
 
+CT-V2-05 proves that the permit can govern a broader ordinary repertoire. The ordinary engine hierarchically selects listening/support, understanding/clarification, bounded practical problem solving, or consolidation/close from typed preference and state, then selects one sourced action. It records action/evidence revision, honors correction, and stops rather than repeating against unchanged evidence. This remains qualification-only and is not wired to runtime.
+
 ### E. Intervention Engine
 
 Converts the governed therapeutic strategy into a precise communicative instruction and explicit constraints. The result states what acts to express and what is forbidden, including advice, diagnosis, reassurance, question count, interpretation count, certainty, and target length.
@@ -128,7 +130,7 @@ Procedural families are implemented separately and admitted incrementally, not b
 - Regulation and coping: grounding, acute-arousal reduction, attentional redirection, structured coping, stress management, and activity selection.
 - Longitudinal work: recurring themes, unresolved concerns, progress, repeated triggers, changed beliefs, emerging patterns, and prior strategy outcomes.
 
-CT-V2-00 implements none of these therapeutic capabilities.
+The foundation implemented none of these capabilities. CT-V2-05 now implements only a qualification slice of foundational listening, bounded understanding, and PM+ problem solving; the remaining families stay unopened.
 
 ## 6. Relationship to Thomas modes
 
@@ -145,6 +147,8 @@ Every future therapeutic rule must be representable with a stable rule identifie
 The accepted storage direction is a versioned relational provenance schema with migrations, reviewable seed records, and a generated runtime database. Clinical literature is not copied into prompts. Raw source documents remain outside runtime artifacts and outside Git unless redistribution rights are explicitly established. CT-V2-00 creates structure only; CT-V2-01 records are not admitted.
 
 ## 9. Implementation program
+
+The numbered list below is the founding program. Subsequent Principal work orders control actual phase content: CT-V2-04 was authorized as the Safety & Scope Gate and CT-V2-05 as the Core Ordinary Therapeutic Repertoire. Those sealed work orders supersede the founding placeholder labels without changing the governing architecture.
 
 ### CT-V2-00 — Architecture foundation and V1 preservation
 

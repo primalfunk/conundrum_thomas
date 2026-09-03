@@ -12,3 +12,4 @@
 | [0008](0008-mode-authority-and-ontology.md) | Mode authority and behavior-free ontology | Accepted for CT-V2-02 |
 | [0009](0009-qualification-only-procedural-vertical-slice.md) | Qualification-only procedural vertical slice | Accepted for CT-V2-03 |
 | [0010](0010-safety-scope-capability-gate.md) | Ordinary Therapist policy requires a safety/scope capability | Accepted for CT-V2-04 qualification |
+| [0011](0011-core-ordinary-route-and-progression.md) | Hierarchical ordinary routes and evidence-revision progression | Accepted for CT-V2-05 qualification |
