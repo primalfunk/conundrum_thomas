@@ -25,6 +25,12 @@ No safety rule, ordinary therapeutic rule, screening instrument, clarification a
 - Registered the ASQ only as a governed bibliographic screening-instrument reference. No instrument questions, wording, scoring, thresholds, or pathways were implemented.
 - Kept all policy and evidence structures independent of Android and free of direct profile mutation.
 
+Implementation commit:
+
+- `50749efcc3265bc4bb5c09ae56159d1aeeb2caba` - `CT-V2-04 implement procedural safety scope gate`
+
+The final sealing commit and annotated tag are reported at handoff because a commit cannot contain its own object ID.
+
 ## Source adjudication
 
 One clinical rule was adopted narrowly from NICE NG225 version `nice-ng225-2025`:
