@@ -33,6 +33,7 @@ class FoundationArchitectureTest {
             ":thomas:ontology",
             ":thomas:engine",
             ":thomas:safety",
+            ":thomas:longitudinal",
             ":thomas:runtime",
             ":platform:persistence-android",
             ":platform:renderer-llama-android",
@@ -62,6 +63,7 @@ class FoundationArchitectureTest {
             setOf(":thomas:domain", ":thomas:provenance", ":thomas:ontology"),
             projectDependencies("thomas/safety/build.gradle.kts"),
         )
+        assertEquals(emptySet<String>(), projectDependencies("thomas/longitudinal/build.gradle.kts"))
         assertEquals(
             setOf(":thomas:domain", ":thomas:provenance", ":thomas:engine", ":thomas:safety"),
             projectDependencies("thomas/runtime/build.gradle.kts"),

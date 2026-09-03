@@ -10,6 +10,8 @@
 
 **Core architectural decision:** Therapeutic reasoning belongs to Thomas. The language model provides conversational expression.
 
+**Canonical post-CT-V2-05 sequence:** [`planning/CONUNDRUM-THOMAS-V2-FORWARD-DEVELOPMENT-PLAN.md`](planning/CONUNDRUM-THOMAS-V2-FORWARD-DEVELOPMENT-PLAN.md)
+
 > **THOMAS SELECTS AND GOVERNS THERAPEUTIC BEHAVIOR.**
 >
 > **THE MODEL ONLY RENDERS AUTHORIZED BEHAVIOR INTO LANGUAGE.**
@@ -102,6 +104,8 @@ CT-V2-04 provides the first qualification-only implementation of this boundary. 
 
 CT-V2-05 proves that the permit can govern a broader ordinary repertoire. The ordinary engine hierarchically selects listening/support, understanding/clarification, bounded practical problem solving, or consolidation/close from typed preference and state, then selects one sourced action. It records action/evidence revision, honors correction, and stops rather than repeating against unchanged evidence. This remains qualification-only and is not wired to runtime.
 
+CT-V2-06 adds the independent longitudinal domain foundation. Personal source records, user assertions, life structure, user interpretations, Thomas hypotheses, temporal uncertainty, contradiction, correction, supersession, identity uncertainty, and hypothesis dependencies are typed in a dependency-free module. It implements no admission, persistence, extraction, retrieval, mode behavior, or therapeutic authority.
+
 ### E. Intervention Engine
 
 Converts the governed therapeutic strategy into a precise communicative instruction and explicit constraints. The result states what acts to express and what is forbidden, including advice, diagnosis, reassurance, question count, interpretation count, certainty, and target length.
@@ -148,7 +152,7 @@ The accepted storage direction is a versioned relational provenance schema with 
 
 ## 9. Implementation program
 
-The numbered list below is the founding program. Subsequent Principal work orders control actual phase content: CT-V2-04 was authorized as the Safety & Scope Gate and CT-V2-05 as the Core Ordinary Therapeutic Repertoire. Those sealed work orders supersede the founding placeholder labels without changing the governing architecture.
+The numbered list below is the founding program. Subsequent Principal work orders control actual phase content: CT-V2-04 was authorized as the Safety & Scope Gate, CT-V2-05 as the Core Ordinary Therapeutic Repertoire, and CT-V2-06 as the Longitudinal Evidence & Temporal Foundation. The canonical revised sequence is linked above. Those sealed work orders supersede the founding placeholder labels without changing the governing architecture.
 
 ### CT-V2-00 — Architecture foundation and V1 preservation
 

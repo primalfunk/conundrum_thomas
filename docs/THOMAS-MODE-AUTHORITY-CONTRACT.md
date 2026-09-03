@@ -22,6 +22,8 @@ CT-V2-04 makes the independent safety boundary compile-visible: the ordinary The
 
 CT-V2-05 adds qualification-only listening/support, understanding/clarification, bounded practical problem solving, and consolidate/close routes. User preference selects among them, correction withdraws tentative interpretation, and unchanged evidence cannot drive indefinite repetition. None of these routes is wired to runtime, and none changes Biographer or Journal authority.
 
+CT-V2-06 defines one shared longitudinal evidence vocabulary to which future mode-specific acquisition paths may contribute. It implements no mode writer or reader. Journal remains capture with default `NO_RESPONSE`; Biographer remains investigation; Therapist receives no longitudinal retrieval authority.
+
 ## Biographer
 
 Biographer's future responsibility is governed information-gap selection. Its intended conceptual loop is:

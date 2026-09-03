@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":thomas:ontology"))
     implementation(project(":thomas:engine"))
     implementation(project(":thomas:safety"))
+    implementation(project(":thomas:longitudinal"))
     testImplementation(libs.junit)
     testImplementation(project(":thomas:runtime"))
 }
