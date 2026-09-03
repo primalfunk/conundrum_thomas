@@ -23,6 +23,7 @@ dependencies {
     implementation(project(":thomas:safety"))
     implementation(project(":thomas:longitudinal"))
     implementation(project(":thomas:longitudinal-store"))
+    implementation(project(":thomas:language-evidence"))
     testImplementation(libs.junit)
     testImplementation(project(":thomas:runtime"))
 }
