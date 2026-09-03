@@ -34,7 +34,7 @@ class ProvenanceDatabaseTest {
     @Test
     fun `schema migrates from zero and records input checksums`() = connected { connection ->
         assertEquals(1L, count(connection, "schema_migration"))
-        assertEquals(9L, count(connection, "seed_application"))
+        assertEquals(10L, count(connection, "seed_application"))
         assertTrue(queryStrings(connection, "SELECT sha256 FROM schema_migration").all { it.matches(Regex("[0-9a-f]{64}")) })
     }
 

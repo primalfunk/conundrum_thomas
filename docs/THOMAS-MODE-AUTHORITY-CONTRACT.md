@@ -1,6 +1,6 @@
 # Thomas mode-authority contract
 
-**Status:** Locked by CT-V2-02
+**Status:** Locked by CT-V2-02; qualification-only Therapist policy added by CT-V2-03
 
 **Runtime authority granted by this contract:** None
 
@@ -12,11 +12,11 @@ Thomas exposes three architecturally distinct functions. They are not prompt per
 | Biographer | Investigation | What is worth learning next? | Requires future governed procedural selection. |
 | Journal | Capture | What should be preserved from this entry? | `NO_RESPONSE` |
 
-All three contracts currently carry `NOT_GRANTED_IN_CT_V2_02` runtime authority, `NONE` direct profile-mutation authority, and `NONE` language-model decision authority.
+All three contracts carry `PRODUCTION_RUNTIME_NOT_GRANTED`, `NONE` direct profile-mutation authority, and `NONE` language-model decision authority.
 
 ## Therapist
 
-Therapist's future responsibility is governed therapeutic-action selection. It may eventually decide whether to act and which admitted act is appropriate, subject to independent safety authority. No such selection exists in CT-V2-02. A language model may eventually render an already selected act; it cannot choose it.
+Therapist's responsibility is governed therapeutic-action selection, subject to independent safety authority. CT-V2-03 implements one qualification-only bounded-problem ruleset; it is not wired to production runtime and grants no production authority. A language model may eventually render an already selected act; it cannot choose it.
 
 ## Biographer
 
@@ -49,4 +49,4 @@ Future response overlays such as acknowledge, reflect, or ask may be designed on
 - A source binding provides provenance, not behavior authority.
 - A renderer receives only a future authorized command and authorized supporting material.
 - A language model cannot decide intervention, risk, escalation, question selection, profile admission, Journal response, or procedural path.
-- No mode contract authorizes a therapeutic rule in CT-V2-02.
+- A mode contract does not itself authorize a therapeutic rule. CT-V2-03 rule execution comes only from its separately tracked Principal scope and remains qualification-only.

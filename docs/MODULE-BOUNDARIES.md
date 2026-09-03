@@ -15,6 +15,7 @@ These are production compile dependencies. `:qualification` may depend on each l
 :thomas:engine
   -> :thomas:domain
   -> :thomas:provenance
+  -> :thomas:ontology
 
 :thomas:safety
   -> :thomas:domain
@@ -46,12 +47,13 @@ These are production compile dependencies. `:qualification` may depend on each l
 - `:thomas:domain` is platform independent.
 - `:thomas:domain` owns the three mode-authority contracts because Therapist, Biographer, and Journal identity precedes therapeutic policy. All three deny model decision authority and direct profile mutation; Journal defaults to `NO_RESPONSE`.
 - `:thomas:ontology` is platform independent and depends only on domain and provenance contracts. It defines typed vocabulary and source bindings, never decisions.
-- In CT-V2-02 no production consumer depends on `:thomas:ontology`. This compile-enforces that merely defining a concept cannot produce runtime behavior. CT-V2-03 may change a consumer edge only with explicit authorization.
-- `:thomas:engine` has no Android, Room, JNI, speech, or concrete-model dependency. Its policy contract accepts `StructuredPolicyState`, never raw user prose.
+- CT-V2-03 explicitly authorizes `:thomas:engine` to consume the ontology for a qualification-only ruleset. Ontology remains behavior-free and has no dependency back to engine.
+- `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policy accepts `StructuredPolicyState`, never raw user prose. Its CT-V2-03 rules carry qualification execution authority and explicit production denial.
 - `:thomas:safety` does not depend on `:thomas:engine`. Its result governs an ordinary action proposal; ordinary policy cannot override it.
 - `:thomas:runtime` is the only production module allowed to depend on both engine and safety and is the sole future owner of ordered end-to-end orchestration.
 - `:app` does not depend on engine, safety, persistence, speech, or a renderer implementation. It cannot directly invoke a model.
 - A renderer receives only a `RenderRequest`: one `RenderCommand` and explicitly authorized supporting text. Its output is an untrusted `RenderedDraft`.
+- The CT-V2-03 `RenderCommand` fixes the selected policy action, dialogue act, goal, semantic boundaries, output form, length, question count, and advice permission. The deterministic stub lives downstream in `:qualification` and is not reachable from app or runtime.
 - `:platform:renderer-llama-android` has no dependency on persistence, policy, safety, transcript, profile, or provenance implementations.
 - Platform adapters implement technical capabilities. They do not acquire therapeutic decision authority.
 - `:tools:provenance` owns the SQLite driver and source-to-database build. No production or Android module depends on it; `:thomas:provenance` remains platform independent.

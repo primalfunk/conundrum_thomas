@@ -2,6 +2,7 @@ package com.conundrum.thomas.v2.qualification
 
 import com.conundrum.thomas.v2.domain.rendering.AuthorizedSupportingText
 import com.conundrum.thomas.v2.domain.rendering.RenderCommand
+import com.conundrum.thomas.v2.domain.rendering.RenderForm
 import com.conundrum.thomas.v2.domain.rendering.RenderRequest
 import java.io.File
 import org.junit.Assert.assertEquals
@@ -54,7 +55,7 @@ class FoundationArchitectureTest {
             projectDependencies("thomas/ontology/build.gradle.kts").filterNot { it == ":qualification" }.toSet(),
         )
         assertEquals(
-            setOf(":thomas:domain", ":thomas:provenance"),
+            setOf(":thomas:domain", ":thomas:provenance", ":thomas:ontology"),
             projectDependencies("thomas/engine/build.gradle.kts"),
         )
         assertEquals(
@@ -86,11 +87,27 @@ class FoundationArchitectureTest {
     @Test
     fun `renderer request exposes only command and authorized supporting text`() {
         val request = RenderRequest(
-            command = RenderCommand("Render the already selected act."),
+            command = RenderCommand(
+                policyDecisionReference = "qualification-decision",
+                selectedPolicyActionId = "selected-action",
+                selectedDialogueActId = "dialogue.reflect",
+                therapeuticGoalId = "goal.understand",
+                instruction = "Render the already selected act.",
+                requiredSemanticContent = emptyList(),
+                allowedSemanticContent = listOf("Authorized text only."),
+                prohibitedSemanticContent = listOf("Any new act."),
+                toneConstraints = listOf("Concise"),
+                maximumWords = 40,
+                maximumQuestions = 0,
+                advicePermitted = false,
+                form = RenderForm.REFLECTIVE,
+            ),
             authorizedSupportingText = listOf(AuthorizedSupportingText("evidence-1", "Authorized text")),
         )
 
-        assertEquals("Render the already selected act.", request.command.value)
+        assertEquals("Render the already selected act.", request.command.instruction)
+        assertEquals("selected-action", request.command.selectedPolicyActionId)
+        assertEquals("dialogue.reflect", request.command.selectedDialogueActId)
         assertEquals(listOf("evidence-1"), request.authorizedSupportingText.map { it.reference })
         val materialFields = RenderRequest::class.java.declaredFields
             .filterNot { it.isSynthetic }

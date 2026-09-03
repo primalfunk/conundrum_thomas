@@ -16,11 +16,11 @@ java {
 }
 
 dependencies {
+    implementation(project(":thomas:domain"))
+    implementation(project(":thomas:provenance"))
+    implementation(project(":thomas:ontology"))
+    implementation(project(":thomas:engine"))
     testImplementation(libs.junit)
-    testImplementation(project(":thomas:domain"))
-    testImplementation(project(":thomas:provenance"))
-    testImplementation(project(":thomas:ontology"))
-    testImplementation(project(":thomas:engine"))
     testImplementation(project(":thomas:safety"))
     testImplementation(project(":thomas:runtime"))
 }

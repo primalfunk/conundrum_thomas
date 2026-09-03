@@ -6,7 +6,7 @@ interface StructuredPolicyState
 /** Marker for an action proposal produced by policy and still subject to safety governance. */
 interface TherapeuticActionProposal
 
-/** Selection contract only; CT-V2-00 provides no policy implementation or therapeutic rules. */
+/** Structured selection contract. Implementations must make their authority scope explicit. */
 fun interface TherapeuticPolicy<STATE : StructuredPolicyState, ACTION : TherapeuticActionProposal> {
     fun select(state: STATE): ACTION
 }

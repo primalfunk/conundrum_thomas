@@ -160,6 +160,8 @@ Define the finite canonical vocabulary for observations, states, goals, dialogue
 
 Prove a deliberately small domain: ordinary distress involving a manageable life problem with no safety complication. Initially support listening, reflection, clarification, collaborative problem definition, simple problem solving, and follow-up. Compare a V1 autonomous model with procedural Thomas plus the same or smaller renderer on matched conversations. Proceed only if the procedural design is materially more varied, coherent, intentional, and inspectable.
 
+The authorized CT-V2-03 work order narrows this milestone to deterministic architecture qualification with structured input and a non-LLM renderer stub. No V1 model or implementation comparison is authorized in this phase. The ruleset remains production-denied pending later review and admission.
+
 ### CT-V2-04 — Perception Engine
 
 Develop uncertainty-bearing structured inference for measurable signals such as explicit questions, advice requests, emotion, topic, people, event, time, goal, negation, disagreement, uncertainty, and response to Thomas. Rules, lexicons, parsers, classifiers, compact models, and justified LLM extraction remain implementation options; measured accuracy and cost decide.

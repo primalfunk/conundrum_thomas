@@ -40,7 +40,7 @@ enum class LanguageModelDecisionAuthority {
 }
 
 enum class ModeRuntimeAuthority {
-    NOT_GRANTED_IN_CT_V2_02,
+    PRODUCTION_RUNTIME_NOT_GRANTED,
 }
 
 data class ModeAuthorityContract(
@@ -52,7 +52,7 @@ data class ModeAuthorityContract(
     val evidenceDisposition: EvidenceDisposition,
     val directProfileMutationAuthority: DirectProfileMutationAuthority = DirectProfileMutationAuthority.NONE,
     val languageModelDecisionAuthority: LanguageModelDecisionAuthority = LanguageModelDecisionAuthority.NONE,
-    val runtimeAuthority: ModeRuntimeAuthority = ModeRuntimeAuthority.NOT_GRANTED_IN_CT_V2_02,
+    val runtimeAuthority: ModeRuntimeAuthority = ModeRuntimeAuthority.PRODUCTION_RUNTIME_NOT_GRANTED,
 ) {
     init {
         require(governingQuestion.isNotBlank()) { "A mode contract requires a governing question." }
