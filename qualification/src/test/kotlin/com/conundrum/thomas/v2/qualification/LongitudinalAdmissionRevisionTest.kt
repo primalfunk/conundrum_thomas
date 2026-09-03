@@ -217,6 +217,51 @@ class LongitudinalAdmissionRevisionTest {
         }
     }
 
+    @Test fun `restoring source privacy requires review instead of silently reactivating evidence`() {
+        SyntheticLongitudinalStoreHarness(path("privacy-restore-review")).use { harness ->
+            val draft = sourceDraft("privacy-restore-review")
+            assertAccepted(admitSource(harness, draft))
+            val evidence = assertion("privacy-restore-review", draft.revisionId)
+            assertAccepted(admitAssertion(harness, evidence))
+            assertAccepted(harness.store.admission.submit(harness.request(LongitudinalWriteOperation.ChangePrivacy(draft.stableSourceId, SourcePrivacy.PRIVATE), AdmissionActor.SYSTEM, AdmissionOrigin.QUALIFICATION_HARNESS)))
+            assertAccepted(harness.store.admission.submit(harness.request(LongitudinalWriteOperation.ChangePrivacy(draft.stableSourceId, SourcePrivacy.ELIGIBLE), AdmissionActor.SYSTEM, AdmissionOrigin.QUALIFICATION_HARNESS)))
+            assertEquals(LongitudinalLifecycleStatus.REVIEW_REQUIRED, harness.store.reader.lifecycle(assertionRef(evidence.id))!!.status)
+            assertFalse(harness.store.reader.isEligible(assertionRef(evidence.id)))
+
+            val hypothesisId = HypothesisId.parse("hypothesis-privacy-restored")
+            val hypothesis = HypothesisDraft(hypothesisId, AssertionSubject.User, predicate("hypothesis.privacy-restored"), AssertionValue.Text("Synthetic derived material"), HypothesisStatus.TENTATIVE, "Synthetic restored privacy hypothesis.")
+            val dependency = HypothesisDependency(EvidenceRelationId.parse("dependency-privacy-restored"), hypothesisId, ClaimReference.Assertion(evidence.id), DependencyRole.SUPPORTS, "Review-required support")
+            val result = harness.submitBundle(EvidenceBundle(hypothesisDrafts = listOf(hypothesis), hypothesisDependencies = listOf(dependency)), AdmissionActor.THOMAS)
+            assertEquals(AdmissionDisposition.REJECTED_DEPENDENCY, result.disposition)
+        }
+    }
+
+    @Test fun `source revision makes existing derivation review required`() {
+        SyntheticLongitudinalStoreHarness(path("source-revision-dependency")).use { harness ->
+            val draft = sourceDraft("source-revision-dependency")
+            assertAccepted(admitSource(harness, draft))
+            val evidence = assertion("source-revision-dependency", draft.revisionId)
+            assertAccepted(admitAssertion(harness, evidence))
+            val hypothesisId = HypothesisId.parse("hypothesis-source-revision")
+            val hypothesis = HypothesisDraft(hypothesisId, AssertionSubject.User, predicate("hypothesis.source-revision"), AssertionValue.Text("Synthetic derived material"), HypothesisStatus.TENTATIVE, "Synthetic source revision dependency.")
+            val dependency = HypothesisDependency(EvidenceRelationId.parse("dependency-source-revision"), hypothesisId, ClaimReference.Assertion(evidence.id), DependencyRole.SUPPORTS, "Original source wording")
+            assertAccepted(harness.submitBundle(EvidenceBundle(hypothesisDrafts = listOf(hypothesis), hypothesisDependencies = listOf(dependency)), AdmissionActor.THOMAS))
+
+            val revision = LongitudinalWriteOperation.AppendSourceRevision(
+                draft.stableSourceId,
+                draft.revisionId,
+                SourceRecordId.parse("source-source-revision-dependency-rev-2"),
+                OriginalSourceContent.Inline("Revised synthetic wording."),
+                ReportTime(Instant.parse("2039-01-02T00:00:00Z")),
+            )
+            assertAccepted(harness.store.admission.submit(harness.request(revision, AdmissionActor.USER, AdmissionOrigin.QUALIFICATION_HARNESS)))
+            assertEquals(LongitudinalLifecycleStatus.REVIEW_REQUIRED, harness.store.reader.lifecycle(assertionRef(evidence.id))!!.status)
+            assertEquals(LongitudinalLifecycleStatus.REVIEW_REQUIRED, harness.store.reader.lifecycle(hypothesisRef(hypothesisId))!!.status)
+            assertFalse(harness.store.reader.isEligible(assertionRef(evidence.id)))
+            assertFalse(harness.store.reader.isEligible(hypothesisRef(hypothesisId)))
+        }
+    }
+
     @Test fun `declined coverage cannot carry substantive source evidence`() {
         SyntheticLongitudinalStoreHarness(path("declined-evidence")).use { harness ->
             val topic = CoverageTopic(CoverageTopicId.parse("coverage-declined-with-source"), "Synthetic declined", InformationCoverageStatus.DECLINED, setOf(SourceRecordId.parse("source-implied")))

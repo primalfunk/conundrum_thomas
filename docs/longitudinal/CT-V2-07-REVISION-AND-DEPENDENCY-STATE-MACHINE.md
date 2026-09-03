@@ -18,7 +18,8 @@ Each transition is recorded at a store revision with a cause code and immutable 
 
 ```text
 new object                         -> ACTIVE or PRIVATE_INELIGIBLE
-source revision appended           -> prior revision SUPERSEDED; new revision ACTIVE
+source revision appended           -> prior revision SUPERSEDED; new revision ACTIVE;
+                                      prior-wording derivations REVIEW_REQUIRED
 explicit correction (contest)      -> corrected claim CONTESTED
 explicit correction (supersede)    -> corrected claim SUPERSEDED
 explicit supersession              -> predecessor SUPERSEDED
@@ -26,6 +27,8 @@ retirement                          -> claim RETIRED
 support corrected/superseded        -> derived dependent REVIEW_REQUIRED
 support made private                -> source/assertions PRIVATE_INELIGIBLE;
                                       derived dependent DEPENDENCY_BLOCKED
+privacy restored                   -> affected material REVIEW_REQUIRED;
+                                      no silent reactivation
 ```
 
 No transition deletes a source, assertion, entity, hypothesis, or relation. Recency alone causes no transition.
@@ -50,6 +53,6 @@ Conflicting simultaneous resolutions and stale decision revisions fail closed. I
 
 ## Coverage and privacy
 
-`PRIVATE` and `DECLINED` are valid coverage states. `DECLINED` carries no substantive assertion and cannot be queried as evidence that something is absent. A PRIVATE source may remain stored but cannot support new derived material. A transition to PRIVATE immediately removes current eligibility from its assertions and blocks derived dependents.
+`PRIVATE` and `DECLINED` are valid coverage states. `DECLINED` carries no substantive assertion and cannot be queried as evidence that something is absent. A PRIVATE source may remain stored but cannot support new derived material. A transition to PRIVATE immediately removes current eligibility from its assertions and blocks derived dependents. Restoring source privacy changes the privacy flag but leaves affected evidence review-required; a privacy toggle cannot silently revive evidence whose lifecycle may have changed.
 
 Irreversible purge, retention policy, and user-facing deletion are not part of CT-V2-07.

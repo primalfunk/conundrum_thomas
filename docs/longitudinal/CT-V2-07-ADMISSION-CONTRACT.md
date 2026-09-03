@@ -11,7 +11,7 @@ The sole qualification policy version is `ct-v2-07.admission.v1`. Unsupported po
 | Operation | Authority and effect |
 |---|---|
 | `ADMIT_SOURCE` | Commits an immutable first source revision independently of derived structure. Acquisition mode, author role, event time, report time, provenance, stable identity, and privacy are retained. |
-| `APPEND_SOURCE_REVISION` | Appends a user-authorized revision to the current source revision. Stable source identity, acquisition mode, event time, and provenance chain remain fixed. |
+| `APPEND_SOURCE_REVISION` | Appends a user-authorized revision to the current source revision. Stable source identity, acquisition mode, event time, and provenance chain remain fixed; structures derived from the prior wording require review. |
 | `ADMIT_EVIDENCE_BUNDLE` | Atomically admits assertions, entities, relations, hypotheses, dependencies, identity candidates, and coverage. A failed member rejects the bundle. |
 | `RECORD_USER_CORRECTION` | Requires USER actor, USER_CORRECTION origin and acquisition mode, and user authorship. Adds a source, assertion, correction, and optional matching supersession. |
 | `RECORD_SUPERSESSION` | Adds an explicit acyclic relation and changes eligibility without deleting the predecessor. |
@@ -39,7 +39,7 @@ After the idempotency check, the expected revision must equal the current revisi
 
 The deterministic policy rejects unsupported authority, non-synthetic classification, duplicate stable IDs, missing references, invalid or cyclic relations, structurally invalid time, store time before report time, source-identity mutation, false source revision ancestry, unauthorized authorship, unsupported hypotheses, use of private evidence, and DECLINED coverage used as evidence.
 
-Every admitted Thomas hypothesis must have inspectable dependencies that ultimately reach eligible source evidence. The controller never determines whether a hypothesis is psychologically true.
+Every admitted Thomas hypothesis must have inspectable dependencies that ultimately reach currently eligible source evidence. Superseded, retired, review-required, dependency-blocked, and private assertions cannot provide new active support. The controller never determines whether a hypothesis is psychologically true.
 
 ## Atomicity and trusted machinery
 

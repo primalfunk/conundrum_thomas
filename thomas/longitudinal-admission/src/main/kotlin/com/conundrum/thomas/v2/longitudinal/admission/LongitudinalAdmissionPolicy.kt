@@ -125,13 +125,28 @@ class LongitudinalAdmissionPolicy {
         )
         val oldRef = ref(StoredObjectType.SOURCE_REVISION, prior.id.value)
         val newRef = ref(StoredObjectType.SOURCE_REVISION, next.id.value)
+        val lifecycle = current.lifecycle.toMutableMap()
+        lifecycle[oldRef] = inactive(LongitudinalLifecycleStatus.SUPERSEDED, revision, "SOURCE_REVISION_APPENDED")
+        lifecycle[newRef] = active(revision, current.isSourceEligible(operation.stableSourceId), "SOURCE_REVISION_APPENDED")
+        current.snapshot.assertions.filter { it.sourceRecordId == prior.id }.forEach { assertion ->
+            lifecycle[assertionRef(assertion.id)] = inactive(
+                LongitudinalLifecycleStatus.REVIEW_REQUIRED,
+                revision,
+                "SOURCE_REVISION_APPENDED",
+            )
+            markDependentsOnly(
+                ClaimReference.Assertion(assertion.id),
+                "SOURCE_REVISION_APPENDED",
+                current.snapshot,
+                lifecycle,
+                revision,
+            )
+        }
         return mutation(
             current,
             revision,
             current.snapshot.copy(sources = current.snapshot.sources + next),
-            lifecycle = current.lifecycle +
-                (oldRef to inactive(LongitudinalLifecycleStatus.SUPERSEDED, revision, "SOURCE_REVISION_APPENDED")) +
-                (newRef to active(revision, current.isSourceEligible(operation.stableSourceId), "SOURCE_REVISION_APPENDED")),
+            lifecycle = lifecycle,
             affected = listOf(prior.id.value, next.id.value, operation.stableSourceId.value),
             trace = listOf("CT07-SOURCE-APPEND-ONLY", "CT07-TEMPORAL-PRECISION-PRESERVED", "CT07-STORE-TIME"),
         )
@@ -173,14 +188,30 @@ class LongitudinalAdmissionPolicy {
         if (snapshot.validationIssues().any { it.code.contains("CYCLE") }) {
             fail(AdmissionDisposition.REJECTED_RELATION_CYCLE, "RELATION_CYCLE")
         }
+        val newAssertionIds = bundle.assertions.map { it.id }.toSet()
         val newHypothesisIds = hypotheses.map { it.id }.toSet()
         bundle.hypothesisDependencies.filter { it.dependentHypothesisId in newHypothesisIds }.forEach { dependency ->
-            if (!hasUltimateEligibleSource(dependency.prerequisite, snapshot, current.sourcePrivacy, mutableSetOf())) {
+            if (!hasUltimateEligibleSource(
+                    dependency.prerequisite,
+                    snapshot,
+                    current.sourcePrivacy,
+                    current.lifecycle,
+                    newAssertionIds,
+                    newHypothesisIds,
+                    mutableSetOf(),
+                )
+            ) {
                 fail(AdmissionDisposition.REJECTED_DEPENDENCY, "HYPOTHESIS_WITHOUT_ELIGIBLE_SOURCE_SUPPORT")
             }
         }
         val lifecycle = current.lifecycle.toMutableMap()
-        bundle.assertions.forEach { lifecycle[assertionRef(it.id)] = active(revision, sourceEligible(it.sourceRecordId, snapshot, current.sourcePrivacy), "ASSERTION_ADMITTED") }
+        bundle.assertions.forEach {
+            lifecycle[assertionRef(it.id)] = active(
+                revision,
+                sourceEligible(it.sourceRecordId, snapshot, current.sourcePrivacy, current.lifecycle),
+                "ASSERTION_ADMITTED",
+            )
+        }
         bundle.entities.forEach { lifecycle[ref(StoredObjectType.ENTITY, it.id.value)] = active(revision, true, "ENTITY_ADMITTED") }
         hypotheses.forEach { lifecycle[hypothesisRef(it.id)] = active(revision, true, "HYPOTHESIS_ADMITTED") }
         bundle.contradictions.forEach { lifecycle[ref(StoredObjectType.CONTRADICTION, it.id.value)] = active(revision, true, "CONTRADICTION_RECORDED") }
@@ -243,7 +274,11 @@ class LongitudinalAdmissionPolicy {
             }
         }
         val lifecycle = sourceMutation.state.lifecycle.toMutableMap()
-        lifecycle[assertionRef(operation.correctingAssertion.id)] = active(revision, true, "USER_CORRECTION_ADMITTED")
+        lifecycle[assertionRef(operation.correctingAssertion.id)] = active(
+            revision,
+            operation.correctionSource.privacy != SourcePrivacy.PRIVATE,
+            "USER_CORRECTION_ADMITTED",
+        )
         lifecycle[ref(StoredObjectType.CORRECTION, operation.correction.id.value)] = active(revision, true, "USER_CORRECTION_RECORDED")
         operation.supersession?.let { lifecycle[ref(StoredObjectType.SUPERSESSION, it.id.value)] = active(revision, true, "CORRECTION_SUPERSESSION_RECORDED") }
         val correctedStatus = if (operation.correction.effect == CorrectionEffect.CORRECTS_AND_SUPERSEDES) {
@@ -345,8 +380,27 @@ class LongitudinalAdmissionPolicy {
                 markDependentsOnly(ClaimReference.Assertion(assertion.id), "PRIVATE_DEPENDENCY", current.snapshot, lifecycle, revision, LongitudinalLifecycleStatus.DEPENDENCY_BLOCKED)
             }
         } else {
-            sourceHistory.forEach { lifecycle[ref(StoredObjectType.SOURCE_REVISION, it.id.value)] = active(revision, true, "SOURCE_PRIVACY_RESTORED") }
-            current.snapshot.assertions.filter { assertion -> sourceHistory.any { it.id == assertion.sourceRecordId } }.forEach { lifecycle[assertionRef(it.id)] = active(revision, true, "SOURCE_PRIVACY_RESTORED") }
+            sourceHistory.forEach {
+                lifecycle[ref(StoredObjectType.SOURCE_REVISION, it.id.value)] = inactive(
+                    LongitudinalLifecycleStatus.REVIEW_REQUIRED,
+                    revision,
+                    "SOURCE_PRIVACY_RESTORED_REVIEW_REQUIRED",
+                )
+            }
+            current.snapshot.assertions.filter { assertion -> sourceHistory.any { it.id == assertion.sourceRecordId } }.forEach {
+                lifecycle[assertionRef(it.id)] = inactive(
+                    LongitudinalLifecycleStatus.REVIEW_REQUIRED,
+                    revision,
+                    "SOURCE_PRIVACY_RESTORED_REVIEW_REQUIRED",
+                )
+                markDependentsOnly(
+                    ClaimReference.Assertion(it.id),
+                    "SOURCE_PRIVACY_RESTORED_REVIEW_REQUIRED",
+                    current.snapshot,
+                    lifecycle,
+                    revision,
+                )
+            }
         }
         return mutation(current, revision, current.snapshot, sourcePrivacy = current.sourcePrivacy + (operation.stableSourceId to operation.privacy), lifecycle = lifecycle, affected = listOf(operation.stableSourceId.value), trace = listOf("CT07-PRIVACY-IMMEDIATE", "CT07-DERIVED-ELIGIBILITY-RECOMPUTED"))
     }
@@ -411,15 +465,35 @@ class LongitudinalAdmissionPolicy {
         claim: ClaimReference,
         snapshot: LongitudinalEvidenceSnapshot,
         privacy: Map<com.conundrum.thomas.v2.longitudinal.SourceIdentityId, SourcePrivacy>,
+        lifecycle: Map<LongitudinalObjectRef, LifecycleState>,
+        newAssertionIds: Set<AssertionId>,
+        newHypothesisIds: Set<com.conundrum.thomas.v2.longitudinal.HypothesisId>,
         visiting: MutableSet<ClaimReference>,
     ): Boolean {
         if (!visiting.add(claim)) return false
         return when (claim) {
-            is ClaimReference.Assertion -> snapshot.assertions.firstOrNull { it.id == claim.assertionId }
-                ?.let { sourceEligible(it.sourceRecordId, snapshot, privacy) } == true
-            is ClaimReference.Hypothesis -> snapshot.hypothesisDependencies
-                .filter { it.dependentHypothesisId == claim.hypothesisId }
-                .any { hasUltimateEligibleSource(it.prerequisite, snapshot, privacy, visiting.toMutableSet()) }
+            is ClaimReference.Assertion -> snapshot.assertions.firstOrNull { it.id == claim.assertionId }?.let { assertion ->
+                val claimIsEligible = assertion.id in newAssertionIds ||
+                    lifecycle[assertionRef(assertion.id)]?.eligibleForOrdinaryUse == true
+                claimIsEligible && sourceEligible(assertion.sourceRecordId, snapshot, privacy, lifecycle)
+            } == true
+            is ClaimReference.Hypothesis -> {
+                val claimIsEligible = claim.hypothesisId in newHypothesisIds ||
+                    lifecycle[hypothesisRef(claim.hypothesisId)]?.eligibleForOrdinaryUse == true
+                claimIsEligible && snapshot.hypothesisDependencies
+                    .filter { it.dependentHypothesisId == claim.hypothesisId }
+                    .any {
+                        hasUltimateEligibleSource(
+                            it.prerequisite,
+                            snapshot,
+                            privacy,
+                            lifecycle,
+                            newAssertionIds,
+                            newHypothesisIds,
+                            visiting.toMutableSet(),
+                        )
+                    }
+            }
         }
     }
 
@@ -427,7 +501,11 @@ class LongitudinalAdmissionPolicy {
         sourceRecordId: com.conundrum.thomas.v2.longitudinal.SourceRecordId,
         snapshot: LongitudinalEvidenceSnapshot,
         privacy: Map<com.conundrum.thomas.v2.longitudinal.SourceIdentityId, SourcePrivacy>,
-    ): Boolean = snapshot.sources.firstOrNull { it.id == sourceRecordId }?.let { privacy[it.stableSourceId] != SourcePrivacy.PRIVATE } == true
+        lifecycle: Map<LongitudinalObjectRef, LifecycleState>,
+    ): Boolean = snapshot.sources.firstOrNull { it.id == sourceRecordId }?.let {
+        privacy[it.stableSourceId] != SourcePrivacy.PRIVATE &&
+            lifecycle[ref(StoredObjectType.SOURCE_REVISION, it.id.value)]?.eligibleForOrdinaryUse == true
+    } == true
 
     private fun markClaimAndDependents(
         claim: ClaimReference,
