@@ -168,20 +168,36 @@ class GovernedLongitudinalStoreCoreTest {
         assertFalse(com.conundrum.thomas.v2.longitudinal.admission.LongitudinalAdmissionRequest::class.java.declaredFields.any { it.name.equals("recordTime", true) })
     }
 
-    @Test fun `fault after ledger insert rolls back ledger and projection`() {
-        val database = path("fault-rollback")
-        Files.createDirectories(database.parent); Files.deleteIfExists(database)
-        var fired = false
-        val fault = StoreFaultInjector { point -> if (!fired && point == StoreFaultPoint.AFTER_LEDGER_INSERT) { fired = true; error("synthetic injected failure") } }
-        QualificationLongitudinalStoreFactory.open(QualificationStoreLocation.file(database), IncrementingFixtureClock(Instant.parse("2040-01-01T00:00:00Z")), fault).use { store ->
-            SyntheticLongitudinalStoreHarness(path("fault-request")).use { requestHarness ->
-                val request = requestHarness.request(LongitudinalWriteOperation.AdmitSource(sourceDraft("fault")), AdmissionActor.USER, AdmissionOrigin.JOURNAL)
-                assertEquals(AdmissionDisposition.FAILED_WITHOUT_COMMIT, store.admission.submit(request).disposition)
+    @Test fun `every transaction fault point rolls back ledger and projection`() {
+        StoreFaultPoint.entries.forEach { injectedPoint ->
+            val suffix = injectedPoint.name.lowercase().replace('_', '-')
+            val database = path("fault-rollback-$suffix")
+            Files.createDirectories(database.parent); Files.deleteIfExists(database)
+            var fired = false
+            val fault = StoreFaultInjector { point ->
+                if (!fired && point == injectedPoint) {
+                    fired = true
+                    error("synthetic injected failure")
+                }
             }
-            assertEquals(0, store.reader.currentStoreRevision())
-            assertTrue(store.reader.snapshot().sources.isEmpty())
+            QualificationLongitudinalStoreFactory.open(
+                QualificationStoreLocation.file(database),
+                IncrementingFixtureClock(Instant.parse("2040-01-01T00:00:00Z")),
+                fault,
+            ).use { store ->
+                SyntheticLongitudinalStoreHarness(path("fault-request-$suffix")).use { requestHarness ->
+                    val request = requestHarness.request(
+                        LongitudinalWriteOperation.AdmitSource(sourceDraft("fault-$suffix")),
+                        AdmissionActor.USER,
+                        AdmissionOrigin.JOURNAL,
+                    )
+                    assertEquals(AdmissionDisposition.FAILED_WITHOUT_COMMIT, store.admission.submit(request).disposition)
+                }
+                assertEquals(0, store.reader.currentStoreRevision())
+                assertTrue(store.reader.snapshot().sources.isEmpty())
+            }
+            Files.deleteIfExists(database)
         }
-        Files.deleteIfExists(database)
     }
 
     @Test fun `unsupported persistent schema version fails closed`() {
