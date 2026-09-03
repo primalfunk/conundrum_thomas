@@ -26,6 +26,7 @@ rootProject.name = "Conundrum Thomas V2"
 include(":app")
 include(":thomas:domain")
 include(":thomas:provenance")
+include(":thomas:ontology")
 include(":thomas:engine")
 include(":thomas:safety")
 include(":thomas:runtime")

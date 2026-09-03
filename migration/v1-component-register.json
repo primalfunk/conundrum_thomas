@@ -2,7 +2,7 @@
   "$schema": "schemas/v1-component-register.schema.json",
   "schemaVersion": 1,
   "policy": {
-    "phase": "CT-V2-01",
+    "phase": "CT-V2-02",
     "defaultApprovalState": "DENIED",
     "v1CodeMigrationAuthorized": false,
     "therapeuticImplementationAuthorized": false,

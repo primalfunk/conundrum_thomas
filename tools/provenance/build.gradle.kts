@@ -19,6 +19,7 @@ dependencies {
     implementation(libs.sqlite.jdbc)
     implementation(project(":thomas:provenance"))
     testImplementation(libs.junit)
+    testImplementation(project(":thomas:ontology"))
 }
 
 tasks.register<JavaExec>("generateRuntimeProvenanceDb") {

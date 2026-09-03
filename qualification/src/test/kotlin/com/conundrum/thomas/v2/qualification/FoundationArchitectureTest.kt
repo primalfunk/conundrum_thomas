@@ -29,6 +29,7 @@ class FoundationArchitectureTest {
             ":app",
             ":thomas:domain",
             ":thomas:provenance",
+            ":thomas:ontology",
             ":thomas:engine",
             ":thomas:safety",
             ":thomas:runtime",
@@ -48,6 +49,10 @@ class FoundationArchitectureTest {
     fun `production dependency graph preserves authority boundaries`() {
         assertEquals(emptySet<String>(), projectDependencies("thomas/domain/build.gradle.kts"))
         assertEquals(setOf(":thomas:domain"), projectDependencies("thomas/provenance/build.gradle.kts"))
+        assertEquals(
+            setOf(":thomas:domain", ":thomas:provenance"),
+            projectDependencies("thomas/ontology/build.gradle.kts").filterNot { it == ":qualification" }.toSet(),
+        )
         assertEquals(
             setOf(":thomas:domain", ":thomas:provenance"),
             projectDependencies("thomas/engine/build.gradle.kts"),
@@ -128,7 +133,8 @@ class FoundationArchitectureTest {
         val forbiddenExtensions = setOf("gguf", "safetensors", "onnx", "tflite", "pte")
         val files = repositoryRoot.walkTopDown()
             .onEnter { directory ->
-                directory.name !in setOf(".git", ".git-ct-v2-setup", ".gradle", ".idea", "build")
+                !directory.name.startsWith(".git") &&
+                    directory.name !in setOf(".gradle", ".idea", "build")
             }
             .filter { it.isFile }
             .toList()
@@ -138,7 +144,10 @@ class FoundationArchitectureTest {
         assertTrue(text("provenance/.gitignore").contains("/raw/"))
         assertTrue(
             repositoryRoot.walkTopDown()
-                .onEnter { it.name !in setOf(".git", ".git-ct-v2-01-work", ".gradle", ".idea", "build", "raw") }
+                .onEnter {
+                    !it.name.startsWith(".git") &&
+                        it.name !in setOf(".gradle", ".idea", "build", "raw")
+                }
                 .filter { it.isFile }
                 .none { it.extension.lowercase() == "pdf" },
         )
@@ -149,7 +158,10 @@ class FoundationArchitectureTest {
 
     @Test
     fun `raw source cache is absent from the Git index`() {
-        val gitDirectory = listOf(file(".git"), file(".git-ct-v2-01-work"))
+        val gitDirectory = repositoryRoot.listFiles()
+            .orEmpty()
+            .filter { it.isDirectory && (it.name == ".git" || it.name.matches(Regex("\\.git-ct-v2-[0-9]+-work"))) }
+            .sortedBy { it.name }
             .firstOrNull { it.exists() }
         assertNotNull("Repository Git metadata is required for the tracked-raw-source audit", gitDirectory)
 
@@ -173,7 +185,7 @@ class FoundationArchitectureTest {
     }
 
     @Test
-    fun `CT-V2-01 records stay build time and CT-V2-02 remains unopened`() {
+    fun `source corpus stays build time and ontology phase adds no persistence`() {
         val seedDirectory = file("provenance/seeds")
         val persistenceSource = file("platform/persistence-android/src")
 
