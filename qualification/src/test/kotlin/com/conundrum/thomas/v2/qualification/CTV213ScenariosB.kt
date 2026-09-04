@@ -162,6 +162,11 @@ internal object CTV213ScenariosB {
     }
 
     private fun distinctActsAndLargeCorpus() {
+        val digestCommand = S.basicCommand("digest.reproducible")
+        val digestOne = S.renderer.render(digestCommand)
+        val digestTwo = S.renderer.render(digestCommand)
+        assertEquals(digestOne.finalText, digestTwo.finalText)
+        assertEquals(digestOne.canonicalRenderDigest, digestTwo.canonicalRenderDigest)
         val acts = listOf(GovernedSemanticAct.BRIEF_REFLECTION, GovernedSemanticAct.CLARIFYING_QUESTION,
             GovernedSemanticAct.OPEN_QUESTION, GovernedSemanticAct.AUTHORIZED_THERAPEUTIC_ACTION,
             GovernedSemanticAct.TENTATIVE_MEMORY_CONNECTION, GovernedSemanticAct.EXPLICIT_RECALL,
