@@ -10,6 +10,8 @@ V1 repositories, commits, binaries, and dirty worktrees are historical reference
 
 The governing architecture is [`docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md`](docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md). CT-V2-00 through CT-V2-05 established the sealed foundation, governed source corpus, behavior vocabulary, qualification-only procedural Therapist repertoire, and mandatory safety permit. CT-V2-06 added the evidence-first longitudinal domain. CT-V2-07 placed synthetic qualification writes behind a deterministic admission controller and rebuildable append-only store. [CT-V2-08](docs/CT-V2-08-LANGUAGE-TO-EVIDENCE-AND-STATE-FORMATION.md) adds bounded source-first perception and deterministic state formation. [CT-V2-09](docs/CT-V2-09-JOURNAL-CAPTURE-ENGINE.md) adds a source-first synthetic Journal capture engine with default silence and bounded response intents. No production data, model, Journal, or therapeutic authority is granted.
 
+[CT-V2-10](docs/CT-V2-10-BIOGRAPHER-COVERAGE-ENGINE.md) adds deterministic open-story and targeted historical coverage, one-question semantic authority, and state-based anti-repetition. No production Biographer authority is granted.
+
 The CT-V2-07 boundary is documented in [`docs/CT-V2-07-GOVERNED-ADMISSION-REVISION-AND-LONGITUDINAL-STORE.md`](docs/CT-V2-07-GOVERNED-ADMISSION-REVISION-AND-LONGITUDINAL-STORE.md).
 
 Android Studio must use the canonical project `.git` root throughout phase work; the invariant and check are documented in [`docs/workspace/CT-V2-08-ANDROID-STUDIO-VCS-ROOT.md`](docs/workspace/CT-V2-08-ANDROID-STUDIO-VCS-ROOT.md).

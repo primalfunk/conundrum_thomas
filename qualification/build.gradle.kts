@@ -25,6 +25,7 @@ dependencies {
     implementation(project(":thomas:longitudinal-store"))
     implementation(project(":thomas:language-evidence"))
     implementation(project(":thomas:journal"))
+    implementation(project(":thomas:biographer"))
     testImplementation(libs.junit)
     testImplementation(project(":thomas:runtime"))
 }

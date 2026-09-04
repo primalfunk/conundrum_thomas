@@ -45,6 +45,9 @@ These are production compile dependencies. `:qualification` may depend on each l
 :thomas:journal (synthetic qualification authority only)
   -> :thomas:language-evidence
 
+:thomas:biographer (synthetic qualification authority only)
+  -> :thomas:language-evidence
+
 :qualification
   -> :thomas:longitudinal-store
   -> :thomas:language-evidence
@@ -74,6 +77,7 @@ These are production compile dependencies. `:qualification` may depend on each l
 - `:thomas:longitudinal-store` depends only on admission and its transitive domain. It owns the JVM SQLite qualification adapter, injected store clock, append-only ledger, current projection, schema, transactions, replay, redacted audit, and read interfaces. Only `:qualification` consumes it in CT-V2-07; it has no application or production wiring.
 - `:thomas:language-evidence` is pure Kotlin and contains bounded deterministic perception and persistence-neutral state formation. It can propose grounded structures but cannot persist them. Only `:qualification` composes it with the CT-V2-07 store, and every durable object passes through the admission controller.
 - `:thomas:journal` is pure Kotlin and depends only on `:thomas:language-evidence` and its transitive governed contracts. It owns typed commit/revision/privacy commands and bounded response-intent policy, but no persistence implementation. Its sole adapter and complete write composition live in `:qualification` and delegate every durable operation to CT-V2-07.
+- `:thomas:biographer` is pure Kotlin and depends only on `:thomas:language-evidence` and its transitive governed contracts. It owns structural coverage, deterministic target ranking, one-question plans, operational investigation history, and source-first answer orchestration. Only `:qualification` composes it with the store; Therapy, Journal, Android, runtime, models, and V1 do not consume it.
 - CT-V2-03 explicitly authorizes `:thomas:engine` to consume the ontology for a qualification-only ruleset. Ontology remains behavior-free and has no dependency back to engine.
 - `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policies accept typed structured state, never raw user prose. CT-V2-05 adds hierarchical ordinary-route, action, and progression rules while preserving qualification execution authority and explicit production denial. Every ordinary evaluator requires a matching safety-issued permit.
 - Raw prose is not a policy input. Engine, safety, runtime, and app do not depend on `:thomas:language-evidence`; CT-V2-08 therefore grants no route, goal, action, or safety authority to language perception.

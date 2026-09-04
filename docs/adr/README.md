@@ -17,3 +17,4 @@
 | [0013](0013-governed-longitudinal-admission-store.md) | Governed longitudinal admission and synthetic store | Accepted for CT-V2-07 qualification |
 | [0014](0014-source-first-language-evidence-boundary.md) | Source-first language evidence and canonical Git metadata stability | Accepted for CT-V2-08 qualification |
 | [0015](0015-source-first-journal-capture.md) | Source-first Journal capture and bounded response postures | Accepted for CT-V2-09 qualification |
+| [0016](0016-deterministic-biographer-coverage.md) | Deterministic Biographer coverage and one-question authority | Accepted for CT-V2-10 qualification |
