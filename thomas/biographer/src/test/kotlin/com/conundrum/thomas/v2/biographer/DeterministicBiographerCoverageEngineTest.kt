@@ -99,6 +99,18 @@ class DeterministicBiographerCoverageEngineTest {
     }
 
     @Test
+    fun userNamedTargetCannotOverridePrivateCoverage() {
+        val target = candidate("gap.private", status = CoverageStatus.PRIVATE)
+        val request = CoverageRequest(
+            BiographerPosture.TARGETED_COVERAGE,
+            UserNamedCoverageTarget(target.id, "private-period"),
+        )
+        val decision = engine.decide(CoverageEvidence(1, candidates = listOf(target)), request = request)
+        assertEquals(BiographerQuestionDisposition.NO_TARGET, decision.disposition)
+        assertEquals(TargetEligibility.PRIVATE, decision.coverageMap.targets.single().eligibility)
+    }
+
+    @Test
     fun noEligibleTargetIsSuccessfulNoTarget() {
         val decision = engine.decide(CoverageEvidence(0), request = targeted())
         assertEquals(BiographerQuestionDisposition.NO_TARGET, decision.disposition)

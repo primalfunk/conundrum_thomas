@@ -159,7 +159,7 @@ class GovernedBiographerPipeline(
             receipt.admittedEvidenceIds.isEmpty() -> InvestigationAnswerDisposition.NO_EXTRACTABLE_EVIDENCE
             else -> InvestigationAnswerDisposition.ANSWERED_RELEVANT
         }
-        val nextHistory = if (target == null) {
+        val nextHistory = if (target == null || receipt == null) {
             history
         } else {
             history.recordOutcome(

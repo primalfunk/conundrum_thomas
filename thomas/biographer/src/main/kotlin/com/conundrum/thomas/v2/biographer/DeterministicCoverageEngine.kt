@@ -69,16 +69,26 @@ class DeterministicBiographerCoverageEngine {
     ): List<InvestigationTarget> {
         val candidates = evidence.candidates.toMutableList()
         request.userNamedTarget?.let { named ->
-            candidates.removeAll { it.id == named.id }
-            candidates += CoverageCandidate(
-                named.id,
-                InvestigationTargetKind.USER_NAMED_TOPIC,
-                named.groundingIds,
-                reasonCode = "EXPLICIT_CURRENT_USER_TARGET:" + named.topicConcept,
-                status = CoverageStatus.UNRESOLVED,
-                safeFacts = emptyList(),
-                materialChangeToken = "user:" + named.topicConcept,
-            )
+            val existingIndex = candidates.indexOfFirst { it.id == named.id }
+            val userDirected = if (existingIndex >= 0) {
+                val existing = candidates[existingIndex]
+                existing.copy(
+                    kind = InvestigationTargetKind.USER_NAMED_TOPIC,
+                    reasonCode = "EXPLICIT_CURRENT_USER_TARGET:" + named.topicConcept,
+                    materialChangeToken = existing.materialChangeToken + "|user:" + named.topicConcept,
+                )
+            } else {
+                CoverageCandidate(
+                    named.id,
+                    InvestigationTargetKind.USER_NAMED_TOPIC,
+                    named.groundingIds,
+                    reasonCode = "EXPLICIT_CURRENT_USER_TARGET:" + named.topicConcept,
+                    status = CoverageStatus.UNRESOLVED,
+                    safeFacts = emptyList(),
+                    materialChangeToken = "user:" + named.topicConcept,
+                )
+            }
+            if (existingIndex >= 0) candidates[existingIndex] = userDirected else candidates += userDirected
         }
         return candidates.distinctBy { it.id }.map { candidate ->
             val prior = history.entries[candidate.id]
