@@ -11,3 +11,13 @@ Because automated repository work cannot inspect the running Android Studio UI, 
 `VCS_MAPPING_REPAIR_IMPLEMENTED`
 
 `PRINCIPAL_IDE_RESTART_CONFIRMATION_REQUIRED`
+
+## CT-V2-09 follow-up
+
+CT-V2-09 re-ran the canonical-root script before implementation and final sealing. Git continued to report `C:/Android Studio Projects/ConundrumThomasV2` with `.git`, the project mapping remained `$PROJECT_DIR$` / `Git`, and temporary metadata count remained zero.
+
+    VCS_ROOT_ON_DISK_VALID
+    IDE_VISUAL_CONFIRMATION_AVAILABLE = false
+    IDE_INVALID_VCS_WARNING_OBSERVED = unknown
+
+The running IDE was not directly observable, so CT-V2-09 does not claim the prior warning visibly absent. `.git` was never relocated, hidden, substituted, or redirected.
