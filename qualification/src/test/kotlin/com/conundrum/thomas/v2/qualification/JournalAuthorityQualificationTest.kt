@@ -63,7 +63,14 @@ class JournalAuthorityQualificationTest {
         val consumers = root.toFile().walkTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:journal")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
-        assertEquals(listOf("qualification/build.gradle.kts"), consumers)
+        assertEquals(
+            listOf("qualification/build.gradle.kts", "thomas/language-renderer/build.gradle.kts"),
+            consumers,
+        )
+        val rendererSource = root.resolve("thomas/language-renderer/src/main").toFile().walkTopDown()
+            .filter { it.isFile }.joinToString("\n") { it.readText() }
+        listOf("JournalCaptureEngine", "LongitudinalAdmissionController", "GovernedJournalCapturePipeline")
+            .forEach { assertFalse(rendererSource.contains(it)) }
         listOf("app/build.gradle.kts", "thomas/runtime/build.gradle.kts").forEach {
             val build = text(it)
             assertFalse(build.contains(":thomas:journal"))
