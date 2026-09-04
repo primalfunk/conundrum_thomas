@@ -231,11 +231,20 @@ internal object CTV211ScenariosC {
         it.isFile && it.name.endsWith(".gradle.kts") && "build" !in it.toPath().map(Path::toString)
     }.joinToString("\n") { it.readText() }
     private fun assertProductionCompositionRootsZero() {
-        val consumers = gradleFiles().lineSequence().filter { ":thomas:retrieval" in it || ":thomas:context-packet" in it }.toList()
-        assertEquals(5, consumers.size)
-        assertEquals(3, consumers.count { "project(\":thomas:" in it })
+        val consumers = root.toFile().walkTopDown().filter { file ->
+            file.isFile && file.name == "build.gradle.kts" &&
+                "build" !in file.toPath().map(Path::toString) &&
+                (file.readText().contains(":thomas:retrieval") || file.readText().contains(":thomas:context-packet"))
+        }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.toSet()
+        assertEquals(setOf(
+            "qualification/build.gradle.kts",
+            "thomas/context-packet/build.gradle.kts",
+            "thomas/therapy-longitudinal/build.gradle.kts",
+        ), consumers)
         val qualification = File(root.toFile(), "qualification/build.gradle.kts").readText()
         assertTrue(qualification.contains(":thomas:retrieval") && qualification.contains(":thomas:context-packet"))
+        val integration = File(root.toFile(), "thomas/therapy-longitudinal/build.gradle.kts").readText()
+        assertTrue(integration.contains(":thomas:retrieval") && integration.contains(":thomas:context-packet"))
     }
     private fun assertAndroidCompositionRootsZero() {
         val appText = sourceText("app") + File(root.toFile(), "app/build.gradle.kts").readText()

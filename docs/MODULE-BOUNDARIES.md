@@ -54,12 +54,22 @@ These are production compile dependencies. `:qualification` may depend on each l
 :thomas:context-packet (synthetic qualification only)
   -> :thomas:retrieval
 
+:thomas:therapy-longitudinal (synthetic qualification only)
+  -> :thomas:engine
+  -> :thomas:safety
+  -> :thomas:context-packet
+  -> :thomas:retrieval
+  -> :thomas:language-evidence
+  -> :thomas:longitudinal-admission
+  -> :thomas:longitudinal
+
 :qualification
   -> :thomas:longitudinal-store
   -> :thomas:language-evidence
   -> :thomas:journal
   -> :thomas:biographer
   -> :thomas:context-packet
+  -> :thomas:therapy-longitudinal
 
 :platform:persistence-android
   -> :thomas:domain
@@ -88,6 +98,7 @@ These are production compile dependencies. `:qualification` may depend on each l
 - `:thomas:biographer` is pure Kotlin and depends only on `:thomas:language-evidence` and its transitive governed contracts. It owns structural coverage, deterministic target ranking, one-question plans, operational investigation history, and source-first answer orchestration. Only `:qualification` composes it with the store; Therapy, Journal, Android, runtime, models, and V1 do not consume it.
 - `:thomas:retrieval` is pure Kotlin and depends only on `:thomas:longitudinal`. It owns the persistence-neutral read port, typed purpose/mode requests, eligibility, deterministic ranking, balanced evidence neighborhoods, exact-span excerpt proposals, and no writer.
 - `:thomas:context-packet` is pure Kotlin and depends only on retrieval. It owns immutable packet layers, source-data authority labels, explicit count/text/depth budgets, epistemically safe excerpt truncation, and canonical packet digests. Only `:qualification` binds it to the CT-V2-07 reader.
+- `:thomas:therapy-longitudinal` is a pure Kotlin CT-V2-12 composition module. It preserves current-source capture before safety, CT-V2-04 safety before CT-V2-05 policy, and route selection before CT-V2-11 retrieval. It receives only typed ports, exposes no SQL/JDBC or store implementation, limits ordinary surfaced history to one object, and gives a future renderer only explicitly authorized memory support. It is consumed only by `:qualification`.
 - Retrieval does not depend on Journal, Biographer, Therapy, safety, Android, models, or the store. It cannot alter a mode contract, route, target, evidence, lifecycle, privacy, or projection.
 - CT-V2-03 explicitly authorizes `:thomas:engine` to consume the ontology for a qualification-only ruleset. Ontology remains behavior-free and has no dependency back to engine.
 - `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policies accept typed structured state, never raw user prose. CT-V2-05 adds hierarchical ordinary-route, action, and progression rules while preserving qualification execution authority and explicit production denial. Every ordinary evaluator requires a matching safety-issued permit.

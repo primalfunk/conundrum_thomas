@@ -450,6 +450,8 @@ class LongitudinalTherapyIntegrationEngine(
                 it.metadata.selectedCount,
                 it.metadata.exclusions.privateCount,
                 it.metadata.exclusions.lifecycleCount,
+                it.metadata.totalTextCharacters,
+                it.metadata.maximumTraversalDepthUsed,
             )
         }
         val finalTrace = trace.toList() + TherapyIntegrationStep.PLAN_CONSTRUCTED

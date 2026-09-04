@@ -249,10 +249,21 @@ internal object CTV212ScenariosC {
     private fun assertThomasConnectionNeverEvidence() = assertMemoryReferenceDoesNotWrite()
 
     private fun assertLargeArchiveBounded() {
+        val started = System.nanoTime()
         val plan = requireNotNull(S.runFake(S.workArchive(400), CTV212TestSupport.FakeOptions(
             explicitTarget = "assertion.memory-1",
+            packetTransform = S.withReason(com.conundrum.thomas.v2.retrieval.RetrievalReason.EXPLICIT_TARGET),
         )).plan)
+        val elapsedMs = (System.nanoTime() - started) / 1_000_000
         assertTrue(plan.surfacedMemories.size <= 1)
+        assertEquals(1, plan.surfacedMemories.size)
         assertTrue((plan.contextSummary?.selectedCount ?: 0) <= 8)
+        val summary = requireNotNull(plan.contextSummary)
+        println(
+            "CT_V2_12_LARGE_HISTORY sources=400 derived_objects=400 candidates=${summary.candidateCount} " +
+                "selected=${summary.selectedCount} packet_text_characters=${summary.packetTextCharacters} " +
+                "source_excerpts_max=4 traversal_depth=${summary.maximumTraversalDepthUsed} " +
+                "surfaced=${plan.surfacedMemories.size} plan_characters=${plan.toString().length} elapsed_ms=$elapsedMs",
+        )
     }
 }

@@ -19,7 +19,7 @@ class LanguageEvidenceBoundaryQualificationTest {
         assertFalse(text("thomas/engine/build.gradle.kts").contains(":thomas:language-evidence"))
     }
 
-    @Test fun onlyAuthorizedJournalBiographerAndQualificationConsumeLanguageEvidence() {
+    @Test fun onlyAuthorizedSyntheticCaptureAndQualificationModulesConsumeLanguageEvidence() {
         val consumers = root.toFile().walkTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:language-evidence")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
@@ -28,6 +28,7 @@ class LanguageEvidenceBoundaryQualificationTest {
                 "qualification/build.gradle.kts",
                 "thomas/biographer/build.gradle.kts",
                 "thomas/journal/build.gradle.kts",
+                "thomas/therapy-longitudinal/build.gradle.kts",
             ),
             consumers,
         )

@@ -368,8 +368,13 @@ data class PlannerLongitudinalContextSummary(
     val selectedCount: Int,
     val excludedPrivateCount: Int,
     val excludedLifecycleCount: Int,
+    val packetTextCharacters: Int,
+    val maximumTraversalDepthUsed: Int,
 ) {
-    init { require(packetDigest.matches(Regex("^[0-9a-f]{64}$")) && snapshotRevision >= 0) }
+    init {
+        require(packetDigest.matches(Regex("^[0-9a-f]{64}$")) && snapshotRevision >= 0)
+        require(packetTextCharacters >= 0 && maximumTraversalDepthUsed >= 0)
+    }
 }
 
 data class TherapyRenderSupportEnvelope(
