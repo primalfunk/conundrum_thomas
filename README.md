@@ -93,11 +93,14 @@ technique selection, and the current turn cannot retrieve itself as history.
 | Android persistence composition and real-user ingestion | **Not admitted** |
 | Production language model | **Not admitted** |
 
-The sealed CT-V2-13 qualification recorded 872 tests with zero failures, errors,
-or skips; 347 executed build tasks; zero lint errors or fatals; and successful
-debug and unsigned-release APK assembly. See the
-[qualification record](docs/qualification/CT-V2-13-QUALIFICATION.md) for the
-scope and limitations behind those numbers.
+The CT-V2-14 sealing qualification recorded 929 tests with zero failures,
+errors, or skips; 356 executed build tasks; zero lint errors or fatals; and
+successful debug and unsigned-release APK assembly. Its production-capable
+protected store remains deliberately isolated from the app, so these results
+authorize the persistence boundary—not real-user ingestion or Android product
+composition. See the
+[qualification record](docs/qualification/CT-V2-14-QUALIFICATION.md) for the
+scope, threat assumptions, and limitations behind those numbers.
 
 ## Quick start
 
