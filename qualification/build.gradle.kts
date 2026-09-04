@@ -23,6 +23,7 @@ dependencies {
     implementation(project(":thomas:safety"))
     implementation(project(":thomas:longitudinal"))
     implementation(project(":thomas:longitudinal-store"))
+    implementation(project(":thomas:personal-data-persistence"))
     implementation(project(":thomas:language-evidence"))
     implementation(project(":thomas:journal"))
     implementation(project(":thomas:biographer"))

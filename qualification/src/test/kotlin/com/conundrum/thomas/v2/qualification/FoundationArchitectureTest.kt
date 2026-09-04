@@ -34,6 +34,7 @@ class FoundationArchitectureTest {
             ":thomas:engine",
             ":thomas:safety",
             ":thomas:longitudinal",
+            ":thomas:personal-data-persistence",
             ":thomas:runtime",
             ":platform:persistence-android",
             ":platform:renderer-llama-android",
@@ -69,7 +70,7 @@ class FoundationArchitectureTest {
             projectDependencies("thomas/runtime/build.gradle.kts"),
         )
         assertEquals(setOf(":thomas:runtime"), projectDependencies("app/build.gradle.kts"))
-        assertEquals(setOf(":thomas:domain"), projectDependencies("platform/persistence-android/build.gradle.kts"))
+        assertEquals(setOf(":thomas:personal-data-persistence"), projectDependencies("platform/persistence-android/build.gradle.kts"))
         assertEquals(setOf(":thomas:domain"), projectDependencies("platform/renderer-llama-android/build.gradle.kts"))
         assertEquals(setOf(":thomas:domain"), projectDependencies("platform/speech-android/build.gradle.kts"))
     }
@@ -204,13 +205,15 @@ class FoundationArchitectureTest {
     }
 
     @Test
-    fun `source corpus stays build time and ontology phase adds no persistence`() {
+    fun `source corpus stays build time and persistence remains outside the application root`() {
         val seedDirectory = file("provenance/seeds")
         val persistenceSource = file("platform/persistence-android/src")
 
         assertNotNull(seedDirectory.listFiles())
         assertTrue(seedDirectory.listFiles()!!.any { it.extension == "sql" })
-        assertFalse(persistenceSource.exists())
+        assertTrue(persistenceSource.exists())
+        assertFalse(text("app/build.gradle.kts").contains(":platform:persistence-android"))
+        assertFalse(text("thomas/runtime/build.gradle.kts").contains(":thomas:personal-data-persistence"))
         assertFalse(text("thomas/runtime/build.gradle.kts").contains(":tools:provenance"))
         assertFalse(text("app/build.gradle.kts").contains(":tools:provenance"))
     }

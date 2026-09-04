@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":thomas:domain"))
+    api(project(":thomas:personal-data-persistence"))
 }
