@@ -1,21 +1,78 @@
+# IDE and workstation state
 *.iml
+/.idea/
+/.vscode/
+/.agents/
+/.codex/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# Gradle, Kotlin, Android, and native build output
 /.gradle/
 /.android/
 /.kotlin/
 /local.properties
-/.idea/
-.DS_Store
 **/build/
-/captures
-.externalNativeBuild
-.cxx
+/out/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.class
+*.apk
+*.aab
+*.apks
+*.aar
 
-# Local credentials and signing material
+# Local credentials, service configuration, and signing material
 .env
 .env.*
+!.env.example
+!.env.sample
 secrets.properties
+keystore.properties
+signing.properties
+google-services.json
+service-account*.json
+firebaseAppDistributionServiceCredentialsFile.json
 *.jks
 *.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Local databases, personal data, exports, and ephemeral context artifacts
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.wal
+*.shm
+/private-data/
+/user-data/
+/runtime-data/
+/recordings/
+/audio-captures/
+/exports/
+/backups/
+/context-packets/
+/render-dumps/
+
+# Logs, profiles, crash dumps, and temporary patch artifacts
+*.log
+*.hprof
+*.heapdump
+*.trace
+hs_err_pid*
+*.tmp
+*.bak
+*.orig
+*.rej
 
 # Model assets are admitted only through a future governed artifact process.
 /models/
