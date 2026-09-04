@@ -3,10 +3,14 @@ package com.conundrum.thomas.v2.qualification
 import com.conundrum.thomas.v2.contextpacket.ContextPacketBuildRequest
 import com.conundrum.thomas.v2.contextpacket.ModeAuthorityContract
 import com.conundrum.thomas.v2.contextpacket.ModeAuthorityState
+import com.conundrum.thomas.v2.journal.JournalCaptureOrigin
 import com.conundrum.thomas.v2.journal.JournalCommitCommand
+import com.conundrum.thomas.v2.journal.JournalEntryId
+import com.conundrum.thomas.v2.journal.JournalIdempotencyKey
 import com.conundrum.thomas.v2.journal.JournalResponsePreference
 import com.conundrum.thomas.v2.longitudinal.EvidenceEpistemicClass
 import com.conundrum.thomas.v2.longitudinal.PersonalConceptId
+import com.conundrum.thomas.v2.longitudinal.ReportTime
 import com.conundrum.thomas.v2.longitudinal.admission.AdmissionDisposition
 import com.conundrum.thomas.v2.longitudinal.store.QualificationStoreLocation
 import com.conundrum.thomas.v2.qualification.longitudinalstore.SyntheticLongitudinalStoreHarness
@@ -46,9 +50,16 @@ internal object CTV211ScenariosC {
             assertTrue(S.retrieve(archive).candidateCount >= 200)
         }
         68 -> {
-            val elapsed = measureNanoTime { S.packet(largeArchive(400)) }
-            val packet = S.packet(largeArchive(400)).packet!!
+            val archive = largeArchive(400)
+            lateinit var result: com.conundrum.thomas.v2.contextpacket.ContextPacketBuildResult
+            val elapsed = measureNanoTime { result = S.packet(archive) }
+            val packet = result.packet!!
             assertTrue(packet.longitudinal.items.size <= 8); assertTrue(elapsed > 0)
+            println("CT_V2_11_LARGE_FIXTURE sources=${archive.evidence.sources.size} " +
+                "derived=${archive.evidence.assertions.size} candidates=${packet.metadata.candidateCount} " +
+                "selected=${packet.metadata.selectedCount} text=${packet.metadata.totalTextCharacters} " +
+                "excerpts=${packet.excerpts.excerpts.size} depth=${packet.metadata.maximumTraversalDepthUsed} " +
+                "elapsed_ms=${elapsed / 1_000_000}")
         }
         69 -> {
             val small = S.packet(largeArchive(20)).packet!!
@@ -80,9 +91,17 @@ internal object CTV211ScenariosC {
         }
         86 -> assertNoProductionReferenceToRetrieval("thomas/journal")
         87 -> assertNoProductionReferenceToRetrieval("thomas/biographer")
-        88 -> assertEquals(JournalResponsePreference.NO_RESPONSE, JournalCommitCommand::class.java
-            .declaredConstructors.first().parameters.firstOrNull { it.name == "responsePreference" }?.let { JournalResponsePreference.NO_RESPONSE }
-            ?: JournalResponsePreference.NO_RESPONSE)
+        88 -> {
+            val command = JournalCommitCommand(
+                entryId = JournalEntryId.parse("ct-v2-11-default"),
+                idempotencyKey = JournalIdempotencyKey.parse("ct-v2-11-default-key"),
+                expectedStoreRevision = 0,
+                committedText = "Synthetic Journal entry",
+                captureOrigin = JournalCaptureOrigin.TYPED,
+                reportTime = ReportTime(Instant.parse("2040-09-03T12:00:00Z")),
+            )
+            assertEquals(JournalResponsePreference.NO_RESPONSE, command.responsePreference)
+        }
         89 -> assertNoProductionReferenceToRetrieval("thomas/biographer/src/main/kotlin")
         90 -> assertProductionCompositionRootsZero()
         91 -> assertAndroidCompositionRootsZero()

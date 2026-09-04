@@ -20,7 +20,7 @@ The trace is represented by typed `RetrievalReason` values such as `EXPLICIT_TAR
 
 ## Lexical policy
 
-Lexical matching is local and model-free. It uses Unicode alphanumeric tokenization, `Locale.ROOT` lowercase normalization, a fixed small stop-word set, exact normalized token/phrase comparisons, and deterministic counts. It is enabled as a candidate reason only for explicit Journal Look Back. It never outranks explicit structural linkage and never resolves identity.
+Lexical matching is local and model-free. It uses Unicode alphanumeric tokenization, `Locale.ROOT` lowercase normalization, a fixed small stop-word set, exact normalized-token comparison, and deterministic counts. A multiword anchor is decomposed into tokens; CT-V2-11 applies no phrase bonus. It is enabled as a candidate reason only for explicit Journal Look Back. It never outranks explicit structural linkage and never resolves identity.
 
 ## Temporal policy
 
