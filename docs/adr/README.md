@@ -18,3 +18,5 @@
 | [0014](0014-source-first-language-evidence-boundary.md) | Source-first language evidence and canonical Git metadata stability | Accepted for CT-V2-08 qualification |
 | [0015](0015-source-first-journal-capture.md) | Source-first Journal capture and bounded response postures | Accepted for CT-V2-09 qualification |
 | [0016](0016-deterministic-biographer-coverage.md) | Deterministic Biographer coverage and one-question authority | Accepted for CT-V2-10 qualification |
+| [0017](0017-purpose-bound-longitudinal-retrieval.md) | Purpose-bound read-only longitudinal retrieval | Accepted for CT-V2-11 qualification |
+| [0018](0018-route-first-longitudinal-therapy-composition.md) | Route-first longitudinal Therapy composition | Accepted for CT-V2-12 qualification |
