@@ -16,6 +16,8 @@ The governing architecture is [`docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md`](docs/
 
 [CT-V2-12](docs/CT-V2-12-LONGITUDINAL-THERAPIST-INTEGRATION.md) composes current Therapy source capture, the existing safety permit, CT-V2-05 route selection, pre-turn-revision CT-V2-11 retrieval, a conservative memory-use gate, and a typed renderer-support boundary. Memory has zero route, technique, safety, or evidence-write authority; the phase remains synthetic-only and unwired from Android and models.
 
+[CT-V2-13](docs/CT-V2-13-GOVERNED-LANGUAGE-RENDERER.md) adds a pure typed rendering cage: minimal mode-specific commands, untrusted candidate realization, deterministic validation, bounded surface anti-repetition, and safe fallback. The renderer has zero policy, retrieval, evidence, model, Android, or production authority.
+
 The CT-V2-07 boundary is documented in [`docs/CT-V2-07-GOVERNED-ADMISSION-REVISION-AND-LONGITUDINAL-STORE.md`](docs/CT-V2-07-GOVERNED-ADMISSION-REVISION-AND-LONGITUDINAL-STORE.md).
 
 Android Studio must use the canonical project `.git` root throughout phase work; the invariant and check are documented in [`docs/workspace/CT-V2-08-ANDROID-STUDIO-VCS-ROOT.md`](docs/workspace/CT-V2-08-ANDROID-STUDIO-VCS-ROOT.md).
