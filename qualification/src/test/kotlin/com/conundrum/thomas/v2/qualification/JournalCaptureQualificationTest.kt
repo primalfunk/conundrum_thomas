@@ -15,7 +15,6 @@ import com.conundrum.thomas.v2.journal.JournalResponseSemanticAct
 import com.conundrum.thomas.v2.journal.JournalIdempotencyKey
 import com.conundrum.thomas.v2.languageevidence.stateformation.OpenEvidenceQuestionKind
 import com.conundrum.thomas.v2.longitudinal.AcquisitionMode
-import com.conundrum.thomas.v2.longitudinal.ApproximationPrecision
 import com.conundrum.thomas.v2.longitudinal.EventTime
 import com.conundrum.thomas.v2.longitudinal.EvidenceEpistemicClass
 import com.conundrum.thomas.v2.longitudinal.OriginalSourceContent
@@ -168,7 +167,6 @@ class JournalCaptureQualificationTest {
         CTV209TestSupport.capture(harness, pipeline, "a17", "I remembered today that we moved around 2012.")
         val snapshot = harness.store.reader.snapshot()
         assertEquals(EventTime.ApproximateYear(Year.of(2012)), snapshot.assertions.single().eventTime)
-        assertEquals(ApproximationPrecision.YEAR, ApproximationPrecision.YEAR)
         assertEquals("2039-09-03T12:00:00Z", snapshot.sources.single().reportTime.value.toString())
     }
 
