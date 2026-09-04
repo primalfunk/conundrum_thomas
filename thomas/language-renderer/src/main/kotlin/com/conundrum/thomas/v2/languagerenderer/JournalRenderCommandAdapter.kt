@@ -35,7 +35,7 @@ object JournalRenderCommandAdapter {
                 budget = RenderBudget.BRIEF_REFLECTION
                 forms = listOf(
                     statement,
-                    "What you wrote conveys ${grounding.surfaceMeaning}.",
+                    "You described in this entry that ${grounding.surfaceMeaning}.",
                     "In this entry, you described ${grounding.surfaceMeaning}.",
                 )
             }
@@ -45,7 +45,7 @@ object JournalRenderCommandAdapter {
                 budget = RenderBudget.ONE_QUESTION
                 forms = listOf(
                     "You described ${grounding.surfaceMeaning}. What part stands out most to you?",
-                    "What would you like to explore about ${grounding.surfaceMeaning}?",
+                    "You described ${grounding.surfaceMeaning}. What would you like to explore?",
                 )
             }
         }

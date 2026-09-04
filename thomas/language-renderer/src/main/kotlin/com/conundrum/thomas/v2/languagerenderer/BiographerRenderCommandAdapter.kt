@@ -32,7 +32,7 @@ object BiographerRenderCommandAdapter {
             memoryReferencePermission = MemoryReferencePermission.NONE,
             allowedEntityNames = grounding.allowedEntityNames,
             allowedTemporalLiterals = grounding.allowedTemporalLiterals + temporalLiterals(grounding.temporalScope),
-            prohibitedLiteralPhrases = setOf("traumatized", "made you insecure", "depression began"),
+            prohibitedLiteralPhrases = setOf("traumatize", "traumatized", "made you insecure", "depression began"),
             authorizedReferenceRealizations = forms, deterministicFallbackText = forms.first(),
             fallbackAuthority = RenderFallbackAuthority.DETERMINISTIC_FALLBACK,
         )

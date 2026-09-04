@@ -72,16 +72,25 @@ class GovernedLanguageRenderer(
         attempts: Int,
         rejected: List<List<RenderValidationReason>>,
     ): GovernedRenderResult {
-        val text = command.deterministicFallbackText
-            ?: return noOutput(command, history, RenderDisposition.RENDERING_UNAVAILABLE,
-                RenderValidationReason.EMPTY_OUTPUT, attempts, rejected)
-        val candidate = referenceRealizer.fallback(input, text)
-        val validation = validator.validate(command, candidate, history)
-        if (!validation.accepted) {
-            return noOutput(command, history, RenderDisposition.RENDERING_UNAVAILABLE,
-                validation.reasonCodes.first(), attempts, rejected + listOf(validation.reasonCodes))
+        val selected = when (val outcome = referenceRealizer.realize(input, 1)) {
+            is CandidateRealizationOutcome.Candidate -> outcome.realization
+            else -> null
         }
-        return accepted(command, history, candidate, validation, attempts, true,
+        val candidates = listOfNotNull(
+            selected,
+            command.deterministicFallbackText?.let { referenceRealizer.fallback(input, it) },
+        ).distinctBy { it.text }
+        val accepted = candidates.asSequence().map { it to validator.validate(command, it, history) }
+            .firstOrNull { it.second.accepted }
+        if (accepted == null) {
+            val lastValidation = candidates.lastOrNull()?.let { validator.validate(command, it, history) }
+            return noOutput(command, history, RenderDisposition.RENDERING_UNAVAILABLE,
+                lastValidation?.reasonCodes?.firstOrNull() ?: RenderValidationReason.EMPTY_OUTPUT,
+                attempts,
+                if (lastValidation == null) rejected else rejected + listOf(lastValidation.reasonCodes),
+            )
+        }
+        return accepted(command, history, accepted.first, accepted.second, attempts, true,
             AcceptedRealizationSource.DETERMINISTIC_FALLBACK, RenderDisposition.FALLBACK_REALIZATION, rejected)
     }
 
