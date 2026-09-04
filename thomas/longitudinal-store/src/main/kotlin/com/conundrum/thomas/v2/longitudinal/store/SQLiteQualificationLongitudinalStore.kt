@@ -405,7 +405,8 @@ internal class SQLiteQualificationLongitudinalStore private constructor(
         is LongitudinalWriteOperation.ReviseIdentityLink -> listOf("IDENTITY_DECISION" to operation.decision.id.value)
         is LongitudinalWriteOperation.ChangeCoverage,
         is LongitudinalWriteOperation.ChangePrivacy,
-        is LongitudinalWriteOperation.RetireClaim -> emptyList()
+        is LongitudinalWriteOperation.RetireClaim,
+        is LongitudinalWriteOperation.DeleteSource -> emptyList()
     }
 
     private fun immutableObjectExists(key: Pair<String, String>): Boolean = connection.prepareStatement(

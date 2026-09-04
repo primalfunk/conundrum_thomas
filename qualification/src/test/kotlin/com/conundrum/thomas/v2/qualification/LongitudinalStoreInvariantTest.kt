@@ -64,8 +64,11 @@ class LongitudinalStoreInvariantTest {
         }
     }
 
-    @Test fun `qualification classification has no production alternative`() {
-        assertEquals(listOf(StoreDataClassification.SYNTHETIC_QUALIFICATION_ONLY), StoreDataClassification.entries)
+    @Test fun `qualification and protected production classifications remain explicit`() {
+        assertEquals(
+            listOf(StoreDataClassification.SYNTHETIC_QUALIFICATION_ONLY, StoreDataClassification.PROTECTED_PERSONAL_DATA),
+            StoreDataClassification.entries,
+        )
     }
 
     @Test fun `lifecycle history records active then private without deleting assertion`() {

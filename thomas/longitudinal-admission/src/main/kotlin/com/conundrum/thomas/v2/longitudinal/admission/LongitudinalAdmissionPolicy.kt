@@ -2,6 +2,10 @@ package com.conundrum.thomas.v2.longitudinal.admission
 
 import com.conundrum.thomas.v2.longitudinal.AcquisitionMode
 import com.conundrum.thomas.v2.longitudinal.AssertionId
+import com.conundrum.thomas.v2.longitudinal.Behavior
+import com.conundrum.thomas.v2.longitudinal.CopingResponse
+import com.conundrum.thomas.v2.longitudinal.Decision
+import com.conundrum.thomas.v2.longitudinal.EvidenceAssertion
 import com.conundrum.thomas.v2.longitudinal.AssertionSubject
 import com.conundrum.thomas.v2.longitudinal.AssertionValue
 import com.conundrum.thomas.v2.longitudinal.ClaimReference
@@ -12,19 +16,29 @@ import com.conundrum.thomas.v2.longitudinal.HypothesisDependency
 import com.conundrum.thomas.v2.longitudinal.HypothesisStatus
 import com.conundrum.thomas.v2.longitudinal.InformationCoverageStatus
 import com.conundrum.thomas.v2.longitudinal.IdentityLinkId
+import com.conundrum.thomas.v2.longitudinal.LifeEntity
+import com.conundrum.thomas.v2.longitudinal.LifeEvent
+import com.conundrum.thomas.v2.longitudinal.LifePeriod
 import com.conundrum.thomas.v2.longitudinal.LongitudinalEvidenceSnapshot
 import com.conundrum.thomas.v2.longitudinal.LongitudinalValidationIssue
 import com.conundrum.thomas.v2.longitudinal.PersonalEvidenceProvenance
+import com.conundrum.thomas.v2.longitudinal.Person
+import com.conundrum.thomas.v2.longitudinal.Place
 import com.conundrum.thomas.v2.longitudinal.RecordTime
 import com.conundrum.thomas.v2.longitudinal.SourceAuthorRole
 import com.conundrum.thomas.v2.longitudinal.SourceRecord
+import com.conundrum.thomas.v2.longitudinal.Relationship
+import com.conundrum.thomas.v2.longitudinal.Role
+import com.conundrum.thomas.v2.longitudinal.Outcome
 import com.conundrum.thomas.v2.longitudinal.SupersessionKind
 import com.conundrum.thomas.v2.longitudinal.ThomasHypothesis
 import com.conundrum.thomas.v2.longitudinal.UserEvidenceKind
 import com.conundrum.thomas.v2.longitudinal.sourceTextSha256
 
 /** Deterministic qualification policy. It plans immutable state; it cannot persist or issue receipts. */
-class LongitudinalAdmissionPolicy {
+class LongitudinalAdmissionPolicy(
+    private val allowedClassification: StoreDataClassification = StoreDataClassification.SYNTHETIC_QUALIFICATION_ONLY,
+) {
     fun plan(
         request: LongitudinalAdmissionRequest,
         current: LongitudinalAggregateState,
@@ -33,8 +47,8 @@ class LongitudinalAdmissionPolicy {
         if (request.policyVersion != AdmissionPolicyVersion.CT_V2_07_V1) {
             return rejected(AdmissionDisposition.REJECTED_AUTHORITY, "UNSUPPORTED_POLICY_VERSION")
         }
-        if (request.classification != StoreDataClassification.SYNTHETIC_QUALIFICATION_ONLY) {
-            return rejected(AdmissionDisposition.REJECTED_AUTHORITY, "NON_SYNTHETIC_AUTHORITY")
+        if (request.classification != allowedClassification) {
+            return rejected(AdmissionDisposition.REJECTED_AUTHORITY, "STORE_CLASSIFICATION_MISMATCH")
         }
         if (request.expectedStoreRevision != current.storeRevision) {
             return rejected(AdmissionDisposition.REJECTED_STALE_REVISION, "STALE_STORE_REVISION")
@@ -53,6 +67,7 @@ class LongitudinalAdmissionPolicy {
                 is LongitudinalWriteOperation.ChangeCoverage -> changeCoverage(current, operation, nextRevision)
                 is LongitudinalWriteOperation.ChangePrivacy -> changePrivacy(current, operation, nextRevision)
                 is LongitudinalWriteOperation.RetireClaim -> retireClaim(current, operation, nextRevision)
+                is LongitudinalWriteOperation.DeleteSource -> deleteSource(request, current, operation, nextRevision)
             }
             val validation = mutation.state.snapshot.validationIssues()
             if (validation.isNotEmpty()) rejectValidation(validation) else AdmissionPlanResult.Accepted(mutation)
@@ -75,7 +90,9 @@ class LongitudinalAdmissionPolicy {
         if (recordTime.value.isBefore(draft.reportTime.value)) {
             fail(AdmissionDisposition.REJECTED_TEMPORAL_DISHONESTY, "STORE_TIME_PRECEDES_REPORT_TIME")
         }
-        if (current.sourceHistory(draft.stableSourceId).isNotEmpty() || current.snapshot.sources.any { it.id == draft.revisionId }) {
+        if (current.sourceHistory(draft.stableSourceId).isNotEmpty() || current.snapshot.sources.any { it.id == draft.revisionId } ||
+            current.lifecycle[ref(StoredObjectType.SOURCE_ID, draft.stableSourceId.value)]?.status == LongitudinalLifecycleStatus.DELETED
+        ) {
             fail(AdmissionDisposition.REJECTED_VALIDATION, "DUPLICATE_SOURCE_ID")
         }
         val source = SourceRecord(
@@ -94,7 +111,11 @@ class LongitudinalAdmissionPolicy {
             revision,
             current.snapshot.copy(sources = current.snapshot.sources + source),
             sourcePrivacy = current.sourcePrivacy + (draft.stableSourceId to draft.privacy),
-            lifecycle = current.lifecycle + (ref to active(revision, draft.privacy != SourcePrivacy.PRIVATE, "SOURCE_ADMITTED")),
+            lifecycle = current.lifecycle + mapOf(
+                ref to active(revision, draft.privacy != SourcePrivacy.PRIVATE, "SOURCE_ADMITTED"),
+                ref(StoredObjectType.SOURCE_ID, draft.stableSourceId.value) to
+                    active(revision, draft.privacy != SourcePrivacy.PRIVATE, "SOURCE_ADMITTED"),
+            ),
             affected = listOf(source.id.value, draft.stableSourceId.value),
             trace = listOf("CT07-AUTH-SYNTHETIC", "CT07-SOURCE-IMMUTABLE", "CT07-STORE-TIME"),
         )
@@ -456,6 +477,150 @@ class LongitudinalAdmissionPolicy {
         return mutation(current, revision, current.snapshot, lifecycle = lifecycle, affected = listOf(claimId(operation.claim)), trace = listOf("CT07-RETIRE-APPEND", "CT07-HISTORY-PRESERVED"))
     }
 
+    private fun deleteSource(
+        request: LongitudinalAdmissionRequest,
+        current: LongitudinalAggregateState,
+        operation: LongitudinalWriteOperation.DeleteSource,
+        revision: Long,
+    ): PlannedLongitudinalMutation {
+        if (request.actor != AdmissionActor.USER || request.origin != AdmissionOrigin.PERSONAL_DATA_LIFECYCLE) {
+            fail(AdmissionDisposition.REJECTED_AUTHORITY, "SOURCE_DELETION_REQUIRES_USER_LIFECYCLE_AUTHORITY")
+        }
+        if (operation.scope != SourceDeletionScope.ENTIRE_SOURCE_HISTORY) {
+            fail(AdmissionDisposition.REJECTED_VALIDATION, "REVISION_ONLY_DELETION_WOULD_BREAK_LINEAGE")
+        }
+        val sourceHistory = current.sourceHistory(operation.stableSourceId)
+        if (sourceHistory.isEmpty()) fail(AdmissionDisposition.REJECTED_MISSING_REFERENCE, "SOURCE_NOT_FOUND")
+        val removedSourceIds = sourceHistory.map { it.id }.toSet()
+        val removedDirectAssertionIds = current.snapshot.assertions
+            .filter { it.sourceRecordId in removedSourceIds }.map { it.id }.toSet()
+
+        var retainedAssertions = current.snapshot.assertions.filterNot { it.id in removedDirectAssertionIds }
+        var retainedEntities = current.snapshot.entities
+        var changed: Boolean
+        do {
+            val assertionIds = retainedAssertions.map { it.id }.toSet()
+            val entityIds = retainedEntities.map { it.id }.toSet()
+            val nextEntities = retainedEntities.mapNotNull { entity ->
+                val supports = entity.supportingAssertionIds.intersect(assertionIds)
+                val referencesValid = entityReferences(entity).all { it in entityIds }
+                if (supports.isEmpty() || !referencesValid) null else entityWithSupports(entity, supports)
+            }
+            val nextEntityIds = nextEntities.map { it.id }.toSet()
+            val nextAssertions = retainedAssertions.filter { assertionReferences(it).all { id -> id in nextEntityIds } }
+            changed = nextEntities.size != retainedEntities.size || nextAssertions.size != retainedAssertions.size
+            retainedEntities = nextEntities
+            retainedAssertions = nextAssertions
+        } while (changed)
+
+        val retainedAssertionIds = retainedAssertions.map { it.id }.toSet()
+        val retainedEntityIds = retainedEntities.map { it.id }.toSet()
+        var retainedHypotheses = current.snapshot.hypotheses.filter { hypothesis ->
+            assertionReferences(hypothesis.subject, hypothesis.proposedValue, null).all { it in retainedEntityIds }
+        }
+        do {
+            val hypothesisIds = retainedHypotheses.map { it.id }.toSet()
+            val next = retainedHypotheses.filter { hypothesis ->
+                current.snapshot.hypothesisDependencies.any { dependency ->
+                    dependency.dependentHypothesisId == hypothesis.id && when (val prerequisite = dependency.prerequisite) {
+                        is ClaimReference.Assertion -> prerequisite.assertionId in retainedAssertionIds
+                        is ClaimReference.Hypothesis -> prerequisite.hypothesisId in hypothesisIds
+                    }
+                }
+            }
+            changed = next.size != retainedHypotheses.size
+            retainedHypotheses = next
+        } while (changed)
+        val retainedHypothesisIds = retainedHypotheses.map { it.id }.toSet()
+        fun claimRetained(claim: ClaimReference) = when (claim) {
+            is ClaimReference.Assertion -> claim.assertionId in retainedAssertionIds
+            is ClaimReference.Hypothesis -> claim.hypothesisId in retainedHypothesisIds
+        }
+        val retainedDependencies = current.snapshot.hypothesisDependencies.filter {
+            it.dependentHypothesisId in retainedHypothesisIds && claimRetained(it.prerequisite)
+        }
+        val retainedIdentity = current.snapshot.identityLinks.filter {
+            it.leftEntityId in retainedEntityIds && it.rightEntityId in retainedEntityIds &&
+                it.supportingAssertionIds.all { id -> id in retainedAssertionIds }
+        }
+        val snapshot = current.snapshot.copy(
+            sources = current.snapshot.sources.filterNot { it.id in removedSourceIds },
+            assertions = retainedAssertions,
+            entities = retainedEntities,
+            hypotheses = retainedHypotheses,
+            hypothesisDependencies = retainedDependencies,
+            contradictions = current.snapshot.contradictions.filter {
+                it.leftAssertionId in retainedAssertionIds && it.rightAssertionId in retainedAssertionIds
+            },
+            corrections = current.snapshot.corrections.filter {
+                it.correctingAssertionId in retainedAssertionIds && it.correctedAssertionId in retainedAssertionIds
+            },
+            supersessions = current.snapshot.supersessions.filter { claimRetained(it.successor) && claimRetained(it.predecessor) },
+            identityLinks = retainedIdentity,
+            coverageTopics = current.snapshot.coverageTopics.mapNotNull { topic ->
+                val sources = topic.sourceRecordIds - removedSourceIds
+                if (topic.sourceRecordIds.isNotEmpty() && sources.isEmpty()) null else topic.copy(sourceRecordIds = sources)
+            },
+        )
+        val retainedObjectIds = buildSet {
+            addAll(retainedAssertionIds.map { it.value })
+            addAll(retainedEntityIds.map { it.value })
+            addAll(retainedHypothesisIds.map { it.value })
+            addAll(snapshot.contradictions.map { it.id.value })
+            addAll(snapshot.corrections.map { it.id.value })
+            addAll(snapshot.supersessions.map { it.id.value })
+            addAll(snapshot.hypothesisDependencies.map { it.id.value })
+            addAll(snapshot.identityLinks.map { it.id.value })
+            addAll(snapshot.coverageTopics.map { it.id.value })
+        }
+        val lifecycle = current.lifecycle.filterKeys { reference ->
+            reference.type == StoredObjectType.SOURCE_ID || reference.type == StoredObjectType.SOURCE_REVISION ||
+                reference.stableId in retainedObjectIds
+        }.toMutableMap()
+        sourceHistory.forEach {
+            lifecycle[ref(StoredObjectType.SOURCE_REVISION, it.id.value)] =
+                inactive(LongitudinalLifecycleStatus.DELETED, revision, "USER_SOURCE_DELETION")
+        }
+        lifecycle[ref(StoredObjectType.SOURCE_ID, operation.stableSourceId.value)] =
+            inactive(LongitudinalLifecycleStatus.DELETED, revision, "USER_SOURCE_DELETION")
+        removedDirectAssertionIds.forEach {
+            lifecycle[assertionRef(it)] = inactive(LongitudinalLifecycleStatus.DELETED, revision, "USER_SOURCE_DELETION")
+        }
+        val indirectlyRemoved = current.snapshot.assertions.map { it.id }.toSet() - retainedAssertionIds - removedDirectAssertionIds
+        indirectlyRemoved.forEach {
+            lifecycle[assertionRef(it)] = inactive(LongitudinalLifecycleStatus.DEPENDENCY_BLOCKED, revision, "DELETED_SOURCE_DEPENDENCY")
+        }
+        val unavailable = inactive(LongitudinalLifecycleStatus.DEPENDENCY_BLOCKED, revision, "DELETED_SOURCE_DEPENDENCY")
+        (current.snapshot.entities.map { it.id }.toSet() - retainedEntityIds).forEach {
+            lifecycle[ref(StoredObjectType.ENTITY, it.value)] = unavailable
+        }
+        (current.snapshot.hypotheses.map { it.id }.toSet() - retainedHypothesisIds).forEach {
+            lifecycle[hypothesisRef(it)] = unavailable
+        }
+        fun markRemoved(type: StoredObjectType, before: Set<String>, retained: Set<String>) {
+            before.filterNot { it in retained }.forEach { lifecycle[ref(type, it)] = unavailable }
+        }
+        markRemoved(StoredObjectType.CONTRADICTION, current.snapshot.contradictions.map { it.id.value }.toSet(), snapshot.contradictions.map { it.id.value }.toSet())
+        markRemoved(StoredObjectType.CORRECTION, current.snapshot.corrections.map { it.id.value }.toSet(), snapshot.corrections.map { it.id.value }.toSet())
+        markRemoved(StoredObjectType.SUPERSESSION, current.snapshot.supersessions.map { it.id.value }.toSet(), snapshot.supersessions.map { it.id.value }.toSet())
+        markRemoved(StoredObjectType.HYPOTHESIS_DEPENDENCY, current.snapshot.hypothesisDependencies.map { it.id.value }.toSet(), snapshot.hypothesisDependencies.map { it.id.value }.toSet())
+        markRemoved(StoredObjectType.IDENTITY_DECISION, current.snapshot.identityLinks.map { it.id.value }.toSet(), snapshot.identityLinks.map { it.id.value }.toSet())
+        markRemoved(StoredObjectType.COVERAGE, current.snapshot.coverageTopics.map { it.id.value }.toSet(), snapshot.coverageTopics.map { it.id.value }.toSet())
+        val identityIds = retainedIdentity.map { it.id }.toSet()
+        return mutation(
+            current,
+            revision,
+            snapshot,
+            sourcePrivacy = current.sourcePrivacy - operation.stableSourceId,
+            lifecycle = lifecycle,
+            identity = current.currentIdentityDecisionByPair.filterValues { it in identityIds },
+            affected = listOf(operation.stableSourceId.value) + removedSourceIds.map { it.value } +
+                (current.snapshot.assertions.map { it.id }.toSet() - retainedAssertionIds).map { it.value } +
+                (current.snapshot.hypotheses.map { it.id }.toSet() - retainedHypothesisIds).map { it.value },
+            trace = listOf("CT14-USER-DELETION", "CT14-SOURCE-CONTENT-PURGED", "CT14-DERIVED-STATE-INVALIDATED"),
+        )
+    }
+
     private fun requireSourceAuthority(request: LongitudinalAdmissionRequest, draft: SourceDraft) {
         if (draft.authorRole != SourceAuthorRole.USER || request.actor != AdmissionActor.USER) {
             fail(AdmissionDisposition.REJECTED_AUTHORITY, "SOURCE_REQUIRES_USER_AUTHORSHIP")
@@ -647,6 +812,47 @@ class LongitudinalAdmissionPolicy {
             if (value is AssertionValue.EntityReferences) addAll(value.entityIds.map { it.value })
         }
         return left in ids || right in ids
+    }
+
+    private fun assertionReferences(assertion: EvidenceAssertion) =
+        assertionReferences(assertion.subject, assertion.value, assertion.eventTime)
+
+    private fun assertionReferences(subject: AssertionSubject, value: AssertionValue, time: EventTime?): Set<com.conundrum.thomas.v2.longitudinal.LifeEntityId> = buildSet {
+        if (subject is AssertionSubject.Entity) add(subject.entityId)
+        when (value) {
+            is AssertionValue.EntityReference -> add(value.entityId)
+            is AssertionValue.EntityReferences -> addAll(value.entityIds)
+            else -> Unit
+        }
+        when (time) {
+            is EventTime.RelativePeriod -> time.anchorEntityId?.let(::add)
+            is EventTime.BeforeOrAfter -> add(time.referenceEntityId)
+            else -> Unit
+        }
+    }
+
+    private fun entityReferences(entity: LifeEntity): Set<com.conundrum.thomas.v2.longitudinal.LifeEntityId> = when (entity) {
+        is Person, is Place, is LifePeriod -> emptySet()
+        is LifeEvent -> entity.participantIds + entity.placeIds
+        is Relationship -> entity.participantIds
+        is Role -> setOfNotNull(entity.holderId, entity.contextId)
+        is Decision -> entity.decisionMakerIds
+        is Behavior -> entity.actorIds
+        is CopingResponse -> setOfNotNull(entity.actorId, entity.relatedEventId)
+        is Outcome -> setOf(entity.outcomeOfId)
+    }
+
+    private fun entityWithSupports(entity: LifeEntity, supports: Set<AssertionId>): LifeEntity = when (entity) {
+        is Person -> entity.copy(supportingAssertionIds = supports)
+        is Place -> entity.copy(supportingAssertionIds = supports)
+        is LifeEvent -> entity.copy(supportingAssertionIds = supports)
+        is LifePeriod -> entity.copy(supportingAssertionIds = supports)
+        is Relationship -> entity.copy(supportingAssertionIds = supports)
+        is Role -> entity.copy(supportingAssertionIds = supports)
+        is Decision -> entity.copy(supportingAssertionIds = supports)
+        is Behavior -> entity.copy(supportingAssertionIds = supports)
+        is CopingResponse -> entity.copy(supportingAssertionIds = supports)
+        is Outcome -> entity.copy(supportingAssertionIds = supports)
     }
 }
 

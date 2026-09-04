@@ -53,6 +53,9 @@ firebaseAppDistributionServiceCredentialsFile.json
 *.sqlite-*
 *.wal
 *.shm
+*.ctpd
+*.ctbackup
+*.ctexport
 /private-data/
 /user-data/
 /runtime-data/

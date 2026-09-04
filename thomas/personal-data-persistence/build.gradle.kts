@@ -15,12 +15,10 @@ java {
 }
 
 dependencies {
-    api(project(":thomas:personal-data-persistence"))
-    implementation(libs.sqlite.jdbc)
+    api(project(":thomas:longitudinal-admission"))
     testImplementation(libs.junit)
 }
 
 tasks.test {
     systemProperty("thomas.repositoryRoot", rootProject.projectDir.absolutePath)
-    jvmArgs("--enable-native-access=ALL-UNNAMED")
 }

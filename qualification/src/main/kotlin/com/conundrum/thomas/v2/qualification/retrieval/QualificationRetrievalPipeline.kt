@@ -96,6 +96,7 @@ class QualificationLongitudinalReadPort(
                     LongitudinalLifecycleStatus.REVIEW_REQUIRED -> RetrievalLifecycleStatus.REVIEW_REQUIRED
                     LongitudinalLifecycleStatus.DEPENDENCY_BLOCKED -> RetrievalLifecycleStatus.DEPENDENCY_BLOCKED
                     LongitudinalLifecycleStatus.PRIVATE_INELIGIBLE -> RetrievalLifecycleStatus.PRIVATE_INELIGIBLE
+                    LongitudinalLifecycleStatus.DELETED -> RetrievalLifecycleStatus.AUDIT_ONLY
                 },
                 eligibleForOrdinaryUse = state.eligibleForOrdinaryUse,
                 causeCode = state.causeCode,

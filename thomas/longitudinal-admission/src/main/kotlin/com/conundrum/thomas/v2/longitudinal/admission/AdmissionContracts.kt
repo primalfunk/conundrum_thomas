@@ -49,7 +49,7 @@ private fun admissionId(label: String, value: String): String {
     }
 }
 
-enum class StoreDataClassification { SYNTHETIC_QUALIFICATION_ONLY }
+enum class StoreDataClassification { SYNTHETIC_QUALIFICATION_ONLY, PROTECTED_PERSONAL_DATA }
 enum class AdmissionActor { USER, THOMAS, SYSTEM, QUALIFICATION_HARNESS }
 enum class AdmissionOrigin {
     JOURNAL,
@@ -58,6 +58,7 @@ enum class AdmissionOrigin {
     THERAPIST_CONVERSATION,
     USER_CORRECTION,
     THOMAS_DERIVATION,
+    PERSONAL_DATA_LIFECYCLE,
     QUALIFICATION_HARNESS,
 }
 
@@ -74,6 +75,7 @@ enum class AdmissionOperationType {
     CHANGE_COVERAGE,
     CHANGE_PRIVACY,
     RETIRE_CLAIM,
+    DELETE_SOURCE,
 }
 
 enum class AdmissionDisposition {
@@ -193,7 +195,17 @@ sealed interface LongitudinalWriteOperation : Serializable {
     data class RetireClaim(val claim: ClaimReference) : LongitudinalWriteOperation {
         override val type = AdmissionOperationType.RETIRE_CLAIM
     }
+
+    data class DeleteSource(
+        val stableSourceId: SourceIdentityId,
+        val scope: SourceDeletionScope = SourceDeletionScope.ENTIRE_SOURCE_HISTORY,
+    ) : LongitudinalWriteOperation {
+        override val type = AdmissionOperationType.DELETE_SOURCE
+    }
 }
+
+/** Revision-only erasure is denied because it would leave a deceptive revision chain. */
+enum class SourceDeletionScope { ENTIRE_SOURCE_HISTORY, SOURCE_REVISION_ONLY }
 
 data class LongitudinalAdmissionRequest(
     val requestId: AdmissionRequestId,
@@ -209,6 +221,7 @@ data class LongitudinalAdmissionRequest(
 }
 
 enum class StoredObjectType {
+    SOURCE_ID,
     SOURCE_REVISION,
     ASSERTION,
     ENTITY,
@@ -233,6 +246,7 @@ enum class LongitudinalLifecycleStatus {
     REVIEW_REQUIRED,
     DEPENDENCY_BLOCKED,
     PRIVATE_INELIGIBLE,
+    DELETED,
 }
 
 data class LifecycleState(

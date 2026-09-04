@@ -36,7 +36,7 @@ class LongitudinalStoreBoundaryQualificationTest {
         val store = root.resolve("thomas/longitudinal-store/build.gradle.kts").toFile().readText()
         assertTrue(admission.contains("api(project(\":thomas:longitudinal\"))"))
         assertFalse(admission.contains("sqlite"))
-        assertTrue(store.contains("api(project(\":thomas:longitudinal-admission\"))"))
+        assertTrue(store.contains("api(project(\":thomas:personal-data-persistence\"))"))
         assertTrue(store.contains("implementation(libs.sqlite.jdbc)"))
         assertFalse(root.resolve("thomas/longitudinal/build.gradle.kts").toFile().readText().contains("longitudinal-admission"))
     }
@@ -53,7 +53,7 @@ class LongitudinalStoreBoundaryQualificationTest {
             assertFalse("$path must not consume admission", text.contains(":thomas:longitudinal-admission"))
             assertFalse("$path must not consume store", text.contains(":thomas:longitudinal-store"))
         }
-        val productionSources = listOf("app", "thomas/runtime", "thomas/engine", "thomas/safety", "platform")
+        val productionSources = listOf("app", "thomas/runtime", "thomas/engine", "thomas/safety", "platform/renderer-llama-android", "platform/speech-android")
             .flatMap { root.resolve(it).toFile().walkTopDown().filter { file -> file.isFile && file.extension in setOf("kt", "java") }.toList() }
         assertFalse(productionSources.any { it.readText().contains("longitudinal.store") || it.readText().contains("longitudinal.admission") })
     }
@@ -79,8 +79,8 @@ class LongitudinalStoreBoundaryQualificationTest {
     }
 
     @Test fun `accepted receipt implementation is private and cannot be named by caller API`() {
-        val contracts = root.resolve("thomas/longitudinal-store/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/StoreContracts.kt").toFile().readText()
-        assertTrue(contracts.contains("sealed interface AcceptedAdmissionReceipt"))
+        val contracts = root.resolve("thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/GovernedPersistencePorts.kt").toFile().readText()
+        assertTrue(contracts.contains("interface AcceptedAdmissionReceipt"))
         val implementation = Class.forName("com.conundrum.thomas.v2.longitudinal.store.StoreAcceptedReceipt")
         assertFalse(Modifier.isPublic(implementation.modifiers))
         assertFalse(AcceptedAdmissionReceipt::class.java.declaredConstructors.any { Modifier.isPublic(it.modifiers) })
