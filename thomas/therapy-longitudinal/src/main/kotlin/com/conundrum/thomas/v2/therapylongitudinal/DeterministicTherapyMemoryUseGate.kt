@@ -176,6 +176,7 @@ class DeterministicTherapyMemoryUseGate {
     private fun notSuppressedBySession(stableId: String, request: TherapyMemoryGateRequest): Boolean {
         val prior = request.sessionState.surfaced.filter { it.stableObjectId == stableId }
         if (prior.isEmpty()) return true
+        if (stableId in request.explicitReinvocationObjectIds) return true
         if (stableId in request.materiallyChangedObjectIds) return true
         return false
     }
