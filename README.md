@@ -27,3 +27,11 @@ The Principal-approved post-CT-V2-05 implementation sequence is the canonical [`
 The initial inventory is documented in [`docs/provenance/INITIAL-SOURCE-INVENTORY.md`](docs/provenance/INITIAL-SOURCE-INVENTORY.md). Generate the ignored relational database with `gradlew generateRuntimeProvenanceDb`.
 
 The ontology is documented in [`docs/CT-V2-02-THERAPEUTIC-ONTOLOGY.md`](docs/CT-V2-02-THERAPEUTIC-ONTOLOGY.md); mode boundaries are locked in [`docs/THOMAS-MODE-AUTHORITY-CONTRACT.md`](docs/THOMAS-MODE-AUTHORITY-CONTRACT.md).
+
+## License and attribution
+
+Copyright 2026 primalfunk.
+
+Conundrum Thomas V2 is licensed under the [Apache License, Version 2.0](LICENSE).
+Distributed derivative works must preserve the attribution notices in
+[`NOTICE`](NOTICE) as required by the license.
