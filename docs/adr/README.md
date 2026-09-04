@@ -16,3 +16,4 @@
 | [0012](0012-evidence-first-longitudinal-domain.md) | Evidence-first longitudinal and temporal domain | Accepted for CT-V2-06 qualification |
 | [0013](0013-governed-longitudinal-admission-store.md) | Governed longitudinal admission and synthetic store | Accepted for CT-V2-07 qualification |
 | [0014](0014-source-first-language-evidence-boundary.md) | Source-first language evidence and canonical Git metadata stability | Accepted for CT-V2-08 qualification |
+| [0015](0015-source-first-journal-capture.md) | Source-first Journal capture and bounded response postures | Accepted for CT-V2-09 qualification |

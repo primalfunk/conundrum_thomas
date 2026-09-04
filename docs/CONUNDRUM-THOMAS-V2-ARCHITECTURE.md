@@ -108,6 +108,10 @@ CT-V2-06 adds the independent longitudinal domain foundation. Personal source re
 
 CT-V2-07 adds two downstream pure-JVM modules without wiring them into production. A deterministic admission policy validates synthetic structured writes; a qualification-only SQLite store owns trusted record time, optimistic concurrency, idempotency, append-only accepted history, rebuildable current projection, revision/lifecycle audit, controlled replay, and exact reads. The application, runtime, modes, therapeutic engine, safety gate, models, and V1 components have zero write authority. Production personal-data storage and language-to-evidence formation remain unopened.
 
+CT-V2-08 adds bounded deterministic source-first language perception and persistence-neutral state formation. Unsupported or ambiguous prose may remain source-only; every accepted proposal stays grounded to an exact source revision and enters durable state only through CT-V2-07.
+
+CT-V2-09 adds a pure Journal capture authority for synthetic qualification. It commits exact `JOURNAL` sources before perception, keeps drafts and responses outside evidence, defaults to `NO_RESPONSE`, and permits only bounded current-entry `REFLECT` or `ASK_ONE_QUESTION` response plans. Its only complete adapter is in qualification; Android, runtime, Therapy, Biographer, models, and production persistence remain unwired.
+
 ### E. Intervention Engine
 
 Converts the governed therapeutic strategy into a precise communicative instruction and explicit constraints. The result states what acts to express and what is forbidden, including advice, diagnosis, reassurance, question count, interpretation count, certainty, and target length.
@@ -140,7 +144,7 @@ The foundation implemented none of these capabilities. CT-V2-05 now implements o
 
 ## 6. Relationship to Thomas modes
 
-Journal remains user-led and supports no response, minimal acknowledgment, or conversational reflection; it generally avoids unsolicited therapeutic intervention. Therapy activates the governed V2 procedural stack and may choose silence or minimal response. Biographer remains primarily information acquisition; it may share perception, durable profile, provenance, contradiction, and uncertainty structures, but does not inherit Therapy's intervention authority. The modes may share cognition while retaining distinct behavioral policy.
+Journal remains user-led capture and now has a qualification-only source-first engine. `NO_RESPONSE` is its default; `REFLECT` and `ASK_ONE_QUESTION` are current-entry-grounded response intents, never Therapy or Biographer investigation. Therapy activates the governed V2 procedural stack and may choose silence or minimal response. Biographer remains primarily information acquisition; it may share perception, durable profile, provenance, contradiction, and uncertainty structures, but does not inherit Therapy's intervention authority. The modes may share cognition while retaining distinct behavioral policy.
 
 ## 7. Durable state model
 
