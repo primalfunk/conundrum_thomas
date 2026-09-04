@@ -190,4 +190,43 @@ class PersonalDataLifecycleTest {
         assertFalse(harness.storage.exists())
         assertTrue(runCatching { harness.keyProvider.existing() }.isFailure)
     }
+
+    @Test fun `failed artifact deletion leaves the open store and key intact`() = PersonalDataHarness().use { harness ->
+        harness.admit(harness.source("reset-delete-failure"))
+        harness.store.close()
+        val refusingStorage = object : ProtectedArtifactStorage by harness.storage {
+            override fun delete() = false
+        }
+        harness.store = (ProtectedPersonalDataStoreFactory.open(
+            refusingStorage,
+            harness.keyProvider,
+            harness.clock,
+        ) as PersonalDataOpenResult.Opened).store
+        val result = harness.store.reset()
+        assertFalse(result.storeArtifactDeleted)
+        assertFalse(result.keyMaterialDestroyed)
+        assertFalse(result.inMemoryStateCleared)
+        assertTrue(harness.storage.exists())
+        assertEquals(1, harness.store.reader.snapshot().sources.size)
+        assertTrue(runCatching { harness.keyProvider.existing() }.isSuccess)
+    }
+
+    @Test fun `key destruction failure is reported after corpus removal and memory clear`() = PersonalDataHarness().use { harness ->
+        harness.admit(harness.source("reset-key-failure"))
+        harness.store.close()
+        val refusingKeyProvider = object : PersonalDataKeyProvider by harness.keyProvider {
+            override fun destroy() = error("synthetic key destruction failure")
+        }
+        harness.store = (ProtectedPersonalDataStoreFactory.open(
+            harness.storage,
+            refusingKeyProvider,
+            harness.clock,
+        ) as PersonalDataOpenResult.Opened).store
+        val result = harness.store.reset()
+        assertTrue(result.storeArtifactDeleted)
+        assertFalse(result.keyMaterialDestroyed)
+        assertTrue(result.inMemoryStateCleared)
+        assertFalse(harness.storage.exists())
+        assertTrue(runCatching { harness.store.reader.snapshot() }.isFailure)
+    }
 }

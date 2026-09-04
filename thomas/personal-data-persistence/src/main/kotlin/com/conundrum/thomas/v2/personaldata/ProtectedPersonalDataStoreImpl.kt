@@ -307,13 +307,13 @@ internal class ProtectedPersonalDataStoreImpl(
     override fun reset(): CompleteResetResult {
         checkOpen()
         val artifactDeleted = !storage.exists() || storage.delete()
-        var keyDestroyed = false
-        if (artifactDeleted) {
-            keyProvider.destroy()
-            keyDestroyed = true
-        }
+        if (!artifactDeleted) return CompleteResetResult(false, false, false)
         document = null
         closed = true
+        val keyDestroyed = runCatching {
+            keyProvider.destroy()
+            true
+        }.getOrDefault(false)
         return CompleteResetResult(artifactDeleted, keyDestroyed, true)
     }
 

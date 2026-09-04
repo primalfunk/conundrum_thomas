@@ -1,9 +1,22 @@
 package com.conundrum.thomas.v2.personaldata
 
 import com.conundrum.thomas.v2.longitudinal.AcquisitionMode
+import com.conundrum.thomas.v2.longitudinal.AssertionPredicate
+import com.conundrum.thomas.v2.longitudinal.AssertionSubject
+import com.conundrum.thomas.v2.longitudinal.AssertionValue
+import com.conundrum.thomas.v2.longitudinal.ClaimReference
+import com.conundrum.thomas.v2.longitudinal.DependencyRole
+import com.conundrum.thomas.v2.longitudinal.EvidenceRelationId
+import com.conundrum.thomas.v2.longitudinal.HypothesisDependency
+import com.conundrum.thomas.v2.longitudinal.HypothesisId
+import com.conundrum.thomas.v2.longitudinal.HypothesisStatus
+import com.conundrum.thomas.v2.longitudinal.PersonalConceptId
+import com.conundrum.thomas.v2.longitudinal.PredicateSemantics
 import com.conundrum.thomas.v2.longitudinal.admission.AdmissionActor
 import com.conundrum.thomas.v2.longitudinal.admission.AdmissionDisposition
 import com.conundrum.thomas.v2.longitudinal.admission.AdmissionOrigin
+import com.conundrum.thomas.v2.longitudinal.admission.EvidenceBundle
+import com.conundrum.thomas.v2.longitudinal.admission.HypothesisDraft
 import com.conundrum.thomas.v2.longitudinal.admission.LongitudinalWriteOperation
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
@@ -51,6 +64,54 @@ class PersonalDataBackupExportTest {
         assertTrue(export.humanReadableMarkdown.contains("## Source evidence"))
         assertTrue(export.humanReadableMarkdown.contains("## Derived state"))
         assertFalse(export.machineReadableJson.contains("qualification.primary"))
+    }
+
+    @Test fun `exports expose governed derived dependency lineage rather than counts only`() = PersonalDataHarness().use { harness ->
+        val source = harness.source("export-lineage")
+        val assertion = harness.assertion("export-lineage", source.revisionId)
+        harness.admit(source)
+        harness.admit(assertion)
+        val hypothesisId = HypothesisId.parse("personal-hypothesis-export-lineage")
+        val dependency = HypothesisDependency(
+            EvidenceRelationId.parse("personal-dependency-export-lineage"),
+            hypothesisId,
+            ClaimReference.Assertion(assertion.id),
+            DependencyRole.SUPPORTS,
+            "Synthetic export dependency lineage",
+        )
+        val hypothesis = HypothesisDraft(
+            hypothesisId,
+            AssertionSubject.User,
+            AssertionPredicate(PersonalConceptId.parse("personal.export-lineage"), PredicateSemantics.OTHER),
+            AssertionValue.Text("Tentative synthetic exported interpretation"),
+            HypothesisStatus.TENTATIVE,
+            "Synthetic export hypothesis with explicit evidence dependency",
+        )
+        assertEquals(AdmissionDisposition.ACCEPTED, harness.store.admission.submit(harness.request(
+            LongitudinalWriteOperation.AdmitEvidenceBundle(EvidenceBundle(
+                hypothesisDrafts = listOf(hypothesis),
+                hypothesisDependencies = listOf(dependency),
+            )),
+            AdmissionActor.THOMAS,
+            AdmissionOrigin.THOMAS_DERIVATION,
+        )).disposition)
+        val export = harness.store.export()
+        listOf(
+            assertion.id.value,
+            source.revisionId.value,
+            hypothesisId.value,
+            dependency.id.value,
+            "ASSERTION:${assertion.id.value}",
+        ).forEach { expected -> assertTrue(export.machineReadableJson.contains(expected)) }
+        assertTrue(export.humanReadableMarkdown.contains(dependency.id.value))
+        assertFalse(export.machineReadableJson.contains("\"assertionCount\""))
+    }
+
+    @Test fun `machine export escapes every JSON control character`() = PersonalDataHarness().use { harness ->
+        harness.admit(harness.source("export-control", "Synthetic " + 1.toChar() + " control"))
+        val machine = harness.store.export().machineReadableJson
+        assertTrue(machine.contains("\\u0001"))
+        assertFalse(machine.contains(1.toChar()))
     }
 
     @Test fun `protected backup contains no source plaintext`() = PersonalDataHarness().use { harness ->

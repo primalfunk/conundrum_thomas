@@ -16,6 +16,8 @@ internal object AuthenticatedProtection {
     private val magic = "CTV2PD14".toByteArray(StandardCharsets.US_ASCII)
     private const val NONCE_BYTES = 12
     private const val TAG_BITS = 128
+    private const val MAX_CIPHERTEXT_BYTES = 64_000_000
+    private const val GCM_TAG_BYTES = TAG_BITS / 8
 
     fun protect(
         plaintext: ByteArray,
@@ -25,6 +27,7 @@ internal object AuthenticatedProtection {
         random: SecureRandom,
     ): ByteArray {
         require(key.algorithm.equals("AES", ignoreCase = true))
+        if (plaintext.size > MAX_CIPHERTEXT_BYTES - GCM_TAG_BYTES) malformed("PROTECTION_PLAINTEXT_TOO_LARGE")
         val nonce = ByteArray(NONCE_BYTES).also(random::nextBytes)
         val aad = aad(purpose, keyAlias)
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
@@ -61,7 +64,7 @@ internal object AuthenticatedProtection {
             if (nonceLength != NONCE_BYTES) malformed("PROTECTION_NONCE_INVALID")
             val nonce = ByteArray(nonceLength).also(input::readFully)
             val ciphertextLength = input.readInt()
-            if (ciphertextLength !in 16..64_000_000 || ciphertextLength != input.available()) malformed("PROTECTION_LENGTH_INVALID")
+            if (ciphertextLength !in GCM_TAG_BYTES..MAX_CIPHERTEXT_BYTES || ciphertextLength != input.available()) malformed("PROTECTION_LENGTH_INVALID")
             val ciphertext = ByteArray(ciphertextLength).also(input::readFully)
             val cipher = Cipher.getInstance("AES/GCM/NoPadding")
             cipher.init(Cipher.DECRYPT_MODE, key, GCMParameterSpec(TAG_BITS, nonce))
