@@ -63,6 +63,13 @@ These are production compile dependencies. `:qualification` may depend on each l
   -> :thomas:longitudinal-admission
   -> :thomas:longitudinal
 
+:thomas:language-renderer (synthetic qualification only)
+  -> :thomas:domain
+  -> :thomas:journal
+  -> :thomas:biographer
+  -> :thomas:therapy-longitudinal
+  -> :thomas:longitudinal
+
 :qualification
   -> :thomas:longitudinal-store
   -> :thomas:language-evidence
@@ -70,6 +77,7 @@ These are production compile dependencies. `:qualification` may depend on each l
   -> :thomas:biographer
   -> :thomas:context-packet
   -> :thomas:therapy-longitudinal
+  -> :thomas:language-renderer
 
 :platform:persistence-android
   -> :thomas:domain
@@ -99,6 +107,7 @@ These are production compile dependencies. `:qualification` may depend on each l
 - `:thomas:retrieval` is pure Kotlin and depends only on `:thomas:longitudinal`. It owns the persistence-neutral read port, typed purpose/mode requests, eligibility, deterministic ranking, balanced evidence neighborhoods, exact-span excerpt proposals, and no writer.
 - `:thomas:context-packet` is pure Kotlin and depends only on retrieval. It owns immutable packet layers, source-data authority labels, explicit count/text/depth budgets, epistemically safe excerpt truncation, and canonical packet digests. Only `:qualification` binds it to the CT-V2-07 reader.
 - `:thomas:therapy-longitudinal` is a pure Kotlin CT-V2-12 composition module. It preserves current-source capture before safety, CT-V2-04 safety before CT-V2-05 policy, and route selection before CT-V2-11 retrieval. It receives only typed ports, exposes no SQL/JDBC or store implementation, limits ordinary surfaced history to one object, and gives a future renderer only explicitly authorized memory support. It is consumed only by `:qualification`.
+- `:thomas:language-renderer` is a pure Kotlin CT-V2-13 realization boundary. It consumes only already-governed mode contracts and CT-V2-12 render-visible support, exposes no store/retrieval/write/model/Android port, treats external output as a candidate, enforces deterministic budgets and authority markers, and provides a validated reference/fallback realization. It is consumed only by `:qualification`.
 - Retrieval does not depend on Journal, Biographer, Therapy, safety, Android, models, or the store. It cannot alter a mode contract, route, target, evidence, lifecycle, privacy, or projection.
 - CT-V2-03 explicitly authorizes `:thomas:engine` to consume the ontology for a qualification-only ruleset. Ontology remains behavior-free and has no dependency back to engine.
 - `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policies accept typed structured state, never raw user prose. CT-V2-05 adds hierarchical ordinary-route, action, and progression rules while preserving qualification execution authority and explicit production denial. Every ordinary evaluator requires a matching safety-issued permit.
@@ -109,6 +118,7 @@ These are production compile dependencies. `:qualification` may depend on each l
 - No production module consumes `:thomas:longitudinal` in CT-V2-06. Future Journal, Biographer, retrieval, or Therapist integration requires separately authorized boundaries.
 - `:app` does not depend on engine, safety, persistence, speech, or a renderer implementation. It cannot directly invoke a model.
 - A renderer receives only a `RenderRequest`: one `RenderCommand` and explicitly authorized supporting text. Its output is an untrusted `RenderedDraft`.
+- CT-V2-13 narrows that contract further through `GovernedRenderCommand`, typed semantic units, explicit surfaced-memory IDs, `RendererInput`, and `GovernedRenderResult`; no candidate becomes user-visible without validation.
 - A `RenderCommand` fixes the selected policy action, dialogue act, goal, semantic boundaries, output form, length, question count, advice permission, tentative-status constraint, user-agency constraint, and response requirement. Deterministic stubs live downstream in `:qualification` and are not reachable from app or runtime.
 - `:platform:renderer-llama-android` has no dependency on persistence, policy, safety, transcript, profile, or provenance implementations.
 - Platform adapters implement technical capabilities. They do not acquire therapeutic decision authority.
