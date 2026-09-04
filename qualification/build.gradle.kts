@@ -28,6 +28,7 @@ dependencies {
     implementation(project(":thomas:biographer"))
     implementation(project(":thomas:retrieval"))
     implementation(project(":thomas:context-packet"))
+    implementation(project(":thomas:therapy-longitudinal"))
     testImplementation(libs.junit)
     testImplementation(project(":thomas:runtime"))
 }
