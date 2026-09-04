@@ -19,11 +19,18 @@ class LanguageEvidenceBoundaryQualificationTest {
         assertFalse(text("thomas/engine/build.gradle.kts").contains(":thomas:language-evidence"))
     }
 
-    @Test fun onlyQualificationComposesLanguageWithStore() {
+    @Test fun onlyAuthorizedJournalAndQualificationConsumeLanguageEvidence() {
         val consumers = root.toFile().walkTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:language-evidence")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
-        assertEquals(listOf("qualification/build.gradle.kts"), consumers)
+        assertEquals(
+            listOf("qualification/build.gradle.kts", "thomas/journal/build.gradle.kts"),
+            consumers,
+        )
+        val storeConsumers = root.toFile().walkTopDown().filter { file ->
+            file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:longitudinal-store")
+        }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
+        assertEquals(listOf("qualification/build.gradle.kts"), storeConsumers)
     }
 
     @Test fun rawLanguageHasNoTherapeuticPolicyRoute() {
