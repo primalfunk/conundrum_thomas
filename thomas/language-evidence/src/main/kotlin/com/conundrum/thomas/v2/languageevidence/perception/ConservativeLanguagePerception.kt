@@ -64,6 +64,51 @@ class ConservativeLanguagePerception : LanguagePerceptionEngine {
         ONGOING_RESIDENCE.matchEntire(trimmed)?.let { match ->
             return ongoingResidence(source, match.groupValues[1], match.groupValues[2])
         }
+        WORK_INTERRUPTION.matchEntire(trimmed)?.let {
+            val today = EventTime.RelativePeriod("today", RelativeTemporalRelation.DURING)
+            val experience = assertion(source, "work-exhaustion", AssertionSubject.User, "self.reported-work-experience",
+                PredicateSemantics.USER_INTERNAL_EXPERIENCE, AssertionValue.Text("exhausting"),
+                UserEvidenceKind.EXPLICIT_USER_ASSERTION, AssertionUncertainty.STATED_WITHOUT_QUALIFICATION,
+                EvidenceEpistemicClass.EXPLICIT_SELF_REPORT, today)
+            val interruptions = assertion(source, "work-interruptions", AssertionSubject.User, "event.reported-work-interruptions",
+                PredicateSemantics.OBSERVABLE_OR_REPORTED_EVENT, AssertionValue.Text("kept getting interrupted"),
+                UserEvidenceKind.EXPLICIT_USER_ASSERTION, AssertionUncertainty.STATED_WITHOUT_QUALIFICATION,
+                EvidenceEpistemicClass.EVENT_REFERENCE, today)
+            return result(source, PerceptionDisposition.UNDERSTOOD,
+                proposals = listOf(EvidenceProposal(experience), EvidenceProposal(interruptions)))
+        }
+        THREE_LUNCH_REPORTS.matchEntire(trimmed)?.let {
+            val reports = listOf("today", "again", "yesterday").mapIndexed { index, scope ->
+                EvidenceProposal(assertion(source, "reported-lunch-${index + 1}", AssertionSubject.User,
+                    "reported.behavior.skipped-lunch", PredicateSemantics.ACTION_OR_BEHAVIOR,
+                    AssertionValue.Text("skipped lunch"), UserEvidenceKind.EXPLICIT_USER_ASSERTION,
+                    AssertionUncertainty.STATED_WITHOUT_QUALIFICATION, EvidenceEpistemicClass.EXPLICIT_USER_ASSERTION,
+                    EventTime.RelativePeriod(scope, RelativeTemporalRelation.DURING)))
+            }
+            return result(source, PerceptionDisposition.UNDERSTOOD, proposals = reports)
+        }
+        REMEMBERED_MOVE.matchEntire(trimmed)?.let { match ->
+            val time = EventTime.ApproximateYear(Year.of(match.groupValues[1].toInt()))
+            return one(source, assertion(source, "remembered-move", AssertionSubject.User, "event.moved-unspecified-location",
+                PredicateSemantics.OBSERVABLE_OR_REPORTED_EVENT, AssertionValue.BooleanValue(true),
+                UserEvidenceKind.EXPLICIT_USER_ASSERTION, AssertionUncertainty.APPROXIMATE,
+                EvidenceEpistemicClass.EVENT_REFERENCE, time))
+        }
+        MAYBE_BEFORE_COLLEGE.matchEntire(trimmed)?.let {
+            val time = EventTime.RelativePeriod("before college", RelativeTemporalRelation.BEFORE)
+            return partial(source, assertion(source, "uncertain-before-college", AssertionSubject.User,
+                "temporal.user-suspected-before-college", PredicateSemantics.TEMPORAL,
+                AssertionValue.TimeReference(time), UserEvidenceKind.USER_INTERPRETATION,
+                AssertionUncertainty.STATED_AS_UNCERTAIN, EvidenceEpistemicClass.USER_INTERPRETATION, time),
+                UnresolvedPerception(UnresolvedPerceptionKind.AMBIGUOUS_REFERENT, "RELATIVE_EVENT_REFERENT_UNRESOLVED"))
+        }
+        BOUGHT_GROCERIES.matchEntire(trimmed)?.let {
+            val time = EventTime.RelativePeriod("after work", RelativeTemporalRelation.AFTER)
+            return one(source, assertion(source, "bought-groceries", AssertionSubject.User, "event.bought-groceries",
+                PredicateSemantics.ACTION_OR_BEHAVIOR, AssertionValue.BooleanValue(true),
+                UserEvidenceKind.EXPLICIT_USER_ASSERTION, AssertionUncertainty.STATED_WITHOUT_QUALIFICATION,
+                EvidenceEpistemicClass.EVENT_REFERENCE, time))
+        }
         if (trimmed.count { it == '?' } > 1 || YEAR.findAll(trimmed).count() > 1) {
             return ambiguous(source, "MULTIPLE_PROPOSITIONS_OR_DATES")
         }
@@ -131,6 +176,13 @@ class ConservativeLanguagePerception : LanguagePerceptionEngine {
                 UserEvidenceKind.EXPLICIT_USER_ASSERTION, AssertionUncertainty.STATED_WITHOUT_QUALIFICATION,
                 EvidenceEpistemicClass.EXPLICIT_SELF_REPORT, time))
         }
+        SELF_FEELING.matchEntire(trimmed)?.let { match ->
+            val time = EventTime.RelativePeriod(match.groupValues[2].lowercase(), RelativeTemporalRelation.DURING)
+            return one(source, assertion(source, "self-feeling", AssertionSubject.User, "self.reported-emotion",
+                PredicateSemantics.USER_INTERNAL_EXPERIENCE, AssertionValue.Text(match.groupValues[1].lowercase()),
+                UserEvidenceKind.EXPLICIT_USER_ASSERTION, AssertionUncertainty.STATED_WITHOUT_QUALIFICATION,
+                EvidenceEpistemicClass.EXPLICIT_SELF_REPORT, time))
+        }
         THINK_PERSON_EMOTION.matchEntire(trimmed)?.let { match ->
             val person = personEntity(source, match.groupValues[1], "interpreted-person")
             val claim = assertion(source, "interpreted-person", AssertionSubject.Entity(person.id), "user.interprets-other-emotion",
@@ -171,6 +223,12 @@ class ConservativeLanguagePerception : LanguagePerceptionEngine {
             return one(source, assertion(source, "self-belief-relationships", AssertionSubject.User, "self.belief.relationship-failure",
                 PredicateSemantics.EVALUATION_OR_MEANING, AssertionValue.Text("always fail at relationships"),
                 UserEvidenceKind.USER_INTERPRETATION, AssertionUncertainty.STATED_WITHOUT_QUALIFICATION,
+                EvidenceEpistemicClass.SELF_BELIEF))
+        }
+        FAIL_EVERYTHING.matchEntire(trimmed)?.let {
+            return one(source, assertion(source, "self-belief-everything", AssertionSubject.User, "self.belief-global-failure",
+                PredicateSemantics.EVALUATION_OR_MEANING, AssertionValue.Text("fail at everything"),
+                UserEvidenceKind.USER_INTERPRETATION, AssertionUncertainty.STATED_AS_UNCERTAIN,
                 EvidenceEpistemicClass.SELF_BELIEF))
         }
         JOB_TRAJECTORY.matchEntire(trimmed)?.let { match ->
@@ -343,6 +401,11 @@ class ConservativeLanguagePerception : LanguagePerceptionEngine {
         private val INSTANT_EVENT = Regex("(?i)^At (\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z) I arrived\\.$")
         private val YEAR_RANGE_RESIDENCE = Regex("(?i)^Between ((?:19|20)\\d{2}) and ((?:19|20)\\d{2}) I lived in ([A-Za-z][A-Za-z ]*)\\.$")
         private val ONGOING_RESIDENCE = Regex("(?i)^I have lived in ([A-Za-z][A-Za-z ]*) since ((?:19|20)\\d{2})\\.$")
+        private val WORK_INTERRUPTION = Regex("(?i)^Work was exhausting today\\. I kept getting interrupted\\.$")
+        private val THREE_LUNCH_REPORTS = Regex("(?i)^I skipped lunch today\\. I skipped lunch again\\. I skipped lunch yesterday\\.$")
+        private val REMEMBERED_MOVE = Regex("(?i)^I remembered today that we moved around ((?:19|20)\\d{2})\\.$")
+        private val MAYBE_BEFORE_COLLEGE = Regex("(?i)^Maybe that happened before college\\.$")
+        private val BOUGHT_GROCERIES = Regex("(?i)^I bought groceries after work\\.$")
         private val MOVE = Regex("(?i)^I (did not )?move(?:d)? to ([A-Za-z][A-Za-z ]*) in ((?:19|20)\\d{2})\\.$")
         private val LIVED = Regex("(?i)^I lived in ([A-Za-z][A-Za-z ]*) in ((?:19|20)\\d{2})\\.$")
         private val APPROX_JOB = Regex("(?i)^Around ((?:19|20)\\d{2}) I changed jobs\\.$")
@@ -352,12 +415,14 @@ class ConservativeLanguagePerception : LanguagePerceptionEngine {
         private val DURATION_EMOTION = Regex("(?i)^For a while I felt (worried|sad|angry|calm)\\.$")
         private val SEASONAL_JOB = Regex("(?i)^Sometime that winter I changed jobs\\.$")
         private val SELF_EMOTION = Regex("(?i)^I was (furious|angry|sad|worried|calm) (yesterday|today)\\.$")
+        private val SELF_FEELING = Regex("(?i)^I feel (exhausted|anxious|sad|angry|worried|calm) (today|yesterday)\\.$")
         private val THINK_PERSON_EMOTION = Regex("(?i)^I think ([A-Z][a-z]+) was (furious|angry|sad|worried)\\.$")
         private val REPORTED_EMOTION = Regex("(?i)^([A-Z][a-z]+) told me (?:he|she|they) was (furious|angry|sad|worried)\\.$")
         private val MOVING_MISTAKE = Regex("(?i)^I think moving there was a mistake\\.$")
         private val PERSON_HATES_ME = Regex("^([A-Z][a-z]+) hates me\\.$")
         private val NOBODY_LIKES = Regex("(?i)^I feel like nobody likes me\\.$")
         private val ALWAYS_FAIL = Regex("(?i)^I always fail at relationships\\.$")
+        private val FAIL_EVERYTHING = Regex("(?i)^I feel like I fail at everything\\.$")
         private val JOB_TRAJECTORY = Regex("(?i)^(At first|By the end) I (loved|hated) that job\\.$")
         private val REPORTED_BEHAVIOR = Regex("(?i)^I (skipped lunch|called my friend|went for a walk) (today|yesterday|again)\\.$")
         private val CORRECTION_YEAR = Regex("(?i)^Actually, it was ((?:19|20)\\d{2}), not (?:19|20)\\d{2}\\.$")

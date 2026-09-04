@@ -124,6 +124,10 @@ class DeterministicStateFormation : LongitudinalStateFormer {
         corrections.forEach { add(OpenEvidenceQuestion("correction.${it.value}", OpenEvidenceQuestionKind.AMBIGUOUS_CORRECTION_TARGET,
             listOf(it.value), "CORRECTION_TARGET_REQUIRED")) }
         evidence.perceptionResults.sortedBy { it.sourceRevisionId }.forEach { result ->
+            result.unresolved.filter { it.kind == UnresolvedPerceptionKind.AMBIGUOUS_REFERENT }.forEach {
+                add(OpenEvidenceQuestion("reference.${result.sourceRevisionId}", OpenEvidenceQuestionKind.UNRESOLVED_REFERENCE,
+                    listOf(result.sourceRevisionId), it.reasonCode))
+            }
             result.unresolved.filter { it.kind == UnresolvedPerceptionKind.UNKNOWN_EVENT_TIME }.forEach {
                 add(OpenEvidenceQuestion("time.${result.sourceRevisionId}", OpenEvidenceQuestionKind.UNKNOWN_EVENT_TIME,
                     listOf(result.sourceRevisionId), it.reasonCode))

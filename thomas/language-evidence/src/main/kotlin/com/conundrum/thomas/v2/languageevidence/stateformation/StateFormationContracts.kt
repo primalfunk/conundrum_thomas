@@ -25,6 +25,7 @@ data class LongitudinalStateEvidence(
 
 enum class OpenEvidenceQuestionKind {
     UNRESOLVED_IDENTITY,
+    UNRESOLVED_REFERENCE,
     AMBIGUOUS_CORRECTION_TARGET,
     UNRESOLVED_CONTRADICTION,
     UNKNOWN_EVENT_TIME,
