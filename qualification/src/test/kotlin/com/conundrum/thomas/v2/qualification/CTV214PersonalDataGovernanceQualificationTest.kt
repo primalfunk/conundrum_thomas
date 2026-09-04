@@ -111,6 +111,21 @@ class CTV214PersonalDataGovernanceQualificationTest {
         assertFalse(root.resolve("fdp.txt").toFile().exists())
     }
 
+    @Test fun `required personal data governance documents are present`() {
+        listOf(
+            "docs/work-orders/CT-V2-14-PERSONAL-DATA-GOVERNANCE-AND-PERSISTENCE-QUALIFICATION.md",
+            "docs/CT-V2-14-PERSONAL-DATA-GOVERNANCE-AND-PERSISTENCE-QUALIFICATION.md",
+            "docs/qualification/CT-V2-14-QUALIFICATION.md",
+            "docs/persistence/CT-V2-14-PERSISTENT-STORE-ARCHITECTURE.md",
+            "docs/persistence/CT-V2-14-ENCRYPTION-AND-KEY-BOUNDARY.md",
+            "docs/persistence/CT-V2-14-DATA-LIFECYCLE-AND-RETENTION.md",
+            "docs/persistence/CT-V2-14-BACKUP-EXPORT-AND-RESTORE.md",
+            "docs/persistence/CT-V2-14-MIGRATION-CORRUPTION-AND-RECOVERY.md",
+            "docs/security/CT-V2-14-PERSONAL-DATA-THREAT-MODEL.md",
+            "docs/adr/0020-protected-personal-data-persistence.md",
+        ).forEach { assertTrue("missing required document $it", root.resolve(it).toFile().isFile) }
+    }
+
     private fun javaSources(path: String): String = root.resolve(path).toFile().walkTopDown()
         .filter { it.isFile && it.extension in setOf("kt", "java") && "build" !in it.toPath().map(Path::toString) }
         .joinToString("\n") { it.readText() }

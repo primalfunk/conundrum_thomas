@@ -14,9 +14,10 @@ cannot write evidence, search memory, choose a route, or bypass validation.
 
 > [!IMPORTANT]
 > This repository currently contains qualified architecture, deterministic
-> Kotlin policy, and synthetic test infrastructure. The Android application is
-> a minimal Compose shell. There is no production conversational integration,
-> production personal-data store, or admitted language model.
+> Kotlin policy, synthetic test infrastructure, and an isolated production-capable
+> protected personal-data store. The Android application is a minimal Compose
+> shell: persistence is not wired into it, real-user ingestion remains denied,
+> and no language model has been admitted.
 
 > [!WARNING]
 > This project is not a medical device, clinical service, crisis service, or
@@ -80,15 +81,17 @@ technique selection, and the current turn cannot retrieve itself as history.
 | Capability | Current state |
 | --- | --- |
 | Mode, provenance, ontology, safety, and ordinary Therapy policy | Pure Kotlin, deterministic, qualification-authorized |
-| Longitudinal evidence, revisions, corrections, privacy, and identity | Typed domain plus synthetic append-only qualification store |
+| Longitudinal evidence, revisions, corrections, privacy, and identity | Typed domain, synthetic SQLite qualification store, and isolated protected local store |
 | Language-to-evidence formation | Conservative, source-grounded, deterministic qualification path |
 | Journal capture | Synthetic source-first engine; default `NO_RESPONSE` |
 | Biographer coverage | Synthetic deterministic coverage map and one-question authority |
 | Retrieval and context packets | Read-only, purpose-bound, correction-aware, budgeted |
 | Longitudinal Therapy composition | Route-first integration with at most one ordinary memory reference |
 | Language rendering | Typed command, deterministic reference realizer, adversarial validator tests, safe fallback |
+| Personal-data lifecycle | AES-GCM protected atomic store, AndroidKeyStore adapter, deletion, export, backup, restore, migration, and recovery qualification |
 | Android application | Minimal Compose shell only |
-| Production model and personal-data storage | **Not admitted** |
+| Android persistence composition and real-user ingestion | **Not admitted** |
+| Production language model | **Not admitted** |
 
 The sealed CT-V2-13 qualification recorded 872 tests with zero failures, errors,
 or skips; 347 executed build tasks; zero lint errors or fatals; and successful
@@ -153,6 +156,7 @@ root on Windows:
 | [`thomas/context-packet/`](thomas/context-packet/) | Bounded, typed, purpose-specific context |
 | [`thomas/therapy-longitudinal/`](thomas/therapy-longitudinal/) | Route-first Therapy and memory composition |
 | [`thomas/language-renderer/`](thomas/language-renderer/) | Untrusted realization boundary, validation, and fallback |
+| [`thomas/personal-data-persistence/`](thomas/personal-data-persistence/) | Governed protected store, lifecycle, export, backup, restore, and recovery |
 | [`platform/`](platform/) | Unwired Android adapter boundaries |
 | [`qualification/`](qualification/) | Synthetic end-to-end and adversarial qualification |
 | [`provenance/`](provenance/) | Governed source schema, migrations, and synthetic seeds |
@@ -168,8 +172,9 @@ The compile-enforced dependency graph and authority rules are documented in
 - [Module boundaries](docs/MODULE-BOUNDARIES.md)
 - [Architectural decision records](docs/adr/README.md)
 - [Risk register](docs/RISK-REGISTER.md)
-- [Latest renderer boundary](docs/CT-V2-13-GOVERNED-LANGUAGE-RENDERER.md)
-- [Latest qualification evidence](docs/qualification/CT-V2-13-QUALIFICATION.md)
+- [Latest personal-data boundary](docs/CT-V2-14-PERSONAL-DATA-GOVERNANCE-AND-PERSISTENCE-QUALIFICATION.md)
+- [Personal-data threat model](docs/security/CT-V2-14-PERSONAL-DATA-THREAT-MODEL.md)
+- [Latest qualification evidence](docs/qualification/CT-V2-14-QUALIFICATION.md)
 - [Forward development plan](docs/planning/CONUNDRUM-THOMAS-V2-FORWARD-DEVELOPMENT-PLAN.md)
 - [V1 migration register](migration/v1-component-register.json)
 
@@ -189,8 +194,8 @@ This public repository must remain synthetic-only:
 - keep private or rights-restricted source material outside Git;
 - treat assistant responses and renderer history as operational artifacts, not
   evidence;
-- preserve `android:allowBackup="false"` until a separately governed
-  production data lifecycle exists.
+- preserve `android:allowBackup="false"`; Thomas backup is explicit,
+  user-directed, and independently protected rather than generic platform backup.
 
 The root [`.gitignore`](.gitignore) encodes these boundaries. Safe example
 configuration may be tracked; populated local configuration may not.

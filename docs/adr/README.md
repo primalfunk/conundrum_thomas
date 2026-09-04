@@ -21,3 +21,4 @@
 | [0017](0017-purpose-bound-longitudinal-retrieval.md) | Purpose-bound read-only longitudinal retrieval | Accepted for CT-V2-11 qualification |
 | [0018](0018-route-first-longitudinal-therapy-composition.md) | Route-first longitudinal Therapy composition | Accepted for CT-V2-12 qualification |
 | [0019](0019-untrusted-language-realization.md) | Untrusted language realization behind deterministic validation | Accepted for CT-V2-13 qualification |
+| [0020](0020-protected-personal-data-persistence.md) | Authenticated protected-blob persistence behind governed ports | Accepted for CT-V2-14 qualification |
