@@ -12,6 +12,8 @@ The governing architecture is [`docs/CONUNDRUM-THOMAS-V2-ARCHITECTURE.md`](docs/
 
 [CT-V2-10](docs/CT-V2-10-BIOGRAPHER-COVERAGE-ENGINE.md) adds deterministic open-story and targeted historical coverage, one-question semantic authority, and state-based anti-repetition. No production Biographer authority is granted.
 
+[CT-V2-11](docs/CT-V2-11-LONGITUDINAL-RETRIEVAL-AND-CONTEXT-PACKETS.md) adds purpose-bound read-only retrieval and compact typed context packets with strict privacy, lifecycle, correction, contradiction, provenance, and budget boundaries. It remains synthetic-only and unwired from Android, modes, models, and therapeutic policy.
+
 The CT-V2-07 boundary is documented in [`docs/CT-V2-07-GOVERNED-ADMISSION-REVISION-AND-LONGITUDINAL-STORE.md`](docs/CT-V2-07-GOVERNED-ADMISSION-REVISION-AND-LONGITUDINAL-STORE.md).
 
 Android Studio must use the canonical project `.git` root throughout phase work; the invariant and check are documented in [`docs/workspace/CT-V2-08-ANDROID-STUDIO-VCS-ROOT.md`](docs/workspace/CT-V2-08-ANDROID-STUDIO-VCS-ROOT.md).

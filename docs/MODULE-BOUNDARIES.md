@@ -48,10 +48,18 @@ These are production compile dependencies. `:qualification` may depend on each l
 :thomas:biographer (synthetic qualification authority only)
   -> :thomas:language-evidence
 
+:thomas:retrieval (synthetic qualification read authority only)
+  -> :thomas:longitudinal
+
+:thomas:context-packet (synthetic qualification only)
+  -> :thomas:retrieval
+
 :qualification
   -> :thomas:longitudinal-store
   -> :thomas:language-evidence
   -> :thomas:journal
+  -> :thomas:biographer
+  -> :thomas:context-packet
 
 :platform:persistence-android
   -> :thomas:domain
@@ -78,6 +86,9 @@ These are production compile dependencies. `:qualification` may depend on each l
 - `:thomas:language-evidence` is pure Kotlin and contains bounded deterministic perception and persistence-neutral state formation. It can propose grounded structures but cannot persist them. Only `:qualification` composes it with the CT-V2-07 store, and every durable object passes through the admission controller.
 - `:thomas:journal` is pure Kotlin and depends only on `:thomas:language-evidence` and its transitive governed contracts. It owns typed commit/revision/privacy commands and bounded response-intent policy, but no persistence implementation. Its sole adapter and complete write composition live in `:qualification` and delegate every durable operation to CT-V2-07.
 - `:thomas:biographer` is pure Kotlin and depends only on `:thomas:language-evidence` and its transitive governed contracts. It owns structural coverage, deterministic target ranking, one-question plans, operational investigation history, and source-first answer orchestration. Only `:qualification` composes it with the store; Therapy, Journal, Android, runtime, models, and V1 do not consume it.
+- `:thomas:retrieval` is pure Kotlin and depends only on `:thomas:longitudinal`. It owns the persistence-neutral read port, typed purpose/mode requests, eligibility, deterministic ranking, balanced evidence neighborhoods, exact-span excerpt proposals, and no writer.
+- `:thomas:context-packet` is pure Kotlin and depends only on retrieval. It owns immutable packet layers, source-data authority labels, explicit count/text/depth budgets, epistemically safe excerpt truncation, and canonical packet digests. Only `:qualification` binds it to the CT-V2-07 reader.
+- Retrieval does not depend on Journal, Biographer, Therapy, safety, Android, models, or the store. It cannot alter a mode contract, route, target, evidence, lifecycle, privacy, or projection.
 - CT-V2-03 explicitly authorizes `:thomas:engine` to consume the ontology for a qualification-only ruleset. Ontology remains behavior-free and has no dependency back to engine.
 - `:thomas:engine` has no Android, Room, JNI, speech, concrete-model, or qualification dependency. Its policies accept typed structured state, never raw user prose. CT-V2-05 adds hierarchical ordinary-route, action, and progression rules while preserving qualification execution authority and explicit production denial. Every ordinary evaluator requires a matching safety-issued permit.
 - Raw prose is not a policy input. Engine, safety, runtime, and app do not depend on `:thomas:language-evidence`; CT-V2-08 therefore grants no route, goal, action, or safety authority to language perception.
