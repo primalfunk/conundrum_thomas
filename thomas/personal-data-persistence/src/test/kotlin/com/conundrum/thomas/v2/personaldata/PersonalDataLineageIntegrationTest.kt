@@ -78,6 +78,25 @@ class PersonalDataLineageIntegrationTest {
         assertEquals(LongitudinalLifecycleStatus.SUPERSEDED, harness.store.reader.lifecycle(assertionRef(original.id))!!.status)
         assertFalse(harness.store.reader.isEligible(assertionRef(original.id)))
         assertTrue(harness.store.reader.isEligible(assertionRef(correcting.id)))
+        RecoveryKey.generate().use { key ->
+            val backup = harness.store.createProtectedBackup(key)
+            val directory = Files.createTempDirectory("ct-v2-14-correction-backup-")
+            try {
+                val restored = ProtectedPersonalDataStoreFactory.restoreIntoEmpty(
+                    backup,
+                    key,
+                    NioAtomicProtectedArtifactStorage(directory.resolve("correction.ctpd")),
+                    MemoryKeyProvider(),
+                    IncrementingClock(),
+                ).getOrThrow()
+                assertEquals(1, restored.store.reader.corrections().size)
+                assertEquals(1, restored.store.reader.supersessions().size)
+                assertEquals(LongitudinalLifecycleStatus.SUPERSEDED, restored.store.reader.lifecycle(assertionRef(original.id))!!.status)
+                restored.store.close()
+            } finally {
+                directory.toFile().walkBottomUp().forEach { it.delete() }
+            }
+        }
     }
 
     @Test fun `privacy restoration remains review required after restart`() = PersonalDataHarness().use { harness ->
@@ -98,6 +117,24 @@ class PersonalDataLineageIntegrationTest {
         harness.reopen()
         assertEquals(LongitudinalLifecycleStatus.REVIEW_REQUIRED, harness.store.reader.lifecycle(assertionRef(assertion.id))!!.status)
         assertFalse(harness.store.reader.isEligible(assertionRef(assertion.id)))
+        RecoveryKey.generate().use { key ->
+            val backup = harness.store.createProtectedBackup(key)
+            val directory = Files.createTempDirectory("ct-v2-14-privacy-backup-")
+            try {
+                val restored = ProtectedPersonalDataStoreFactory.restoreIntoEmpty(
+                    backup,
+                    key,
+                    NioAtomicProtectedArtifactStorage(directory.resolve("privacy.ctpd")),
+                    MemoryKeyProvider(),
+                    IncrementingClock(),
+                ).getOrThrow()
+                assertEquals(LongitudinalLifecycleStatus.REVIEW_REQUIRED, restored.store.reader.lifecycle(assertionRef(assertion.id))!!.status)
+                assertFalse(restored.store.reader.isEligible(assertionRef(assertion.id)))
+                restored.store.close()
+            } finally {
+                directory.toFile().walkBottomUp().forEach { it.delete() }
+            }
+        }
     }
 
     @Test fun `cross mode source provenance survives backup reset and restore`() = PersonalDataHarness().use { harness ->

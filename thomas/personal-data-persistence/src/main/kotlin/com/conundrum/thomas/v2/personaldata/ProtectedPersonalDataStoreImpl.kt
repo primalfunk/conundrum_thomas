@@ -53,6 +53,7 @@ object ProtectedPersonalDataStoreFactory {
                 faultInjector.check(PersistenceFaultPoint.BEFORE_MIGRATION_COMMIT)
                 store.persistCurrentDocument()
             } else if (verified.projectionRebuilt) {
+                faultInjector.check(PersistenceFaultPoint.BEFORE_PROJECTION_REBUILD_COMMIT)
                 store.persistCurrentDocument()
             }
             val disposition = when {
@@ -291,11 +292,13 @@ internal class ProtectedPersonalDataStoreImpl(
 
     override fun createProtectedBackup(key: RecoveryKey): ProtectedBackupArtifact {
         checkOpen()
+        faultInjector.check(PersistenceFaultPoint.BEFORE_BACKUP_PROTECTION)
         val plaintext = PersonalDataDocumentCodec.encode(requireDocument())
         val protected = AuthenticatedProtection.protect(
             plaintext, key.secretKey(), ProtectedArtifactPurpose.LOCAL_BACKUP,
             ProtectedPersonalDataStoreFactory.BACKUP_KEY_ALIAS, random,
         )
+        faultInjector.check(PersistenceFaultPoint.AFTER_BACKUP_PROTECTION)
         return ProtectedBackupArtifact.create(
             protected, currentStoreRevision(), AuthenticatedProtection.sha256(protected),
         )

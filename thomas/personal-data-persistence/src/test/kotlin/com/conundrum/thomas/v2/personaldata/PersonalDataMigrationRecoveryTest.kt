@@ -79,6 +79,31 @@ class PersonalDataMigrationRecoveryTest {
         opened.store.close()
     }
 
+    @Test fun `interrupted projection rebuild preserves damaged artifact for deterministic retry`() = PersonalDataHarness().use { harness ->
+        harness.admit(harness.source("projection-rebuild-interrupt"))
+        val before = harness.store.reader.canonicalLogicalStateDigest()
+        val current = harness.readDocument()
+        harness.store.close()
+        harness.writePlaintext(PersonalDataDocumentCodec.encode(current.copy(
+            projection = LongitudinalAggregateState(),
+            projectionDigest = CanonicalLongitudinalEncoding.stateDigest(LongitudinalAggregateState()),
+        )))
+        val interrupted = ProtectedPersonalDataStoreFactory.open(
+            harness.storage,
+            harness.keyProvider,
+            harness.clock,
+            faultInjector = PersistenceFaultInjector { point ->
+                if (point == PersistenceFaultPoint.BEFORE_PROJECTION_REBUILD_COMMIT) error("synthetic interruption")
+            },
+        )
+        assertTrue(interrupted is PersonalDataOpenResult.Unavailable)
+        val retried = ProtectedPersonalDataStoreFactory.open(harness.storage, harness.keyProvider, harness.clock)
+            as PersonalDataOpenResult.Opened
+        assertEquals(PersonalDataOpenDisposition.OPENED_AFTER_PROJECTION_REBUILD, retried.disposition)
+        assertEquals(before, retried.store.reader.canonicalLogicalStateDigest())
+        retried.store.close()
+    }
+
     @Test fun `damaged evidence ledger fails closed instead of speculative repair`() = PersonalDataHarness().use { harness ->
         harness.admit(harness.source("ledger-corrupt"))
         val current = harness.readDocument()

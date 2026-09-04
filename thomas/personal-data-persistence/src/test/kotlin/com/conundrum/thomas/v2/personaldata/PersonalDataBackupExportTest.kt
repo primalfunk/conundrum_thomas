@@ -13,6 +13,33 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class PersonalDataBackupExportTest {
+    @Test fun `failed or interrupted backup never mutates the primary corpus`() {
+        listOf(
+            PersistenceFaultPoint.BEFORE_BACKUP_PROTECTION,
+            PersistenceFaultPoint.AFTER_BACKUP_PROTECTION,
+        ).forEach { faultPoint ->
+            PersonalDataHarness().use { harness ->
+                harness.admit(harness.source("backup-fault-${faultPoint.name.lowercase().replace('_', '-')}"))
+                val before = harness.store.reader.canonicalLogicalStateDigest()
+                harness.store.close()
+                val opened = ProtectedPersonalDataStoreFactory.open(
+                    harness.storage,
+                    harness.keyProvider,
+                    harness.clock,
+                    faultInjector = PersistenceFaultInjector { point ->
+                        if (point == faultPoint) error("synthetic backup interruption")
+                    },
+                ) as PersonalDataOpenResult.Opened
+                harness.store = opened.store
+                RecoveryKey.generate().use { key ->
+                    assertTrue(runCatching { harness.store.createProtectedBackup(key) }.isFailure)
+                }
+                assertEquals(before, harness.store.reader.canonicalLogicalStateDigest())
+                assertEquals(1, harness.store.reader.snapshot().sources.size)
+            }
+        }
+    }
+
     @Test fun `machine and human exports distinguish source from derived state`() = PersonalDataHarness().use { harness ->
         val source = harness.source("export", "Synthetic export statement", AcquisitionMode.THERAPIST_CONVERSATION)
         harness.admit(source)
