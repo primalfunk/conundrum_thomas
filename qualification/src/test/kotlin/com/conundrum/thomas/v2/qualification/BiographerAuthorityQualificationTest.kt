@@ -216,10 +216,14 @@ class BiographerAuthorityQualificationTest {
         assertTrue(roots.all { !text(it).contains("GovernedBiographerPipeline") })
     }
 
-    @Test fun acceptance70AndroidAppLongitudinalWritersRemainZero() {
-        val gradle = text("app") + text("platform")
-        assertFalse(gradle.contains("longitudinal-store"))
-        assertFalse(gradle.contains("thomas:biographer"))
+    @Test fun acceptance70AndroidAppDirectBiographerAndStoreWritersRemainZero() {
+        val appGradle = File(repositoryRoot(), "app/build.gradle.kts").readText()
+        val appSource = text("app/src/main")
+        assertFalse(appGradle.contains("longitudinal-store"))
+        assertFalse(appGradle.contains("thomas:biographer"))
+        assertFalse(appSource.contains("BiographerAnswerCaptureEngine"))
+        assertFalse(appSource.contains("BiographerSourceAdmissionPort"))
+        assertFalse(appSource.contains("LongitudinalStore"))
     }
 
     @Test fun acceptance71ModelAuthorizedEvidenceWritersRemainZero() {

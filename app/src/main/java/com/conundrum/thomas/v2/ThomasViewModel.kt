@@ -144,32 +144,32 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                     runtimeAvailable = false,
                     status = "Protected persistence is unavailable",
                 )
-                return@launch
-            }
-            val messages = buildList {
-                addAll(current.transcript)
-                add(
-                    TranscriptItem(
-                        result.turnIdentity,
-                        TranscriptRole.USER,
-                        before.mode,
-                        text,
-                        result.committedSourceId != null,
-                    ),
-                )
-                result.assistantArtifact?.let {
-                    add(TranscriptItem("${result.turnIdentity}-thomas", TranscriptRole.THOMAS, before.mode, it.text))
+            } else {
+                val messages = buildList {
+                    addAll(current.transcript)
+                    add(
+                        TranscriptItem(
+                            result.turnIdentity,
+                            TranscriptRole.USER,
+                            before.mode,
+                            text,
+                            result.committedSourceId != null,
+                        ),
+                    )
+                    result.assistantArtifact?.let {
+                        add(TranscriptItem("${result.turnIdentity}-thomas", TranscriptRole.THOMAS, before.mode, it.text))
+                    }
                 }
+                drafts[before.mode] = ""
+                mutableState.value = current.copy(
+                    draft = "",
+                    transcript = messages,
+                    sourceSummaries = root.runtime?.sourceSummaries().orEmpty(),
+                    processing = false,
+                    status = result.disposition.name.replace('_', ' ').lowercase()
+                        .replaceFirstChar(Char::uppercase),
+                )
             }
-            drafts[before.mode] = ""
-            mutableState.value = current.copy(
-                draft = "",
-                transcript = messages,
-                sourceSummaries = root.runtime?.sourceSummaries().orEmpty(),
-                processing = false,
-                status = result.disposition.name.replace('_', ' ').lowercase()
-                    .replaceFirstChar(Char::uppercase),
-            )
         }
     }
 
@@ -237,7 +237,6 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
 
     override fun onCleared() {
         root.close()
-        super.onCleared()
     }
 
     private fun requestBiographerPrompt() {
