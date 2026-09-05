@@ -13,11 +13,11 @@ admitted in a future phase—may only realize an already-authorized meaning and
 cannot write evidence, search memory, choose a route, or bypass validation.
 
 > [!IMPORTANT]
-> This repository currently contains qualified architecture, deterministic
-> Kotlin policy, synthetic test infrastructure, and an isolated production-capable
-> protected personal-data store. The Android application is a minimal Compose
-> shell: persistence is not wired into it, real-user ingestion remains denied,
-> and no language model has been admitted.
+> The Android application now composes one governed V2 runtime for Journal,
+> Biographer, and Therapy. It uses the protected local store, deterministic
+> retrieval and rendering, and explicit export/backup/restore/reset custody
+> controls. Qualification uses synthetic data only. No language model, remote
+> inference service, speech recognizer, or speech synthesizer has been admitted.
 
 > [!WARNING]
 > This project is not a medical device, clinical service, crisis service, or
@@ -53,54 +53,52 @@ more explicit about what each component is allowed to know, decide, and write.
 These names describe product modes and authority boundaries. They do not assert
 diagnosis, clinical validation, or professional care.
 
-## Qualified longitudinal Therapy flow
+## Governed production turn flow
 
-The following pipeline exists in synthetic qualification. It is not wired into
-the Android application:
+The Android application follows one authoritative path. The application and
+renderer sequence the qualified owners; they do not replace them:
 
 ```mermaid
 flowchart LR
-    U["Typed current user turn"] --> A["Source-first admission"]
-    U --> S["Safety and scope gate"]
-    S --> P["Deterministic Therapy policy"]
-    P --> R["Purpose-bound retrieval"]
+    U["Committed typed user turn"] --> A["Source-first governed admission"]
+    U --> S["Mode policy / safety and scope gate"]
+    S --> P["Authorized semantic action"]
+    P --> R["Purpose-bound retrieval when authorized"]
     H["Governed longitudinal history"] --> R
     A -. "eligible on future turns" .-> H
     R --> M["Conservative memory-use gate"]
     M --> C["Governed render command"]
     C --> L["Untrusted language realizer"]
     L --> V["Deterministic validator"]
-    V --> O["Accepted response or safe fallback"]
+    V --> O["Final assistant artifact or true silence"]
 ```
 
 The order is architectural: historical memory cannot alter safety, route, or
-technique selection, and the current turn cannot retrieve itself as history.
+technique selection; the current turn cannot retrieve itself as history; and
+no renderer candidate is user-visible before deterministic validation.
 
 ## Current implementation status
 
 | Capability | Current state |
 | --- | --- |
-| Mode, provenance, ontology, safety, and ordinary Therapy policy | Pure Kotlin, deterministic, qualification-authorized |
-| Longitudinal evidence, revisions, corrections, privacy, and identity | Typed domain, synthetic SQLite qualification store, and isolated protected local store |
-| Language-to-evidence formation | Conservative, source-grounded, deterministic qualification path |
-| Journal capture | Synthetic source-first engine; default `NO_RESPONSE` |
-| Biographer coverage | Synthetic deterministic coverage map and one-question authority |
+| Mode, provenance, ontology, safety, and ordinary Therapy policy | Pure Kotlin, deterministic, production-composed |
+| Longitudinal evidence, revisions, corrections, privacy, and identity | Typed domain with governed protected Android persistence |
+| Language-to-evidence formation | Conservative, source-grounded, deterministic production path |
+| Journal capture | Production-composed source-first engine; default `NO_RESPONSE` |
+| Biographer coverage | Production-composed deterministic coverage map and one-question authority |
 | Retrieval and context packets | Read-only, purpose-bound, correction-aware, budgeted |
-| Longitudinal Therapy composition | Route-first integration with at most one ordinary memory reference |
-| Language rendering | Typed command, deterministic reference realizer, adversarial validator tests, safe fallback |
-| Personal-data lifecycle | AES-GCM protected atomic store, AndroidKeyStore adapter, deletion, export, backup, restore, migration, and recovery qualification |
-| Android application | Minimal Compose shell only |
-| Android persistence composition and real-user ingestion | **Not admitted** |
+| Longitudinal Therapy composition | Production route-first integration with at most one ordinary memory reference |
+| Language rendering | Production deterministic reference realizer behind typed commands, validation, and fallback |
+| Personal-data lifecycle | AES-GCM protected atomic store, AndroidKeyStore key, deletion, correction, export, protected backup, restore, reset, migration, and recovery |
+| Android application | One Compose runtime with explicit Journal, Biographer, Therapy, privacy, and data-custody surfaces |
+| Speech input/output | **Not admitted; typed input is authoritative** |
 | Production language model | **Not admitted** |
 
-The CT-V2-14 sealing qualification recorded 929 tests with zero failures,
-errors, or skips; 356 executed build tasks; zero lint errors or fatals; and
-successful debug and unsigned-release APK assembly. Its production-capable
-protected store remains deliberately isolated from the app, so these results
-authorize the persistence boundary—not real-user ingestion or Android product
-composition. See the
-[qualification record](docs/qualification/CT-V2-14-QUALIFICATION.md) for the
-scope, threat assumptions, and limitations behind those numbers.
+CT-V2-15 qualification covers the complete JVM regression suite, Android
+instrumentation, APK hygiene, and a physical-device persistence/reboot gate.
+See the [qualification record](docs/qualification/CT-V2-15-QUALIFICATION.md)
+for exact evidence and limitations. The repository remains a research and
+qualification system, not a clinical claim or a model-admission claim.
 
 ## Quick start
 
@@ -148,7 +146,7 @@ root on Windows:
 
 | Path | Responsibility |
 | --- | --- |
-| [`app/`](app/) | Minimal Android/Compose application shell |
+| [`app/`](app/) | Canonical Android/Compose V2 application and composition root |
 | [`thomas/domain/`](thomas/domain/) | Shared mode and rendering authority contracts |
 | [`thomas/engine/`](thomas/engine/) | Deterministic ordinary Therapy policy |
 | [`thomas/safety/`](thomas/safety/) | Independent safety and scope permit |
@@ -160,7 +158,7 @@ root on Windows:
 | [`thomas/therapy-longitudinal/`](thomas/therapy-longitudinal/) | Route-first Therapy and memory composition |
 | [`thomas/language-renderer/`](thomas/language-renderer/) | Untrusted realization boundary, validation, and fallback |
 | [`thomas/personal-data-persistence/`](thomas/personal-data-persistence/) | Governed protected store, lifecycle, export, backup, restore, and recovery |
-| [`platform/`](platform/) | Unwired Android adapter boundaries |
+| [`platform/`](platform/) | Android persistence adapter plus deliberately unadmitted renderer/speech boundaries |
 | [`qualification/`](qualification/) | Synthetic end-to-end and adversarial qualification |
 | [`provenance/`](provenance/) | Governed source schema, migrations, and synthetic seeds |
 | [`docs/`](docs/) | Architecture, ADRs, policies, risks, phase records, and qualification evidence |
@@ -175,9 +173,10 @@ The compile-enforced dependency graph and authority rules are documented in
 - [Module boundaries](docs/MODULE-BOUNDARIES.md)
 - [Architectural decision records](docs/adr/README.md)
 - [Risk register](docs/RISK-REGISTER.md)
-- [Latest personal-data boundary](docs/CT-V2-14-PERSONAL-DATA-GOVERNANCE-AND-PERSISTENCE-QUALIFICATION.md)
+- [Latest Android integration](docs/CT-V2-15-ANDROID-PRODUCTION-INTEGRATION.md)
+- [Production runtime architecture](docs/architecture/CT-V2-15-ANDROID-PRODUCTION-RUNTIME.md)
 - [Personal-data threat model](docs/security/CT-V2-14-PERSONAL-DATA-THREAT-MODEL.md)
-- [Latest qualification evidence](docs/qualification/CT-V2-14-QUALIFICATION.md)
+- [Latest qualification evidence](docs/qualification/CT-V2-15-QUALIFICATION.md)
 - [Forward development plan](docs/planning/CONUNDRUM-THOMAS-V2-FORWARD-DEVELOPMENT-PLAN.md)
 - [V1 migration register](migration/v1-component-register.json)
 
