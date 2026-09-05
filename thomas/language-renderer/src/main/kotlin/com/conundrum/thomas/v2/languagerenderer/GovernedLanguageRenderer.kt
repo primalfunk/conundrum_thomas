@@ -9,7 +9,7 @@ class GovernedLanguageRenderer(
         history: RenderHistoryState = RenderHistoryState(),
         externalRealizer: LanguageRealizer? = null,
     ): GovernedRenderResult {
-        if (command.qualificationAuthority != RenderQualificationAuthority.SYNTHETIC_QUALIFICATION_ONLY) {
+        if (command.qualificationAuthority == RenderQualificationAuthority.NOT_AUTHORIZED) {
             return noOutput(command, history, RenderDisposition.RENDERING_UNAVAILABLE,
                 RenderValidationReason.INVALID_AUTHORITY)
         }

@@ -142,7 +142,7 @@ class BiographerAnswerCaptureEngine(
     private fun validate(command: BiographerAnswerCommand): BiographerCaptureResult? = when {
         command.committedText.isBlank() ->
             failure(BiographerCaptureDisposition.REJECTED_EMPTY_ANSWER, "EMPTY_BIOGRAPHER_ANSWER")
-        command.authority != BiographerQualificationAuthority.SYNTHETIC_QUALIFICATION_ONLY ->
+        command.authority == BiographerQualificationAuthority.NOT_AUTHORIZED ->
             failure(BiographerCaptureDisposition.REJECTED_AUTHORITY, "NON_SYNTHETIC_BIOGRAPHER_AUTHORITY")
         command.expectedStoreRevision < 0 || command.committedText.length > MAX_ANSWER_LENGTH ||
             '\u0000' in command.committedText ->

@@ -16,5 +16,6 @@ java {
 
 dependencies {
     api(project(":thomas:longitudinal"))
+    api(project(":thomas:longitudinal-admission"))
     testImplementation(libs.junit)
 }

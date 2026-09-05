@@ -22,12 +22,15 @@ class CTV214PersonalDataGovernanceQualificationTest {
         assertEquals(1, CT_V2_14_BACKUP_FORMAT_VERSION)
     }
 
-    @Test fun `single production capable root remains outside app composition`() {
+    @Test fun `single production capable persistence root is composed only by the CT-V2-15 app root`() {
         val platform = text("platform/persistence-android/src/main/kotlin/com/conundrum/thomas/v2/platform/persistence/AndroidPersonalDataPersistenceFactory.kt")
         assertEquals(1, Regex("ProtectedPersonalDataStoreFactory[.]open[(]").findAll(platform).count())
-        assertFalse(text("app/build.gradle.kts").contains(":platform:persistence-android"))
+        assertTrue(text("app/build.gradle.kts").contains(":platform:persistence-android"))
         assertFalse(text("app/build.gradle.kts").contains(":thomas:personal-data-persistence"))
-        assertFalse(javaSources("app").contains("personaldata"))
+        val app = javaSources("app/src/main")
+        assertEquals(1, Regex("AndroidPersonalDataPersistenceFactory[.]open[(]").findAll(app).count())
+        assertTrue(app.contains("class ThomasAndroidCompositionRoot"))
+        assertFalse(app.contains("ProtectedPersonalDataStoreFactory.open"))
     }
 
     @Test fun `Android artifact uses no backup storage and atomic replacement`() {

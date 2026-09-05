@@ -41,10 +41,9 @@ class LongitudinalStoreBoundaryQualificationTest {
         assertFalse(root.resolve("thomas/longitudinal/build.gradle.kts").toFile().readText().contains("longitudinal-admission"))
     }
 
-    @Test fun `production modules remain unwired from admission and store`() {
+    @Test fun `core policy and presentation modules remain unwired from admission and concrete store`() {
         val files = listOf(
-            "app/build.gradle.kts", "thomas/runtime/build.gradle.kts", "thomas/engine/build.gradle.kts",
-            "thomas/safety/build.gradle.kts", "platform/persistence-android/build.gradle.kts",
+            "thomas/engine/build.gradle.kts", "thomas/safety/build.gradle.kts",
             "platform/renderer-llama-android/build.gradle.kts", "platform/speech-android/build.gradle.kts",
             "thomas/provenance/build.gradle.kts",
         )
@@ -53,9 +52,14 @@ class LongitudinalStoreBoundaryQualificationTest {
             assertFalse("$path must not consume admission", text.contains(":thomas:longitudinal-admission"))
             assertFalse("$path must not consume store", text.contains(":thomas:longitudinal-store"))
         }
-        val productionSources = listOf("app", "thomas/runtime", "thomas/engine", "thomas/safety", "platform/renderer-llama-android", "platform/speech-android")
+        val productionSources = listOf("thomas/engine", "thomas/safety", "platform/renderer-llama-android", "platform/speech-android")
             .flatMap { root.resolve(it).toFile().walkTopDown().filter { file -> file.isFile && file.extension in setOf("kt", "java") }.toList() }
         assertFalse(productionSources.any { it.readText().contains("longitudinal.store") || it.readText().contains("longitudinal.admission") })
+        val integration = listOf("app/src/main", "thomas/runtime/src/main", "platform/persistence-android/src/main")
+            .flatMap { root.resolve(it).toFile().walkTopDown().filter { file -> file.isFile && file.extension in setOf("kt", "java") }.toList() }
+            .joinToString("\n") { it.readText() }
+        listOf("QualificationLongitudinalStore", "java.sql", "jdbc:", "SQLiteDatabase", "RoomDatabase")
+            .forEach { assertFalse("production integration exposes concrete store token $it", integration.contains(it)) }
     }
 
     @Test fun `only qualification module consumes complete store`() {
@@ -79,7 +83,7 @@ class LongitudinalStoreBoundaryQualificationTest {
     }
 
     @Test fun `accepted receipt implementation is private and cannot be named by caller API`() {
-        val contracts = root.resolve("thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/GovernedPersistencePorts.kt").toFile().readText()
+        val contracts = root.resolve("thomas/longitudinal-admission/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/GovernedPersistencePorts.kt").toFile().readText()
         assertTrue(contracts.contains("interface AcceptedAdmissionReceipt"))
         val implementation = Class.forName("com.conundrum.thomas.v2.longitudinal.store.StoreAcceptedReceipt")
         assertFalse(Modifier.isPublic(implementation.modifiers))

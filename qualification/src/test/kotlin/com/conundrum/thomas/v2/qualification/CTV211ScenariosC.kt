@@ -239,12 +239,15 @@ internal object CTV211ScenariosC {
         assertEquals(setOf(
             "qualification/build.gradle.kts",
             "thomas/context-packet/build.gradle.kts",
+            "thomas/runtime/build.gradle.kts",
             "thomas/therapy-longitudinal/build.gradle.kts",
         ), consumers)
         val qualification = File(root.toFile(), "qualification/build.gradle.kts").readText()
         assertTrue(qualification.contains(":thomas:retrieval") && qualification.contains(":thomas:context-packet"))
         val integration = File(root.toFile(), "thomas/therapy-longitudinal/build.gradle.kts").readText()
         assertTrue(integration.contains(":thomas:retrieval") && integration.contains(":thomas:context-packet"))
+        val runtime = File(root.toFile(), "thomas/runtime/build.gradle.kts").readText()
+        assertTrue(runtime.contains(":thomas:retrieval") && runtime.contains(":thomas:context-packet"))
     }
     private fun assertAndroidCompositionRootsZero() {
         val appText = sourceText("app") + File(root.toFile(), "app/build.gradle.kts").readText()

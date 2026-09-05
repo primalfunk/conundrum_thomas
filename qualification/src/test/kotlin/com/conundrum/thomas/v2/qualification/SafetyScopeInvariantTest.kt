@@ -128,10 +128,10 @@ class SafetyScopeInvariantTest {
     }
 
     @Test
-    fun `ordinary permit constructor is internal and production paths cannot invoke gate or policy`() {
+    fun `ordinary permit constructor is internal and only the CT-V2-15 runtime invokes the safety gate`() {
         val permitSource = File(repositoryRoot, "thomas/safety/src/main/kotlin/com/conundrum/thomas/v2/safety/SafetyScopeGate.kt").readText()
         assertTrue(permitSource.contains("class OrdinaryTherapyPermit internal constructor"))
-        val productionPaths = listOf("app", "thomas/runtime", "platform/persistence-android", "platform/renderer-llama-android", "platform/speech-android")
+        val productionPaths = listOf("app", "platform/persistence-android", "platform/renderer-llama-android", "platform/speech-android")
         productionPaths.forEach { path ->
             val material = File(repositoryRoot, path).walkTopDown()
                 .onEnter { it.name != "build" }
@@ -141,6 +141,11 @@ class SafetyScopeInvariantTest {
             assertFalse("$path invokes ordinary qualification policy", material.contains("BoundedProblemPolicyEvaluator"))
             assertFalse("$path depends on qualification", material.contains(":qualification"))
         }
+        val runtime = File(repositoryRoot, "thomas/runtime/src/main").walkTopDown()
+            .filter { it.isFile && it.extension == "kt" }
+            .joinToString("\n") { it.readText() }
+        assertEquals(2, Regex("SafetyScopeGate").findAll(runtime).count())
+        assertFalse(runtime.contains("BoundedProblemPolicyEvaluator"))
     }
 
     @Test

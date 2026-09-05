@@ -64,26 +64,31 @@ class JournalAuthorityQualificationTest {
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:journal")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
         assertEquals(
-            listOf("qualification/build.gradle.kts", "thomas/language-renderer/build.gradle.kts"),
+            listOf(
+                "qualification/build.gradle.kts",
+                "thomas/language-renderer/build.gradle.kts",
+                "thomas/runtime/build.gradle.kts",
+            ),
             consumers,
         )
         val rendererSource = root.resolve("thomas/language-renderer/src/main").toFile().walkTopDown()
             .filter { it.isFile }.joinToString("\n") { it.readText() }
         listOf("JournalCaptureEngine", "LongitudinalAdmissionController", "GovernedJournalCapturePipeline")
             .forEach { assertFalse(rendererSource.contains(it)) }
-        listOf("app/build.gradle.kts", "thomas/runtime/build.gradle.kts").forEach {
-            val build = text(it)
-            assertFalse(build.contains(":thomas:journal"))
-            assertFalse(build.contains(":thomas:longitudinal-store"))
-        }
+        assertFalse(text("app/build.gradle.kts").contains(":thomas:journal"))
+        assertTrue(text("thomas/runtime/build.gradle.kts").contains(":thomas:journal"))
+        assertFalse(text("thomas/runtime/build.gradle.kts").contains(":thomas:longitudinal-store"))
     }
 
     @Test fun acceptance58AppRuntimeWriterCountRemainsZero() {
-        val source = listOf("app/src", "thomas/runtime/src").map { root.resolve(it).toFile() }
-            .filter { it.exists() }.flatMap { it.walkTopDown().filter { file -> file.isFile }.toList() }
-            .joinToString("\n") { it.readText() }
+        val app = root.resolve("app/src/main").toFile().walkTopDown()
+            .filter { it.isFile }.joinToString("\n") { it.readText() }
         listOf("JournalCaptureEngine", "LongitudinalAdmissionController", "GovernedJournalCapturePipeline")
-            .forEach { assertFalse(source.contains(it)) }
+            .forEach { assertFalse(app.contains(it)) }
+        val runtime = root.resolve("thomas/runtime/src/main").toFile().walkTopDown()
+            .filter { it.isFile }.joinToString("\n") { it.readText() }
+        assertEquals(1, Regex("JournalCaptureEngine[(]").findAll(runtime).count())
+        assertFalse(runtime.contains("GovernedJournalCapturePipeline"))
     }
 
     @Test fun acceptance59ModelAuthorizedEvidenceWriterCountRemainsZero() {

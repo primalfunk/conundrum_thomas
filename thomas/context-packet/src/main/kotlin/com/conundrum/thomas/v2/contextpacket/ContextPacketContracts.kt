@@ -23,6 +23,7 @@ enum class ModeAuthorityState {
     JOURNAL_CAPTURE_ONLY,
     BIOGRAPHER_INVESTIGATION_ONLY,
     ORDINARY_THERAPY_QUALIFICATION_ONLY,
+    ORDINARY_THERAPY_ANDROID_PRODUCTION,
 }
 
 data class ModeAuthorityContract(
@@ -38,7 +39,10 @@ data class ModeAuthorityContract(
             when (activeMode) {
                 RetrievalMode.JOURNAL -> state == ModeAuthorityState.JOURNAL_CAPTURE_ONLY
                 RetrievalMode.BIOGRAPHER -> state == ModeAuthorityState.BIOGRAPHER_INVESTIGATION_ONLY
-                RetrievalMode.THERAPY -> state == ModeAuthorityState.ORDINARY_THERAPY_QUALIFICATION_ONLY
+                RetrievalMode.THERAPY -> state in setOf(
+                    ModeAuthorityState.ORDINARY_THERAPY_QUALIFICATION_ONLY,
+                    ModeAuthorityState.ORDINARY_THERAPY_ANDROID_PRODUCTION,
+                )
             },
         )
     }

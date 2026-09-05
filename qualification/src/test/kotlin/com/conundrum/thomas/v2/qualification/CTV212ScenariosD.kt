@@ -289,8 +289,11 @@ internal object CTV212ScenariosD {
 
     private fun assertProductionRootsZero() {
         val app = sourceText("app")
-        assertFalse(app.contains("therapylongitudinal"))
         assertFalse(app.contains(":thomas:therapy-longitudinal"))
+        assertFalse(app.contains("LongitudinalTherapyIntegrationEngine"))
+        val runtime = sourceText("thomas/runtime")
+        assertEquals(1, Regex("LongitudinalTherapyIntegrationEngine[(]").findAll(runtime).count())
+        assertFalse(runtime.contains("QualificationLongitudinalStore"))
     }
 
     private fun assertAndroidRootsZero() = assertProductionRootsZero()

@@ -71,7 +71,7 @@ value class TherapyIdempotencyKey private constructor(val value: String) {
 
 enum class TherapyTurnCaptureOrigin { TYPED, SPEECH_TRANSCRIPT }
 enum class TherapyTurnPrivacy { ELIGIBLE, PRIVATE }
-enum class TherapyIntegrationAuthority { SYNTHETIC_QUALIFICATION_ONLY, NOT_AUTHORIZED }
+enum class TherapyIntegrationAuthority { SYNTHETIC_QUALIFICATION_ONLY, ANDROID_PRODUCTION, NOT_AUTHORIZED }
 enum class TherapyMemoryIntent { ORDINARY, EXPLICIT_RECALL, EXPLAIN_THOMAS_VIEW }
 
 enum class TherapyTurnCaptureDisposition {

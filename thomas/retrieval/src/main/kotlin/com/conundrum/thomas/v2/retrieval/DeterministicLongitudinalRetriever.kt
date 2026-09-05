@@ -174,12 +174,17 @@ class DeterministicLongitudinalRetriever(
             if (entity.id in request.anchors.periodIds) reasons += RetrievalReason.SAME_PERIOD
             if (entity.id in resolvedAnchorEntities && reasons.isEmpty()) reasons += RetrievalReason.SAME_RESOLVED_ENTITY
             if (reasons.isEmpty()) return@forEach
+            val entitySourceIds = entity.supportingAssertionIds.mapNotNull { id ->
+                evidence.assertions.firstOrNull { it.id == id }?.sourceRecordId
+            }.distinct().sorted()
+            // A single-source entity can carry that source's provenance without inventing a
+            // cross-source attribution. Multi-source entities remain explicitly unattributed.
+            val singleEntitySource = entitySourceIds.singleOrNull()?.let(eligibleSources::get)
             candidates += item(
                 RetrievalItemKind.ENTITY, entity.id.value, RetrievedPayload.Entity(entity),
-                lifecycle(key(RetrievalObjectType.ENTITY, entity.id.value)), true, null, null, null, null,
-                entity.supportingAssertionIds.mapNotNull { id ->
-                    evidence.assertions.firstOrNull { it.id == id }?.sourceRecordId
-                }.distinct().sorted(),
+                lifecycle(key(RetrievalObjectType.ENTITY, entity.id.value)), true, null, null,
+                singleEntitySource?.reportTime, singleEntitySource?.provenance?.acquisitionMode,
+                entitySourceIds,
                 listOf(entity.id), entity.id in unresolvedEntities, reasons.distinct(),
                 rank(request, entity.id.value, reasons, 0, null, null),
             )
@@ -358,7 +363,7 @@ class DeterministicLongitudinalRetriever(
     }
 
     private fun validate(request: RetrievalRequest): Pair<RetrievalDisposition, String>? = when {
-        request.authority != RetrievalAuthority.SYNTHETIC_QUALIFICATION_ONLY ->
+        request.authority == RetrievalAuthority.NOT_AUTHORIZED ->
             RetrievalDisposition.REJECTED_AUTHORITY to "PRODUCTION_RETRIEVAL_AUTHORITY_NOT_GRANTED"
         request.policyVersion != CT_V2_11_RETRIEVAL_POLICY_VERSION ->
             RetrievalDisposition.REJECTED_INVALID_REQUEST to "UNSUPPORTED_RETRIEVAL_POLICY_VERSION"

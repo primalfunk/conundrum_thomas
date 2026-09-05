@@ -44,8 +44,8 @@ object JournalRenderCommandAdapter {
                 posture = GovernedResponsePosture.JOURNAL_ASK_ONE_QUESTION
                 budget = RenderBudget.ONE_QUESTION
                 forms = listOf(
-                    "You described ${grounding.surfaceMeaning}. What part stands out most to you?",
-                    "You described ${grounding.surfaceMeaning}. What would you like to explore?",
+                    "${statement.removeSuffix(".")}. What part stands out most to you?",
+                    "${statement.removeSuffix(".")}. What would you like to explore?",
                 )
             }
         }
@@ -80,10 +80,18 @@ object JournalRenderCommandAdapter {
         )
     }
 
-    private fun journalStatement(grounding: RenderableGrounding): String = when (grounding.epistemicClass) {
-        EvidenceEpistemicClass.SELF_BELIEF -> "You described believing ${grounding.surfaceMeaning}."
-        EvidenceEpistemicClass.USER_INTERPRETATION -> "You described your sense that ${grounding.surfaceMeaning}."
-        EvidenceEpistemicClass.THIRD_PARTY_REPORT -> "You reported that ${grounding.surfaceMeaning}."
-        else -> "You described ${grounding.surfaceMeaning}."
+    private fun journalStatement(grounding: RenderableGrounding): String = when (grounding.uncertainty) {
+        AssertionUncertainty.STATED_AS_UNCERTAIN ->
+            "You described this uncertainly: ${grounding.surfaceMeaning}."
+        AssertionUncertainty.APPROXIMATE ->
+            "You described this approximately: ${grounding.surfaceMeaning}."
+        AssertionUncertainty.CONTESTED ->
+            "You described this as not settled: ${grounding.surfaceMeaning}."
+        AssertionUncertainty.STATED_WITHOUT_QUALIFICATION -> when (grounding.epistemicClass) {
+            EvidenceEpistemicClass.SELF_BELIEF -> "You described believing ${grounding.surfaceMeaning}."
+            EvidenceEpistemicClass.USER_INTERPRETATION -> "You described your sense that ${grounding.surfaceMeaning}."
+            EvidenceEpistemicClass.THIRD_PARTY_REPORT -> "You reported that ${grounding.surfaceMeaning}."
+            else -> "You described ${grounding.surfaceMeaning}."
+        }
     }
 }

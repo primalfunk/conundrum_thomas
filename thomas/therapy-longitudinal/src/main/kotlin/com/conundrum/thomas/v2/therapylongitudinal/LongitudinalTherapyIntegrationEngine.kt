@@ -17,6 +17,7 @@ import com.conundrum.thomas.v2.longitudinal.AcquisitionMode
 import com.conundrum.thomas.v2.longitudinal.RecordTime
 import com.conundrum.thomas.v2.longitudinal.admission.AdmissionDisposition
 import com.conundrum.thomas.v2.retrieval.CT_V2_11_RETRIEVAL_POLICY_VERSION
+import com.conundrum.thomas.v2.retrieval.RetrievalAuthority
 import com.conundrum.thomas.v2.retrieval.RetrievalIntent
 import com.conundrum.thomas.v2.retrieval.RetrievalMode
 import com.conundrum.thomas.v2.retrieval.RetrievalRequest
@@ -374,6 +375,11 @@ class LongitudinalTherapyIntegrationEngine(
             budget = command.contextBudget,
             explicitTargetId = command.explicitMemoryTargetId,
             explicitlyUserDirected = command.memoryIntent != TherapyMemoryIntent.ORDINARY,
+            authority = if (command.authority == TherapyIntegrationAuthority.ANDROID_PRODUCTION) {
+                RetrievalAuthority.ANDROID_PRODUCTION
+            } else {
+                RetrievalAuthority.SYNTHETIC_QUALIFICATION_ONLY
+            },
         )
         val immediate = command.priorImmediateConversation + ImmediateConversationItem(
             turnId = command.turnId.value,
@@ -384,7 +390,11 @@ class LongitudinalTherapyIntegrationEngine(
             retrieval = retrieval,
             modeAuthority = ModeAuthorityContract(
                 RetrievalMode.THERAPY,
-                ModeAuthorityState.ORDINARY_THERAPY_QUALIFICATION_ONLY,
+                if (command.authority == TherapyIntegrationAuthority.ANDROID_PRODUCTION) {
+                    ModeAuthorityState.ORDINARY_THERAPY_ANDROID_PRODUCTION
+                } else {
+                    ModeAuthorityState.ORDINARY_THERAPY_QUALIFICATION_ONLY
+                },
                 CT_V2_12_INTEGRATION_POLICY_VERSION,
             ),
             safetyConstraints = listOf(
@@ -406,7 +416,12 @@ class LongitudinalTherapyIntegrationEngine(
     ): Boolean {
         if (packet.metadata.storeRevision != command.expectedStoreRevision) return false
         if (packet.metadata.activeMode != RetrievalMode.THERAPY) return false
-        if (packet.authority.modeContract.state != ModeAuthorityState.ORDINARY_THERAPY_QUALIFICATION_ONLY) return false
+        val expectedModeAuthority = if (command.authority == TherapyIntegrationAuthority.ANDROID_PRODUCTION) {
+            ModeAuthorityState.ORDINARY_THERAPY_ANDROID_PRODUCTION
+        } else {
+            ModeAuthorityState.ORDINARY_THERAPY_QUALIFICATION_ONLY
+        }
+        if (packet.authority.modeContract.state != expectedModeAuthority) return false
         if (packet.authority.retrievedTextHasInstructionAuthority) return false
         val currentRevision = capture.receipt?.sourceRevisionId
         if (currentRevision != null) {
@@ -534,7 +549,7 @@ class LongitudinalTherapyIntegrationEngine(
     )
 
     private fun validate(command: LongitudinalTherapyTurnCommand): Pair<LongitudinalTherapyTurnDisposition, String>? = when {
-        command.authority != TherapyIntegrationAuthority.SYNTHETIC_QUALIFICATION_ONLY ->
+        command.authority == TherapyIntegrationAuthority.NOT_AUTHORIZED ->
             LongitudinalTherapyTurnDisposition.REJECTED_AUTHORITY to "PRODUCTION_LONGITUDINAL_THERAPY_AUTHORITY_NOT_GRANTED"
         command.exactUserText.isBlank() ->
             LongitudinalTherapyTurnDisposition.REJECTED_INVALID_COMMAND to "EMPTY_THERAPY_USER_TURN"

@@ -44,7 +44,7 @@ value class JournalIdempotencyKey private constructor(val value: String) {
 enum class JournalCaptureOrigin { TYPED, SPEECH_TRANSCRIPT }
 enum class JournalResponsePreference { NO_RESPONSE, REFLECT, ASK_ONE_QUESTION }
 enum class JournalPrivacy { ELIGIBLE, PRIVATE }
-enum class JournalQualificationAuthority { SYNTHETIC_QUALIFICATION_ONLY, NOT_AUTHORIZED }
+enum class JournalQualificationAuthority { SYNTHETIC_QUALIFICATION_ONLY, ANDROID_PRODUCTION, NOT_AUTHORIZED }
 
 /** A draft has no evidence authority and is not accepted by JournalCaptureEngine.commit. */
 data class JournalDraft(val text: String)

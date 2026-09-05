@@ -66,10 +66,26 @@ class FoundationArchitectureTest {
         )
         assertEquals(emptySet<String>(), projectDependencies("thomas/longitudinal/build.gradle.kts"))
         assertEquals(
-            setOf(":thomas:domain", ":thomas:provenance", ":thomas:engine", ":thomas:safety"),
+            setOf(
+                ":thomas:domain",
+                ":thomas:provenance",
+                ":thomas:engine",
+                ":thomas:safety",
+                ":thomas:personal-data-persistence",
+                ":thomas:language-evidence",
+                ":thomas:journal",
+                ":thomas:biographer",
+                ":thomas:retrieval",
+                ":thomas:context-packet",
+                ":thomas:therapy-longitudinal",
+                ":thomas:language-renderer",
+            ),
             projectDependencies("thomas/runtime/build.gradle.kts"),
         )
-        assertEquals(setOf(":thomas:runtime"), projectDependencies("app/build.gradle.kts"))
+        assertEquals(
+            setOf(":thomas:runtime", ":platform:persistence-android", ":platform:speech-android"),
+            projectDependencies("app/build.gradle.kts"),
+        )
         assertEquals(setOf(":thomas:personal-data-persistence"), projectDependencies("platform/persistence-android/build.gradle.kts"))
         assertEquals(setOf(":thomas:domain"), projectDependencies("platform/renderer-llama-android/build.gradle.kts"))
         assertEquals(setOf(":thomas:domain"), projectDependencies("platform/speech-android/build.gradle.kts"))
@@ -80,8 +96,9 @@ class FoundationArchitectureTest {
         val app = text("app/build.gradle.kts")
         val renderer = text("platform/renderer-llama-android/build.gradle.kts")
 
-        listOf(":thomas:engine", ":thomas:safety", ":platform:renderer-llama-android", ":platform:persistence-android")
+        listOf(":thomas:engine", ":thomas:safety", ":platform:renderer-llama-android")
             .forEach { forbidden -> assertFalse("app must not depend on $forbidden", app.contains(forbidden)) }
+        assertTrue("CT-V2-15 must compose protected Android persistence", app.contains(":platform:persistence-android"))
 
         listOf(":thomas:engine", ":thomas:safety", ":thomas:provenance", ":thomas:runtime", ":platform:persistence-android")
             .forEach { forbidden -> assertFalse("renderer must not depend on $forbidden", renderer.contains(forbidden)) }
@@ -205,15 +222,15 @@ class FoundationArchitectureTest {
     }
 
     @Test
-    fun `source corpus stays build time and persistence remains outside the application root`() {
+    fun `source corpus stays build time and persistence enters only through the authorized Android adapter`() {
         val seedDirectory = file("provenance/seeds")
         val persistenceSource = file("platform/persistence-android/src")
 
         assertNotNull(seedDirectory.listFiles())
         assertTrue(seedDirectory.listFiles()!!.any { it.extension == "sql" })
         assertTrue(persistenceSource.exists())
-        assertFalse(text("app/build.gradle.kts").contains(":platform:persistence-android"))
-        assertFalse(text("thomas/runtime/build.gradle.kts").contains(":thomas:personal-data-persistence"))
+        assertTrue(text("app/build.gradle.kts").contains(":platform:persistence-android"))
+        assertTrue(text("thomas/runtime/build.gradle.kts").contains(":thomas:personal-data-persistence"))
         assertFalse(text("thomas/runtime/build.gradle.kts").contains(":tools:provenance"))
         assertFalse(text("app/build.gradle.kts").contains(":tools:provenance"))
     }

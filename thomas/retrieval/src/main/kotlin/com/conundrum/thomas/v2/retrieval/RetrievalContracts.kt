@@ -45,7 +45,7 @@ enum class RetrievalIntent {
 }
 
 enum class RetrievalMode { JOURNAL, BIOGRAPHER, THERAPY }
-enum class RetrievalAuthority { SYNTHETIC_QUALIFICATION_ONLY, NOT_AUTHORIZED }
+enum class RetrievalAuthority { SYNTHETIC_QUALIFICATION_ONLY, ANDROID_PRODUCTION, NOT_AUTHORIZED }
 
 data class ContextBudget(
     val version: String = CT_V2_11_BUDGET_VERSION,

@@ -222,6 +222,13 @@ data class RestoreResult(
     val projectionRebuilt: Boolean,
 )
 
+/** Non-mutating proof that an externally held backup can be trusted before replacement reset. */
+data class BackupValidationResult(
+    val sourceStoreRevision: Long,
+    val logicalStateDigest: String,
+    val projectionRebuildRequired: Boolean,
+)
+
 enum class RetentionCategory { RETAIN_UNTIL_USER_DELETION, REVISION_RETAINED, EPHEMERAL, RECOMPUTABLE, NEVER_PERSISTED }
 
 data class RetentionRule(val category: RetentionCategory, val reason: String) : Serializable

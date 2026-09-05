@@ -82,6 +82,29 @@ object ProtectedPersonalDataStoreFactory {
             PersonalDataFailureDisposition.NON_EMPTY_RESTORE_TARGET,
             "RESTORE_TARGET_MUST_BE_EMPTY",
         )
+        val verified = verifiedBackupDocument(artifact, recoveryKey)
+        faultInjector.check(PersistenceFaultPoint.BEFORE_RESTORE_COMMIT)
+        val store = ProtectedPersonalDataStoreImpl(storage, keyProvider, clock, random, faultInjector, verified.document)
+        store.persistInitial()
+        RestoreResult(store, verified.document.projection.storeRevision, verified.document.projectionDigest, verified.projectionRebuilt)
+    }
+
+    fun validateBackup(
+        artifact: ProtectedBackupArtifact,
+        recoveryKey: RecoveryKey,
+    ): Result<BackupValidationResult> = runCatching {
+        val verified = verifiedBackupDocument(artifact, recoveryKey)
+        BackupValidationResult(
+            sourceStoreRevision = verified.document.projection.storeRevision,
+            logicalStateDigest = verified.document.projectionDigest,
+            projectionRebuildRequired = verified.projectionRebuilt,
+        )
+    }
+
+    private fun verifiedBackupDocument(
+        artifact: ProtectedBackupArtifact,
+        recoveryKey: RecoveryKey,
+    ): VerifiedDocument {
         val plaintext = try {
             AuthenticatedProtection.unprotect(
                 artifact.encryptedPayload(),
@@ -97,17 +120,18 @@ object ProtectedPersonalDataStoreFactory {
                 failure,
             )
         }
-        val verified = PersonalDataDocumentCodec.decodeAndVerify(plaintext)
-        if (verified.document.projection.storeRevision != artifact.sourceStoreRevision) {
-            throw PersonalDataPersistenceException(
-                PersonalDataFailureDisposition.BACKUP_INTEGRITY_FAILURE,
-                "BACKUP_SOURCE_REVISION_MISMATCH",
-            )
+        return try {
+            PersonalDataDocumentCodec.decodeAndVerify(plaintext).also { verified ->
+                if (verified.document.projection.storeRevision != artifact.sourceStoreRevision) {
+                    throw PersonalDataPersistenceException(
+                        PersonalDataFailureDisposition.BACKUP_INTEGRITY_FAILURE,
+                        "BACKUP_SOURCE_REVISION_MISMATCH",
+                    )
+                }
+            }
+        } finally {
+            plaintext.fill(0)
         }
-        faultInjector.check(PersistenceFaultPoint.BEFORE_RESTORE_COMMIT)
-        val store = ProtectedPersonalDataStoreImpl(storage, keyProvider, clock, random, faultInjector, verified.document)
-        store.persistInitial()
-        RestoreResult(store, verified.document.projection.storeRevision, verified.document.projectionDigest, verified.projectionRebuilt)
     }
 
     internal const val BACKUP_KEY_ALIAS = "ct-v2-14.user-recovery-key"
@@ -330,11 +354,41 @@ internal class ProtectedPersonalDataStoreImpl(
     }
 
     private fun persist(document: PersonalDataDocumentV2, key: javax.crypto.SecretKey) {
-        val plaintext = PersonalDataDocumentCodec.encode(document)
-        val protected = AuthenticatedProtection.protect(
-            plaintext, key, ProtectedArtifactPurpose.PRIMARY_STORE, keyProvider.descriptor.alias, random,
-        )
-        storage.writeAtomically(protected)
+        val plaintext = try {
+            PersonalDataDocumentCodec.encode(document)
+        } catch (failure: Exception) {
+            throw PersonalDataPersistenceException(
+                PersonalDataFailureDisposition.STORAGE_UNAVAILABLE,
+                "PRIMARY_SERIALIZATION_FAILED",
+                failure,
+            )
+        }
+        try {
+            val protected = try {
+                AuthenticatedProtection.protect(
+                    plaintext, key, ProtectedArtifactPurpose.PRIMARY_STORE, keyProvider.descriptor.alias, random,
+                )
+            } catch (failure: PersonalDataPersistenceException) {
+                throw failure
+            } catch (failure: Exception) {
+                throw PersonalDataPersistenceException(
+                    PersonalDataFailureDisposition.KEY_UNAVAILABLE,
+                    "PRIMARY_PROTECTION_FAILED_${failure.javaClass.simpleName.uppercase()}",
+                    failure,
+                )
+            }
+            try {
+                storage.writeAtomically(protected)
+            } catch (failure: Exception) {
+                throw PersonalDataPersistenceException(
+                    PersonalDataFailureDisposition.STORAGE_UNAVAILABLE,
+                    "PRIMARY_ATOMIC_WRITE_FAILED",
+                    failure,
+                )
+            }
+        } finally {
+            plaintext.fill(0)
+        }
     }
 }
 

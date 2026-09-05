@@ -242,7 +242,7 @@ data class RenderStyleContract(
 
 enum class MemoryReferencePermission { NONE, ONE_AUTHORIZED, BOUNDED_EXPLICIT }
 enum class RenderFallbackAuthority { DETERMINISTIC_FALLBACK, NO_RESPONSE_ONLY }
-enum class RenderQualificationAuthority { SYNTHETIC_QUALIFICATION_ONLY, NOT_AUTHORIZED }
+enum class RenderQualificationAuthority { SYNTHETIC_QUALIFICATION_ONLY, ANDROID_PRODUCTION, NOT_AUTHORIZED }
 
 data class GovernedRenderCommand(
     val id: RenderCommandId,

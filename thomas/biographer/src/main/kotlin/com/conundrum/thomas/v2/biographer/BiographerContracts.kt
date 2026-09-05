@@ -330,7 +330,7 @@ data class BiographerQuestionDecision(
 
 enum class BiographerAnswerOrigin { TYPED, SPEECH_TRANSCRIPT }
 enum class BiographerPrivacy { ELIGIBLE, PRIVATE }
-enum class BiographerQualificationAuthority { SYNTHETIC_QUALIFICATION_ONLY, NOT_AUTHORIZED }
+enum class BiographerQualificationAuthority { SYNTHETIC_QUALIFICATION_ONLY, ANDROID_PRODUCTION, NOT_AUTHORIZED }
 
 data class BiographerAnswerCommand(
     val answerId: BiographerAnswerId,

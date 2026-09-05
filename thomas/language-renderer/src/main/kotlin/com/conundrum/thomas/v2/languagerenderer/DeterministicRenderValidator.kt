@@ -148,7 +148,10 @@ class DeterministicRenderValidator {
 
     private fun containsTentativeLanguage(text: String): Boolean = containsAny(
         text,
-        setOf("may", "might", "wonder", "not sure", "tentative", "possibly", "could be"),
+        setOf(
+            "may", "might", "wonder", "not sure", "tentative", "possibly", "could be",
+            "uncertain", "approximately", "around", "about", "not settled", "differing",
+        ),
     )
 
     private fun containsAny(text: String, phrases: Set<String>): Boolean = phrases.any { containsLiteral(text, it) }

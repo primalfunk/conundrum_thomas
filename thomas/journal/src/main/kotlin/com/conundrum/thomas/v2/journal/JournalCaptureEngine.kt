@@ -61,7 +61,7 @@ class JournalCaptureEngine(
     }
 
     fun changePrivacy(command: JournalPrivacyChangeCommand): JournalPrivacyChangeResult {
-        if (command.authority != JournalQualificationAuthority.SYNTHETIC_QUALIFICATION_ONLY || command.expectedStoreRevision < 0) {
+        if (command.authority == JournalQualificationAuthority.NOT_AUTHORIZED || command.expectedStoreRevision < 0) {
             return JournalPrivacyChangeResult(
                 JournalPrivacyChangeDisposition.REJECTED,
                 AdmissionDisposition.REJECTED_AUTHORITY,
@@ -273,7 +273,7 @@ class JournalCaptureEngine(
         authority: JournalQualificationAuthority,
     ): JournalCaptureResult? = when {
         text.isBlank() -> failure(JournalCaptureDisposition.REJECTED_EMPTY_ENTRY, "EMPTY_JOURNAL_ENTRY")
-        authority != JournalQualificationAuthority.SYNTHETIC_QUALIFICATION_ONLY ->
+        authority == JournalQualificationAuthority.NOT_AUTHORIZED ->
             failure(JournalCaptureDisposition.REJECTED_AUTHORITY, "NON_SYNTHETIC_JOURNAL_AUTHORITY")
         expectedStoreRevision < 0 || text.length > MAX_ENTRY_LENGTH || '\u0000' in text ->
             failure(JournalCaptureDisposition.REJECTED_INVALID_COMMAND, "INVALID_JOURNAL_COMMIT_COMMAND")

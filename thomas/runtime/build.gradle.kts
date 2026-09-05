@@ -16,8 +16,16 @@ java {
 }
 
 dependencies {
-    implementation(project(":thomas:domain"))
-    implementation(project(":thomas:provenance"))
-    implementation(project(":thomas:engine"))
-    implementation(project(":thomas:safety"))
+    api(project(":thomas:domain"))
+    api(project(":thomas:provenance"))
+    api(project(":thomas:engine"))
+    api(project(":thomas:safety"))
+    api(project(":thomas:personal-data-persistence"))
+    api(project(":thomas:language-evidence"))
+    api(project(":thomas:journal"))
+    api(project(":thomas:biographer"))
+    api(project(":thomas:retrieval"))
+    api(project(":thomas:context-packet"))
+    api(project(":thomas:therapy-longitudinal"))
+    api(project(":thomas:language-renderer"))
 }

@@ -28,10 +28,14 @@ internal object AuthenticatedProtection {
     ): ByteArray {
         require(key.algorithm.equals("AES", ignoreCase = true))
         if (plaintext.size > MAX_CIPHERTEXT_BYTES - GCM_TAG_BYTES) malformed("PROTECTION_PLAINTEXT_TOO_LARGE")
-        val nonce = ByteArray(NONCE_BYTES).also(random::nextBytes)
         val aad = aad(purpose, keyAlias)
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-        cipher.init(Cipher.ENCRYPT_MODE, key, GCMParameterSpec(TAG_BITS, nonce))
+        // The AndroidKeyStore rejects caller-supplied IVs when the key requires
+        // randomized encryption. Let the selected cryptographic provider create
+        // the GCM nonce, then preserve that exact nonce with the ciphertext.
+        cipher.init(Cipher.ENCRYPT_MODE, key, random)
+        val nonce = cipher.iv ?: malformed("PROTECTION_NONCE_UNAVAILABLE")
+        if (nonce.size != NONCE_BYTES) malformed("PROTECTION_NONCE_INVALID")
         cipher.updateAAD(aad)
         val ciphertext = cipher.doFinal(plaintext)
         return ByteArrayOutputStream().use { bytes ->

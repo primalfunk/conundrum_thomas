@@ -28,6 +28,7 @@ class LanguageEvidenceBoundaryQualificationTest {
                 "qualification/build.gradle.kts",
                 "thomas/biographer/build.gradle.kts",
                 "thomas/journal/build.gradle.kts",
+                "thomas/runtime/build.gradle.kts",
                 "thomas/therapy-longitudinal/build.gradle.kts",
             ),
             consumers,
@@ -39,12 +40,17 @@ class LanguageEvidenceBoundaryQualificationTest {
     }
 
     @Test fun rawLanguageHasNoTherapeuticPolicyRoute() {
-        val policyText = listOf("thomas/engine/src", "thomas/safety/src", "thomas/runtime/src")
+        val policyText = listOf("thomas/engine/src", "thomas/safety/src")
             .map { root.resolve(it).toFile() }.filter { it.exists() }
             .flatMap { it.walkTopDown().filter { file -> file.isFile && file.extension == "kt" }.toList() }
             .joinToString("\n") { it.readText() }
         listOf("languageevidence", "CommittedSourceText", "LanguagePerceptionResult")
             .forEach { assertFalse(policyText.contains(it)) }
+        val runtime = root.resolve("thomas/runtime/src/main").toFile().walkTopDown()
+            .filter { it.isFile && it.extension == "kt" }.joinToString("\n") { it.readText() }
+        assertTrue(runtime.contains("GovernedLanguageEvidencePipeline"))
+        assertFalse(runtime.contains("CommittedSourceText"))
+        assertFalse(runtime.contains("LanguagePerceptionResult"))
     }
 
     @Test fun noModelPromptNetworkOrSqlInLanguageAuthority() {
@@ -58,8 +64,8 @@ class LanguageEvidenceBoundaryQualificationTest {
     }
 
     @Test fun languageCompositionHasExactlyTwoGovernedSubmissionSites() {
-        val composition = text("qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/languageevidence/GovernedLanguageEvidencePipeline.kt")
-        assertEquals(2, "store.admission.submit".toRegex(RegexOption.LITERAL).findAll(composition).count())
+        val composition = text("thomas/language-evidence/src/main/kotlin/com/conundrum/thomas/v2/languageevidence/GovernedLanguageEvidencePipeline.kt")
+        assertEquals(2, "admission.submit".toRegex(RegexOption.LITERAL).findAll(composition).count())
         assertFalse(composition.contains("AcceptedAdmissionReceipt"))
     }
 
