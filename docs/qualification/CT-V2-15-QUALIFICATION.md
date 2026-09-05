@@ -169,7 +169,7 @@ Canonical command:
 .\gradlew.bat clean build lint generateRuntimeProvenanceDb --rerun-tasks --console=plain
 ```
 
-- Result: `BUILD SUCCESSFUL` in 2m15s.
+- Result: `BUILD SUCCESSFUL` in 2m19s.
 - Actionable tasks: 393/393 executed.
 - JVM suites/tests: 59 / 946.
 - JVM failures/errors/skips: 0 / 0 / 0.
@@ -183,9 +183,12 @@ Canonical command:
 - Debug APK: 31,466,324 bytes; SHA-256
   `3fa1f8590a16b8eadc85b0e007d7b7e6b67f425aff9f328516b73b5b2c5d2ae4`.
 - Unsigned release APK: 24,246,543 bytes; SHA-256
-  `1d6e158b3ea058ad3d5baabc0104bb33be25651dfce0a08a5fd1b9898c4a93fd`.
-- A second `--rerun-tasks` assembly produced identical byte hashes for both
-  APKs; the final clean assembly reverified these values.
+  `dd5cb034812eef5e5c125923d9aa19df3a0a7633ccc73ad23fef0d1790b6d5d4`.
+- A second clean assembly produced identical byte hashes for both APKs. The
+  timestamp/order-independent entry-content digests also matched: debug
+  `78b9c93360d64e42bf5b018b5e8cbcb69d9e7eefde13644c0e6a06d8e94f656e`
+  and release
+  `bc5fdb7d34e7b8040f5cbb051e617a927e7fa79018ad4b4ada9a732502c598dd`.
 - Generated provenance database remained ignored/untracked.
 
 Development qualification discovered and corrected two real integration
