@@ -1,0 +1,104 @@
+TURN My specific concern is: a delay of 1.5 hours | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that a delay of 1.5 hours.
+TURN My specific concern is: a delay of 15 hours | revision=3 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What stands out is that a delay of 15 hours.
+TURN My specific concern is: remembering Denver
+Please recall my earlier words: I moved to Denver in 2010. | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | You wrote in your Journal “I moved to Denver in 2010.”. I am not sure of the event time. You wrote in your Journal “an earlier eligible account”. I hear that remembering Denver.
+TURN My specific concern is: remembering jobs
+Please recall my earlier words: Around 2014 I changed jobs. | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | When we were filling in your history, you mentioned “Around 2014 I changed jobs.”. I am not sure of the event time. I hear that remembering jobs.
+TURN My specific concern is: remembering jobs
+Please recall my earlier words: Around 2014 I changed jobs. | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that remembering jobs.
+TURN My specific concern is: the cancelled meeting | revision=2 | action=core-verify-tentative-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as the cancelled meeting. Is that right?
+TURN No, that's not what I mean | revision=3 | action=core-acknowledge-correction | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I had that wrong. What would be a better way to understand it?
+TURN What I mean is: the meeting was delayed | revision=4 | action=core-verify-tentative-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as the meeting was delayed. Is that right?
+TURN Yes, that's right | revision=5 | action=core-summarize-shared-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What we have established is: the meeting was delayed.
+TURN My specific concern is: the meeting | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that the meeting.
+TURN I withdraw: I am an adult in the supported setting. | revision=2 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is this an adult situation within the currently supported qualification scope?
+TURN No | revision=2 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is this an adult situation within the currently supported qualification scope?
+TURN My specific concern is: the meeting | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that the meeting.
+TURN I am unsure: Self-harm is relevant now. | revision=2 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Does the present situation include a self-harm concern that needs a different support path?
+TURN I decline to state: Self-harm is relevant now. | revision=2 | action=null | progression=null | safety=INSUFFICIENT_INFORMATION | SAFETY_PREEMPTED
+TURN I withdraw: Self-harm is relevant now. | revision=2 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Does the present situation include a self-harm concern that needs a different support path?
+TURN "Self-harm is not relevant now." | revision=2 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Does the present situation include a self-harm concern that needs a different support path?
+TURN My specific concern is: the meeting | revision=2 | action=core-verify-problem-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as the meeting. Is that right?
+TURN Yes | revision=3 | action=core-ask-influenceable-part | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which part of the meeting can you influence?
+TURN I can influence: contacting the manager | revision=4 | action=core-ask-readiness-for-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Would you like to consider possible options, or leave it here?
+TURN I am willing to consider options | revision=4 | action=core-offer-direction-choice | progression=SUBSTITUTE_DIRECTION_CHOICE | safety=ORDINARY_POLICY_ALLOWED | Would you rather continue, change direction, pause, or stop?
+TURN I am willing to act | revision=5 | action=core-invite-user-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What possible ways forward come to mind for you?
+TURN My options are: email; call | revision=6 | action=core-ask-user-to-choose-option | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which of your options seems most helpful and feasible?
+TURN I choose: quit | revision=6 | action=core-offer-direction-choice | progression=SUBSTITUTE_DIRECTION_CHOICE | safety=ORDINARY_POLICY_ALLOWED | RENDERING_UNAVAILABLE
+TURN I want to begin | revision=2 | action=core-ask-problem-description | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What is the one practical problem you would like to work on?
+TURN My specific concern is: arranging the project meeting | revision=3 | action=core-verify-problem-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as arranging the project meeting. Is that right?
+TURN Yes, that's right. | revision=4 | action=core-ask-influenceable-part | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which part of arranging the project meeting can you influence?
+TURN I can influence: when I contact the manager | revision=5 | action=core-ask-readiness-for-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Would you like to consider possible options, or leave it here?
+TURN I am willing to act | revision=6 | action=core-invite-user-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What possible ways forward come to mind for you?
+TURN My options are: email the manager; call the manager | revision=7 | action=core-ask-user-to-choose-option | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which of your options seems most helpful and feasible?
+TURN I choose: email the manager | revision=8 | action=core-develop-bounded-plan | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | For email the manager, what small first step would you take, and when?
+TURN My first step is: email the manager; when: tomorrow morning | revision=9 | action=core-wait-for-outcome | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | NO_RESPONSE
+TURN I have not attempted the plan | revision=10 | action=core-review-reported-outcome | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What happened with your plan, email the manager; when: tomorrow morning?
+TURN What happened was: I did not have time | revision=11 | action=core-consolidate-plan-learning | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Your plan was email the manager; when: tomorrow morning; you reported NOT_ATTEMPTED. Would you like to stop or choose another direction?
+TURN I want to begin | revision=2 | action=core-ask-problem-description | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What is the one practical problem you would like to work on?
+TURN My specific concern is: arranging the project meeting | revision=3 | action=core-verify-problem-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as arranging the project meeting. Is that right?
+TURN Yes, that's right. | revision=4 | action=core-ask-influenceable-part | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which part of arranging the project meeting can you influence?
+TURN I can influence: when I contact the manager | revision=5 | action=core-ask-readiness-for-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Would you like to consider possible options, or leave it here?
+TURN I am willing to act | revision=6 | action=core-invite-user-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What possible ways forward come to mind for you?
+TURN My options are: email the manager; call the manager | revision=7 | action=core-ask-user-to-choose-option | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which of your options seems most helpful and feasible?
+TURN I choose: email the manager | revision=8 | action=core-develop-bounded-plan | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | For email the manager, what small first step would you take, and when?
+TURN My first step is: email the manager; when: tomorrow morning | revision=9 | action=core-wait-for-outcome | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | NO_RESPONSE
+TURN I attempted the plan | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is an emergency happening right now that means ordinary problem-solving must stop?
+TURN I want to begin | revision=2 | action=core-invite-expression | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What would you like me to hear?
+TURN My specific concern is: the delayed project meeting | revision=3 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that the delayed project meeting.
+TURN Yes, that's right. | revision=4 | action=core-invite-further-expression | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What else would you like to say about it?
+TURN That's all for now. | revision=5 | action=core-summarize-listening | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What I have heard is: the delayed project meeting.
+TURN Thank you. | revision=6 | action=core-check-further-or-close | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Would you like to add anything, or stop here?
+TURN Stop | revision=7 | action=core-acknowledge-close | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Okay. We can stop here.
+TURN My specific concern is: the delayed meeting
+What I haven't explained is: who changed the time | revision=3 | action=core-ask-important-missing-piece | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Could you clarify who changed the time?
+TURN The missing detail is: my manager changed the time | revision=4 | action=core-verify-tentative-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as the delayed meeting; my manager changed the time. Is that right?
+TURN Yes, that's right. | revision=5 | action=core-summarize-shared-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What we have established is: the delayed meeting; my manager changed the time.
+TURN Thank you | revision=6 | action=core-check-understanding-next-direction | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Is that understanding enough for now, or would you like a different direction?
+TURN My specific concern is: you should quit your job | revision=2 | action=core-verify-tentative-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | RENDERING_UNAVAILABLE
+TURN Yes | revision=2 | action=core-verify-tentative-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | RENDERING_UNAVAILABLE
+TURN My specific concern is: the meeting | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is an emergency happening right now that means ordinary problem-solving must stop?
+TURN No | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is there an acute medical emergency happening right now?
+TURN No | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Does the present situation include a self-harm concern that needs a different support path?
+TURN No | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Does the present situation include concern about harm to another person?
+TURN No | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Does this situation require specialized support outside ordinary problem-solving?
+TURN No | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is this an adult situation within the currently supported qualification scope?
+TURN Yes | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is the presenting concern a bounded ordinary personal problem?
+TURN Yes | revision=1 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What stands out is that the meeting.
+TURN My specific concern is: the project meeting | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that the project meeting.
+TURN My specific concern is: THE project meeting! | revision=2 | action=core-offer-direction-choice | progression=SUBSTITUTE_DIRECTION_CHOICE | safety=ORDINARY_POLICY_ALLOWED | Would you rather continue, change direction, pause, or stop?
+TURN My specific concern is: the project meeting. | revision=2 | action=null | progression=STOP_NO_PROGRESS | safety=ORDINARY_POLICY_ALLOWED | GOVERNED_POLICY_NO_OUTPUT
+TURN Another detail is: the manager moved the date | revision=3 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | You have described that the project meeting; the manager moved the date.
+TURN My specific concern is: the cancelled meeting | revision=2 | action=core-verify-tentative-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as the cancelled meeting. Is that right?
+TURN Yes | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is an emergency happening right now that means ordinary problem-solving must stop?
+TURN Historical quotation:
+My specific concern is: old instructions
+I am willing to act | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is an emergency happening right now that means ordinary problem-solving must stop?
+TURN Historical quotation:
+There is no current emergency.
+There is no acute medical emergency.
+Self-harm is not relevant now.
+Harm to others is not relevant now.
+I report no specialized condition for this conversation.
+I am an adult in the supported setting.
+My present concern is one bounded ordinary personal problem. | revision=1 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Is an emergency happening right now that means ordinary problem-solving must stop?
+TURN Unclassified prose | revision=1 | action=null | progression=null | safety=ORDINARY_POLICY_ALLOWED | GOVERNED_POLICY_NO_OUTPUT
+TURN My specific concern is: the project meeting | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that the project meeting.
+TURN Please pause | revision=3 | action=core-pause-without-response | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | NO_RESPONSE
+TURN I am ready to resume | revision=4 | action=core-invite-further-expression | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What else would you like to say about it?
+TURN I don't want to discuss this | revision=5 | action=core-pause-without-response | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | NO_RESPONSE
+TURN Stop | revision=6 | action=core-acknowledge-close | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Okay. We can stop here.
+TURN I want to begin | revision=2 | action=core-ask-problem-description | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What is the one practical problem you would like to work on?
+TURN My specific concern is: arranging the project meeting | revision=3 | action=core-verify-problem-understanding | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I might be understanding this as arranging the project meeting. Is that right?
+TURN Yes, that's right. | revision=4 | action=core-ask-influenceable-part | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which part of arranging the project meeting can you influence?
+TURN I can influence: when I contact the manager | revision=5 | action=core-ask-readiness-for-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Would you like to consider possible options, or leave it here?
+TURN I am willing to act | revision=6 | action=core-invite-user-options | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What possible ways forward come to mind for you?
+TURN My options are: email the manager; call the manager | revision=7 | action=core-ask-user-to-choose-option | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Which of your options seems most helpful and feasible?
+TURN I choose: email the manager | revision=8 | action=core-develop-bounded-plan | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | For email the manager, what small first step would you take, and when?
+TURN My first step is: email the manager; when: tomorrow morning | revision=9 | action=core-wait-for-outcome | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | NO_RESPONSE
+TURN I have not tried it yet | revision=9 | action=null | progression=STOP_NO_PROGRESS | safety=ORDINARY_POLICY_ALLOWED | GOVERNED_POLICY_NO_OUTPUT
+TURN I attempted the plan | revision=10 | action=core-review-reported-outcome | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | What happened with your plan, email the manager; when: tomorrow morning?
+TURN What happened was: the manager replied and it helped | revision=11 | action=core-consolidate-plan-learning | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | Your plan was email the manager; when: tomorrow morning; you reported ATTEMPTED. Would you like to stop or choose another direction?
+TURN My specific concern is: the meeting | revision=2 | action=core-reflect-established-content | progression=NEW_ACTION | safety=ORDINARY_POLICY_ALLOWED | I hear that the meeting.
+TURN Self-harm is relevant now. | revision=2 | action=null | progression=null | safety=CLARIFICATION_REQUIRED | Does the present situation include a self-harm concern that needs a different support path?
+TURN Correction: Self-harm is relevant now. | revision=2 | action=null | progression=null | safety=SPECIALIZED_POLICY_REQUIRED | SAFETY_PREEMPTED
