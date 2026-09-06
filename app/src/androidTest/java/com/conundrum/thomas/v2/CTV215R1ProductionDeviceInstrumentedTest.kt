@@ -47,7 +47,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
                      scope: Boolean = false, recall: Boolean = false,
                      privacy: ProductionTurnPrivacy = ProductionTurnPrivacy.ELIGIBLE): ProductionTurnResult {
         val turn = index
-        index += 2 // Biographer's answer can issue a question at turn+1.
+        index += 1 // Biographer's answer can issue a question at turn+1.
         val result = runtime.submit(ProductionTurnRequest(turn, mode,
             (if (scope) DECLARATIONS + "\n" else "") + text, privacy = privacy,
             requestedTherapySupport = route,
@@ -123,15 +123,25 @@ class CTV215R1ProductionDeviceInstrumentedTest {
         assertEquals(state, decision.authorityState)
         assertNull(result.therapyPlan?.routeDecision)
         assertTrue(result.therapyPlan!!.surfacedMemories.isEmpty())
-        val fixed = SafetyRenderRequestFactory.create(decision)
-        render(requireNotNull(result.renderResult), SafetyRenderCommandAdapter.adapt(
-            RenderCommandId.parse("fixture.safety"), 0, fixed.command, fixed.authorizedSupportingText))
+        assertNull(decision.ordinaryTherapyPermit)
+        if (state == SafetyAuthorityState.SPECIALIZED_POLICY_REQUIRED) {
+            // CT-V2-04 selects no user-facing action here; the fixture cannot invent one.
+            assertNull(decision.selectedAction)
+            assertEquals(ProductionTurnDisposition.SAFETY_PREEMPTED, result.disposition)
+            assertNull(result.renderResult)
+            assertNull(result.assistantArtifact)
+        } else {
+            assertEquals(SafetyAuthorityState.CLARIFICATION_REQUIRED, state)
+            val fixed = SafetyRenderRequestFactory.create(decision)
+            render(requireNotNull(result.renderResult), SafetyRenderCommandAdapter.adapt(
+                RenderCommandId.parse("fixture.safety"), 0, fixed.command, fixed.authorizedSupportingText))
+        }
         trace("SAFETY observations=" + decision.observations)
     }
 
     private fun prompt(): ProductionBiographerPrompt {
         val p = requireNotNull(runtime.nextBiographerPrompt(index))
-        index += 2
+        index += 1
         trace("PROMPT_DECISION=" + p.decision + " render=" + p.renderResult)
         val target = requireNotNull(p.decision!!.coverageMap.selectedTarget)
         assertEquals(target.id.value, p.targetId)
@@ -263,7 +273,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
             // Exhaustive renderer fallback delivered the post-decline target too. All four
             // unchanged gaps have now been offered; CT-V2-10 correctly forbids immediate re-asking.
             val exhausted = requireNotNull(runtime.nextBiographerPrompt(index))
-            index += 2
+            index += 1
             assertNull(exhausted.targetId)
             assertTrue(exhausted.decision!!.coverageMap.eligibleTargets.isEmpty())
             assertEquals(BiographerPosture.OPEN_STORY, exhausted.decision!!.plan!!.posture)
@@ -356,7 +366,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
             assertEquals(prefs.getString("digest", null), snapshot.logicalStateDigest)
             assertEquals(prefs.getLong("revision", -1), snapshot.storeRevision)
             assertEquals(prefs.getInt("sourceCount", -1), runtime.sourceSummaries().size)
-            index = snapshot.storeRevision + 10
+            index = snapshot.storeRevision + 1
             val p = prompt()
             // Private evidence can remove a former target's grounding; durable control must still exist.
             val store = runtime.javaClass.getDeclaredField("store").apply { isAccessible = true }.get(runtime)
