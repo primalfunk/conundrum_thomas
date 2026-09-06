@@ -273,7 +273,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
             val freshGapSource = send("I moved to Boston in 1970.", ProductionThomasMode.JOURNAL)
             assertNotNull(freshGapSource.committedSourceId)
             val privatePrompt = prompt()
-            assertTrue(privatePrompt.decision!!.coverageMap.selectedTarget!!.groundingIds.any { it.contains("journal.android-journal-") })
+            assertTrue(privatePrompt.decision!!.coverageMap.selectedTarget!!.groundingIds.any { it.startsWith(freshGapSource.committedSourceId!!.value + ".") })
             val privateTarget = requireNotNull(privatePrompt.targetId)
             val privateReply = send("This topic is private", ProductionThomasMode.BIOGRAPHER)
             assertEquals(InvestigationAnswerDisposition.MARKED_PRIVATE, privateReply.biographerAnswer!!.disposition)
