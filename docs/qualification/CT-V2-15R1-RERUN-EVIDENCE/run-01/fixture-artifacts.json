@@ -1,0 +1,12 @@
+[
+    {
+        "Name":  "fixture.apk",
+        "Bytes":  31548256,
+        "SHA256":  "3fa8c91211961457287c640fcc40b46605ea2aad784d1830940bf63beedbc729"
+    },
+    {
+        "Name":  "fixture-test.apk",
+        "Bytes":  2514427,
+        "SHA256":  "9f222187a0e3c58892b38bd37ffff84d2fd453aef59bf0ce80918df69748edda"
+    }
+]

@@ -2,7 +2,17 @@
 
 Date: 2026-09-05. This is the authorized physical continuation of [CT-V2-15R1 qualification](CT-V2-15R1-QUALIFICATION.md). It does not open the rigorous testing campaign or authorize production repairs.
 
-## Current disposition
+## Subsequent rerun — current status, 2026-09-05
+
+**CT_V2_15R1_PHYSICAL_QUALIFICATION_FAILED_PRODUCTION_DEFECT**
+
+The authorized fixture repair replaced incidental wording checks with governed semantic assertions and added the missing pause, stagnation and new-evidence scenarios. The isolated rerun exposed an actual production defect: resumed listening selected the correct action but its only realization was rejected as EXACT_RECENT_DUPLICATE, leaving no response. Later mandatory physical gates remain unexecuted.
+
+See [the complete fixture-repair and rerun adjudication](CT-V2-15R1-PHYSICAL-RERUN.md) for all attempts, the exact typed trace, scenario coverage, APK identities and custody evidence. Production source and JVM tests were unchanged. Canonical regression passes 978 tests in 60 suites; original installation/corpus preservation passes and both disposable packages are removed. No completion tag or push occurred.
+
+Current readiness: **CTV2_RIGOROUS_TESTING_NOT_READY**. The first-attempt record below is preserved as historical evidence.
+
+## First physical attempt disposition (preserved)
 
 **CT_V2_15R1_PHYSICAL_QUALIFICATION_FAILED**
 

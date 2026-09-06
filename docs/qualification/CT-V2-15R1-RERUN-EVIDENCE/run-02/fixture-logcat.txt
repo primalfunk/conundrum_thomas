@@ -1,0 +1,68 @@
+--------- beginning of main
+09-05 19:03:06.989 31621 31621 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-05 19:03:07.008 31621 31621 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+--------- beginning of system
+09-05 19:03:07.050 31621 31621 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-05 19:03:07.439 31621 31621 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-05 19:03:07.440 31621 31621 I AndroidJUnitRunner: newApplication android.app.Application
+09-05 19:03:07.474 31621 31621 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=280]
+09-05 19:03:07.499 31621 31621 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-05 19:03:07.500 31621 31621 I M-ProMotion: M-ProMotion is disabled
+09-05 19:03:07.515 31621 31635 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-05 19:03:07.539 31621 31635 I TestRunner: run started: 1 tests
+09-05 19:03:07.540 31621 31635 I TestRunner: started: aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+09-05 19:03:07.551 31621 31635 I System.out: R1 ISOLATION uid=10124 data=/data/user/0/com.conundrum.thomas.v2.ctv215r1fixture
+09-05 19:03:07.701 31621 31635 I System.out: R1 INITIAL_CORPUS_EMPTY=true
+09-05 19:03:07.832 31621 31635 I System.out: R1 TURN=1 input=I moved to Denver in 2010. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+09-05 19:03:07.977 31621 31635 I System.out: R1 TURN=3 input=I moved to Portland in 2018. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+09-05 19:03:08.095 31621 31635 I System.out: R1 TARGET=temporal-gap.2010.2018.44e56b9ac56db6a3 kind=TEMPORAL_GAP grounding=[journal.android-journal-1.rev-1.move, journal.android-journal-3.rev-1.move] bounds=[Range(start=CalendarYear(value=2010), end=CalendarYear(value=2010), startApproximate=false, endApproximate=false), Range(start=CalendarYear(value=2018), end=CalendarYear(value=2018), startApproximate=false, endApproximate=false)] digest=2d60f438079c1a86eef8f1725038d04a839c8c84c2c82894b7626082ff50daf9 text=What was happening during your history between 2010 and 2018?
+09-05 19:03:08.747 31621 31635 I System.out: R1 TURN=7 input=Around 2014 I changed jobs. mode=BIOGRAPHER result=COMPLETED revision=null route=null action=null progression=null pending=null safety=null bio=ANSWERED_RELEVANT nextTarget=temporal-gap.2010.2014.cff77385e3de5c53 render=CLARIFYING_QUESTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[ANSWERED_RELEVANT] text=What do you remember about your history between 2010 and around 2014?
+09-05 19:03:08.969 31621 31635 I System.out: R1 TARGET=temporal-gap.2014.2018.f7b93410215c9f11 kind=TEMPORAL_GAP grounding=[biographer.android-biographer-7.rev-1.job-change, journal.android-journal-3.rev-1.move] bounds=[ApproximateYear(year=2014), Range(start=CalendarYear(value=2018), end=CalendarYear(value=2018), startApproximate=false, endApproximate=false)] digest=96e7c1755a9223a58b65e490f377d6a2b5780e90d90129f9679f997e4293cafc text=What was happening during your history between around 2014 and 2018?
+09-05 19:03:09.836 31621 31635 I System.out: R1 TURN=11 input=I don't know mode=BIOGRAPHER result=COMPLETED revision=null route=null action=null progression=null pending=null safety=null bio=NO_EXTRACTABLE_EVIDENCE nextTarget=null render=OPEN_QUESTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_EXTRACTABLE_EVIDENCE] text=What part of your history would you like to start with?
+09-05 19:03:10.220 31621 31635 I System.out: R1 TURN=13 input=I moved to Austin in 1980. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+09-05 19:03:10.756 31621 31635 I System.out: R1 TURN=15 input=I moved to Dallas in 1990. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+09-05 19:03:11.106 31621 31635 E TestRunner: failed: aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+09-05 19:03:11.108 31621 31635 E TestRunner: ----- begin exception -----
+09-05 19:03:11.108 31621 31635 E TestRunner: java.lang.AssertionError: expected:<ACCEPTED_REFERENCE_REALIZATION> but was:<FALLBACK_REALIZATION>
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.Assert.fail(Assert.java:89)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.Assert.failNotEquals(Assert.java:835)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.Assert.assertEquals(Assert.java:120)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.Assert.assertEquals(Assert.java:146)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.prompt(CTV215R1ProductionDeviceInstrumentedTest.kt:132)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.aCompleteTypedProductionScenarios(CTV215R1ProductionDeviceInstrumentedTest.kt:187)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+09-05 19:03:11.108 31621 31635 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2614)
+09-05 19:03:11.108 31621 31635 E TestRunner: ----- end exception -----
+09-05 19:03:11.110 31621 31635 I TestRunner: finished: aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+09-05 19:03:11.115 31621 31635 I TestRunner: run finished: 1 tests, 1 failed, 0 ignored

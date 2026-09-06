@@ -1,0 +1,22 @@
+Fixture source commit: d0ca6c4466cf24d16e140786ebb1859a65838b6e
+Fixture source tree: 91caaea961dda2366cd7799d6ad60b7b8b768877
+Canonical verifier:
+CANONICAL_PROJECT_ROOT=C:\Android Studio Projects\ConundrumThomasV2
+CANONICAL_GIT_DIR=.git
+TEMPORARY_GIT_METADATA_COUNT=0
+VCS_ROOT_ON_DISK_VALID=true
+git diff --check:
+exit=0
+git fsck --full --strict:
+dangling blob 4350721d914b66808ab247f55e195165fb762cfc
+exit=0
+Remote:
+origin	https://github.com/primalfunk/conundrum_thomas.git (fetch)
+origin	https://github.com/primalfunk/conundrum_thomas.git (push)
+Locally recorded upstream: 64fa3af9069f820fd465f219e5a21855a7d47047
+Ahead/behind before documentation commit: 21	0
+Production/JVM source/config changes from authorized entry=0
+Completion tag absent=true
+Final read-only package query:
+package:com.conundrum.thomas.v2
+package:com.conundrum.thomas.v2.test

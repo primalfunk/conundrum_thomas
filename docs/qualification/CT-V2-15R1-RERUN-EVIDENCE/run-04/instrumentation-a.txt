@@ -1,0 +1,139 @@
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest:
+INSTRUMENTATION_STATUS: test=aCompleteTypedProductionScenarios
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: stream=
+R1 ISOLATION uid=10172 data=/data/user/0/com.conundrum.thomas.v2.ctv215r1fixture
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 INITIAL_CORPUS_EMPTY=true
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=1 input=I moved to Denver in 2010. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=3 input=I moved to Portland in 2018. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TARGET=temporal-gap.2010.2018.44e56b9ac56db6a3 kind=TEMPORAL_GAP grounding=[journal.android-journal-1.rev-1.move, journal.android-journal-3.rev-1.move] bounds=[Range(start=CalendarYear(value=2010), end=CalendarYear(value=2010), startApproximate=false, endApproximate=false), Range(start=CalendarYear(value=2018), end=CalendarYear(value=2018), startApproximate=false, endApproximate=false)] digest=2d60f438079c1a86eef8f1725038d04a839c8c84c2c82894b7626082ff50daf9 text=What was happening during your history between 2010 and 2018?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=7 input=Around 2014 I changed jobs. mode=BIOGRAPHER result=COMPLETED revision=null route=null action=null progression=null pending=null safety=null bio=ANSWERED_RELEVANT nextTarget=temporal-gap.2010.2014.cff77385e3de5c53 render=CLARIFYING_QUESTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[ANSWERED_RELEVANT] text=What do you remember about your history between 2010 and around 2014?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TARGET=temporal-gap.2014.2018.f7b93410215c9f11 kind=TEMPORAL_GAP grounding=[biographer.android-biographer-7.rev-1.job-change, journal.android-journal-3.rev-1.move] bounds=[ApproximateYear(year=2014), Range(start=CalendarYear(value=2018), end=CalendarYear(value=2018), startApproximate=false, endApproximate=false)] digest=96e7c1755a9223a58b65e490f377d6a2b5780e90d90129f9679f997e4293cafc text=What was happening during your history between around 2014 and 2018?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=11 input=I don't know mode=BIOGRAPHER result=COMPLETED revision=null route=null action=null progression=null pending=null safety=null bio=NO_EXTRACTABLE_EVIDENCE nextTarget=null render=OPEN_QUESTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_EXTRACTABLE_EVIDENCE] text=What part of your history would you like to start with?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=13 input=I moved to Austin in 1980. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=15 input=I moved to Dallas in 1990. mode=JOURNAL result=NO_RESPONSE revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null reasons=[JOURNAL_TRUE_SILENCE] text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 VALIDATED_FALLBACK reasons=[[REPEATED_OPENING]]
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TARGET=temporal-gap.1980.1990.25620e8ce0428a74 kind=TEMPORAL_GAP grounding=[journal.android-journal-13.rev-1.move, journal.android-journal-15.rev-1.move] bounds=[Range(start=CalendarYear(value=1980), end=CalendarYear(value=1980), startApproximate=false, endApproximate=false), Range(start=CalendarYear(value=1990), end=CalendarYear(value=1990), startApproximate=false, endApproximate=false)] digest=0c569eda6ced081d2543ebd6af3b42ac1e7ef9ad5d6a755af158d66abf7ba5a4 text=What do you remember about your history between 1980 and 1990?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=19 input=I decline mode=BIOGRAPHER result=GOVERNED_POLICY_NO_OUTPUT revision=null route=null action=null progression=null pending=null safety=null bio=DECLINED nextTarget=null render=null/null validation=null reasons=[DECLINED] text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=21 input=My specific concern is: the project meeting mode=THERAPY result=COMPLETED revision=1 route=null action=null progression=null pending=null safety=CLARIFICATION_REQUIRED bio=null nextTarget=null render=SAFETY_MESSAGE/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[CURRENT_SAFETY_AUTHORITY_PREEMPTED_ORDINARY_THERAPY_AND_RETRIEVAL, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=Is an emergency happening right now that means ordinary problem-solving must stop?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 SAFETY observations=[SafetyObservationTrace(field=CURRENT_EMERGENCY, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=ACUTE_MEDICAL_EMERGENCY, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=SELF_HARM_RELEVANCE, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=HARM_TO_OTHERS_RELEVANCE, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=SPECIALIZED_SCOPE_CONDITION, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=POPULATION_APPLICABILITY, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=PRESENTING_SCOPE, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[])]
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=23 input=My specific concern is: the delayed meeting mode=THERAPY result=COMPLETED revision=2 route=LISTEN_SUPPORT action=core-reflect-established-content progression=NEW_ACTION pending=null safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=BRIEF_REFLECTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_ELIGIBLE_RELEVANT_HISTORICAL_OBJECT, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=What stands out is that the delayed meeting.
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=25 input=Yes, that's right mode=THERAPY result=COMPLETED revision=3 route=LISTEN_SUPPORT action=core-invite-further-expression progression=NEW_ACTION pending=RESPONSE_TO_REFLECTION safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=CLARIFYING_QUESTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_ELIGIBLE_RELEVANT_HISTORICAL_OBJECT, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=What else would you like to say about it?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=27 input=That's all for now mode=THERAPY result=COMPLETED revision=4 route=LISTEN_SUPPORT action=core-summarize-listening progression=NEW_ACTION pending=MORE_USER_EXPRESSION safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=BRIEF_REFLECTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_ELIGIBLE_RELEVANT_HISTORICAL_OBJECT, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=What I have heard is: the delayed meeting.
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=29 input=Thank you mode=THERAPY result=COMPLETED revision=5 route=LISTEN_SUPPORT action=core-check-further-or-close progression=NEW_ACTION pending=CLOSURE_OR_NEW_DIRECTION safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=CLARIFYING_QUESTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_ELIGIBLE_RELEVANT_HISTORICAL_OBJECT, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=Would you like to add anything, or stop here?
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=31 input=Stop mode=THERAPY result=COMPLETED revision=6 route=CONSOLIDATE_CLOSE action=core-acknowledge-close progression=NEW_ACTION pending=CLOSURE_OR_NEW_DIRECTION safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=BRIEF_REFLECTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_ELIGIBLE_RELEVANT_ITEM, SELECTED_THERAPY_ACT_DOES_NOT_AUTHORIZE_MEMORY_SUPPORT, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=Okay. We can stop here.
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=33 input=My specific concern is: a separate project meeting mode=THERAPY result=COMPLETED revision=7 route=LISTEN_SUPPORT action=core-reflect-established-content progression=NEW_ACTION pending=null safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=BRIEF_REFLECTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[NO_ELIGIBLE_RELEVANT_HISTORICAL_OBJECT, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=What stands out is that a separate project meeting.
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=35 input=Please pause mode=THERAPY result=NO_RESPONSE revision=8 route=CONSOLIDATE_CLOSE action=core-pause-without-response progression=NEW_ACTION pending=RESPONSE_TO_REFLECTION safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=NO_RESPONSE/NO_RESPONSE validation=[VALID] reasons=[NO_ELIGIBLE_RELEVANT_ITEM, SELECTED_THERAPY_ACT_DOES_NOT_AUTHORIZE_MEMORY_SUPPORT, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=37 input=I am ready to resume mode=THERAPY result=RENDERING_UNAVAILABLE revision=9 route=LISTEN_SUPPORT action=core-invite-further-expression progression=NEW_ACTION pending=NONE safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=CLARIFYING_QUESTION/RENDERING_UNAVAILABLE validation=[EXACT_RECENT_DUPLICATE] reasons=[NO_ELIGIBLE_RELEVANT_HISTORICAL_OBJECT, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: RenderValidationResult(accepted=false, reasonCodes=[EXACT_RECENT_DUPLICATE], questionCount=0, sentenceCount=0, characterCount=0)
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.render(CTV215R1ProductionDeviceInstrumentedTest.kt:71)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.action(CTV215R1ProductionDeviceInstrumentedTest.kt:112)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.aCompleteTypedProductionScenarios(CTV215R1ProductionDeviceInstrumentedTest.kt:226)
+
+INSTRUMENTATION_STATUS: stream=
+Error in aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest):
+java.lang.AssertionError: RenderValidationResult(accepted=false, reasonCodes=[EXACT_RECENT_DUPLICATE], questionCount=0, sentenceCount=0, characterCount=0)
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.render(CTV215R1ProductionDeviceInstrumentedTest.kt:71)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.action(CTV215R1ProductionDeviceInstrumentedTest.kt:112)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.aCompleteTypedProductionScenarios(CTV215R1ProductionDeviceInstrumentedTest.kt:226)
+
+INSTRUMENTATION_STATUS: test=aCompleteTypedProductionScenarios
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 19.042
+There was 1 failure:
+1) aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+java.lang.AssertionError: RenderValidationResult(accepted=false, reasonCodes=[EXACT_RECENT_DUPLICATE], questionCount=0, sentenceCount=0, characterCount=0)
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.render(CTV215R1ProductionDeviceInstrumentedTest.kt:71)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.action(CTV215R1ProductionDeviceInstrumentedTest.kt:112)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.aCompleteTypedProductionScenarios(CTV215R1ProductionDeviceInstrumentedTest.kt:226)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

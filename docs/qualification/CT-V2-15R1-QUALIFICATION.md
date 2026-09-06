@@ -2,7 +2,17 @@
 
 Date: 2026-09-05. Authority: [authorized work order](../work-orders/CT-V2-15R1-PRODUCTION-EVIDENCE-PROCEDURE-BIOGRAPHER-INTEGRATION.md). Historical entry findings remain preserved in [the reconnaissance report](../reconnaissance/CT-V2-CURRENT-STATE-AND-TEST-READINESS.md).
 
-## Physical continuation — current status, 2026-09-05
+## Physical fixture repair and rerun — current status, 2026-09-05
+
+**CT_V2_15R1_PHYSICAL_QUALIFICATION_FAILED_PRODUCTION_DEFECT**
+
+The lexical oracle was corrected and the omitted physical scenarios were added without production or JVM-test changes. The complete isolated rerun stopped at a real mandatory failure: explicit resumed engagement selects core-invite-further-expression at a new material revision, but the sole authorized realization is rejected as an exact recent duplicate and no response is delivered. Later scenarios remain physically unproven.
+
+[The current rerun report](CT-V2-15R1-PHYSICAL-RERUN.md) records every attempt, the production trace, compiled versus executed coverage, artifact hashes, and verified unchanged original installation/corpus. Both disposable packages were removed. Fresh canonical regression at fixture commit d0ca6c4466cf24d16e140786ebb1859a65838b6e passes 978 tests / 60 suites, zero failures/errors/skips, lint 0 errors/fatals and 16 warnings. No completion tag or push occurred.
+
+**CTV2_RIGOROUS_TESTING_NOT_READY**. A bounded renderer/procedure recurrence repair and complete isolated rerun precede R1 sealing. The earlier physical and implementation-stage records below remain historical evidence; this section supersedes their current-status language.
+
+## First physical continuation — historical status, 2026-09-05
 
 The Principal subsequently authorized the isolated physical execution. Its current disposition is **CT_V2_15R1_PHYSICAL_QUALIFICATION_FAILED**: the prepared UI test failed a base-wording assertion on an authorized reflection variant. The dependent gates remain unqualified, and missing physical pause/stagnation coverage was identified. Both fixture packages were removed; the original APK, package metadata, private-file inventory, hashes, sizes, mtimes and inodes are unchanged. Fresh canonical regression still passes all 978 tests.
 

@@ -1,0 +1,5 @@
+package: name='com.conundrum.thomas.v2' versionCode='1' versionName='1.0' platformBuildVersionName='17' platformBuildVersionCode='37' compileSdkVersion='37' compileSdkVersionCodename='17'
+minSdkVersion:'31'
+targetSdkVersion:'37'
+uses-permission: name='com.conundrum.thomas.v2.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+native-code: 'arm64-v8a' 'armeabi-v7a' 'x86' 'x86_64'

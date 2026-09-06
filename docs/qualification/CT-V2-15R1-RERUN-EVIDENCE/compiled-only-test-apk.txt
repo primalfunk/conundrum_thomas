@@ -1,0 +1,6 @@
+
+
+Algorithm : SHA256
+Hash      : F34E444C6E14C290CCB54BABD46A0B25C57F6045B079EAB99DD94D6972B339C6
+Path      : C:\Android Studio
+            Projects\ConundrumThomasV2\app\build\outputs\apk\androidTest\debug\app-debug-androidTest.apk

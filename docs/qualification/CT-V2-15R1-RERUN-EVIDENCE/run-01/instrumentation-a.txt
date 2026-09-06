@@ -1,0 +1,59 @@
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest:
+INSTRUMENTATION_STATUS: test=aCompleteTypedProductionScenarios
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: stream=
+R1 ISOLATION uid=10082 data=/data/user/0/com.conundrum.thomas.v2.ctv215r1fixture
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 INITIAL_CORPUS_EMPTY=true
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=
+R1 TURN=1 input=I moved to Denver in 2010. mode=JOURNAL result=SOURCE_CAPTURE_FAILED revision=null route=null action=null progression=null pending=null safety=null bio=null nextTarget=null render=null/null validation=null text=null
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: expected:<NO_RESPONSE> but was:<SOURCE_CAPTURE_FAILED>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.aCompleteTypedProductionScenarios(CTV215R1ProductionDeviceInstrumentedTest.kt:164)
+
+INSTRUMENTATION_STATUS: stream=
+Error in aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest):
+java.lang.AssertionError: expected:<NO_RESPONSE> but was:<SOURCE_CAPTURE_FAILED>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.aCompleteTypedProductionScenarios(CTV215R1ProductionDeviceInstrumentedTest.kt:164)
+
+INSTRUMENTATION_STATUS: test=aCompleteTypedProductionScenarios
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.178
+There was 1 failure:
+1) aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+java.lang.AssertionError: expected:<NO_RESPONSE> but was:<SOURCE_CAPTURE_FAILED>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest.aCompleteTypedProductionScenarios(CTV215R1ProductionDeviceInstrumentedTest.kt:164)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

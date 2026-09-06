@@ -1,0 +1,618 @@
+[
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/canonical-apk-manifest-summary.txt",
+        "trackedPath":  "canonical-apk-manifest-summary.txt",
+        "originalBytes":  380,
+        "originalSHA256":  "519ecc78832bfa8ff75f73f3d7b99b96b3ac42cb85d026470e38da044a74decd",
+        "trackedSHA256":  "0e8af74ea765ef48859e0d47e4cbd02315946c323c3b3e303820d463068f6ba5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/canonical-regression.txt",
+        "trackedPath":  "canonical-regression.txt",
+        "originalBytes":  75660,
+        "originalSHA256":  "0ed69eec628c8ca047d081caf8a47df44d5e34f630dae54159c2b46b8ee758e8",
+        "trackedSHA256":  "7355df89c393cd7f07ab978396f06cf9e35e70f788628a8314c4a1f028892c2d"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/compiled-only-test-apk.txt",
+        "trackedPath":  "compiled-only-test-apk.txt",
+        "originalBytes":  251,
+        "originalSHA256":  "4b90ef9023e7103045c8d1991bc7b95d36631382ae14250278bfd2cce967fabe",
+        "trackedSHA256":  "fa8fc64be2b2f6ff27993c80e4f33f717f1e5ce232f52e5e01cf15ddc65a27b4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/custody-result.txt",
+        "trackedPath":  "custody-result.txt",
+        "originalBytes":  258,
+        "originalSHA256":  "c200c211edde851c187c057ac8dd942f55b21b2118f5c013d33be064852752f9",
+        "trackedSHA256":  "c96eb6b2bc730b6a87d1f5cad232178284a507a500f57222fea9bccbd7438183"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/execute-isolated-rerun.ps1",
+        "trackedPath":  "execute-isolated-rerun.ps1",
+        "originalBytes":  6250,
+        "originalSHA256":  "0dd28bc66a948cd4b2030222670604b6c672e02b6ad931da559e63a11b198f48",
+        "trackedSHA256":  "0dd28bc66a948cd4b2030222670604b6c672e02b6ad931da559e63a11b198f48"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/final-fixture-compile.txt",
+        "trackedPath":  "final-fixture-compile.txt",
+        "originalBytes":  25320,
+        "originalSHA256":  "b8493c80d22cc129dfe6e6bb164bcf62d5138a74535d5f00e01fd81236d4847a",
+        "trackedSHA256":  "1f54880c3ab2a222734563ae8b3e7ba08f261a0c557e945b1c6009e7c60aed54"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/final-repository-checks.txt",
+        "trackedPath":  "final-repository-checks.txt",
+        "originalBytes":  851,
+        "originalSHA256":  "002cee416f8405f68e77cce37fff55453c45e1cabccd4cb66abb0232ff8cb416",
+        "trackedSHA256":  "002cee416f8405f68e77cce37fff55453c45e1cabccd4cb66abb0232ff8cb416"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/fixture-build.txt",
+        "trackedPath":  "fixture-build.txt",
+        "originalBytes":  25320,
+        "originalSHA256":  "c4703102c98aa125f3d08834f0ec7812456c4ca0ec35ccba9b2d1a39ec7dc108",
+        "trackedSHA256":  "3d1bc865c702763cfc0288e9b639ebed4ac4989c6f319de3909a38508feab261"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/regression-artifacts.json",
+        "trackedPath":  "regression-artifacts.json",
+        "originalBytes":  1460,
+        "originalSHA256":  "f5680a29e8aedb68f5c5b58c94f38a849e084be8ff10590281f832ced7120122",
+        "trackedSHA256":  "3e3b31837ac45602df91d698211f22d443760fa63a8ea44b1d80758f96d6bc6e"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/regression-suite-inventory.json",
+        "trackedPath":  "regression-suite-inventory.json",
+        "originalBytes":  21945,
+        "originalSHA256":  "32eac1023143e5a6d5a55f92f10735fb0f89b60998812c324e4094dfd6277aea",
+        "trackedSHA256":  "398f167e852a6cb85b65a835c337a4c1862db315869a9d769b5a91cd602cb54a"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/regression-summary.json",
+        "trackedPath":  "regression-summary.json",
+        "originalBytes":  356,
+        "originalSHA256":  "8b66f7a1a493f2210c7a95ab67e77db2e0ea136d0089b22937b7cef4f1ba1e45",
+        "trackedSHA256":  "35b749145862b07a4b56a278de7b0dbbf963c333f231b1d2a0e661eae5754287"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/canonical-apk-before.sha256",
+        "trackedPath":  "run-01/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/canonical-files-after.sha256",
+        "trackedPath":  "run-01/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/canonical-files-before.sha256",
+        "trackedPath":  "run-01/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/canonical-files-before.stat",
+        "trackedPath":  "run-01/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/canonical-package-before.txt",
+        "trackedPath":  "run-01/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/cleanup-fixture.txt",
+        "trackedPath":  "run-01/cleanup-fixture.txt",
+        "originalBytes":  12,
+        "originalSHA256":  "1b05cdeb89a254028cd5579ec6db7cfcf959f17191baf7f1946f8da71a7fcc48",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/cleanup-test.txt",
+        "trackedPath":  "run-01/cleanup-test.txt",
+        "originalBytes":  12,
+        "originalSHA256":  "1b05cdeb89a254028cd5579ec6db7cfcf959f17191baf7f1946f8da71a7fcc48",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/device.txt",
+        "trackedPath":  "run-01/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/devices.txt",
+        "trackedPath":  "run-01/devices.txt",
+        "originalBytes":  127,
+        "originalSHA256":  "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+        "trackedSHA256":  "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/fixture-artifacts.json",
+        "trackedPath":  "run-01/fixture-artifacts.json",
+        "originalBytes":  676,
+        "originalSHA256":  "fb0461bcd1c6c22fdf35815679499fb114b6362d204035a3ff653c92dd07818d",
+        "trackedSHA256":  "fafb9e45ee19ed17d0f0f81882c7d6989e717bfa33496b6b3678d54b7a0e6336"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/fixture-logcat.txt",
+        "trackedPath":  "run-01/fixture-logcat.txt",
+        "originalBytes":  13738,
+        "originalSHA256":  "848fa922ddfe48094eff4f94a580e19454120bb44bf777fca9fa632a2e0b00e4",
+        "trackedSHA256":  "93310056d7b9e18410dcd4c656298382f0e49c779df94f1ce0838e444bfa8130"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/fixture-manifest.txt",
+        "trackedPath":  "run-01/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/fixture-test-manifest.txt",
+        "trackedPath":  "run-01/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/install-fixture.txt",
+        "trackedPath":  "run-01/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/install-test.txt",
+        "trackedPath":  "run-01/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/instrumentation-a.txt",
+        "trackedPath":  "run-01/instrumentation-a.txt",
+        "originalBytes":  5996,
+        "originalSHA256":  "2ed6dc301ce57d352997f32482b81777a8256eacc2fd785fab883f3924979662",
+        "trackedSHA256":  "f603638f82d4940ae3acf1d57d11aa6428cdc81274b80ed54294d27dfc06d46d"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-01/uid-isolation.txt",
+        "trackedPath":  "run-01/uid-isolation.txt",
+        "originalBytes":  41,
+        "originalSHA256":  "34afe89909dcd34f11c23986d1ef353eebb1fc323340f004b25569ef80a076fa",
+        "trackedSHA256":  "9da0daca5569b9df61ddfa7b86bd71a4b1e72df5cf0bd2f5de4da326301decbc"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/canonical-apk-before.sha256",
+        "trackedPath":  "run-02/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/canonical-files-after.sha256",
+        "trackedPath":  "run-02/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/canonical-files-after.stat",
+        "trackedPath":  "run-02/canonical-files-after.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/canonical-files-before.sha256",
+        "trackedPath":  "run-02/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/canonical-files-before.stat",
+        "trackedPath":  "run-02/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/canonical-package-before.txt",
+        "trackedPath":  "run-02/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/cleanup-fixture.txt",
+        "trackedPath":  "run-02/cleanup-fixture.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/cleanup-test.txt",
+        "trackedPath":  "run-02/cleanup-test.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/device.txt",
+        "trackedPath":  "run-02/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/devices.txt",
+        "trackedPath":  "run-02/devices.txt",
+        "originalBytes":  127,
+        "originalSHA256":  "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+        "trackedSHA256":  "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/fixture-artifacts.json",
+        "trackedPath":  "run-02/fixture-artifacts.json",
+        "originalBytes":  340,
+        "originalSHA256":  "160970bc55f69556432562ccbe2cd798853f2fa38a461f629425de7d2b6629a4",
+        "trackedSHA256":  "27d2da4068443bc701afb7716d1e84e57b106cdbbbc89c305516d5409093f487"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/fixture-logcat.txt",
+        "trackedPath":  "run-02/fixture-logcat.txt",
+        "originalBytes":  19842,
+        "originalSHA256":  "1c2729dd6cdbe56468e09a399c5a6a8cca28eff92300ad602c9a7b746a491b93",
+        "trackedSHA256":  "77938a5f335720ff1b3bc3e450a2f5fea8b8c456ec2fd7f48ee8c038461b6e01"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/fixture-manifest.txt",
+        "trackedPath":  "run-02/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/fixture-test-manifest.txt",
+        "trackedPath":  "run-02/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/install-fixture.txt",
+        "trackedPath":  "run-02/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/install-test.txt",
+        "trackedPath":  "run-02/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/instrumentation-a.txt",
+        "trackedPath":  "run-02/instrumentation-a.txt",
+        "originalBytes":  12894,
+        "originalSHA256":  "e6d3b51e915422ec947ba3b2aacf282de25921de020f79b364cc3e92daa77685",
+        "trackedSHA256":  "3dfc7505f38537499ed6bcb53d59358f5d252d0fbdc90e4b12755ad6b390ba4c"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-02/uid-isolation.txt",
+        "trackedPath":  "run-02/uid-isolation.txt",
+        "originalBytes":  41,
+        "originalSHA256":  "badc344833abcc46ebbe56028c262d775b707f4d064a366b1b9a1d9be1f5688d",
+        "trackedSHA256":  "bcd346e25f17363f79a7cddbf88cd4e98394e145091d0392d8f11229f69019d0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/canonical-apk-before.sha256",
+        "trackedPath":  "run-03/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/canonical-files-after.sha256",
+        "trackedPath":  "run-03/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/canonical-files-after.stat",
+        "trackedPath":  "run-03/canonical-files-after.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/canonical-files-before.sha256",
+        "trackedPath":  "run-03/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/canonical-files-before.stat",
+        "trackedPath":  "run-03/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/canonical-package-before.txt",
+        "trackedPath":  "run-03/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/cleanup-fixture.txt",
+        "trackedPath":  "run-03/cleanup-fixture.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/cleanup-test.txt",
+        "trackedPath":  "run-03/cleanup-test.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/device.txt",
+        "trackedPath":  "run-03/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/device-fixture-source.kt",
+        "trackedPath":  "run-03/device-fixture-source.kt",
+        "originalBytes":  26518,
+        "originalSHA256":  "bb3166f27887f667a5f9b06029b34c0ef68452d339689dc6a60ac89650e6c047",
+        "trackedSHA256":  "bb3166f27887f667a5f9b06029b34c0ef68452d339689dc6a60ac89650e6c047"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/fixture-artifacts.json",
+        "trackedPath":  "run-03/fixture-artifacts.json",
+        "originalBytes":  340,
+        "originalSHA256":  "81806f302199cffaacf02c7408e9da25866157d562b56ffa0d7ece66f540ad15",
+        "trackedSHA256":  "b93dc27db07517cff30e10876e0e2cece29c724b3dbf5eae7f4771e5bd3e70b9"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/fixture-logcat.txt",
+        "trackedPath":  "run-03/fixture-logcat.txt",
+        "originalBytes":  20604,
+        "originalSHA256":  "725f68ab4f8410e6de92bfc9d89d647a29999c0ea003a9338c295238f8912129",
+        "trackedSHA256":  "9bf8d8ae0d15095de86af291e81af7e0c5ebee23cc7796b9c26abe8e54dab710"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/fixture-manifest.txt",
+        "trackedPath":  "run-03/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/fixture-test-manifest.txt",
+        "trackedPath":  "run-03/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/install-fixture.txt",
+        "trackedPath":  "run-03/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/install-test.txt",
+        "trackedPath":  "run-03/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/instrumentation-a.txt",
+        "trackedPath":  "run-03/instrumentation-a.txt",
+        "originalBytes":  12782,
+        "originalSHA256":  "32b6ade33c06652c6593696c98b7cabd75081628a090bfbd43b37591dfccf77d",
+        "trackedSHA256":  "b58adbfd23f722516aa8d0ded6b5116735b45a1295f658a3c9dbb37eb6002649"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/uid-isolation.txt",
+        "trackedPath":  "run-03/uid-isolation.txt",
+        "originalBytes":  41,
+        "originalSHA256":  "e6dacde89e0850cac299ec40b3cca5b472efd4927e8354f651ab998905421325",
+        "trackedSHA256":  "f0d1d05df4f3682bd2348a274d22eb2b03dbf60007ecd85d0c2bedd94cfb9a01"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-03/ui-fixture-source.kt",
+        "trackedPath":  "run-03/ui-fixture-source.kt",
+        "originalBytes":  7171,
+        "originalSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd",
+        "trackedSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-apk-after.sha256",
+        "trackedPath":  "run-04/canonical-apk-after.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-apk-before.sha256",
+        "trackedPath":  "run-04/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-files-after.sha256",
+        "trackedPath":  "run-04/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-files-after.stat",
+        "trackedPath":  "run-04/canonical-files-after.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-files-before.sha256",
+        "trackedPath":  "run-04/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-files-before.stat",
+        "trackedPath":  "run-04/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-package-after.txt",
+        "trackedPath":  "run-04/canonical-package-after.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/canonical-package-before.txt",
+        "trackedPath":  "run-04/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/cleanup-fixture.txt",
+        "trackedPath":  "run-04/cleanup-fixture.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/cleanup-test.txt",
+        "trackedPath":  "run-04/cleanup-test.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/device.txt",
+        "trackedPath":  "run-04/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/device-fixture-source.kt",
+        "trackedPath":  "run-04/device-fixture-source.kt",
+        "originalBytes":  26715,
+        "originalSHA256":  "88fce6b189f8933d417cb61674ae541f8a877a3d72069c6209df9c373403addb",
+        "trackedSHA256":  "88fce6b189f8933d417cb61674ae541f8a877a3d72069c6209df9c373403addb"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/fixture-artifacts.json",
+        "trackedPath":  "run-04/fixture-artifacts.json",
+        "originalBytes":  340,
+        "originalSHA256":  "9cba1828a8d78f85c0130b14324e143edbe006bcb84a6859a6e7b3f364253e52",
+        "trackedSHA256":  "17f5076ebd1c0c6d165450f34a51d1fc21f170a887fcbc00aeb234e90de1467d"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/fixture-logcat.txt",
+        "trackedPath":  "run-04/fixture-logcat.txt",
+        "originalBytes":  33052,
+        "originalSHA256":  "0f44bcb2ff92ded31b4e6cee9543ef04fe4be51d5081526107a852e46c23a8f9",
+        "trackedSHA256":  "857ef82031aa5548dc4b46adda1142d6aaf07878a454aab16c790f83610c2670"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/fixture-manifest.txt",
+        "trackedPath":  "run-04/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/fixture-package.txt",
+        "trackedPath":  "run-04/fixture-package.txt",
+        "originalBytes":  235,
+        "originalSHA256":  "490b0cf9a190bb126fff70bae8670282a6b6bb527a9044cb97512804d400bc3b",
+        "trackedSHA256":  "5d8d5ca7d8d8964ed012e8adfcaca17875003563b881ecb14fd38f0e57fa5c06"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/fixture-test-manifest.txt",
+        "trackedPath":  "run-04/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/install-fixture.txt",
+        "trackedPath":  "run-04/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/install-test.txt",
+        "trackedPath":  "run-04/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/instrumentation-a.txt",
+        "trackedPath":  "run-04/instrumentation-a.txt",
+        "originalBytes":  27060,
+        "originalSHA256":  "5d5c8cce0fa7f3bd119ef62c5f34ac3fc62621ffb9f8b52b8e92791fc7cc3e4e",
+        "trackedSHA256":  "500cc108bd58440932ff1fdf53eeb3ee090ec182ee727aca1d5d3070edd0c4d0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/uid-isolation.txt",
+        "trackedPath":  "run-04/uid-isolation.txt",
+        "originalBytes":  41,
+        "originalSHA256":  "06fb2ab44eb5e16628717d6c0b8806eccd7c9c024b65121248677eb047f583e3",
+        "trackedSHA256":  "8af92d985231f3a46c98122f2768681e175a1669c6d3c23d14d93f90b9510a2c"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/run-04/ui-fixture-source.kt",
+        "trackedPath":  "run-04/ui-fixture-source.kt",
+        "originalBytes":  7171,
+        "originalSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd",
+        "trackedSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-rerun/v1-governance.json",
+        "trackedPath":  "v1-governance.json",
+        "originalBytes":  105,
+        "originalSHA256":  "ef0083755fff9d330fa961d7b7ca4330b9ae2e3b0dee9f0b5b4759bddb81cc88",
+        "trackedSHA256":  "3cfbd9490bf42f40c8894fc9a4c1fde8875ce3110e56bf5a015b33382ea2ea91"
+    }
+]
