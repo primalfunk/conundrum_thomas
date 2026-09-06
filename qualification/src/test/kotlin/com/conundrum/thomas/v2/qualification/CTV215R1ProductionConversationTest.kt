@@ -410,6 +410,28 @@ class CTV215R1ProductionConversationTest {
         assertTrue(result.assistantArtifact!!.text.contains("Denver"))
     }
 
+    @Test fun unresolvedIdentityPromptNamesItsActualEligibleTarget() = CTV215Harness().use { h ->
+        h.runtime.submit(h.turn(1, ProductionThomasMode.JOURNAL, "I think Alex was angry."))
+        h.runtime.submit(h.turn(2, ProductionThomasMode.JOURNAL, "Alex told me he was worried."))
+        val prompt = requireNotNull(h.runtime.nextBiographerPrompt(3))
+        assertNotNull(prompt.targetId)
+        assertEquals(InvestigationTargetKind.ENTITY_IDENTITY_UNRESOLVED, prompt.decision!!.coverageMap.selectedTarget!!.kind)
+        assertTrue(prompt.text, prompt.text.contains("Alex"))
+        assertTrue(prompt.text, prompt.text.contains("same person"))
+        assertEquals(1, prompt.renderResult.questionCount)
+        val answer = h.runtime.submit(h.turn(4, ProductionThomasMode.BIOGRAPHER, "I don't know"))
+        assertFalse(answer.biographerAnswer!!.materialEvidenceChanged)
+        assertTrue(h.runtime.snapshot().formedState.unresolvedIdentities.isNotEmpty())
+    }
+
+    @Test fun biographerShortAnswerCannotAnswerAPendingTherapySafetyQuestion() = CTV215Harness().use { h ->
+        val first = h.runtime.submit(h.turn(1, ProductionThomasMode.THERAPY, "My specific concern is: the meeting"))
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
+        h.runtime.submit(h.turn(2, ProductionThomasMode.BIOGRAPHER, "No"))
+        val later = h.runtime.submit(h.turn(3, ProductionThomasMode.THERAPY, "I want to begin"))
+        assertTrue(later.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN })
+        assertNull(later.therapyPlan?.routeDecision)
+    }
     companion object {
         const val DECLARATIONS = "There is no current emergency.\nThere is no acute medical emergency.\nSelf-harm is not relevant now.\nHarm to others is not relevant now.\nI report no specialized condition for this conversation.\nI am an adult in the supported setting.\nMy present concern is one bounded ordinary personal problem."
     }

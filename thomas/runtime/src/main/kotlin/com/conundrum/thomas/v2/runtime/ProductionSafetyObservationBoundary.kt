@@ -71,7 +71,7 @@ internal class ProductionSafetyObservationBoundary {
                 ExplicitEmergencyCircumstance.OTHER_EMERGENCY_EXPLICITLY_ESTABLISHED,
                 SafetyEvidenceOrigin.DIRECT_USER_REPORT, "$stateId-emergency-control-declaration"))
         }
-        val reply = replyDeclaration(request.committedText)
+        val reply = if (request.mode == ProductionThomasMode.THERAPY) replyDeclaration(request.committedText) else null
         var declarationPrefix = true
         (reply ?: request.committedText).lineSequence().forEachIndexed { index, raw ->
             if (!declarationPrefix) return@forEachIndexed

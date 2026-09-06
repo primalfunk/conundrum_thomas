@@ -138,8 +138,9 @@ class ThomasProductionRuntime(
         val decision = if (targeted.plan != null) targeted else
             biographer.decide(CoverageRequest(BiographerPosture.OPEN_STORY), biographerHistory)
         val plan = decision.plan ?: return null
+        val grounding = biographerGrounding(plan, decision.coverageMap.selectedTarget) ?: return null
         val command = BiographerRenderCommandAdapter.adapt(
-            renderId("biographer-prompt", clientTurnIndex), clientTurnIndex.toInt(), plan, biographerGrounding(plan)).forProduction()
+            renderId("biographer-prompt", clientTurnIndex), clientTurnIndex.toInt(), plan, grounding).forProduction()
         val rendered = render(command)
         val text = rendered.finalText ?: return null
         // An undelivered question is not a pending investigation or an offer.
@@ -628,17 +629,39 @@ class ThomasProductionRuntime(
         else -> temporalText(value)
     }
 
-    private fun biographerGrounding(plan: BiographerQuestionPlan): RenderableGrounding {
-        val times = plan.safeFacts.mapNotNull { it.temporalExpression }.distinct()
-        val meaning = if (times.size == 2 && plan.targetKind == com.conundrum.thomas.v2.biographer.InvestigationTargetKind.TEMPORAL_GAP) {
-            "your history between ${biographerTime(times[0])} and ${biographerTime(times[1])}"
-        } else plan.safeFacts.firstOrNull()?.concept ?: when (plan.targetKind) {
+
+    private fun biographerGrounding(
+        plan: BiographerQuestionPlan,
+        target: com.conundrum.thomas.v2.biographer.InvestigationTarget?,
+    ): RenderableGrounding? {
+        val snapshot = store.reader.snapshot()
+        fun eligible(type: StoredObjectType, id: String) =
+            store.reader.isEligible(LongitudinalObjectRef(type, id), asOfRevision = store.reader.currentStoreRevision())
+        val entityIds = target?.relevantEntityIds.orEmpty().map { it.value } + plan.groundingIds
+        val labels = snapshot.entities.filter { it.id.value in entityIds && eligible(StoredObjectType.ENTITY, it.id.value) }.map { it.label }
+        val assertionSources = snapshot.assertions.filter { it.id.value in plan.groundingIds && eligible(StoredObjectType.ASSERTION, it.id.value) }.map { it.sourceRecordId.value }
+        val snippets = snapshot.sources.filter { it.id.value in assertionSources + plan.groundingIds && eligible(StoredObjectType.SOURCE_REVISION, it.id.value) }
+            .mapNotNull { (it.originalContent as? OriginalSourceContent.Inline)?.exactContent }
+            .distinct().filter { it.length <= 180 }.map { "“$it”" }
+        val times = (plan.safeFacts.mapNotNull { it.temporalExpression } + target?.temporalBounds.orEmpty()).distinct()
+        val subject = labels.takeIf { it.isNotEmpty() }?.joinToString(" and ")
+            ?: snippets.takeIf { it.isNotEmpty() }?.joinToString(" and ")
+        val meaning = when (plan.targetKind) {
             com.conundrum.thomas.v2.biographer.InvestigationTargetKind.OPEN_STORY -> "your history"
-            else -> "the unresolved part of your history"
+            com.conundrum.thomas.v2.biographer.InvestigationTargetKind.TEMPORAL_GAP ->
+                if (times.size == 2) "your history between ${biographerTime(times[0])} and ${biographerTime(times[1])}" else return null
+            com.conundrum.thomas.v2.biographer.InvestigationTargetKind.PERIOD_DETAIL ->
+                times.firstOrNull()?.let { "your history during ${biographerTime(it)}" } ?: return null
+            com.conundrum.thomas.v2.biographer.InvestigationTargetKind.ROLE_GAP -> subject?.let { "your reported role, $it" } ?: return null
+            com.conundrum.thomas.v2.biographer.InvestigationTargetKind.PLACE_GAP -> subject?.let { "your history connected with $it" } ?: return null
+            com.conundrum.thomas.v2.biographer.InvestigationTargetKind.RELATIONSHIP_CONTEXT -> subject?.let { "your reported relationship, $it" } ?: return null
+            com.conundrum.thomas.v2.biographer.InvestigationTargetKind.EVENT_TIME_UNRESOLVED -> subject?.let { "the unresolved timing of $it" } ?: return null
+            else -> subject ?: plan.safeFacts.firstOrNull()?.concept ?: return null
         }
         return RenderableGrounding(
             id = "biographer-grounding", surfaceMeaning = meaning,
-            requiredMarkerGroups = listOf(setOf("history")),
+            requiredMarkerGroups = listOf(setOf(meaning.lowercase(Locale.ROOT))),
+            allowedEntityNames = labels.toSet(),
             allowedTemporalLiterals = Regex("[0-9]{4}").findAll(meaning).map { it.value }.toSet(),
         )
     }
