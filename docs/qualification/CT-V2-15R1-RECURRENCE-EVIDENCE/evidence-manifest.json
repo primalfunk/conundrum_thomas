@@ -1,0 +1,947 @@
+[
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/authority-audit.txt",
+        "trackedPath":  "authority-audit.txt",
+        "originalBytes":  1771,
+        "originalSHA256":  "303d2ec941e5c47e1d184e087aeee098bf99f6b2cf94655b40421a8aa6092494",
+        "trackedSHA256":  "af84768fc963923ceb7dc1230364ad997b4da0936308a177d1edd29321cbb4e7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/canonical-artifacts.json",
+        "trackedPath":  "canonical-artifacts.json",
+        "originalBytes":  800,
+        "originalSHA256":  "e5d8f49c67b88dca3c21fbdbdd47a80c765d55bba6344046a00eb14d6afd02ab",
+        "trackedSHA256":  "165a3ff5746ff485e38f287b088439950b2cea26104a6ac6563beb30d5ba1229"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/canonical-regression.txt",
+        "trackedPath":  "canonical-regression.txt",
+        "originalBytes":  75660,
+        "originalSHA256":  "13095e5060954157cce1ba003d924dbccee278752316a44cfd1e1e8a7b6a81a6",
+        "trackedSHA256":  "ffad0062373385c31c7fdcbe887002cc698cd3b49dbf484e153473f02c0f65ef"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/exact-pre-repair-trace.txt",
+        "trackedPath":  "exact-pre-repair-trace.txt",
+        "originalBytes":  9761,
+        "originalSHA256":  "c911e0df3ec82bb4d1039e8edce4ab00bcde45d9d4791b74b46bd9db140e4286",
+        "trackedSHA256":  "f633a75efb9774294c5f220bc5378a81559c5d3512da87f2299ddd8a3c9c102c"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/execute-isolated-physical.ps1",
+        "trackedPath":  "execute-isolated-physical.ps1",
+        "originalBytes":  8592,
+        "originalSHA256":  "31d8fce0721034dd5a24cfc62b2a1695c6936cc1de10e437041d074db8efc6a1",
+        "trackedSHA256":  "31d8fce0721034dd5a24cfc62b2a1695c6936cc1de10e437041d074db8efc6a1"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/final-canonical-artifacts.json",
+        "trackedPath":  "final-canonical-artifacts.json",
+        "originalBytes":  800,
+        "originalSHA256":  "dc1c96b17cd36f69234259941ccdba3df0e3577ba307a39105bbd1df9e2284eb",
+        "trackedSHA256":  "169084cf1c06bca69085b5dfc13e1bef7d6555e6dba5e89fe6eedea11a1c620f"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/final-canonical-regression.txt",
+        "trackedPath":  "final-canonical-regression.txt",
+        "originalBytes":  75658,
+        "originalSHA256":  "3f5c46368e6836ccf49828e148ac6b2b46ea0b36923ed183f8fe359aabf09e85",
+        "trackedSHA256":  "e54051f7f66d17d17eb84969babc54488f5db0b353c400984b733e9cce3ab4c6"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/final-regression-summary.json",
+        "trackedPath":  "final-regression-summary.json",
+        "originalBytes":  180,
+        "originalSHA256":  "12bca0fcf905a9595ca64443342dd31f08253bfa18332b2ad9e830068e987dbc",
+        "trackedSHA256":  "f84eab2f39821f155037dbfd462dd2b0d414c51fd292cfb7585f5402f41844bc"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/final-repository-checks.txt",
+        "trackedPath":  "final-repository-checks.txt",
+        "originalBytes":  1041,
+        "originalSHA256":  "2d95d4194f3b0ab7bcde14489df87013859a7648748b1ceed36b2f046cdbf270",
+        "trackedSHA256":  "2d95d4194f3b0ab7bcde14489df87013859a7648748b1ceed36b2f046cdbf270"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/final-suite-inventory.json",
+        "trackedPath":  "final-suite-inventory.json",
+        "originalBytes":  23313,
+        "originalSHA256":  "8887fe5f6ae16aaa009e05baf20cbad317ad6f0021b9b5a4efb3891749884f1d",
+        "trackedSHA256":  "c986438548e94ec2fb9627d3b1597375c851a171a01ce0036e30e2b1f3e72578"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/fixture-build.txt",
+        "trackedPath":  "fixture-build.txt",
+        "originalBytes":  24528,
+        "originalSHA256":  "20a345cb480acd40c478b94baf36be1d667b5550b829ac5c408d4ddb1923b096",
+        "trackedSHA256":  "b994c48e2d7d0f26da35ea4c8b24615f6e1274854be30b19a71144df53f839b4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/fixture-build-run-02.txt",
+        "trackedPath":  "fixture-build-run-02.txt",
+        "originalBytes":  25320,
+        "originalSHA256":  "81c1fabdd1febf582eb4f5611e4a18bf80192a5a450415eeaf8b9cc9e670f289",
+        "trackedSHA256":  "fcad1a816bf82e7cb7f7bf0e0249b7887f198002cab59c8b578bb505d6d98816"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/fixture-build-run-03.txt",
+        "trackedPath":  "fixture-build-run-03.txt",
+        "originalBytes":  25320,
+        "originalSHA256":  "0f4284fcc7ad6a4a749cf96b9ed75c92029308e4a74a69988aa793e1534e6577",
+        "trackedSHA256":  "0e3d38e108beac8439be818c89e4f9ae5b76f94dd5ee356d25634a7b3db0b3dc"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/fixture-build-run-04.txt",
+        "trackedPath":  "fixture-build-run-04.txt",
+        "originalBytes":  25320,
+        "originalSHA256":  "3526a99ca8a075cf99e7a2d352ea5d24e437c0480020e38febd031948a5790bb",
+        "trackedSHA256":  "56201a6a9a3e2a31c90f1f33300c0b775179bb5251c62daa2ab6d56e5de98481"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/focused-tests.txt",
+        "trackedPath":  "focused-tests.txt",
+        "originalBytes":  12952,
+        "originalSHA256":  "03d314f8e373ad60287f9920e9abecf03a048374610d62d4253cc423cd3828be",
+        "trackedSHA256":  "1ffa223e577c843a073f07a34bd52fab0c3cab34acd3de6970a724d768a0f0f5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/post-repair-runtime.xml",
+        "trackedPath":  "post-repair-runtime.xml",
+        "originalBytes":  82187,
+        "originalSHA256":  "c8dcaaa3bb145f6ebad77ab281fce7d8804222bb4a60f858f50e3414d5ba10c4",
+        "trackedSHA256":  "35df33b0cfe2db991b01e8deb5c8408efd3649c09495ab4324429053935a9c0f"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/pre-diagnostic-canonical-regression.txt",
+        "trackedPath":  "pre-diagnostic-canonical-regression.txt",
+        "originalBytes":  75658,
+        "originalSHA256":  "b3d8fffa88116a4a97aa87a48b313996a831e68d7ce396cbdde654cfa4f0da92",
+        "trackedSHA256":  "9bfcb9d58282e9d35467149d5f92130522cc40dccc3c52c03c1ed413d85619a8"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/pre-repair-runtime.xml",
+        "trackedPath":  "pre-repair-runtime.xml",
+        "originalBytes":  67838,
+        "originalSHA256":  "62b84290fb3529eb29afa5ad5e3043e9b24e52d398ba324e8dcabbff3997768b",
+        "trackedSHA256":  "b3dde0c1301fb72dd6888c512cee33e4c34c8575fa8aab361b3482e9b03dcab1"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/pre-repair-test.txt",
+        "trackedPath":  "pre-repair-test.txt",
+        "originalBytes":  14520,
+        "originalSHA256":  "908d70c5a242d466c7a3248a4ad616be6ad6275ad502f31d4aaf071375a084a5",
+        "trackedSHA256":  "5ae183d5caef046f4c21101734dd1233d0355f1ff7b34caea96e929ac20c99c4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/regression-summary.json",
+        "trackedPath":  "regression-summary.json",
+        "originalBytes":  180,
+        "originalSHA256":  "38018d774b158af5a4f6aa3323877cfd39ae1a3777fcd5fae4c9908c35f7c245",
+        "trackedSHA256":  "1ef17f763c4d4bf1e2d28ccbc928aaff6f02d6c584346feacba916188bee3ed1"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/renderer-matrix.xml",
+        "trackedPath":  "renderer-matrix.xml",
+        "originalBytes":  1923,
+        "originalSHA256":  "cde09c26a8b1775008ccb8960582990f98ed643d6eb0938ad683ad0aba2f93ce",
+        "trackedSHA256":  "d1ece98bff2caa9f058c165e6381969d3aac37bd76b10d9d7aa9f03a21bb50ee"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/reopen-identity-diagnostic.txt",
+        "trackedPath":  "reopen-identity-diagnostic.txt",
+        "originalBytes":  12976,
+        "originalSHA256":  "672bf38c0774105859700f1c49175632c2e226ab6dcb8da0597ae24f84016ed4",
+        "trackedSHA256":  "fd87482c3e7911f47166f07b5f6290a282c733c46bfb29bd378cae1dcd699879"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/reopen-identity-diagnostic.xml",
+        "trackedPath":  "reopen-identity-diagnostic.xml",
+        "originalBytes":  24505,
+        "originalSHA256":  "080b31e4864ab9dcc83e0e9274d3b0fec83f4691371909d92f04c7f53d813b53",
+        "trackedSHA256":  "fd5a48d208faf8f1b0f415436fce540722754349c19720173e697b4dac2ba5ae"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-apk-after.sha256",
+        "trackedPath":  "run-01/canonical-apk-after.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-apk-before.sha256",
+        "trackedPath":  "run-01/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-files-after.sha256",
+        "trackedPath":  "run-01/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-files-after.stat",
+        "trackedPath":  "run-01/canonical-files-after.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-files-before.sha256",
+        "trackedPath":  "run-01/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-files-before.stat",
+        "trackedPath":  "run-01/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-inventory-after.txt",
+        "trackedPath":  "run-01/canonical-inventory-after.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-inventory-before.txt",
+        "trackedPath":  "run-01/canonical-inventory-before.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-package-after.txt",
+        "trackedPath":  "run-01/canonical-package-after.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/canonical-package-before.txt",
+        "trackedPath":  "run-01/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "trackedPath":  "run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "trackedPath":  "run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/device.txt",
+        "trackedPath":  "run-01/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/device-fixture-source.kt",
+        "trackedPath":  "run-01/device-fixture-source.kt",
+        "originalBytes":  26812,
+        "originalSHA256":  "8af299456c5793c8574ada908b13d369bb14da58e0718deab7523a3208949a53",
+        "trackedSHA256":  "8af299456c5793c8574ada908b13d369bb14da58e0718deab7523a3208949a53"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/devices.txt",
+        "trackedPath":  "run-01/devices.txt",
+        "originalBytes":  127,
+        "originalSHA256":  "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+        "trackedSHA256":  "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/final-disposition.txt",
+        "trackedPath":  "run-01/final-disposition.txt",
+        "originalBytes":  105,
+        "originalSHA256":  "cc5887684336744fb07fb173c630797932020e0de8ade8479c8bcfa8fb4fa5fb",
+        "trackedSHA256":  "1c3e31ed8aa2e08e7b74dd3e86eecabba7c18a346d886f249f6d4afb8dab25ea"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/fixture-artifacts.json",
+        "trackedPath":  "run-01/fixture-artifacts.json",
+        "originalBytes":  340,
+        "originalSHA256":  "be0957951e51bf2b624c4a6f8ecdf44704f0c3787a99d377f991ebcd0d30f9d0",
+        "trackedSHA256":  "afe28ca47794e540ba61df7fed68baf74b7ba075ff69fe84120f975ff45a3457"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/fixture-logcat.txt",
+        "trackedPath":  "run-01/fixture-logcat.txt",
+        "originalBytes":  68644,
+        "originalSHA256":  "23ef602293851e616fb4cc1eb88ed749db61ad5e8828104f05f332152cfafb86",
+        "trackedSHA256":  "5a56013444c465ce1d082e3e72a7226890fec06cb86bd476642278e3c378305d"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/fixture-manifest.txt",
+        "trackedPath":  "run-01/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/fixture-package.txt",
+        "trackedPath":  "run-01/fixture-package.txt",
+        "originalBytes":  351,
+        "originalSHA256":  "2e12dc446c405ba05d3672d44d6c2d2fe98e2ee349421cea5c75bf7b3eb5fbf6",
+        "trackedSHA256":  "cbdffa848c9001e5f0f6c18fcdc33aa7133e8a6d3578fc2f148327b3e01d86c6"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/fixture-test-manifest.txt",
+        "trackedPath":  "run-01/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/install-fixture.txt",
+        "trackedPath":  "run-01/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/install-test.txt",
+        "trackedPath":  "run-01/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/instrumentation-a.txt",
+        "trackedPath":  "run-01/instrumentation-a.txt",
+        "originalBytes":  61406,
+        "originalSHA256":  "bfa6cb6fbcdc31b0c28b1487a5c5ac0bc07b7115343f7d0f0a3840178ca0f209",
+        "trackedSHA256":  "775e6a917394c84f0da0c1cf570f2d5d1445b19c77e61a67ce138d40bc3cf28f"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/uid-isolation.txt",
+        "trackedPath":  "run-01/uid-isolation.txt",
+        "originalBytes":  121,
+        "originalSHA256":  "892e22c43903c2332dd3499b4dfb823b05da92961d27ca88d34c618a05a919c2",
+        "trackedSHA256":  "a43687fcae56524a41f230b46477c263b3446bd1820f7641710fb7a97f571f66"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-01/ui-fixture-source.kt",
+        "trackedPath":  "run-01/ui-fixture-source.kt",
+        "originalBytes":  7171,
+        "originalSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd",
+        "trackedSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-apk-after.sha256",
+        "trackedPath":  "run-02/canonical-apk-after.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-apk-before.sha256",
+        "trackedPath":  "run-02/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-files-after.sha256",
+        "trackedPath":  "run-02/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-files-after.stat",
+        "trackedPath":  "run-02/canonical-files-after.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-files-before.sha256",
+        "trackedPath":  "run-02/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-files-before.stat",
+        "trackedPath":  "run-02/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-inventory-after.txt",
+        "trackedPath":  "run-02/canonical-inventory-after.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-inventory-before.txt",
+        "trackedPath":  "run-02/canonical-inventory-before.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-package-after.txt",
+        "trackedPath":  "run-02/canonical-package-after.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/canonical-package-before.txt",
+        "trackedPath":  "run-02/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "trackedPath":  "run-02/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "trackedPath":  "run-02/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/device.txt",
+        "trackedPath":  "run-02/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/device-fixture-source.kt",
+        "trackedPath":  "run-02/device-fixture-source.kt",
+        "originalBytes":  27912,
+        "originalSHA256":  "962b3cfa74fa6af22dd881cefcb5ad2de725424d0624a3e7bc654715b3e90e6c",
+        "trackedSHA256":  "962b3cfa74fa6af22dd881cefcb5ad2de725424d0624a3e7bc654715b3e90e6c"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/devices.txt",
+        "trackedPath":  "run-02/devices.txt",
+        "originalBytes":  127,
+        "originalSHA256":  "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+        "trackedSHA256":  "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/final-disposition.txt",
+        "trackedPath":  "run-02/final-disposition.txt",
+        "originalBytes":  105,
+        "originalSHA256":  "cc5887684336744fb07fb173c630797932020e0de8ade8479c8bcfa8fb4fa5fb",
+        "trackedSHA256":  "1c3e31ed8aa2e08e7b74dd3e86eecabba7c18a346d886f249f6d4afb8dab25ea"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/fixture-artifacts.json",
+        "trackedPath":  "run-02/fixture-artifacts.json",
+        "originalBytes":  340,
+        "originalSHA256":  "e59b1f9b75cdedc379040221c52dd26b26112a58ea12478befe6d1ab24c2bca9",
+        "trackedSHA256":  "5f33fe490fd80a93820330b5602eaf6c5a9880c6fa06c9830572d2939a841e3b"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/fixture-logcat.txt",
+        "trackedPath":  "run-02/fixture-logcat.txt",
+        "originalBytes":  130434,
+        "originalSHA256":  "e9663b106bcd2baf528fc7cdaab655a04cae00051e25444f3888c6454a48fb3b",
+        "trackedSHA256":  "99f66df0944803f3935985a48d41e68f21f1aaa4c33d923ce9ca7d0a8980a638"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/fixture-manifest.txt",
+        "trackedPath":  "run-02/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/fixture-package.txt",
+        "trackedPath":  "run-02/fixture-package.txt",
+        "originalBytes":  351,
+        "originalSHA256":  "6414e1e8ee5214deb40127ea95458740d20e4079c4b041b57fad4cc27de430d0",
+        "trackedSHA256":  "833309ddaebe546962b883076138a47dc07973ab9b1c9b1200678d045061f72c"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/fixture-test-manifest.txt",
+        "trackedPath":  "run-02/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/install-fixture.txt",
+        "trackedPath":  "run-02/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/install-test.txt",
+        "trackedPath":  "run-02/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/instrumentation-a.txt",
+        "trackedPath":  "run-02/instrumentation-a.txt",
+        "originalBytes":  190748,
+        "originalSHA256":  "aa1c93139942f91b3a62c1c9b6ff01a5d2e0c753e0271ad1e2e989d30d1e307f",
+        "trackedSHA256":  "2d800d5f1ba53f9b60652a8cdc3575c0c023069a3a2fce0249931623e9921189"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/uid-isolation.txt",
+        "trackedPath":  "run-02/uid-isolation.txt",
+        "originalBytes":  121,
+        "originalSHA256":  "c7ee984f540792f78f5bd07f966048533f46c530e5e5f9b069a1f395e748bb69",
+        "trackedSHA256":  "66e70068344cf727b15c63f28ef16911b4eee3e971ec11a715c5e5c7ebb82fe3"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-02/ui-fixture-source.kt",
+        "trackedPath":  "run-02/ui-fixture-source.kt",
+        "originalBytes":  7171,
+        "originalSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd",
+        "trackedSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-apk-after.sha256",
+        "trackedPath":  "run-03/canonical-apk-after.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-apk-before.sha256",
+        "trackedPath":  "run-03/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-files-after.sha256",
+        "trackedPath":  "run-03/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-files-after.stat",
+        "trackedPath":  "run-03/canonical-files-after.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-files-before.sha256",
+        "trackedPath":  "run-03/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-files-before.stat",
+        "trackedPath":  "run-03/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-inventory-after.txt",
+        "trackedPath":  "run-03/canonical-inventory-after.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-inventory-before.txt",
+        "trackedPath":  "run-03/canonical-inventory-before.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-package-after.txt",
+        "trackedPath":  "run-03/canonical-package-after.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/canonical-package-before.txt",
+        "trackedPath":  "run-03/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "trackedPath":  "run-03/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "trackedPath":  "run-03/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/device.txt",
+        "trackedPath":  "run-03/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/device-fixture-source.kt",
+        "trackedPath":  "run-03/device-fixture-source.kt",
+        "originalBytes":  28472,
+        "originalSHA256":  "4dca2b9c0fc3b58d2b833aee0e9480466c58db9b1edf480114c04d34dddd3fcc",
+        "trackedSHA256":  "4dca2b9c0fc3b58d2b833aee0e9480466c58db9b1edf480114c04d34dddd3fcc"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/devices.txt",
+        "trackedPath":  "run-03/devices.txt",
+        "originalBytes":  127,
+        "originalSHA256":  "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+        "trackedSHA256":  "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/final-disposition.txt",
+        "trackedPath":  "run-03/final-disposition.txt",
+        "originalBytes":  105,
+        "originalSHA256":  "cc5887684336744fb07fb173c630797932020e0de8ade8479c8bcfa8fb4fa5fb",
+        "trackedSHA256":  "1c3e31ed8aa2e08e7b74dd3e86eecabba7c18a346d886f249f6d4afb8dab25ea"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/fixture-artifacts.json",
+        "trackedPath":  "run-03/fixture-artifacts.json",
+        "originalBytes":  340,
+        "originalSHA256":  "87416372ce043664c7038e1890d00d01975906b0de7fb2a2e828808e56cc5d09",
+        "trackedSHA256":  "1dfb86c019c80aace9dbbc1408ee6514fa41df708a0dbd565a6b0406365dc976"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/fixture-logcat.txt",
+        "trackedPath":  "run-03/fixture-logcat.txt",
+        "originalBytes":  110982,
+        "originalSHA256":  "53c451fb6da81328b072255a0d18161e6b9527474d1a496283b559ecaa24e1c4",
+        "trackedSHA256":  "a82488c2504e8b05cda702314318445f99d8a0e501665fde1069c950270fe2a2"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/fixture-manifest.txt",
+        "trackedPath":  "run-03/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/fixture-package.txt",
+        "trackedPath":  "run-03/fixture-package.txt",
+        "originalBytes":  351,
+        "originalSHA256":  "c5005e039d457cd7d54a397cdc8848bbc1ecaa4cf48073debdff30e26d4e0576",
+        "trackedSHA256":  "297e3ff0eee5179a5cfb95589c135ab38b1ef532887c4d0ded77472823a1466f"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/fixture-test-manifest.txt",
+        "trackedPath":  "run-03/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/install-fixture.txt",
+        "trackedPath":  "run-03/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/install-test.txt",
+        "trackedPath":  "run-03/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/instrumentation-a.txt",
+        "trackedPath":  "run-03/instrumentation-a.txt",
+        "originalBytes":  190574,
+        "originalSHA256":  "b4eac74b70a75e73202a1869081d19e05ed44958f5113ed9d43144ea63c4b4c1",
+        "trackedSHA256":  "b4793c973d71bb5d6c514a4ba8331304d2fb39abbc12cba806068bfbb752c78e"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/instrumentation-b.txt",
+        "trackedPath":  "run-03/instrumentation-b.txt",
+        "originalBytes":  33404,
+        "originalSHA256":  "2f7d7e5166637eadfff35190725c41e81b42349cacf63efc298a4082bfddf80a",
+        "trackedSHA256":  "b2ce3324a9d87906e218ca35cdf60daf1a2e1c9f304b3e5675e3d1b717b65db7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/instrumentation-c.txt",
+        "trackedPath":  "run-03/instrumentation-c.txt",
+        "originalBytes":  6666,
+        "originalSHA256":  "b5116bc0aca62d1dae6f200bba1c018fd39a9b852818d5a0cfc96214fdffcfad",
+        "trackedSHA256":  "a852929263c23c84e4d3648001bf18a23781f20a73a3fc34e9a8f7ebcd80ddd5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/uid-isolation.txt",
+        "trackedPath":  "run-03/uid-isolation.txt",
+        "originalBytes":  121,
+        "originalSHA256":  "5cc96611a5613fef58da4dfa353ca62ec6aa41c4b7737c7feef84337f8134943",
+        "trackedSHA256":  "d939d06765371ae5fd778bab04084a13012f980ba8d29770c21d5486d6a8d5ae"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-03/ui-fixture-source.kt",
+        "trackedPath":  "run-03/ui-fixture-source.kt",
+        "originalBytes":  7171,
+        "originalSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd",
+        "trackedSHA256":  "265831ecbad39a9a012176ffccad3fb5e10f972eb8287ab1719fbe26dabf49bd"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-apk-after.sha256",
+        "trackedPath":  "run-04/canonical-apk-after.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-apk-before.sha256",
+        "trackedPath":  "run-04/canonical-apk-before.sha256",
+        "originalBytes":  165,
+        "originalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "trackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-files-after.sha256",
+        "trackedPath":  "run-04/canonical-files-after.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-files-after.stat",
+        "trackedPath":  "run-04/canonical-files-after.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-files-before.sha256",
+        "trackedPath":  "run-04/canonical-files-before.sha256",
+        "originalBytes":  313,
+        "originalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "trackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-files-before.stat",
+        "trackedPath":  "run-04/canonical-files-before.stat",
+        "originalBytes":  179,
+        "originalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "trackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-inventory-after.txt",
+        "trackedPath":  "run-04/canonical-inventory-after.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-inventory-before.txt",
+        "trackedPath":  "run-04/canonical-inventory-before.txt",
+        "originalBytes":  115,
+        "originalSHA256":  "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+        "trackedSHA256":  "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-package-after.txt",
+        "trackedPath":  "run-04/canonical-package-after.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/canonical-package-before.txt",
+        "trackedPath":  "run-04/canonical-package-before.txt",
+        "originalBytes":  414,
+        "originalSHA256":  "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+        "trackedSHA256":  "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "trackedPath":  "run-04/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "trackedPath":  "run-04/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+        "originalBytes":  20,
+        "originalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "trackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/device.txt",
+        "trackedPath":  "run-04/device.txt",
+        "originalBytes":  102,
+        "originalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "trackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/device-fixture-source.kt",
+        "trackedPath":  "run-04/device-fixture-source.kt",
+        "originalBytes":  28472,
+        "originalSHA256":  "4dca2b9c0fc3b58d2b833aee0e9480466c58db9b1edf480114c04d34dddd3fcc",
+        "trackedSHA256":  "4dca2b9c0fc3b58d2b833aee0e9480466c58db9b1edf480114c04d34dddd3fcc"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/devices.txt",
+        "trackedPath":  "run-04/devices.txt",
+        "originalBytes":  127,
+        "originalSHA256":  "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+        "trackedSHA256":  "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/final-disposition.txt",
+        "trackedPath":  "run-04/final-disposition.txt",
+        "originalBytes":  105,
+        "originalSHA256":  "cc5887684336744fb07fb173c630797932020e0de8ade8479c8bcfa8fb4fa5fb",
+        "trackedSHA256":  "1c3e31ed8aa2e08e7b74dd3e86eecabba7c18a346d886f249f6d4afb8dab25ea"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/fixture-artifacts.json",
+        "trackedPath":  "run-04/fixture-artifacts.json",
+        "originalBytes":  340,
+        "originalSHA256":  "c6921d37fb240a67141805edf087075adcd7dda3a9c822dcd075477d1b6bbd59",
+        "trackedSHA256":  "f0143f64c31eafbe8217f7564386958f65fb6458d25fdeec1ebdc7025e765399"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/fixture-logcat.txt",
+        "trackedPath":  "run-04/fixture-logcat.txt",
+        "originalBytes":  112334,
+        "originalSHA256":  "3e38cf75accb3ae7ad1bce32130e3f247e45fbd9ec90294b926fe71c58f89ba5",
+        "trackedSHA256":  "bd390e7d448ed18a2220b16682476d559f85b3fcc995ca917fa47fb1a4f5c5d2"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/fixture-manifest.txt",
+        "trackedPath":  "run-04/fixture-manifest.txt",
+        "originalBytes":  7999,
+        "originalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "trackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/fixture-package.txt",
+        "trackedPath":  "run-04/fixture-package.txt",
+        "originalBytes":  351,
+        "originalSHA256":  "323e1d7b6a8cac74642fb4b7a5ff716d0bffb02a7d7e5f933709d56c6c064f3a",
+        "trackedSHA256":  "7a73a3df1280fe05d8241027485a31de1446f820a7c465344c20f1cd43f30136"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/fixture-test-manifest.txt",
+        "trackedPath":  "run-04/fixture-test-manifest.txt",
+        "originalBytes":  4685,
+        "originalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "trackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/install-fixture.txt",
+        "trackedPath":  "run-04/install-fixture.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/install-test.txt",
+        "trackedPath":  "run-04/install-test.txt",
+        "originalBytes":  78,
+        "originalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "trackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/instrumentation-a.txt",
+        "trackedPath":  "run-04/instrumentation-a.txt",
+        "originalBytes":  190574,
+        "originalSHA256":  "7a563bf34db92f7d735f11c7b676277728f366ceca432049cfe238431db5ce22",
+        "trackedSHA256":  "6a9e87b9de0c63e161c3b0c55c6ef437c499195b4d8e6ae0f2c242f8e7ff7e53"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/instrumentation-b.txt",
+        "trackedPath":  "run-04/instrumentation-b.txt",
+        "originalBytes":  33404,
+        "originalSHA256":  "77e464261f05210db528fc8585740880ffbed98316b89e88bd59ff60542cbf80",
+        "trackedSHA256":  "6f9c80d181b4606c51f27cc24394e6e5d2f29f98c64f867203c224dad5ce12f3"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/instrumentation-c.txt",
+        "trackedPath":  "run-04/instrumentation-c.txt",
+        "originalBytes":  5754,
+        "originalSHA256":  "0c5ae8f3163830b470b0f653e734ade514f0e430774f7505fa2946a8b9137a65",
+        "trackedSHA256":  "92c289c327a67462b841faaf000414f44732421f7a9ec82e0a624a1982c28dd4"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/uid-isolation.txt",
+        "trackedPath":  "run-04/uid-isolation.txt",
+        "originalBytes":  121,
+        "originalSHA256":  "4afb3fc0179b629c3af76d9be7cb5c4dcd0cef8e108a98d4c734eae9d919ff9f",
+        "trackedSHA256":  "92e1e46e1596df02cb5433006c0ce9e65225012dce65dc0a398a4be05dbdf4d0"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/run-04/ui-fixture-source.kt",
+        "trackedPath":  "run-04/ui-fixture-source.kt",
+        "originalBytes":  8346,
+        "originalSHA256":  "e6fb1883e614850b169ad58dfe0702a9a5a15e5fef02cb423e8cf64e0c4fde7e",
+        "trackedSHA256":  "e6fb1883e614850b169ad58dfe0702a9a5a15e5fef02cb423e8cf64e0c4fde7e"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/suite-inventory.json",
+        "trackedPath":  "suite-inventory.json",
+        "originalBytes":  22935,
+        "originalSHA256":  "21b9dbca4f0ee89b19a68f22df3d021dc6c87e98f36aaa9aabcebbd68e04a0f7",
+        "trackedSHA256":  "d77437efa72149f32bd3bef475159ba412a62c51814f1bbe5aa60dbddd8c3a0a"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/test-discovery-correction.txt",
+        "trackedPath":  "test-discovery-correction.txt",
+        "originalBytes":  14664,
+        "originalSHA256":  "7eb149410cf357ecfa010e21c80de6682fc04b58f644fb61b1a9d357ed9d8375",
+        "trackedSHA256":  "c3cc509faf31dec9a5f43a136eb67131ac1ac6e9300d4f3b36555498cb7d0f94"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/test-discovery-correction.xml",
+        "trackedPath":  "test-discovery-correction.xml",
+        "originalBytes":  4246,
+        "originalSHA256":  "ef8e8c3913936ae17599826c583577ba73266ea2ebd90cdfe9b714e9f11cb9e9",
+        "trackedSHA256":  "6c118d8d66e923fbe3e9daaba74892029ac6e451edd355c8713155135da496af"
+    },
+    {
+        "originalPath":  "out/ct-v2-15r1-recurrence/v1-governance.json",
+        "trackedPath":  "v1-governance.json",
+        "originalBytes":  105,
+        "originalSHA256":  "ef0083755fff9d330fa961d7b7ca4330b9ae2e3b0dee9f0b5b4759bddb81cc88",
+        "trackedSHA256":  "3cfbd9490bf42f40c8894fc9a4c1fde8875ce3110e56bf5a015b33382ea2ea91"
+    }
+]

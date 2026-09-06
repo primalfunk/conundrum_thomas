@@ -1,0 +1,25 @@
+Final tested source HEAD: 333f5b26ba4bd5edc4aee54aef87f811d6e1ea73
+Final tested source tree: 2baa84b9a0448989ee2efda9038982265fb5295e
+Canonical verifier:
+CANONICAL_PROJECT_ROOT=C:\Android Studio Projects\ConundrumThomasV2
+CANONICAL_GIT_DIR=.git
+TEMPORARY_GIT_METADATA_COUNT=0
+VCS_ROOT_ON_DISK_VALID=true
+git fsck --full --strict:
+dangling blob c7405e3b91cb14ac9a667d49976e1bb84a33c289
+dangling blob 0283a3bbfb341e7811fa6252898f7b0aec5d1fd1
+dangling blob 316746fe992edcc1741c4b356320bb6380feb614
+dangling blob 4350721d914b66808ab247f55e195165fb762cfc
+exit=0
+git diff --check:
+exit=0
+Reconnaissance and all preceding failed physical evidence unchanged=true
+Remote:
+origin	https://github.com/primalfunk/conundrum_thomas.git (fetch)
+origin	https://github.com/primalfunk/conundrum_thomas.git (push)
+Locally recorded upstream: 64fa3af9069f820fd465f219e5a21855a7d47047
+Ahead/behind before documentation commit: 28	0
+Completion tag absent=true
+Final read-only package inspection:
+package:com.conundrum.thomas.v2
+package:com.conundrum.thomas.v2.test

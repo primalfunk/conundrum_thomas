@@ -1,0 +1,20 @@
+Audit baseline=c50671c9f11f345891161a6e407f933e10bc1136
+Repair commit=973a360fd55298447ede71b00de31375576126e2
+Production changed files=GovernedLanguageRenderer.kt,TherapyRenderCommandAdapter.kt
+CT-V2-04/05/10/11/12/14 policy/runtime/store/Android configuration diff=0
+Renderer evaluator/gate/store mutation call matches=0
+Renderer -> Therapy policy decision paths=0
+Renderer -> route selection decision paths=0
+Renderer -> safety decision authority=0
+Renderer -> persistence writes=0
+Render history -> procedural observation/state input paths=0
+Runtime renderHistory references (creation, linguistic update and reset only):
+thomas/runtime/src/main\kotlin\com\conundrum\thomas\v2\runtime\ThomasProductionRuntime.kt:89:    private var renderHistory = RenderHistoryState()
+thomas/runtime/src/main\kotlin\com\conundrum\thomas\v2\runtime\ThomasProductionRuntime.kt:537:        return renderer.render(command, renderHistory).also { renderHistory = it.nextHistory }
+The runtime consumes final delivery success before marking a selected action delivered; it does not pass fingerprints into procedural state.
+Compiled API re-exports remain existing debt; these counts concern execution/decision authority, not compile-time reachability.
+Model artifacts/inference markers=see canonical-artifacts.json
+Procedural stagnation remains upstream=CTV215R1RecurrenceRuntimeTest.unchangedStateStagnatesUpstreamAndNewEvidenceAuthorizesDistinctReflection
+Duplicate filter unchanged=git diff baseline -- DeterministicRenderValidator.kt is empty
+Journal silence and fixed-safety repetition=CTV215R1RendererRecurrenceTest
+Authorized distinct validated reference is emitted before exhaustion; exhausted/invalid sets remain explicit RENDERING_UNAVAILABLE, not NO_RESPONSE.

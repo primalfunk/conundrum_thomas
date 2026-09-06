@@ -2,7 +2,21 @@
 
 Date: 2026-09-05. Authority: [authorized work order](../work-orders/CT-V2-15R1-PRODUCTION-EVIDENCE-PROCEDURE-BIOGRAPHER-INTEGRATION.md). Historical entry findings remain preserved in [the reconnaissance report](../reconnaissance/CT-V2-CURRENT-STATE-AND-TEST-READINESS.md).
 
-## Physical fixture repair and rerun — current status, 2026-09-05
+## Renderer recurrence repair — current status, 2026-09-05
+
+**CT_V2_15R1_RENDERER_PROCEDURAL_RECURRENCE_REPAIR_QUALIFIED**
+
+**CT_V2_15R1_PHYSICAL_QUALIFICATION_FAILED_PRODUCTION_DEFECT**
+
+The authorized renderer recurrence defect is repaired. The complete isolated production-runtime A–M sequence and separate-process reopen gate N passed together on TCL 9491G. The actual UI-control gate then failed because the first user turn after reopen rendered a response but was not committed.
+
+A minimal production-runtime diagnostic confirms a different, pre-existing allocator defect: an unrecorded prompt can make storeRevision + 1 reuse a committed turn identity after reopen. The protected store correctly rejects the conflicting payload; the application needs a bounded turn-identity repair. The prior UI completion timeout also remains to be re-exercised.
+
+[The complete recurrence repair qualification](CT-V2-15R1-RECURRENCE-REPAIR-QUALIFICATION.md) preserves the pre-repair failure, eleven passing recurrence regressions, four fresh physical attempts, exact scenario results, the new identity diagnostic, APK identities and unchanged original-corpus custody. Final canonical regression passes 990 tests / 63 suites, zero failures/errors/skips; lint zero errors/fatals and 16 warnings. The diagnostic's pass is not a UI-admission pass.
+
+Both disposable packages are removed. No completion tag, push or rigorous campaign occurred. **CTV2_RIGOROUS_TESTING_NOT_READY**. Earlier records below remain historical and are superseded for current-status purposes by this section.
+
+## Physical fixture repair and rerun — historical status, 2026-09-05
 
 **CT_V2_15R1_PHYSICAL_QUALIFICATION_FAILED_PRODUCTION_DEFECT**
 

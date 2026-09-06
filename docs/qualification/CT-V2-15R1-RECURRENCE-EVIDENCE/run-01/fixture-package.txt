@@ -1,0 +1,7 @@
+    appId=10184
+    codePath=/data/app/~~sZ4kfa8cdRTTrQSq8jMTxQ==/com.conundrum.thomas.v2.ctv215r1fixture-_5YFdrz1z-HzQdts4_Remw==
+    versionCode=1 minSdk=31 targetSdk=37
+    versionName=1.0
+    lastUpdateTime=2026-09-05 19:53:45
+      dataDir=/data/user/0/com.conundrum.thomas.v2.ctv215r1fixture
+      firstInstallTime=2026-09-05 19:53:45

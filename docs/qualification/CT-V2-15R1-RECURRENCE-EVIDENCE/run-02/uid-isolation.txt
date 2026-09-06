@@ -1,0 +1,3 @@
+canonicalUid=10666
+fixtureUid=10193
+Key namespace=Android UID scoped; alias text=ct-v2-14.personal-data.primary.v1

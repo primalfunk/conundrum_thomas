@@ -1,0 +1,22 @@
+[
+    {
+        "Path":  "app/build/outputs/apk/debug/app-debug.apk",
+        "Bytes":  31548244,
+        "SHA256":  "dbb0428ae7dd2c70767bf72810bb3fde59a6f59814ad3ffcb5a303e724be7c9b",
+        "ModelArtifacts":  0,
+        "InferenceMarkers":  [
+
+                             ],
+        "VersionControl":  null
+    },
+    {
+        "Path":  "app/build/outputs/apk/release/app-release-unsigned.apk",
+        "Bytes":  24279311,
+        "SHA256":  "3d775fb225a64535960c13222613a639c2479a13eccf1f5766103244afb9a695",
+        "ModelArtifacts":  0,
+        "InferenceMarkers":  [
+
+                             ],
+        "VersionControl":  "repositories {\n  system: GIT\n  local_root_path: \"$PROJECT_DIR\"\n  revision: \"973a360fd55298447ede71b00de31375576126e2\"\n}\n"
+    }
+]

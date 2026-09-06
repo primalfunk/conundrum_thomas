@@ -1,0 +1,569 @@
+[
+    {
+        "Path":  "tools\\provenance\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.tools.provenance.SafetyRuleSourceBindingTest.xml",
+        "Name":  "com.conundrum.thomas.v2.tools.provenance.SafetyRuleSourceBindingTest",
+        "Tests":  2,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.039
+    },
+    {
+        "Path":  "tools\\provenance\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.tools.provenance.ProvenanceDatabaseTest.xml",
+        "Name":  "com.conundrum.thomas.v2.tools.provenance.ProvenanceDatabaseTest",
+        "Tests":  11,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.23
+    },
+    {
+        "Path":  "tools\\provenance\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.tools.provenance.ProceduralRuleSourceBindingTest.xml",
+        "Name":  "com.conundrum.thomas.v2.tools.provenance.ProceduralRuleSourceBindingTest",
+        "Tests":  2,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.05
+    },
+    {
+        "Path":  "tools\\provenance\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.tools.provenance.OntologySourceBindingTest.xml",
+        "Name":  "com.conundrum.thomas.v2.tools.provenance.OntologySourceBindingTest",
+        "Tests":  4,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.083
+    },
+    {
+        "Path":  "tools\\provenance\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.tools.provenance.CoreOrdinaryRuleSourceBindingTest.xml",
+        "Name":  "com.conundrum.thomas.v2.tools.provenance.CoreOrdinaryRuleSourceBindingTest",
+        "Tests":  2,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.167
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.SafetyScopeInvariantTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.SafetyScopeInvariantTest",
+        "Tests":  10,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.011
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.SafetyScopeDecisionTableTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.SafetyScopeDecisionTableTest",
+        "Tests":  21,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.001
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.SafetyRendererBoundaryTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.SafetyRendererBoundaryTest",
+        "Tests":  5,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.001
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.SafetyGateCapabilityTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.SafetyGateCapabilityTest",
+        "Tests":  4,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.001
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.RendererBoundaryQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.RendererBoundaryQualificationTest",
+        "Tests":  5,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.003
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.ProceduralPolicyInvariantTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.ProceduralPolicyInvariantTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.014
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.ProceduralDecisionTableTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.ProceduralDecisionTableTest",
+        "Tests":  18,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.015
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.OntologyAuthorityQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.OntologyAuthorityQualificationTest",
+        "Tests":  5,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.002
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LongitudinalTemporalPersistenceTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LongitudinalTemporalPersistenceTest",
+        "Tests":  4,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.04
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LongitudinalStoreInvariantTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LongitudinalStoreInvariantTest",
+        "Tests":  7,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.04
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LongitudinalStoreBoundaryQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LongitudinalStoreBoundaryQualificationTest",
+        "Tests":  13,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  2.377
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LongitudinalFixtureTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LongitudinalFixtureTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.001
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LongitudinalDurableFixtureTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LongitudinalDurableFixtureTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.101
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LongitudinalBoundaryQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LongitudinalBoundaryQualificationTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.015
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LongitudinalAdmissionRevisionTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LongitudinalAdmissionRevisionTest",
+        "Tests":  18,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.19
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LanguageStateFormationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LanguageStateFormationTest",
+        "Tests":  7,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.123
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LanguageEvidencePipelineTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LanguageEvidencePipelineTest",
+        "Tests":  11,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.153
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.LanguageEvidenceBoundaryQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.LanguageEvidenceBoundaryQualificationTest",
+        "Tests":  7,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  4.653
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.JournalModeAndLanguageQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.JournalModeAndLanguageQualificationTest",
+        "Tests":  19,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.32
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.JournalCaptureQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.JournalCaptureQualificationTest",
+        "Tests":  30,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.394
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.JournalAuthorityQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.JournalAuthorityQualificationTest",
+        "Tests":  15,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  2.382
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.GovernedLongitudinalStoreCoreTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.GovernedLongitudinalStoreCoreTest",
+        "Tests":  16,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.132
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.FoundationArchitectureTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.FoundationArchitectureTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.109
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV215R1ReopenIdentityDiagnosticTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV215R1ReopenIdentityDiagnosticTest",
+        "Tests":  1,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.007
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.002
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV215R1RecurrenceRuntimeTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV215R1RecurrenceRuntimeTest",
+        "Tests":  2,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.052
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV215R1ProductionConversationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV215R1ProductionConversationTest",
+        "Tests":  32,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.653
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV215ProductionRuntimeQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV215ProductionRuntimeQualificationTest",
+        "Tests":  8,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.062
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV215LifecycleAndAuthorityQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV215LifecycleAndAuthorityQualificationTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  24.094
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV214PersonalDataGovernanceQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV214PersonalDataGovernanceQualificationTest",
+        "Tests":  11,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.104
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV213AcceptanceTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV213AcceptanceTest",
+        "Tests":  131,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.148
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV212AcceptanceTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV212AcceptanceTest",
+        "Tests":  129,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.622
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CTV211AcceptanceTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CTV211AcceptanceTest",
+        "Tests":  96,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  2.721
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CoreOrdinaryRendererTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CoreOrdinaryRendererTest",
+        "Tests":  7,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.004
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CoreOrdinaryProgressionTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CoreOrdinaryProgressionTest",
+        "Tests":  9,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.002
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CoreOrdinaryInvariantTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CoreOrdinaryInvariantTest",
+        "Tests":  11,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.021
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CoreOrdinaryDecisionMatrixTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CoreOrdinaryDecisionMatrixTest",
+        "Tests":  22,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.003
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.CoreOrdinaryConversationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.CoreOrdinaryConversationTest",
+        "Tests":  7,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.006
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.BiographerSelectionQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.BiographerSelectionQualificationTest",
+        "Tests":  25,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.178
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.BiographerCoverageQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.BiographerCoverageQualificationTest",
+        "Tests":  25,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.501
+    },
+    {
+        "Path":  "qualification\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.qualification.BiographerAuthorityQualificationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.qualification.BiographerAuthorityQualificationTest",
+        "Tests":  26,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  1.023
+    },
+    {
+        "Path":  "thomas\\longitudinal\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.longitudinal.TemporalModelTest.xml",
+        "Name":  "com.conundrum.thomas.v2.longitudinal.TemporalModelTest",
+        "Tests":  8,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.006
+    },
+    {
+        "Path":  "thomas\\longitudinal\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.longitudinal.LongitudinalValidationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.longitudinal.LongitudinalValidationTest",
+        "Tests":  13,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.014
+    },
+    {
+        "Path":  "thomas\\longitudinal\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.longitudinal.LifeStructureTest.xml",
+        "Name":  "com.conundrum.thomas.v2.longitudinal.LifeStructureTest",
+        "Tests":  2,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.053
+    },
+    {
+        "Path":  "thomas\\biographer\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.biographer.DeterministicBiographerCoverageEngineTest.xml",
+        "Name":  "com.conundrum.thomas.v2.biographer.DeterministicBiographerCoverageEngineTest",
+        "Tests":  13,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.021
+    },
+    {
+        "Path":  "thomas\\biographer\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.biographer.BiographerAnswerCaptureEngineTest.xml",
+        "Name":  "com.conundrum.thomas.v2.biographer.BiographerAnswerCaptureEngineTest",
+        "Tests":  3,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.038
+    },
+    {
+        "Path":  "thomas\\language-evidence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.languageevidence.TemporalLanguagePerceptionTest.xml",
+        "Name":  "com.conundrum.thomas.v2.languageevidence.TemporalLanguagePerceptionTest",
+        "Tests":  7,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.005
+    },
+    {
+        "Path":  "thomas\\language-evidence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.languageevidence.SourceSpanGroundingTest.xml",
+        "Name":  "com.conundrum.thomas.v2.languageevidence.SourceSpanGroundingTest",
+        "Tests":  6,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.007
+    },
+    {
+        "Path":  "thomas\\language-evidence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.languageevidence.ConservativeLanguagePerceptionTest.xml",
+        "Name":  "com.conundrum.thomas.v2.languageevidence.ConservativeLanguagePerceptionTest",
+        "Tests":  26,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.018
+    },
+    {
+        "Path":  "thomas\\language-evidence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.languageevidence.AdversarialLanguageCorpusTest.xml",
+        "Name":  "com.conundrum.thomas.v2.languageevidence.AdversarialLanguageCorpusTest",
+        "Tests":  2,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.069
+    },
+    {
+        "Path":  "thomas\\journal\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.journal.JournalCaptureEngineTest.xml",
+        "Name":  "com.conundrum.thomas.v2.journal.JournalCaptureEngineTest",
+        "Tests":  12,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.06
+    },
+    {
+        "Path":  "app\\build\\test-results\\testDebugUnitTest\\TEST-com.conundrum.thomas.v2.FoundationUnitTest.xml",
+        "Name":  "com.conundrum.thomas.v2.FoundationUnitTest",
+        "Tests":  1,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.004
+    },
+    {
+        "Path":  "thomas\\personal-data-persistence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.personaldata.ProtectedPersonalDataStoreCoreTest.xml",
+        "Name":  "com.conundrum.thomas.v2.personaldata.ProtectedPersonalDataStoreCoreTest",
+        "Tests":  11,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.065
+    },
+    {
+        "Path":  "thomas\\personal-data-persistence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.personaldata.PersonalDataMigrationRecoveryTest.xml",
+        "Name":  "com.conundrum.thomas.v2.personaldata.PersonalDataMigrationRecoveryTest",
+        "Tests":  8,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.086
+    },
+    {
+        "Path":  "thomas\\personal-data-persistence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.personaldata.PersonalDataLineageIntegrationTest.xml",
+        "Name":  "com.conundrum.thomas.v2.personaldata.PersonalDataLineageIntegrationTest",
+        "Tests":  5,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.094
+    },
+    {
+        "Path":  "thomas\\personal-data-persistence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.personaldata.PersonalDataLifecycleTest.xml",
+        "Name":  "com.conundrum.thomas.v2.personaldata.PersonalDataLifecycleTest",
+        "Tests":  10,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.108
+    },
+    {
+        "Path":  "thomas\\personal-data-persistence\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.personaldata.PersonalDataBackupExportTest.xml",
+        "Name":  "com.conundrum.thomas.v2.personaldata.PersonalDataBackupExportTest",
+        "Tests":  12,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.249
+    },
+    {
+        "Path":  "thomas\\ontology\\build\\test-results\\test\\TEST-com.conundrum.thomas.v2.ontology.TherapeuticOntologyTest.xml",
+        "Name":  "com.conundrum.thomas.v2.ontology.TherapeuticOntologyTest",
+        "Tests":  10,
+        "Failures":  0,
+        "Errors":  0,
+        "Skipped":  0,
+        "Seconds":  0.056
+    }
+]
