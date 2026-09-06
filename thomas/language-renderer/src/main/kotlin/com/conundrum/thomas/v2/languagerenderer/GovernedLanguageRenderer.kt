@@ -76,22 +76,27 @@ class GovernedLanguageRenderer(
             is CandidateRealizationOutcome.Candidate -> outcome.realization
             else -> null
         }
-        val candidates = listOfNotNull(
-            selected,
-            command.deterministicFallbackText?.let { referenceRealizer.fallback(input, it) },
-        ).distinctBy { it.text }
-        val accepted = candidates.asSequence().map { it to validator.validate(command, it, history) }
-            .firstOrNull { it.second.accepted }
-        if (accepted == null) {
-            val lastValidation = candidates.lastOrNull()?.let { validator.validate(command, it, history) }
-            return noOutput(command, history, RenderDisposition.RENDERING_UNAVAILABLE,
-                lastValidation?.reasonCodes?.firstOrNull() ?: RenderValidationReason.EMPTY_OUTPUT,
-                attempts,
-                if (lastValidation == null) rejected else rejected + listOf(lastValidation.reasonCodes),
-            )
+        // History only constrains wording. Search the complete command-authorized space;
+        // it cannot select, cancel or replace an upstream procedural act.
+        val candidates = (listOfNotNull(selected) +
+            input.authorizedReferenceRealizations.map { referenceRealizer.fallback(input, it) } +
+            listOfNotNull(command.deterministicFallbackText?.let { referenceRealizer.fallback(input, it) }))
+            .distinctBy { it.text }
+        val allRejected = rejected.toMutableList()
+        for (candidate in candidates) {
+            // Every alternative and fallback passes the unchanged full validator.
+            val validation = validator.validate(command, candidate, history)
+            if (validation.accepted) {
+                return accepted(command, history, candidate, validation, attempts, true,
+                    AcceptedRealizationSource.DETERMINISTIC_FALLBACK, RenderDisposition.FALLBACK_REALIZATION,
+                    allRejected)
+            }
+            allRejected += validation.reasonCodes
         }
-        return accepted(command, history, accepted.first, accepted.second, attempts, true,
-            AcceptedRealizationSource.DETERMINISTIC_FALLBACK, RenderDisposition.FALLBACK_REALIZATION, rejected)
+        // Exhaustion is an explicit failure, never policy-authorized NO_RESPONSE.
+        return noOutput(command, history, RenderDisposition.RENDERING_UNAVAILABLE,
+            allRejected.lastOrNull()?.firstOrNull() ?: RenderValidationReason.EMPTY_OUTPUT,
+            attempts, allRejected)
     }
 
     private fun accepted(

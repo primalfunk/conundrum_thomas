@@ -46,7 +46,7 @@ object TherapyRenderCommandAdapter {
                     " I am not sure of the event time." else ""
         }
         val complete = listOf(memoryPrefix, base).filter(String::isNotBlank).joinToString(" ")
-        val variants = if (memoryPrefix.isBlank()) therapyVariants(base, upstream.form) else listOf(complete)
+        val variants = if (memoryPrefix.isBlank()) therapyVariants(base, upstream) else listOf(complete)
         val epistemicConstraints = memorySupport.filter { it.relationTentative }.map {
             RenderEpistemicConstraint(it.semanticUnitId, setOf("may", "might", "not sure", "wonder"), true)
         }
@@ -195,12 +195,21 @@ object TherapyRenderCommandAdapter {
         "Missing already-authorized Therapy support: $key"
     }
 
-    private fun therapyVariants(base: String, form: RenderForm): List<String> = when (form) {
-        RenderForm.REFLECTIVE -> listOf(
+    private fun therapyVariants(base: String, command: RenderCommand): List<String> = when {
+        // The same upstream invitation can legitimately recur after pause or reluctance.
+        // These forms preserve the invitation, referent, optional user choice and one question.
+        command.selectedPolicyActionId == "core-invite-further-expression" -> listOf(
             base,
-            base.replaceFirst("I hear that", "What stands out is that"),
-            base.replaceFirst("I hear that", "You have described that"),
+            "What more would you like to share about it?",
+            "Is there anything else you would like to say about it?",
         )
-        else -> listOf(base)
+        else -> when (command.form) {
+            RenderForm.REFLECTIVE -> listOf(
+                base,
+                base.replaceFirst("I hear that", "What stands out is that"),
+                base.replaceFirst("I hear that", "You have described that"),
+            )
+            else -> listOf(base)
+        }
     }.distinct()
 }
