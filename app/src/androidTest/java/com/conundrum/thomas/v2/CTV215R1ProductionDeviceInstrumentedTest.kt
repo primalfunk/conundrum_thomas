@@ -132,6 +132,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
     private fun prompt(): ProductionBiographerPrompt {
         val p = requireNotNull(runtime.nextBiographerPrompt(index))
         index += 2
+        trace("PROMPT_DECISION=" + p.decision + " render=" + p.renderResult)
         val target = requireNotNull(p.decision!!.coverageMap.selectedTarget)
         assertEquals(target.id.value, p.targetId)
         assertEquals(TargetEligibility.ELIGIBLE, target.eligibility)
@@ -259,8 +260,21 @@ class CTV215R1ProductionDeviceInstrumentedTest {
             practical(false)
             practical(true)
 
-            // Qualify privacy on a genuinely delivered target after ordinary turns refresh render history.
-            val privateTarget = requireNotNull(prompt().targetId)
+            // Exhaustive renderer fallback delivered the post-decline target too. All four
+            // unchanged gaps have now been offered; CT-V2-10 correctly forbids immediate re-asking.
+            val exhausted = requireNotNull(runtime.nextBiographerPrompt(index))
+            index += 2
+            assertNull(exhausted.targetId)
+            assertTrue(exhausted.decision!!.coverageMap.eligibleTargets.isEmpty())
+            assertEquals(BiographerPosture.OPEN_STORY, exhausted.decision!!.plan!!.posture)
+            trace("COVERAGE_EXHAUSTED=" + exhausted.decision!!.coverageMap)
+            // Create a genuinely new eligible gap through the production Journal boundary.
+            // Do not clear investigation history or substitute an internal target.
+            val freshGapSource = send("I moved to Boston in 1970.", ProductionThomasMode.JOURNAL)
+            assertNotNull(freshGapSource.committedSourceId)
+            val privatePrompt = prompt()
+            assertTrue(privatePrompt.decision!!.coverageMap.selectedTarget!!.groundingIds.any { it.contains("journal.android-journal-") })
+            val privateTarget = requireNotNull(privatePrompt.targetId)
             val privateReply = send("This topic is private", ProductionThomasMode.BIOGRAPHER)
             assertEquals(InvestigationAnswerDisposition.MARKED_PRIVATE, privateReply.biographerAnswer!!.disposition)
             assertNotEquals(privateTarget, privateReply.nextBiographerTargetId)
