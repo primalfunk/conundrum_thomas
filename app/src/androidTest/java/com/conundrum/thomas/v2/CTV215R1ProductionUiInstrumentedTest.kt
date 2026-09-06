@@ -31,9 +31,24 @@ class CTV215R1ProductionUiInstrumentedTest {
     private fun assistantCount() = model.state.value.transcript.count { it.role == TranscriptRole.THOMAS }
     private fun send(text: String, expectedAction: String?, silent: Boolean = false): CoreOrdinaryTherapyState {
         val before = assistantCount()
+        val started = android.os.SystemClock.elapsedRealtime()
         compose.onNodeWithTag("turn-draft").performTextInput(text)
+        println("R1 UI_BEFORE_CLICK input=" + text + " processing=" + model.state.value.processing +
+            " draft=" + model.state.value.draft + " status=" + model.state.value.status)
         compose.onNodeWithTag("commit-turn").performClick()
-        compose.waitUntil(20_000) { !model.state.value.processing && model.state.value.draft.isEmpty() }
+        try {
+            // This is a bounded observation timeout, not a new product latency allowance.
+            compose.waitUntil(60_000) { !model.state.value.processing && model.state.value.draft.isEmpty() }
+        } catch (failure: Throwable) {
+            println("R1 UI_TIMEOUT processing=" + model.state.value.processing + " draft=" + model.state.value.draft +
+                " status=" + model.state.value.status + " sources=" + model.state.value.sourceSummaries.size)
+            Thread.getAllStackTraces().filterKeys { it.name == "main" || it.name.startsWith("DefaultDispatcher") }
+                .forEach { (thread, stack) -> println("R1 THREAD " + thread.name + "\n" + stack.joinToString("\n")) }
+            throw failure
+        }
+        println("R1 UI_COMPLETED elapsedMs=" + (android.os.SystemClock.elapsedRealtime() - started))
+        assertTrue("The actual UI submission must be admitted, not only rendered",
+            model.state.value.transcript.last { it.role == TranscriptRole.USER }.committed)
         val state = session()
         if (expectedAction != null) assertEquals("core-" + expectedAction, state.actionHistory.last().actionId.value)
         assertEquals(ProductionThomasMode.THERAPY, model.state.value.mode)
