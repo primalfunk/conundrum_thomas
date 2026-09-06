@@ -1,0 +1,2 @@
+./no_backup/thomas-personal-data/store.ctpd
+./files/profileInstalled

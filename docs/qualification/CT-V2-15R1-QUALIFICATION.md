@@ -2,7 +2,13 @@
 
 Date: 2026-09-05. Authority: [authorized work order](../work-orders/CT-V2-15R1-PRODUCTION-EVIDENCE-PROCEDURE-BIOGRAPHER-INTEGRATION.md). Historical entry findings remain preserved in [the reconnaissance report](../reconnaissance/CT-V2-CURRENT-STATE-AND-TEST-READINESS.md).
 
-## Disposition
+## Physical continuation — current status, 2026-09-05
+
+The Principal subsequently authorized the isolated physical execution. Its current disposition is **CT_V2_15R1_PHYSICAL_QUALIFICATION_FAILED**: the prepared UI test failed a base-wording assertion on an authorized reflection variant. The dependent gates remain unqualified, and missing physical pause/stagnation coverage was identified. Both fixture packages were removed; the original APK, package metadata, private-file inventory, hashes, sizes, mtimes and inodes are unchanged. Fresh canonical regression still passes all 978 tests.
+
+See [the complete physical execution report](CT-V2-15R1-PHYSICAL-QUALIFICATION.md) for the precise failure, custody proof, cleanup and next bounded order. No completion tag was created. The implementation-stage record below is preserved as historical evidence; its pending-approval language describes the earlier stage and is superseded by this physical report.
+
+## Implementation-stage disposition (preserved)
 
 **CT_V2_15R1_IMPLEMENTED_DEVICE_QUALIFICATION_PENDING**
 

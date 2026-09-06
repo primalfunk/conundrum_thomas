@@ -1,0 +1,163 @@
+--------- beginning of main
+09-05 18:29:05.110 30680 30680 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-05 18:29:05.131 30680 30680 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+--------- beginning of system
+09-05 18:29:05.183 30680 30680 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-05 18:29:05.586 30680 30680 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-05 18:29:05.588 30680 30680 I AndroidJUnitRunner: newApplication android.app.Application
+09-05 18:29:05.622 30680 30680 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=248]
+09-05 18:29:05.645 30680 30680 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-05 18:29:05.646 30680 30680 I M-ProMotion: M-ProMotion is disabled
+09-05 18:29:05.659 30680 30697 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-05 18:29:05.678 30680 30697 I TestRunner: run started: 1 tests
+09-05 18:29:05.679 30680 30697 I TestRunner: started: aTypedProductionConversationsAndCrossModeRecall(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-05 18:29:05.748 30680 30697 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-05 18:29:05.757 30680 30680 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-05 18:29:05.757 30680 30680 I ctv215r1fixture: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-05 18:29:05.757 30680 30680 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-05 18:29:05.773 30680 30697 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-05 18:29:05.864 30680 30680 I HWUI    : Bitmap_setFineEn: g_isFineEn = 1, g_isBitmapJniOk = 1
+09-05 18:29:05.935 30680 30680 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@3ae27ee
+09-05 18:29:05.942 30680 30680 W HWUI    : Unknown dataspace 0
+09-05 18:29:06.133 30680 30680 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/compose/ui/platform/AndroidComposeView$Companion; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-05 18:29:06.395 30680 30684 I ctv215r1fixture: Compiler allocated 6868KB to compile void android.view.ViewRootImpl.performTraversals()
+09-05 18:29:06.725 30680 30680 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+09-05 18:29:06.787 30680 30708 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-05 18:29:06.799 30680 30708 I mali    : [DebugProp] GPU Debug-Mechanism Disable !
+09-05 18:29:06.856 30680 30708 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+09-05 18:29:06.856 30680 30708 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-05 18:29:06.860 30680 30680 I Choreographer: Skipped 50 frames!  The application may be doing too much work on its main thread.
+09-05 18:29:06.881 30680 30727 I HWUI    : Davey! duration=897ms; Flags=1, FrameTimelineVsyncId=266657, IntendedVsync=22027988228100, Vsync=22027988228100, InputEventId=0, HandleInputStart=22027988857850, AnimationStart=22027988859081, PerformTraversalsStart=22027988859696, DrawStart=22028791800619, FrameDeadline=22028004894767, FrameInterval=22027988842773, FrameStartTime=16667143, SyncQueued=22028811532696, SyncStart=22028811660388, IssueDrawCommandsStart=22028812125234, SwapBuffers=22028879748927, FrameCompleted=22028886198773, DequeueBufferDuration=9846, QueueBufferDuration=402769, GpuCompleted=22028886198773, SwapBuffersCompleted=22028882103388, DisplayPresentTime=72904454231359566, CommandSubmissionCompleted=22028879748927,
+09-05 18:29:07.071 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:498387a9: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:07.083 30680 30680 I AssistStructure: Flattened final assist data: 748 bytes, containing 1 windows, 4 views
+09-05 18:29:07.339 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:963a5c84: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-05 18:29:07.569 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:963a5c84: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:07.696 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bd8c20ed: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:07.697 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:66d99f41: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-05 18:29:07.698 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:498387a9: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-05 18:29:07.705 30680 30680 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.conundrum.thomas.v2.ctv215r1fixture
+09-05 18:29:07.771 30680 30680 W RemoteInputConnectionImpl: getSurroundingText on inactive InputConnection
+09-05 18:29:07.800 30680 30680 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+09-05 18:29:07.943 30680 30680 W RemoteInputConnectionImpl: getTextBeforeCursor on inactive InputConnection
+09-05 18:29:07.953 30680 30697 I System.out: FIXTURE TURN I moved to Denver in 2010. | No response
+09-05 18:29:08.166 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:66d99f41: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:08.166 30680 30680 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-05 18:29:08.168 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c7c5f4f1: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-05 18:29:08.170 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bd8c20ed: onHidden
+09-05 18:29:08.332 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:748dc29b: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:08.546 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b2914c87: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-05 18:29:08.600 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b2914c87: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:08.906 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:748dc29b: onShown
+09-05 18:29:09.171 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:567b5bb6: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:09.172 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:14321a3a: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-05 18:29:09.188 30680 30680 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-05 18:29:09.266 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:14321a3a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:09.566 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:134f7144: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-05 18:29:09.567 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:567b5bb6: onHidden
+09-05 18:29:09.575 30680 30697 I System.out: FIXTURE TURN I moved to Portland in 2018. | No response
+09-05 18:29:10.183 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4e43e4e8: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:10.368 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:750b82bc: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-05 18:29:10.509 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:750b82bc: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:10.826 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4e43e4e8: onShown
+09-05 18:29:10.929 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:76bbbf53: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:10.929 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c28e75f4: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-05 18:29:10.947 30680 30680 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-05 18:29:10.994 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c28e75f4: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:11.238 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d1d56f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-05 18:29:11.239 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:76bbbf53: onHidden
+09-05 18:29:11.975 30680 30697 I System.out: FIXTURE TURN I moved to Seattle in 2014. | Completed
+09-05 18:29:12.437 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:378620f3: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:12.621 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:651ef6cf: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-05 18:29:12.720 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:651ef6cf: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:13.072 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:378620f3: onShown
+09-05 18:29:13.174 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:da34e9f9: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-05 18:29:13.175 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f9ca05a1: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-05 18:29:13.194 30680 30680 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-05 18:29:13.211 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f9ca05a1: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-05 18:29:13.496 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:32867a82: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-05 18:29:13.497 30680 30680 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:da34e9f9: onHidden
+09-05 18:29:14.016 30680 30697 I System.out: FIXTURE TURN There is no current emergency.
+09-05 18:29:14.016 30680 30697 I System.out: There is no acute medical emergency.
+09-05 18:29:14.016 30680 30697 I System.out: Self-harm is not relevant now.
+09-05 18:29:14.016 30680 30697 I System.out: Harm to others is not relevant now.
+09-05 18:29:14.016 30680 30697 I System.out: I report no specialized condition for this conversation.
+09-05 18:29:14.016 30680 30697 I System.out: I am an adult in the supported setting.
+09-05 18:29:14.016 30680 30697 I System.out: My present concern is one bounded ordinary personal problem.
+09-05 18:29:14.016 30680 30697 I System.out: My specific concern is: the delayed meeting | Completed
+09-05 18:29:14.673 30680 30680 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@227b93a
+09-05 18:29:14.703 30680 30697 E TestRunner: failed: aTypedProductionConversationsAndCrossModeRecall(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-05 18:29:14.707 30680 30697 E TestRunner: ----- begin exception -----
+09-05 18:29:14.707 30680 30697 E TestRunner: java.lang.AssertionError: Expected 'hear' in 'What stands out is that the delayed meeting.'
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at org.junit.Assert.fail(Assert.java:89)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at org.junit.Assert.assertTrue(Assert.java:42)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.contains(CTV215R1ProductionUiInstrumentedTest.kt:41)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.aTypedProductionConversationsAndCrossModeRecall(CTV215R1ProductionUiInstrumentedTest.kt:55)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$testWithDisposal$1.evaluate(AndroidComposeTestRule.android.kt:418)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invokeSuspend(AndroidComposeTestRule.android.kt:438)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:8)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:4)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invokeSuspend(ComposeUiTest.android.kt:682)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:8)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:2)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:69)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invokeSuspend(ComposeUiTest.android.kt:679)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:8)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:4)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend(TestBuilders.kt:318)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(TestDispatcher.kt:24)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(TestCoroutineScheduler.kt:99)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(TestBuilders.kt:327)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.BuildersKt.runBlocking(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.BuildersKt.runBlocking$default(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(TestBuildersJvm.kt:10)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:310)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:168)
+09-05 18:29:14.707 30680 30697 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:658)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:438)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+09-05 18:29:14.708 30680 30697 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2614)
+09-05 18:29:14.708 30680 30697 E TestRunner: ----- end exception -----
+09-05 18:29:14.710 30680 30697 I TestRunner: finished: aTypedProductionConversationsAndCrossModeRecall(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-05 18:29:14.713 30680 30697 I TestRunner: run finished: 1 tests, 1 failed, 0 ignored

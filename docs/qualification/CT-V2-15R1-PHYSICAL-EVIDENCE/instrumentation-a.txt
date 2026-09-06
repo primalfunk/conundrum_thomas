@@ -1,0 +1,44 @@
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest:
+INSTRUMENTATION_STATUS: test=aTypedProductionConversationsAndCrossModeRecall
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Expected 'hear' in 'What stands out is that the delayed meeting.'
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.contains(CTV215R1ProductionUiInstrumentedTest.kt:41)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.aTypedProductionConversationsAndCrossModeRecall(CTV215R1ProductionUiInstrumentedTest.kt:55)
+
+INSTRUMENTATION_STATUS: stream=
+Error in aTypedProductionConversationsAndCrossModeRecall(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest):
+java.lang.AssertionError: Expected 'hear' in 'What stands out is that the delayed meeting.'
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.contains(CTV215R1ProductionUiInstrumentedTest.kt:41)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.aTypedProductionConversationsAndCrossModeRecall(CTV215R1ProductionUiInstrumentedTest.kt:55)
+
+INSTRUMENTATION_STATUS: test=aTypedProductionConversationsAndCrossModeRecall
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 9.035
+There was 1 failure:
+1) aTypedProductionConversationsAndCrossModeRecall(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+java.lang.AssertionError: Expected 'hear' in 'What stands out is that the delayed meeting.'
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.contains(CTV215R1ProductionUiInstrumentedTest.kt:41)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.aTypedProductionConversationsAndCrossModeRecall(CTV215R1ProductionUiInstrumentedTest.kt:55)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

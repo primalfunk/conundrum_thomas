@@ -1,0 +1,164 @@
+[
+    {
+        "Name":  "canonical-apk-after.sha256",
+        "OriginalBytes":  165,
+        "OriginalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "TrackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "Name":  "canonical-apk-before.sha256",
+        "OriginalBytes":  165,
+        "OriginalSHA256":  "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+        "TrackedSHA256":  "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+    },
+    {
+        "Name":  "canonical-files-after-test.sha256",
+        "OriginalBytes":  313,
+        "OriginalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "TrackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "Name":  "canonical-files-after.sha256",
+        "OriginalBytes":  313,
+        "OriginalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "TrackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "Name":  "canonical-files-after.stat",
+        "OriginalBytes":  179,
+        "OriginalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "TrackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "Name":  "canonical-files-before.sha256",
+        "OriginalBytes":  313,
+        "OriginalSHA256":  "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+        "TrackedSHA256":  "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+    },
+    {
+        "Name":  "canonical-files-before.stat",
+        "OriginalBytes":  179,
+        "OriginalSHA256":  "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+        "TrackedSHA256":  "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+    },
+    {
+        "Name":  "canonical-package-after.txt",
+        "OriginalBytes":  397,
+        "OriginalSHA256":  "3288f2a95cb8cf778dce58cb107c6859873a2a4194e6edbb9f604a17a013f48e",
+        "TrackedSHA256":  "d13f2ba2a69d99c44b4267bd411db43bd5088490fc357077544b62cd613e74d2"
+    },
+    {
+        "Name":  "canonical-package-before.txt",
+        "OriginalBytes":  397,
+        "OriginalSHA256":  "3288f2a95cb8cf778dce58cb107c6859873a2a4194e6edbb9f604a17a013f48e",
+        "TrackedSHA256":  "d13f2ba2a69d99c44b4267bd411db43bd5088490fc357077544b62cd613e74d2"
+    },
+    {
+        "Name":  "canonical-regression.txt",
+        "OriginalBytes":  75660,
+        "OriginalSHA256":  "f0ab062e4c7636596c32d88d76f228d41dc7e200de2f06f8da90422695c23e17",
+        "TrackedSHA256":  "272b588bbb615654d5dbcc3df043ef20357af9fe3d446ba78b10f499cc3ff1ce"
+    },
+    {
+        "Name":  "custody-result.txt",
+        "OriginalBytes":  518,
+        "OriginalSHA256":  "795132e5eca42ad79a3835edf46592c7133d387571c5e3c67936da35fe1f7a49",
+        "TrackedSHA256":  "0e78503a75de2ad481d6acc4ef36109573793ac8e36cde07222cb5e14ae8fcb2"
+    },
+    {
+        "Name":  "device.txt",
+        "OriginalBytes":  102,
+        "OriginalSHA256":  "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+        "TrackedSHA256":  "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+    },
+    {
+        "Name":  "fixture-files-after-test.txt",
+        "OriginalBytes":  74,
+        "OriginalSHA256":  "64cd4eac255e7b8768cc3795b485cbf7509ff87bf4dd772beea27015a0d7d0bc",
+        "TrackedSHA256":  "664448fa9168c4347c5c8e29f1f067a5d02c88f78ab2cf1a98b64011d8f2ddff"
+    },
+    {
+        "Name":  "fixture-logcat.txt",
+        "OriginalBytes":  45052,
+        "OriginalSHA256":  "e1a8eafd839f1e3078dea1ab5f4b030c3ec2c3bc55f379fd48a177281e542339",
+        "TrackedSHA256":  "97dab782303589bb24730b668d31e871a93ccb5764670f458a8f711e975d7706"
+    },
+    {
+        "Name":  "fixture-manifest.txt",
+        "OriginalBytes":  7999,
+        "OriginalSHA256":  "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+        "TrackedSHA256":  "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+    },
+    {
+        "Name":  "fixture-package.txt",
+        "OriginalBytes":  351,
+        "OriginalSHA256":  "43e6c6ecd35d9888c24a06f993398a038a54cf90810405149706ad36f9289071",
+        "TrackedSHA256":  "27388d2dd0aad940b0f7c8b03bfdab93e253a951708bb234eac5fe645fd9e4aa"
+    },
+    {
+        "Name":  "fixture-test-manifest.txt",
+        "OriginalBytes":  4685,
+        "OriginalSHA256":  "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+        "TrackedSHA256":  "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+    },
+    {
+        "Name":  "install-fixture.txt",
+        "OriginalBytes":  78,
+        "OriginalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "TrackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "Name":  "install-test.txt",
+        "OriginalBytes":  78,
+        "OriginalSHA256":  "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+        "TrackedSHA256":  "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+    },
+    {
+        "Name":  "instrumentation-a.txt",
+        "OriginalBytes":  5138,
+        "OriginalSHA256":  "9d3ea9c90f69f51d2f4bbfebffc7cd2f8b23b786096265dd77b5d4371a508318",
+        "TrackedSHA256":  "2977b5ce3173455b178ee5d0598bde919231d341ecc69dd0586436459e784f42"
+    },
+    {
+        "Name":  "regression-artifacts.json",
+        "OriginalBytes":  1460,
+        "OriginalSHA256":  "c4ee7f36e1a9f49b7855ce86c92c220109d67e5ebd097479d771a303cecc91dd",
+        "TrackedSHA256":  "e5857aabca42c17e0d2da8abd0c109d51c5b0945b1c9b64b829143b6eba2a0cc"
+    },
+    {
+        "Name":  "regression-suite-inventory.json",
+        "OriginalBytes":  21944,
+        "OriginalSHA256":  "23edc65c7b385b85babc09182002707859a10de8538966e1c8cdea019621b804",
+        "TrackedSHA256":  "9a58fd876cf14f511228a4ead3a6e7c893fc678725501bf8c04e1b05bfc596a9"
+    },
+    {
+        "Name":  "regression-summary.json",
+        "OriginalBytes":  356,
+        "OriginalSHA256":  "8b66f7a1a493f2210c7a95ab67e77db2e0ea136d0089b22937b7cef4f1ba1e45",
+        "TrackedSHA256":  "35b749145862b07a4b56a278de7b0dbbf963c333f231b1d2a0e661eae5754287"
+    },
+    {
+        "Name":  "uid-isolation.txt",
+        "OriginalBytes":  41,
+        "OriginalSHA256":  "adf10d20bbffb7a8ff506b46254844cf19491e9dc9800b9ff24571155fba08fb",
+        "TrackedSHA256":  "b90eeb71121511e9ee65b4fb14e56c5642a8ffc1ee2b8e2ca32fd88ab3079fde"
+    },
+    {
+        "Name":  "uninstall-fixture.txt",
+        "OriginalBytes":  20,
+        "OriginalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "TrackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "Name":  "uninstall-test.txt",
+        "OriginalBytes":  20,
+        "OriginalSHA256":  "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+        "TrackedSHA256":  "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+    },
+    {
+        "Name":  "v1-governance.json",
+        "OriginalBytes":  105,
+        "OriginalSHA256":  "ef0083755fff9d330fa961d7b7ca4330b9ae2e3b0dee9f0b5b4759bddb81cc88",
+        "TrackedSHA256":  "3cfbd9490bf42f40c8894fc9a4c1fde8875ce3110e56bf5a015b33382ea2ea91"
+    }
+]
