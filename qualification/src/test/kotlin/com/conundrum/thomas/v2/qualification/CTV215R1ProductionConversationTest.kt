@@ -432,6 +432,15 @@ class CTV215R1ProductionConversationTest {
         assertTrue(later.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN })
         assertNull(later.therapyPlan?.routeDecision)
     }
+    @Test fun internalNumericPunctuationCannotCollapseDifferentEvidence() = CTV215Harness().use { h ->
+        val c = Conversation(h)
+        val first = c.send("My specific concern is: a delay of 1.5 hours")
+        action(first, "reflect-established-content")
+        val changed = c.send("My specific concern is: a delay of 15 hours")
+        action(changed, "reflect-established-content")
+        assertTrue(changed.therapyObservation!!.conversationRevision > first.therapyObservation!!.conversationRevision)
+        assertEquals("a delay of 15 hours", changed.therapyObservation!!.concernStatement.value)
+    }
     companion object {
         const val DECLARATIONS = "There is no current emergency.\nThere is no acute medical emergency.\nSelf-harm is not relevant now.\nHarm to others is not relevant now.\nI report no specialized condition for this conversation.\nI am an adult in the supported setting.\nMy present concern is one bounded ordinary personal problem."
     }

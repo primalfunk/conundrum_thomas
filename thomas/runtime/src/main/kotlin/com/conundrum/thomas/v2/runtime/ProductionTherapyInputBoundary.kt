@@ -160,6 +160,7 @@ internal class ProductionTherapyInputBoundary {
         ).any { text.startsWith(it, true) }
 
         fun normalize(value: String): String = value.lowercase(Locale.ROOT).replace('’', '\'')
-            .replace(Regex("[.,!?]"), "").replace(Regex("\\s+"), " ").trim()
+            .replace(Regex("\\s+"), " ").trim().trimEnd('.', ',', '!', '?')
+            .replace(Regex("^(yes|no),\\s+"), "$1 ")
     }
 }
