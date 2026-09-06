@@ -22,7 +22,7 @@ class CTV215LifecycleAndAuthorityQualificationTest {
     @Test
     fun `same turn is captured but retrieval remains bounded by pre-turn revision`() = CTV215Harness().use { harness ->
         val result = harness.runtime.submit(
-            harness.turn(1, ProductionThomasMode.THERAPY, "I was furious yesterday.") {
+            harness.turn(1, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I was furious yesterday.") {
                 copy(requestedTherapySupport = RequestedOrdinarySupport.LISTEN)
             },
         )
@@ -47,12 +47,12 @@ class CTV215LifecycleAndAuthorityQualificationTest {
                     )
                 }
                 val emptyPlan = empty.runtime.submit(
-                    empty.turn(121, ProductionThomasMode.THERAPY, "I was furious yesterday.") {
+                    empty.turn(121, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I was furious yesterday.") {
                         copy(requestedTherapySupport = RequestedOrdinarySupport.LISTEN)
                     },
                 ).therapyPlan
                 val largePlan = large.runtime.submit(
-                    large.turn(121, ProductionThomasMode.THERAPY, "I was furious yesterday.") {
+                    large.turn(121, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I was furious yesterday.") {
                         copy(requestedTherapySupport = RequestedOrdinarySupport.LISTEN)
                     },
                 ).therapyPlan
@@ -72,7 +72,7 @@ class CTV215LifecycleAndAuthorityQualificationTest {
             },
         )
         val result = harness.runtime.submit(
-            harness.turn(2, ProductionThomasMode.THERAPY, "I have been thinking about Denver.") {
+            harness.turn(2, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I have been thinking about Denver.") {
                 copy(
                     requestedTherapySupport = RequestedOrdinarySupport.LISTEN,
                     therapyMemoryIntent = TherapyMemoryIntent.EXPLICIT_RECALL,
@@ -95,7 +95,7 @@ class CTV215LifecycleAndAuthorityQualificationTest {
             },
         )
         val result = harness.runtime.submit(
-            harness.turn(2, ProductionThomasMode.THERAPY, "I have been thinking about Denver.") {
+            harness.turn(2, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I have been thinking about Denver.") {
                 copy(
                     requestedTherapySupport = RequestedOrdinarySupport.LISTEN,
                     therapyMemoryIntent = TherapyMemoryIntent.EXPLICIT_RECALL,
@@ -131,7 +131,7 @@ class CTV215LifecycleAndAuthorityQualificationTest {
         assertTrue(current.activeExplicitClaims.any { it.eventTime.toString().contains("2019") })
 
         val recall = harness.runtime.submit(
-            harness.turn(3, ProductionThomasMode.THERAPY, "I have been thinking about Denver.") {
+            harness.turn(3, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I have been thinking about Denver.") {
                 copy(
                     requestedTherapySupport = RequestedOrdinarySupport.LISTEN,
                     therapyMemoryIntent = TherapyMemoryIntent.EXPLICIT_RECALL,
@@ -157,7 +157,7 @@ class CTV215LifecycleAndAuthorityQualificationTest {
             ),
         )
         val result = harness.runtime.submit(
-            harness.turn(2, ProductionThomasMode.THERAPY, "I was furious yesterday.") {
+            harness.turn(2, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I was furious yesterday.") {
                 copy(requestedTherapySupport = RequestedOrdinarySupport.LISTEN)
             },
         )

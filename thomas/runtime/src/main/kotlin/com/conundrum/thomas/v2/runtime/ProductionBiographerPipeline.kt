@@ -11,7 +11,7 @@ import com.conundrum.thomas.v2.biographer.BiographerLanguageProcessor
 import com.conundrum.thomas.v2.biographer.BiographerPrivacy
 import com.conundrum.thomas.v2.biographer.BiographerQuestionDecision
 import com.conundrum.thomas.v2.biographer.BiographerSourceAdmissionRequest
-import com.conundrum.thomas.v2.biographer.CoverageEvidence
+import com.conundrum.thomas.v2.biographer.InvestigationAnswerDisposition
 import com.conundrum.thomas.v2.biographer.CoverageRequest
 import com.conundrum.thomas.v2.biographer.DeterministicBiographerCoverageEngine
 import com.conundrum.thomas.v2.biographer.BiographerInvestigationHistory
@@ -89,12 +89,79 @@ class ProductionBiographerPipeline(
         request: CoverageRequest,
         history: BiographerInvestigationHistory = BiographerInvestigationHistory(),
     ): BiographerQuestionDecision = coverage.decide(
-        CoverageEvidence(store.reader.currentStoreRevision()),
+        coverageEvidence(),
         history,
         request,
     )
 
     fun captureAnswer(command: BiographerAnswerCommand): BiographerCaptureResult = capture.capture(command)
+
+    fun coverageEvidence() = com.conundrum.thomas.v2.biographer.GovernedBiographerCoverage.derive(language.formState(), store.reader)
+
+    fun answer(
+        command: BiographerAnswerCommand,
+        target: com.conundrum.thomas.v2.biographer.InvestigationTarget?,
+        history: BiographerInvestigationHistory,
+    ): ProductionBiographerAnswer {
+        val explicit = when (ProductionTherapyInputBoundary.normalize(command.committedText)) {
+            "skip", "skip this question" -> InvestigationAnswerDisposition.SKIPPED
+            "later", "defer this question" -> InvestigationAnswerDisposition.DEFERRED
+            "i decline", "i don't want to answer this" -> InvestigationAnswerDisposition.DECLINED
+            "keep this private", "this topic is private" -> InvestigationAnswerDisposition.MARKED_PRIVATE
+            "stop", "please stop" -> InvestigationAnswerDisposition.STOPPED
+            "change topic" -> InvestigationAnswerDisposition.CHANGED_TOPIC
+            else -> null
+        }
+        val before = language.formState()
+        val repeatedSourceText = store.reader.snapshot().sources.any {
+            (it.originalContent as? OriginalSourceContent.Inline)?.exactContent == command.committedText &&
+                store.reader.isEligible(com.conundrum.thomas.v2.longitudinal.admission.LongitudinalObjectRef(
+                    com.conundrum.thomas.v2.longitudinal.admission.StoredObjectType.SOURCE_REVISION, it.id.value))
+        }
+        val captured = if (explicit == null) capture.capture(command) else null
+        val receipt = captured?.receipt
+        val after = language.formState()
+        val structuralChange = before.activeExplicitClaims.map { meaning(it) }.toSet() != after.activeExplicitClaims.map { meaning(it) }.toSet() ||
+            before.activeSelfReports.map { meaning(it) }.toSet() != after.activeSelfReports.map { meaning(it) }.toSet()
+        val admitted = receipt?.admittedEvidenceIds.orEmpty()
+        val admittedClaims = (after.activeExplicitClaims + after.activeSelfReports).filter { it.id.value in admitted }
+        val repeatedDatedReport = repeatedSourceText && admittedClaims.isNotEmpty() && admittedClaims.all {
+            it.eventTime is EventTime.Range || it.eventTime is EventTime.CalendarDate ||
+                it.eventTime is EventTime.ExactInstant || it.eventTime is EventTime.ApproximateYear || it.eventTime is EventTime.ApproximateDate
+        }
+        val changed = structuralChange && !repeatedDatedReport
+        val targetChanged = target != null && coverageEvidence().candidates.none { it.id == target.id && it.materialChangeToken == target.materialChangeToken }
+        val outcome = explicit ?: when {
+            receipt?.privacy == BiographerPrivacy.PRIVATE -> InvestigationAnswerDisposition.MARKED_PRIVATE
+            receipt == null -> InvestigationAnswerDisposition.ANSWERED_AMBIGUOUS
+            admitted.isEmpty() || !changed -> InvestigationAnswerDisposition.NO_EXTRACTABLE_EVIDENCE
+            targetChanged -> InvestigationAnswerDisposition.ANSWERED_RELEVANT
+            else -> InvestigationAnswerDisposition.ANSWERED_OTHER_EVIDENCE
+        }
+        // Only explicit user privacy/refusal becomes durable coverage control. No prompt history or
+        // inferred "covered" fact is persisted; answered coverage is reconstructed from source evidence.
+        if (target != null && outcome in setOf(InvestigationAnswerDisposition.DECLINED, InvestigationAnswerDisposition.MARKED_PRIVATE)) {
+            val status = if (outcome == InvestigationAnswerDisposition.DECLINED)
+                com.conundrum.thomas.v2.longitudinal.InformationCoverageStatus.DECLINED
+            else com.conundrum.thomas.v2.longitudinal.InformationCoverageStatus.PRIVATE
+            val id = "biographer.coverage." + command.answerId.value
+            val admittedControl = store.admission.submit(LongitudinalAdmissionRequest(
+                AdmissionRequestId.parse(id), IdempotencyKey.parse(id), store.reader.currentStoreRevision(),
+                AdmissionActor.USER, AdmissionOrigin.BIOGRAPHER_GUIDED_TIMELINE, AdmissionPolicyVersion.CT_V2_07_V1,
+                StoreDataClassification.PROTECTED_PERSONAL_DATA,
+                LongitudinalWriteOperation.ChangeCoverage(com.conundrum.thomas.v2.longitudinal.CoverageTopic(
+                    com.conundrum.thomas.v2.longitudinal.CoverageTopicId.parse("biographer." + target.id.value),
+                    "biographer-target:" + target.id.value, status))))
+            check(admittedControl.disposition in setOf(AdmissionDisposition.ACCEPTED, AdmissionDisposition.IDEMPOTENT_REPLAY))
+        }
+        val nextHistory = if (target == null) history else history.recordOutcome(target,
+            store.reader.currentStoreRevision(), outcome, receipt?.stableSourceId)
+        return ProductionBiographerAnswer(captured, outcome, nextHistory, changed)
+    }
+
+    private fun meaning(assertion: com.conundrum.thomas.v2.longitudinal.EvidenceAssertion): String =
+        listOf(assertion.subject, assertion.predicate, assertion.value, assertion.eventTime).joinToString("|")
+
     fun formedState() = language.formState()
 }
 
@@ -154,3 +221,10 @@ private class ProductionBiographerAdmissionPort(
     private fun sha256(value: String): String = MessageDigest.getInstance("SHA-256")
         .digest(value.toByteArray(StandardCharsets.UTF_8)).joinToString("") { "%02x".format(it) }
 }
+
+ data class ProductionBiographerAnswer(
+    val capture: BiographerCaptureResult?,
+    val disposition: InvestigationAnswerDisposition,
+    val resultingHistory: BiographerInvestigationHistory,
+    val materialEvidenceChanged: Boolean,
+)

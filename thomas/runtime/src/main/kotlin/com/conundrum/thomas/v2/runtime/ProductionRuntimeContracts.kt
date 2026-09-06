@@ -13,7 +13,7 @@ import com.conundrum.thomas.v2.therapylongitudinal.LongitudinalTherapyPlan
 import com.conundrum.thomas.v2.therapylongitudinal.TherapyMemoryIntent
 import java.time.Instant
 
-const val CT_V2_15_RUNTIME_POLICY_VERSION = "ct-v2-15.android-runtime.v1"
+const val CT_V2_15_RUNTIME_POLICY_VERSION = "ct-v2-15r1.android-runtime.v1"
 
 enum class ProductionThomasMode { JOURNAL, BIOGRAPHER, THERAPY }
 enum class ProductionInputOrigin { TYPED, SPEECH_TRANSCRIPT }
@@ -39,7 +39,7 @@ data class ProductionTurnRequest(
     val requestedTherapySupport: RequestedOrdinarySupport = RequestedOrdinarySupport.LISTEN,
     val therapyMemoryIntent: TherapyMemoryIntent = TherapyMemoryIntent.ORDINARY,
     val therapySafetyDeclaration: TherapySafetyDeclaration =
-        TherapySafetyDeclaration.ORDINARY_NON_EMERGENCY_ADULT_CONTEXT,
+        TherapySafetyDeclaration.UNSPECIFIED,
     val committedAt: Instant,
 ) {
     init {
@@ -82,6 +82,10 @@ data class ProductionTurnResult(
     val therapyPlan: LongitudinalTherapyPlan?,
     val resultingStoreRevision: Long,
     val reasonCodes: List<String>,
+    val therapyObservation: com.conundrum.thomas.v2.engine.ordinary.CoreOrdinaryTherapyState? = null,
+    val safetyObservation: com.conundrum.thomas.v2.safety.SafetyScopeDecision? = null,
+    val biographerAnswer: ProductionBiographerAnswer? = null,
+    val nextBiographerTargetId: String? = null,
 ) {
     init {
         require(turnIdentity.isNotBlank())
@@ -95,6 +99,7 @@ data class ProductionBiographerPrompt(
     val text: String,
     val renderResult: GovernedRenderResult,
     val targetId: String?,
+    val decision: com.conundrum.thomas.v2.biographer.BiographerQuestionDecision? = null,
 )
 
 data class ProductionRuntimeSnapshot(

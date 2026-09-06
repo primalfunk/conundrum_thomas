@@ -300,17 +300,10 @@ private fun TherapyControls(state: ThomasUiState, viewModel: ThomasViewModel) {
         )
         Text("I’m explicitly asking Thomas to look back", style = MaterialTheme.typography.labelMedium)
     }
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Checkbox(
-            checked = state.ordinaryTherapyScopeConfirmed,
-            onCheckedChange = viewModel::setOrdinaryTherapyScopeConfirmed,
-            modifier = Modifier.testTag("therapy-ordinary-scope"),
-        )
-        Text(
-            "This is a non-emergency adult concern within ordinary support",
-            style = MaterialTheme.typography.labelMedium,
-        )
-    }
+    Text(
+        "You can begin with: My specific concern is: ... Safety and scope are clarified from your current replies.",
+        style = MaterialTheme.typography.labelSmall,
+    )
 }
 
 @Composable

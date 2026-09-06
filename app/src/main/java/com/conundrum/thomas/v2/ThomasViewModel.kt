@@ -41,7 +41,6 @@ data class ThomasUiState(
     val journalPreference: JournalResponsePreference = JournalResponsePreference.NO_RESPONSE,
     val therapySupport: RequestedOrdinarySupport = RequestedOrdinarySupport.LISTEN,
     val explicitRecall: Boolean = false,
-    val ordinaryTherapyScopeConfirmed: Boolean = false,
     val runtimeAvailable: Boolean = true,
     val status: String = "Ready",
 )
@@ -98,10 +97,6 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         mutableState.value = mutableState.value.copy(explicitRecall = value)
     }
 
-    fun setOrdinaryTherapyScopeConfirmed(value: Boolean) {
-        mutableState.value = mutableState.value.copy(ordinaryTherapyScopeConfirmed = value)
-    }
-
     fun submit(origin: ProductionInputOrigin = ProductionInputOrigin.TYPED) {
         val before = mutableState.value
         if (before.processing || !before.runtimeAvailable || before.draft.isBlank()) return
@@ -128,11 +123,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                         } else {
                             TherapyMemoryIntent.ORDINARY
                         },
-                        therapySafetyDeclaration = if (before.ordinaryTherapyScopeConfirmed) {
-                            TherapySafetyDeclaration.ORDINARY_NON_EMERGENCY_ADULT_CONTEXT
-                        } else {
-                            TherapySafetyDeclaration.UNSPECIFIED
-                        },
+                        therapySafetyDeclaration = TherapySafetyDeclaration.UNSPECIFIED,
                         committedAt = Instant.now(),
                     ),
                 )

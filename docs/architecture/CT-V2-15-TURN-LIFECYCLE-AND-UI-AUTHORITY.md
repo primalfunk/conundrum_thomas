@@ -14,14 +14,14 @@
 | encryption key | AndroidKeyStore | platform protected |
 
 The UI is a projection and command surface. It displays explicit modes,
-Journal posture, Therapy support and scope controls, private status, transcript,
+Journal posture, Therapy support controls and current safety clarification, private status, transcript,
 runtime availability, and custody operations. It does not own longitudinal
 truth or copy domain rules into callbacks.
 
 ## Commit and lifecycle rules
 
 - Text is evidence only after an explicit send.
-- Blank sends, drafts, discarded text, and mode-switch-cleared drafts are not
+- Blank sends, drafts, discarded text, and unsent mode-specific drafts are not
   admitted.
 - A private current turn remains usable as current input but is ineligible for
   future ordinary retrieval.
@@ -37,10 +37,12 @@ truth or copy domain rules into callbacks.
 
 `ThomasProductionRuntime` permits one turn/lifecycle operation at a time. The
 ViewModel disables send while processing and allocates explicit client turn
-indices. Runtime data survives process death and device reboot through the
+indices. Durable source evidence survives process death and device reboot through the
 protected store. Draft, transcript, listening, speaking, and render-attempt
 state are deliberately not converted into durable psychological data.
 
 Full reset destroys the application-controlled corpus and AndroidKeyStore key,
 then reopens a new empty root. It cannot erase exports or protected backups the
 user previously placed outside application storage.
+
+CT-V2-15R1 retains explicit ephemeral Therapy procedure and delivered-action history in the runtime. Process death or successful source custody edits invalidate that machinery and current safety declarations; no procedure is guessed from durable history. See [the current observation/coverage contract](CT-V2-15R1-PRODUCTION-OBSERVATION-AND-COVERAGE.md).

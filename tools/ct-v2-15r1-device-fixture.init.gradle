@@ -1,0 +1,9 @@
+// CT-V2-15R1 physical fixture only. Never changes the canonical application ID on disk.
+// Invocation: gradlew -I tools/ct-v2-15r1-device-fixture.init.gradle :app:assembleDebug :app:assembleDebugAndroidTest
+gradle.beforeProject { project ->
+    project.pluginManager.withPlugin("com.android.application") {
+        project.extensions.getByName("androidComponents").finalizeDsl { android ->
+            android.defaultConfig.applicationId = "com.conundrum.thomas.v2.ctv215r1fixture"
+        }
+    }
+}

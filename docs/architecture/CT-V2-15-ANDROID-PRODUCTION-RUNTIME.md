@@ -47,7 +47,7 @@ state.
 
 The runtime uses one atomic processing guard and explicit monotonically
 increasing client turn identity. Mode is fixed on each request. A ViewModel
-mode change clears the draft and does not mutate the in-flight request. Only a
+mode change saves/restores its mode-specific draft and does not mutate the in-flight request. Only a
 completed render result can create `ProductionAssistantArtifact`.
 
 For Therapy the structural order is:
@@ -70,3 +70,7 @@ is successful absence of output. Renderer failure never exposes a candidate;
 the CT-V2-13 fallback governs the final result. A custody operation validates a
 backup before clearing the existing corpus and restores only into an empty
 protected target.
+
+## CT-V2-15R1 current integration
+
+The production observation/session and protected-corpus coverage bridges are described in [CT-V2-15R1 contracts](CT-V2-15R1-PRODUCTION-OBSERVATION-AND-COVERAGE.md). This supersedes the CT-V2-15 fixed procedural inputs and empty coverage supplier. Clinical policy authority remains unchanged.

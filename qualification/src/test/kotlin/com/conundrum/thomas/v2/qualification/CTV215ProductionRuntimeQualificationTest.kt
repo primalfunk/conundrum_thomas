@@ -63,19 +63,23 @@ class CTV215ProductionRuntimeQualificationTest {
 
     @Test
     fun `biographer target is selected upstream and answer persists with provenance`() = CTV215Harness().use { harness ->
-        val prompt = harness.runtime.nextBiographerPrompt(1)
+        harness.runtime.submit(harness.turn(10, ProductionThomasMode.JOURNAL, "I moved to Denver in 2010."))
+        harness.runtime.submit(harness.turn(11, ProductionThomasMode.JOURNAL, "I moved to Portland in 2018."))
+        val prompt = harness.runtime.nextBiographerPrompt(12)
+        assertNotNull(prompt?.targetId)
+        assertEquals(com.conundrum.thomas.v2.biographer.InvestigationTargetKind.TEMPORAL_GAP, prompt?.decision?.coverageMap?.selectedTarget?.kind)
         assertNotNull(prompt)
         assertNotNull(prompt?.renderResult)
 
         val answer = harness.runtime.submit(
-            harness.turn(2, ProductionThomasMode.BIOGRAPHER, "Synthetic historical answer with uncertain timing."),
+            harness.turn(13, ProductionThomasMode.BIOGRAPHER, "Synthetic historical answer with uncertain timing."),
         )
 
         assertNotNull(answer.committedSourceId)
         assertTrue(
             harness.runtime.sourceSummaries().any {
-                it.acquisitionMode == AcquisitionMode.BIOGRAPHER_OPEN_NARRATIVE ||
-                    it.acquisitionMode == AcquisitionMode.BIOGRAPHER_GUIDED_TIMELINE
+
+                it.acquisitionMode == AcquisitionMode.BIOGRAPHER_GUIDED_TIMELINE
             },
         )
     }
@@ -83,7 +87,7 @@ class CTV215ProductionRuntimeQualificationTest {
     @Test
     fun `therapy route and renderer operate through explicit current-turn safety authority`() = CTV215Harness().use { harness ->
         val result = harness.runtime.submit(
-            harness.turn(1, ProductionThomasMode.THERAPY, "I was furious yesterday.") {
+            harness.turn(1, ProductionThomasMode.THERAPY, "${CTV215R1ProductionConversationTest.DECLARATIONS}\nMy specific concern is: I was furious yesterday.") {
                 copy(
                     requestedTherapySupport = RequestedOrdinarySupport.LISTEN,
                     therapySafetyDeclaration = TherapySafetyDeclaration.ORDINARY_NON_EMERGENCY_ADULT_CONTEXT,

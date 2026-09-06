@@ -162,7 +162,7 @@ class CTV215DevicePersistenceInstrumentedTest {
             assertNotNull(biographer.committedSourceId)
 
             val memoryless = runtime.submit(
-                turn(4, ProductionThomasMode.THERAPY, "I was furious yesterday.").copy(
+                turn(4, ProductionThomasMode.THERAPY, "$CURRENT_DECLARATIONS\nMy specific concern is: I was furious yesterday.").copy(
                     requestedTherapySupport = RequestedOrdinarySupport.LISTEN,
                 ),
             )
@@ -170,7 +170,7 @@ class CTV215DevicePersistenceInstrumentedTest {
             assertNotNull(memoryless.therapyPlan?.routeDecision)
 
             val recall = runtime.submit(
-                turn(5, ProductionThomasMode.THERAPY, "I have been thinking about Cedar Falls.").copy(
+                turn(5, ProductionThomasMode.THERAPY, "$CURRENT_DECLARATIONS\nMy specific concern is: I have been thinking about Cedar Falls.").copy(
                     requestedTherapySupport = RequestedOrdinarySupport.LISTEN,
                     therapyMemoryIntent = TherapyMemoryIntent.EXPLICIT_RECALL,
                 ),
@@ -180,7 +180,7 @@ class CTV215DevicePersistenceInstrumentedTest {
             })
 
             val safety = runtime.submit(
-                turn(6, ProductionThomasMode.THERAPY, "Synthetic current turn with unspecified scope.").copy(
+                turn(6, ProductionThomasMode.THERAPY, "I withdraw: There is no current emergency.").copy(
                     therapySafetyDeclaration = TherapySafetyDeclaration.UNSPECIFIED,
                 ),
             )
@@ -198,7 +198,7 @@ class CTV215DevicePersistenceInstrumentedTest {
 
             assertTrue(runtime.changeSourcePrivacy(journalSource, makePrivate = true, commandIndex = 8).accepted)
             val privateRecall = runtime.submit(
-                turn(9, ProductionThomasMode.THERAPY, "I have been thinking about Cedar Falls.").copy(
+                turn(9, ProductionThomasMode.THERAPY, "$CURRENT_DECLARATIONS\nMy specific concern is: I have been thinking about Cedar Falls.").copy(
                     requestedTherapySupport = RequestedOrdinarySupport.LISTEN,
                     therapyMemoryIntent = TherapyMemoryIntent.EXPLICIT_RECALL,
                 ),
@@ -263,7 +263,7 @@ class CTV215DevicePersistenceInstrumentedTest {
             val therapyWithoutMemory = (7L..9L).map { index ->
                 elapsedMillis {
                     val result = runtime.submit(
-                        turn(index, ProductionThomasMode.THERAPY, "I was furious yesterday."),
+                        turn(index, ProductionThomasMode.THERAPY, "$CURRENT_DECLARATIONS\nMy specific concern is: I was furious yesterday."),
                     )
                     assertNotNull(result.therapyPlan?.routeDecision)
                 }
@@ -272,7 +272,7 @@ class CTV215DevicePersistenceInstrumentedTest {
             val therapyWithMemory = (11L..13L).map { index ->
                 elapsedMillis {
                     val result = runtime.submit(
-                        turn(index, ProductionThomasMode.THERAPY, "I have been thinking about Cedar Falls.").copy(
+                        turn(index, ProductionThomasMode.THERAPY, "$CURRENT_DECLARATIONS\nMy specific concern is: I have been thinking about Cedar Falls.").copy(
                             therapyMemoryIntent = TherapyMemoryIntent.EXPLICIT_RECALL,
                         ),
                     )
@@ -357,6 +357,7 @@ class CTV215DevicePersistenceInstrumentedTest {
     }
 
     private companion object {
+        const val CURRENT_DECLARATIONS = "There is no current emergency.\nThere is no acute medical emergency.\nSelf-harm is not relevant now.\nHarm to others is not relevant now.\nI report no specialized condition for this conversation.\nI am an adult in the supported setting.\nMy present concern is one bounded ordinary personal problem."
         const val GATE_PREFERENCES = "ct-v2-15-device-gate"
         const val EXPECTED_DIGEST = "expected-digest"
         const val EXPECTED_REVISION = "expected-revision"

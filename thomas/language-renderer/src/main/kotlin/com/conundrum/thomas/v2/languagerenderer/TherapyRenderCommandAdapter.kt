@@ -40,7 +40,10 @@ object TherapyRenderCommandAdapter {
         val memorySupport = memories.map { it.second }
         val act = therapyAct(upstream, envelope.surfacedMemorySupport)
         val memoryPrefix = memorySupport.joinToString(" ") { reference ->
-            memorySentence(reference, units.single { it.id == reference.semanticUnitId }.surfaceMeaning)
+            val unit = units.single { it.id == reference.semanticUnitId }
+            memorySentence(reference, unit.surfaceMeaning) +
+                if (unit.temporalScope is com.conundrum.thomas.v2.longitudinal.EventTime.Unknown)
+                    " I am not sure of the event time." else ""
         }
         val complete = listOf(memoryPrefix, base).filter(String::isNotBlank).joinToString(" ")
         val variants = if (memoryPrefix.isBlank()) therapyVariants(base, upstream.form) else listOf(complete)
@@ -178,9 +181,9 @@ object TherapyRenderCommandAdapter {
             "core-develop-bounded-plan" ->
                 "For ${required(support, "user-selected-option")}, what small first step would you take, and when?"
             "core-review-reported-outcome" ->
-                "What happened when you tried ${required(support, "action-plan")}?"
+                "What happened with your plan, ${required(support, "action-plan")}?"
             "core-consolidate-plan-learning" ->
-                "You tried ${required(support, "action-plan")} and reported ${required(support, "plan-outcome")}. Would you like to stop or choose another direction?"
+                "Your plan was ${required(support, "action-plan")}; you reported ${required(support, "plan-outcome")}. Would you like to stop or choose another direction?"
             else -> when (command.form) {
                 RenderForm.INTERROGATIVE -> "What would you like to focus on here?"
                 RenderForm.PLANNING -> "We can stay with the practical step already selected."

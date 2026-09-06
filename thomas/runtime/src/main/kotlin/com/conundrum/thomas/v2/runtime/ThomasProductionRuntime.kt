@@ -89,8 +89,12 @@ class ThomasProductionRuntime(
     private var renderHistory = RenderHistoryState()
     private var biographerHistory = BiographerInvestigationHistory()
     private var pendingBiographerPlan: BiographerQuestionPlan? = null
+    private var pendingBiographerTarget: com.conundrum.thomas.v2.biographer.InvestigationTarget? = null
+    private var biographerStopped = false
+    private var biographerSafetyBlocked = false
     private var therapyMemory = TherapySessionMemoryState(SESSION_ID)
-    private val therapyActionHistory = mutableListOf<CoreActionExecution>()
+    private var therapyInput = ProductionTherapyInputBoundary()
+    private var safetyObservations = ProductionSafetyObservationBoundary()
     private var rendererCalls = 0L
     private var assistantArtifacts = 0L
     private var closed = false
@@ -119,26 +123,31 @@ class ThomasProductionRuntime(
         }
     }
 
-    fun nextBiographerPrompt(clientTurnIndex: Long): ProductionBiographerPrompt? {
+
+    fun nextBiographerPrompt(clientTurnIndex: Long, openStory: Boolean = false): ProductionBiographerPrompt? {
         check(!closed)
-        val decision = biographer.decide(
-            CoverageRequest(BiographerPosture.OPEN_STORY),
-            biographerHistory,
-        )
+        if (biographerStopped) return null
+        if (biographerSafetyBlocked) {
+            val blocked = biographer.decide(CoverageRequest(BiographerPosture.TARGETED_COVERAGE,
+                investigationAuthority = com.conundrum.thomas.v2.biographer.BiographerInvestigationAuthority.BLOCKED_BY_SAFETY_SCOPE), biographerHistory)
+            check(blocked.plan == null)
+            return null
+        }
+        val targeted = biographer.decide(CoverageRequest(
+            if (openStory) BiographerPosture.OPEN_STORY else BiographerPosture.TARGETED_COVERAGE), biographerHistory)
+        val decision = if (targeted.plan != null) targeted else
+            biographer.decide(CoverageRequest(BiographerPosture.OPEN_STORY), biographerHistory)
         val plan = decision.plan ?: return null
-        biographerHistory = decision.resultingHistory
-        pendingBiographerPlan = plan
-        val grounding = biographerGrounding(plan)
         val command = BiographerRenderCommandAdapter.adapt(
-            renderId("biographer-prompt", clientTurnIndex),
-            clientTurnIndex.toInt(),
-            plan,
-            grounding,
-        ).forProduction()
+            renderId("biographer-prompt", clientTurnIndex), clientTurnIndex.toInt(), plan, biographerGrounding(plan)).forProduction()
         val rendered = render(command)
         val text = rendered.finalText ?: return null
+        // An undelivered question is not a pending investigation or an offer.
+        biographerHistory = decision.resultingHistory
+        pendingBiographerPlan = plan
+        pendingBiographerTarget = decision.coverageMap.selectedTarget
         assistantArtifacts += 1
-        return ProductionBiographerPrompt(text, rendered, plan.targetId?.value)
+        return ProductionBiographerPrompt(text, rendered, plan.targetId?.value, decision)
     }
 
     fun snapshot(): ProductionRuntimeSnapshot {
@@ -267,6 +276,7 @@ class ThomasProductionRuntime(
             } else {
                 null
             }
+            if (accepted) invalidateEphemeralEvidence()
             ProductionSourceRevisionResult(
                 sourceId,
                 newRevisionId.takeIf { accepted },
@@ -369,83 +379,78 @@ class ThomasProductionRuntime(
         return renderedResult(request, identity, receipt.stableSourceId, rendered, null, result.reasonCodes)
     }
 
+
     private fun submitBiographer(request: ProductionTurnRequest): ProductionTurnResult {
         val identity = identity("biographer", request)
+        updateBiographerSafetyInterruption(safetyGate.govern(safetyObservations.observe(request)))
+        if (biographerSafetyBlocked) {
+            pendingBiographerPlan = null
+            pendingBiographerTarget = null
+        }
+        if (ProductionTherapyInputBoundary.normalize(request.committedText) == "open story") {
+            biographerStopped = false
+            pendingBiographerPlan = null
+            pendingBiographerTarget = null
+            val prompt = nextBiographerPrompt(request.clientTurnIndex, openStory = true)
+            return if (prompt == null) baseResult(request, ProductionTurnDisposition.GOVERNED_POLICY_NO_OUTPUT, "BIOGRAPHER_NO_PROMPT")
+            else result(request, identity, null, artifact(identity, request.mode, prompt.renderResult), prompt.renderResult,
+                null, ProductionTurnDisposition.COMPLETED, listOf("USER_REQUESTED_OPEN_STORY"))
+        }
+        if (biographerStopped) return baseResult(request, ProductionTurnDisposition.NO_RESPONSE, "BIOGRAPHER_STOPPED")
+        // A lifecycle change invalidates a pending target. Capture subsequent prose as open narrative,
+        // not as an answer to a question whose grounding is no longer eligible/current.
+        if (pendingBiographerTarget?.let { target ->
+                biographer.coverageEvidence().candidates.none { it.id == target.id && it.materialChangeToken == target.materialChangeToken &&
+                    it.status !in setOf(com.conundrum.thomas.v2.biographer.CoverageStatus.PRIVATE, com.conundrum.thomas.v2.biographer.CoverageStatus.DECLINED) }
+            } == true) {
+            pendingBiographerTarget = null
+            pendingBiographerPlan = null
+        }
         val plan = pendingBiographerPlan ?: biographer.decide(
-            CoverageRequest(BiographerPosture.OPEN_STORY),
-            biographerHistory,
-        ).also {
-            biographerHistory = it.resultingHistory
-        }.plan
-        if (plan == null) {
-            return baseResult(request, ProductionTurnDisposition.GOVERNED_POLICY_NO_OUTPUT, "BIOGRAPHER_NO_TARGET")
-        }
-        val capture = biographer.captureAnswer(
-            BiographerAnswerCommand(
-                BiographerAnswerId.parse(identity),
-                BiographerIdempotencyKey.parse("answer-$identity"),
-                store.reader.currentStoreRevision(),
-                plan,
-                request.committedText,
-                request.inputOrigin.toBiographerOrigin(),
-                request.privacy.toBiographerPrivacy(),
-                ReportTime(request.committedAt),
-                BiographerQualificationAuthority.ANDROID_PRODUCTION,
-            ),
-        )
+            CoverageRequest(BiographerPosture.OPEN_STORY), biographerHistory).plan
+            ?: return baseResult(request, ProductionTurnDisposition.GOVERNED_POLICY_NO_OUTPUT, "BIOGRAPHER_NO_PLAN")
+        val answer = biographer.answer(BiographerAnswerCommand(
+            BiographerAnswerId.parse(identity), BiographerIdempotencyKey.parse("answer-$identity"),
+            store.reader.currentStoreRevision(), plan, request.committedText, request.inputOrigin.toBiographerOrigin(),
+            request.privacy.toBiographerPrivacy(), ReportTime(request.committedAt), BiographerQualificationAuthority.ANDROID_PRODUCTION),
+            pendingBiographerTarget, biographerHistory)
+        biographerHistory = answer.resultingHistory
         pendingBiographerPlan = null
-        val receipt = capture.receipt ?: return result(
-            request,
-            identity,
-            null,
-            null,
-            null,
-            null,
-            ProductionTurnDisposition.SOURCE_CAPTURE_FAILED,
-            capture.reasonCodes,
-        )
-        val prompt = nextBiographerPrompt(request.clientTurnIndex + 1)
-        if (prompt == null) {
-            return result(
-                request,
-                identity,
-                receipt.stableSourceId,
-                null,
-                null,
-                null,
-                ProductionTurnDisposition.GOVERNED_POLICY_NO_OUTPUT,
-                capture.reasonCodes + "BIOGRAPHER_NEXT_TARGET_UNAVAILABLE",
-            )
+        pendingBiographerTarget = null
+        val receipt = answer.capture?.receipt
+        val reasons = answer.capture?.reasonCodes.orEmpty() + answer.disposition.name
+        if (answer.capture != null && receipt == null) return result(request, identity, null, null, null, null,
+            ProductionTurnDisposition.SOURCE_CAPTURE_FAILED, reasons).copy(biographerAnswer = answer)
+        if (answer.disposition == com.conundrum.thomas.v2.biographer.InvestigationAnswerDisposition.STOPPED) {
+            biographerStopped = true
+            return result(request, identity, null, null, null, null, ProductionTurnDisposition.NO_RESPONSE, reasons).copy(biographerAnswer = answer)
         }
-        return result(
-            request,
-            identity,
-            receipt.stableSourceId,
-            artifact(identity, request.mode, prompt.renderResult),
-            prompt.renderResult,
-            null,
-            ProductionTurnDisposition.COMPLETED,
-            capture.reasonCodes,
-        )
+        val prompt = nextBiographerPrompt(request.clientTurnIndex + 1)
+        return result(request, identity, receipt?.stableSourceId,
+            prompt?.let { artifact(identity, request.mode, it.renderResult) }, prompt?.renderResult, null,
+            if (prompt == null) ProductionTurnDisposition.GOVERNED_POLICY_NO_OUTPUT else ProductionTurnDisposition.COMPLETED,
+            reasons).copy(biographerAnswer = answer, nextBiographerTargetId = prompt?.targetId)
+    }
+
+    private fun updateBiographerSafetyInterruption(decision: com.conundrum.thomas.v2.safety.SafetyScopeDecision) {
+        if (decision.authorityState == SafetyAuthorityState.ORDINARY_POLICY_ALLOWED) biographerSafetyBlocked = false
+        if (decision.observations.any { it.resolution == com.conundrum.thomas.v2.safety.SafetyEvidenceResolution.CONTRADICTORY } || decision.authorityState in setOf(SafetyAuthorityState.EMERGENCY_BOUNDARY_REACHED,
+                SafetyAuthorityState.SPECIALIZED_POLICY_REQUIRED, SafetyAuthorityState.EXTERNAL_SUPPORT_REQUIRED)) {
+            biographerSafetyBlocked = true
+        }
     }
 
     private fun submitTherapy(request: ProductionTurnRequest): ProductionTurnResult {
         val identity = identity("therapy", request)
-        val revision = request.clientTurnIndex.coerceAtMost(Long.MAX_VALUE)
-        val stateId = "android-therapy-state-$revision"
-        val therapyState = ProductionTherapyInputBoundary.state(
-            stateId,
-            revision,
-            request.committedText,
-            request.requestedTherapySupport,
-            therapyActionHistory.toList(),
-        )
-        val safetyInput = ProductionTherapyInputBoundary.safety(
-            stateId,
-            therapyState.safetyEvidenceRevision,
-            request.therapySafetyDeclaration,
-        )
+        val proceduralText = if (safetyObservations.handlesReply(request.committedText)) "" else request.committedText
+        val lines = proceduralText.lineSequence().toList()
+        val currentBlock = lines.size == 1 || ProductionTherapyInputBoundary.startsObservationBlock(lines.first()) ||
+            safetyObservations.startsObservationBlock(lines.first())
+        val therapyState = (if (currentBlock) lines else listOf("" )).asSequence()
+            .map { therapyInput.observe(request.copy(committedText = it)) }.last()
+        val safetyInput = safetyObservations.observe(request)
         val safety = safetyGate.govern(safetyInput)
+        updateBiographerSafetyInterruption(safety)
         val preTurnRevision = store.reader.currentStoreRevision()
         val turnId = TherapyTurnId.parse(identity)
         val integrated = therapy.integrate(
@@ -461,7 +466,7 @@ class ThomasProductionRuntime(
                 safetyInput = safetyInput,
                 therapyState = therapyState,
                 memoryIntent = request.therapyMemoryIntent,
-                retrievalAnchors = anchors(request.committedText, preTurnRevision),
+                retrievalAnchors = anchors(therapyState.concernStatement.value ?: request.committedText, preTurnRevision, request),
                 sessionMemoryState = therapyMemory,
                 authority = TherapyIntegrationAuthority.ANDROID_PRODUCTION,
             ),
@@ -469,15 +474,6 @@ class ThomasProductionRuntime(
         val plan = integrated.plan
         plan?.let {
             therapyMemory = it.nextSessionMemoryState
-            val route = it.routeDecision?.route
-            val action = it.routeDecision?.selectedActionId
-            if (route != null && action != null) {
-                therapyActionHistory += CoreActionExecution(
-                    PolicyActionId.parse(action),
-                    therapyState.conversationRevision,
-                    route,
-                )
-            }
         }
         val source = plan?.captureReceipt?.stableSourceId
         val command = when {
@@ -504,10 +500,17 @@ class ThomasProductionRuntime(
             } else {
                 ProductionTurnDisposition.GOVERNED_POLICY_NO_OUTPUT
             }
-            return result(request, identity, source, null, null, plan, disposition, integrated.reasonCodes)
+            return result(request, identity, source, null, null, plan, disposition, integrated.reasonCodes).copy(therapyObservation = therapyState, safetyObservation = safety)
         }
         val rendered = render(command)
+        safetyObservations.delivered(if (rendered.finalText != null) safety.nextExpectedEvidence else null)
+        if (rendered.finalText != null || rendered.disposition == RenderDisposition.NO_RESPONSE) {
+            val route = plan?.routeDecision?.route
+            val action = plan?.routeDecision?.selectedActionId
+            if (route != null && action != null) therapyInput.delivered(action, route)
+        }
         return renderedResult(request, identity, source, rendered, plan, integrated.reasonCodes)
+            .copy(therapyObservation = therapyState, safetyObservation = safety)
     }
 
     private fun renderedResult(
@@ -537,6 +540,17 @@ class ThomasProductionRuntime(
         copy(qualificationAuthority = RenderQualificationAuthority.ANDROID_PRODUCTION)
 
     private fun formedState(): FormedLongitudinalState = journal.formedState()
+
+    /** Custody edits invalidate retained procedure; no deleted/corrected premise survives in it.
+     * Fresh current declarations are required. No procedural facts are rebuilt from the corpus.
+     */
+    private fun invalidateEphemeralEvidence() {
+        therapyInput = ProductionTherapyInputBoundary()
+        safetyObservations = ProductionSafetyObservationBoundary()
+        therapyMemory = TherapySessionMemoryState(SESSION_ID)
+        pendingBiographerPlan = null
+        pendingBiographerTarget = null
+    }
 
     private fun submitLifecycle(
         sourceId: SourceIdentityId,
@@ -569,6 +583,7 @@ class ThomasProductionRuntime(
                     operation,
                 ),
             )
+            if (response.disposition in setOf(AdmissionDisposition.ACCEPTED, AdmissionDisposition.IDEMPOTENT_REPLAY)) invalidateEphemeralEvidence()
             ProductionSourceLifecycleResult(
                 sourceId,
                 action,
@@ -581,7 +596,7 @@ class ThomasProductionRuntime(
         }
     }
 
-    private fun anchors(text: String, revision: Long): RetrievalAnchors {
+    private fun anchors(text: String, revision: Long, request: ProductionTurnRequest): RetrievalAnchors {
         val normalized = text.lowercase(Locale.ROOT)
         val terms = Regex("[a-z0-9]+").findAll(normalized)
             .map { it.value }.filter { it.length >= 3 }.take(24).toSet()
@@ -596,21 +611,37 @@ class ThomasProductionRuntime(
         val explicitEntities = entitiesByLabel.filter { (label, matches) ->
             matches.size == 1 && Regex("(^|[^a-z0-9])${Regex.escape(label)}([^a-z0-9]|$)").containsMatchIn(normalized)
         }.values.map { it.single().id }.toSet()
-        return RetrievalAnchors(entityIds = explicitEntities, lexicalTerms = terms)
+        val namedSource = if (request.therapyMemoryIntent == com.conundrum.thomas.v2.therapylongitudinal.TherapyMemoryIntent.EXPLICIT_RECALL) {
+            val quotations = request.committedText.lineSequence().filter { it.startsWith("Please recall my earlier words: ") }
+                .map { it.removePrefix("Please recall my earlier words: ").trim() }.toList()
+            if (quotations.size != 1) null else store.reader.snapshot(revision).sources.filter { source ->
+                (source.originalContent as? OriginalSourceContent.Inline)?.exactContent == quotations.single() &&
+                    store.reader.isEligible(LongitudinalObjectRef(StoredObjectType.SOURCE_REVISION, source.id.value), revision)
+            }.singleOrNull()?.stableSourceId
+        } else null
+        return RetrievalAnchors(entityIds = explicitEntities, lexicalTerms = terms, sourceIdentityIds = setOfNotNull(namedSource))
+    }
+
+    private fun biographerTime(value: EventTime): String = when (value) {
+        is EventTime.Range -> if (value.start.earliest.year == value.end.latest.year) value.start.earliest.year.toString()
+            else "the reported range ${value.start.earliest.year} to ${value.end.latest.year}"
+        else -> temporalText(value)
     }
 
     private fun biographerGrounding(plan: BiographerQuestionPlan): RenderableGrounding {
-        val meaning = plan.safeFacts.firstOrNull()?.concept
-            ?: plan.targetId?.value?.replace('-', ' ')
-            ?: "your history"
+        val times = plan.safeFacts.mapNotNull { it.temporalExpression }.distinct()
+        val meaning = if (times.size == 2 && plan.targetKind == com.conundrum.thomas.v2.biographer.InvestigationTargetKind.TEMPORAL_GAP) {
+            "your history between ${biographerTime(times[0])} and ${biographerTime(times[1])}"
+        } else plan.safeFacts.firstOrNull()?.concept ?: when (plan.targetKind) {
+            com.conundrum.thomas.v2.biographer.InvestigationTargetKind.OPEN_STORY -> "your history"
+            else -> "the unresolved part of your history"
+        }
         return RenderableGrounding(
-            id = "biographer-grounding",
-            surfaceMeaning = meaning,
-            requiredMarkerGroups = listOf(setOf("history", meaning.lowercase(Locale.ROOT))),
-            temporalScope = plan.safeFacts.firstOrNull()?.temporalExpression,
+            id = "biographer-grounding", surfaceMeaning = meaning,
+            requiredMarkerGroups = listOf(setOf("history")),
+            allowedTemporalLiterals = Regex("[0-9]{4}").findAll(meaning).map { it.value }.toSet(),
         )
     }
-
     private fun assertionValue(value: AssertionValue): String = when (value) {
         is AssertionValue.Text -> value.value
         is AssertionValue.EntityReference -> store.reader.entity(value.entityId)?.label ?: "that person or event"
