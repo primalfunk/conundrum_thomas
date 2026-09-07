@@ -1,0 +1,579 @@
+--------- beginning of main
+09-06 14:02:27.361 14534 14534 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-06 14:02:27.379 14534 14534 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+--------- beginning of system
+09-06 14:02:27.424 14534 14534 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-06 14:02:27.853 14534 14534 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-06 14:02:27.855 14534 14534 I AndroidJUnitRunner: newApplication android.app.Application
+09-06 14:02:27.890 14534 14534 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=336]
+09-06 14:02:27.915 14534 14534 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-06 14:02:27.915 14534 14534 I M-ProMotion: M-ProMotion is disabled
+09-06 14:02:27.929 14534 14547 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-06 14:02:27.948 14534 14547 I TestRunner: run started: 1 tests
+09-06 14:02:27.949 14534 14547 I TestRunner: started: twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-06 14:02:28.023 14534 14547 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-06 14:02:28.031 14534 14534 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 14:02:28.031 14534 14534 I ctv215r1fixture: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 14:02:28.031 14534 14534 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 14:02:28.051 14534 14547 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-06 14:02:28.163 14534 14534 I HWUI    : Bitmap_setFineEn: g_isFineEn = 1, g_isBitmapJniOk = 1
+09-06 14:02:28.229 14534 14534 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@876f7f0
+09-06 14:02:28.236 14534 14534 W HWUI    : Unknown dataspace 0
+09-06 14:02:28.417 14534 14534 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/compose/ui/platform/AndroidComposeView$Companion; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 14:02:28.666 14534 14538 I ctv215r1fixture: Compiler allocated 6868KB to compile void android.view.ViewRootImpl.performTraversals()
+09-06 14:02:28.957 14534 14534 I R1Dispatch: t=145813140065492 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:29.014 14534 14534 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+09-06 14:02:29.058 14534 14534 I R1Dispatch: t=145813241258492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:29.081 14534 14550 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-06 14:02:29.093 14534 14550 I mali    : [DebugProp] GPU Debug-Mechanism Disable !
+09-06 14:02:29.140 14534 14550 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+09-06 14:02:29.141 14534 14550 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-06 14:02:29.145 14534 14534 I Choreographer: Skipped 51 frames!  The application may be doing too much work on its main thread.
+09-06 14:02:29.159 14534 14568 I HWUI    : Davey! duration=903ms; Flags=1, FrameTimelineVsyncId=1086525, IntendedVsync=92430266713641, Vsync=92430266713641, InputEventId=0, HandleInputStart=92430277059969, AnimationStart=92430277063046, PerformTraversalsStart=92430277064200, DrawStart=92431086410431, FrameDeadline=92430283380308, FrameInterval=92430277033738, FrameStartTime=16652996, SyncQueued=92431105725431, SyncStart=92431105862354, IssueDrawCommandsStart=92431106184815, SwapBuffers=92431163846046, FrameCompleted=92431170680200, DequeueBufferDuration=16000, QueueBufferDuration=403692, GpuCompleted=92431170680200, SwapBuffersCompleted=92431166336508, DisplayPresentTime=0, CommandSubmissionCompleted=92431163846046,
+09-06 14:02:29.344 14534 14534 I R1Dispatch: t=145813527635415 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:29.432 14534 14534 I R1Dispatch: t=145813615614107 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:29.656 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3c543c6b: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:29.665 14534 14534 I AssistStructure: Flattened final assist data: 896 bytes, containing 1 windows, 5 views
+09-06 14:02:29.913 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:60fcadfd: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:29.997 14534 14534 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.conundrum.thomas.v2.ctv215r1fixture
+09-06 14:02:30.007 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:60fcadfd: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:30.012 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=1 input=There is no current emergency.
+09-06 14:02:30.012 14534 14547 I System.out: There is no acute medical emergency.
+09-06 14:02:30.012 14534 14547 I System.out: Self-harm is not relevant now.
+09-06 14:02:30.012 14534 14547 I System.out: Harm to others is not relevant now.
+09-06 14:02:30.012 14534 14547 I System.out: I report no specialized condition for this conversation.
+09-06 14:02:30.012 14534 14547 I System.out: I am an adult in the supported setting.
+09-06 14:02:30.012 14534 14547 I System.out: My present concern is one bounded ordinary personal problem.
+09-06 14:02:30.013 14534 14547 I System.out: My specific concern is: the synthetic UI appointment
+09-06 14:02:30.039 14534 14534 I R1Dispatch: t=145814222388953 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=345
+09-06 14:02:30.063 14534 14534 I R1Dispatch: t=145814246282799 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:30.111 14534 14534 I R1Dispatch: t=145814294663723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1856.0, 1576.0, 1952.0)
+09-06 14:02:30.146 14534 14534 I R1Dispatch: t=145814329193799 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:30.174 14534 14534 I R1Dispatch: t=145814357980569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1651.0, 1576.0, 1747.0)
+09-06 14:02:30.202 14534 14534 I R1Dispatch: t=145814385905492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1602.0, 1576.0, 1698.0)
+09-06 14:02:30.231 14534 14534 I R1Dispatch: t=145814414738492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1585.0, 1576.0, 1681.0)
+09-06 14:02:30.259 14534 14534 I R1Dispatch: t=145814442167338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1561.0, 1576.0, 1657.0)
+09-06 14:02:30.286 14534 14534 I R1Dispatch: t=145814469229800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1549.0, 1576.0, 1645.0)
+09-06 14:02:30.314 14534 14534 I R1Dispatch: t=145814497067723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1546.0, 1576.0, 1642.0)
+09-06 14:02:30.317 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3c543c6b: onShown
+09-06 14:02:30.343 14534 14534 I R1Dispatch: t=145814526762723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:30.372 14534 14534 I R1Dispatch: t=145814555666184 thread=main stage=UI_ON_CLICK
+09-06 14:02:30.372 14534 14534 I R1Dispatch: t=145814555833184 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:30.372 14534 14534 I R1Dispatch: t=145814555884876 thread=main stage=GUARD_ACCEPT
+09-06 14:02:30.373 14534 14534 I R1Dispatch: t=145814556336953 thread=main stage=IDENTITY_ALLOCATED index=1
+09-06 14:02:30.373 14534 14534 I R1Dispatch: t=145814556773261 thread=main stage=PROCESSING_TRUE
+09-06 14:02:30.374 14534 14534 I R1Dispatch: t=145814557377261 thread=main stage=JOB_ENTER
+09-06 14:02:30.376 14534 14599 I R1Dispatch: t=145814559259030 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:30.376 14534 14599 I System.out: R1_DISPATCH t=92432401663046 RUNTIME_ENTER index=1
+09-06 14:02:30.376 14534 14599 I System.out: R1_DISPATCH t=92432401757815 PIPELINE_ACCEPT index=1
+09-06 14:02:30.395 14534 14599 I System.out: R1_DISPATCH t=92432420070662 STORE_ENTER key=therapy.capture.capture-android-therapy-1
+09-06 14:02:30.437 14534 14599 I System.out: R1_DISPATCH t=92432461990046 STORE_COMMITTED revision=1
+09-06 14:02:30.448 14534 14534 I R1Dispatch: t=145814631158107 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=345
+09-06 14:02:30.459 14534 14534 I R1Dispatch: t=145814642498492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:30.488 14534 14599 I System.out: R1_DISPATCH t=92432513792200 RENDER_ENTER act=BRIEF_REFLECTION
+09-06 14:02:30.535 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a9cc9688: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:30.536 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:925704bb: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:30.565 14534 14534 I R1Dispatch: t=145814748534184 thread=main stage=WORKER_RETURN identity=android-therapy-1 committed=true
+09-06 14:02:30.573 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:30.577 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:925704bb: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:30.633 14534 14534 I R1Dispatch: t=145814816345800 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:30.723 14534 14534 I R1Dispatch: t=145814906360030 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1577.0, 1576.0, 1673.0)
+09-06 14:02:30.773 14534 14534 I R1Dispatch: t=145814956923030 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2223.0, 1576.0, 2319.0)
+09-06 14:02:30.805 14534 14534 I R1Dispatch: t=145814988489569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2264.0, 1576.0, 2360.0)
+09-06 14:02:30.932 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fd9e43cb: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:30.933 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a9cc9688: onHidden
+09-06 14:02:30.958 14534 14534 I R1Dispatch: t=145815141170415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:31.009 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=1 identity=android-therapy-1 committed=true draftEmpty=true
+09-06 14:02:31.163 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:824f12b9: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:31.368 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c2366e7a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:31.440 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c2366e7a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:31.454 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=2 input=My specific concern is: THE synthetic UI appointment!
+09-06 14:02:31.478 14534 14534 I R1Dispatch: t=145815661627030 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=53
+09-06 14:02:31.486 14534 14534 I R1Dispatch: t=145815669559415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:31.519 14534 14534 I R1Dispatch: t=145815702880646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2109.0, 1576.0, 2205.0)
+09-06 14:02:31.548 14534 14534 I R1Dispatch: t=145815731621877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1780.0, 1576.0, 1876.0)
+09-06 14:02:31.572 14534 14534 I R1Dispatch: t=145815755920030 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:31.597 14534 14534 I R1Dispatch: t=145815780307953 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1649.0, 1576.0, 1745.0)
+09-06 14:02:31.622 14534 14534 I R1Dispatch: t=145815805344877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:31.646 14534 14534 I R1Dispatch: t=145815829320261 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1602.0, 1576.0, 1698.0)
+09-06 14:02:31.670 14534 14534 I R1Dispatch: t=145815853290415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1572.0, 1576.0, 1668.0)
+09-06 14:02:31.694 14534 14534 I R1Dispatch: t=145815877253800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1561.0, 1576.0, 1657.0)
+09-06 14:02:31.717 14534 14534 I R1Dispatch: t=145815900987338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1549.0, 1576.0, 1645.0)
+09-06 14:02:31.740 14534 14534 I R1Dispatch: t=145815923570107 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1546.0, 1576.0, 1642.0)
+09-06 14:02:31.743 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:824f12b9: onShown
+09-06 14:02:31.764 14534 14534 I R1Dispatch: t=145815947556030 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:31.793 14534 14534 I R1Dispatch: t=145815976794107 thread=main stage=UI_ON_CLICK
+09-06 14:02:31.793 14534 14534 I R1Dispatch: t=145815976890184 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:31.793 14534 14534 I R1Dispatch: t=145815976944569 thread=main stage=GUARD_ACCEPT
+09-06 14:02:31.794 14534 14534 I R1Dispatch: t=145815977357261 thread=main stage=IDENTITY_ALLOCATED index=2
+09-06 14:02:31.794 14534 14534 I R1Dispatch: t=145815977692646 thread=main stage=PROCESSING_TRUE
+09-06 14:02:31.794 14534 14534 I R1Dispatch: t=145815977865261 thread=main stage=JOB_ENTER
+09-06 14:02:31.795 14534 14599 I R1Dispatch: t=145815978264030 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:31.795 14534 14599 I System.out: R1_DISPATCH t=92433820145431 RUNTIME_ENTER index=2
+09-06 14:02:31.795 14534 14599 I System.out: R1_DISPATCH t=92433820196200 PIPELINE_ACCEPT index=2
+09-06 14:02:31.803 14534 14599 I System.out: R1_DISPATCH t=92433828257200 STORE_ENTER key=therapy.capture.capture-android-therapy-2
+09-06 14:02:31.840 14534 14599 I System.out: R1_DISPATCH t=92433865572200 STORE_COMMITTED revision=2
+09-06 14:02:31.846 14534 14534 I R1Dispatch: t=145816029069569 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=53
+09-06 14:02:31.858 14534 14534 I R1Dispatch: t=145816041728953 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:31.906 14534 14599 I System.out: R1_DISPATCH t=92433931840816 RENDER_ENTER act=CLARIFYING_QUESTION
+09-06 14:02:31.933 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d2fcb52: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:31.934 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:159ffb73: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:31.951 14534 14534 I R1Dispatch: t=145816134445261 thread=main stage=WORKER_RETURN identity=android-therapy-2 committed=true
+09-06 14:02:31.969 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:31.973 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:159ffb73: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:32.028 14534 14534 I R1Dispatch: t=145816211064569 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:32.070 14534 14534 I R1Dispatch: t=145816253545492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1577.0, 1576.0, 1673.0)
+09-06 14:02:32.138 14534 14534 I R1Dispatch: t=145816321066800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2142.0, 1576.0, 2238.0)
+09-06 14:02:32.265 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:51acb69e: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:32.265 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d2fcb52: onHidden
+09-06 14:02:32.286 14534 14534 I R1Dispatch: t=145816469342184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:32.342 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=2 identity=android-therapy-2 committed=true draftEmpty=true
+09-06 14:02:32.561 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d3443dc7: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:32.758 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2424ef8b: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:32.826 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2424ef8b: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:32.839 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=3 input=My specific concern is: the synthetic UI appointment.
+09-06 14:02:32.863 14534 14534 I R1Dispatch: t=145817046272261 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=53
+09-06 14:02:32.870 14534 14534 I R1Dispatch: t=145817053923338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:32.904 14534 14534 I R1Dispatch: t=145817087525184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1963.0, 1576.0, 2059.0)
+09-06 14:02:32.932 14534 14534 I R1Dispatch: t=145817115503107 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1784.0, 1576.0, 1880.0)
+09-06 14:02:32.955 14534 14534 I R1Dispatch: t=145817138481492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:32.978 14534 14534 I R1Dispatch: t=145817161776877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1685.0, 1576.0, 1781.0)
+09-06 14:02:33.002 14534 14534 I R1Dispatch: t=145817185827415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:33.025 14534 14534 I R1Dispatch: t=145817208948646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1603.0, 1576.0, 1699.0)
+09-06 14:02:33.048 14534 14534 I R1Dispatch: t=145817231539415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1572.0, 1576.0, 1668.0)
+09-06 14:02:33.070 14534 14534 I R1Dispatch: t=145817254002492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1562.0, 1576.0, 1658.0)
+09-06 14:02:33.093 14534 14534 I R1Dispatch: t=145817276356569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1554.0, 1576.0, 1650.0)
+09-06 14:02:33.115 14534 14534 I R1Dispatch: t=145817298881184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1546.0, 1576.0, 1642.0)
+09-06 14:02:33.137 14534 14534 I R1Dispatch: t=145817320389492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1545.0, 1576.0, 1641.0)
+09-06 14:02:33.140 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d3443dc7: onShown
+09-06 14:02:33.159 14534 14534 I R1Dispatch: t=145817343011415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:33.204 14534 14534 I R1Dispatch: t=145817387500569 thread=main stage=UI_ON_CLICK
+09-06 14:02:33.204 14534 14534 I R1Dispatch: t=145817387617184 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:33.204 14534 14534 I R1Dispatch: t=145817387676646 thread=main stage=GUARD_ACCEPT
+09-06 14:02:33.204 14534 14534 I R1Dispatch: t=145817387968877 thread=main stage=IDENTITY_ALLOCATED index=3
+09-06 14:02:33.205 14534 14534 I R1Dispatch: t=145817388285184 thread=main stage=PROCESSING_TRUE
+09-06 14:02:33.205 14534 14534 I R1Dispatch: t=145817388483338 thread=main stage=JOB_ENTER
+09-06 14:02:33.205 14534 14599 I R1Dispatch: t=145817389019646 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:33.206 14534 14599 I System.out: R1_DISPATCH t=92435230915662 RUNTIME_ENTER index=3
+09-06 14:02:33.206 14534 14599 I System.out: R1_DISPATCH t=92435230981739 PIPELINE_ACCEPT index=3
+09-06 14:02:33.215 14534 14599 I System.out: R1_DISPATCH t=92435240443354 STORE_ENTER key=therapy.capture.capture-android-therapy-3
+09-06 14:02:33.252 14534 14534 I R1Dispatch: t=145817435372954 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=53
+09-06 14:02:33.262 14534 14534 I R1Dispatch: t=145817445688261 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:33.308 14534 14599 I System.out: R1_DISPATCH t=92435333051662 STORE_COMMITTED revision=3
+09-06 14:02:33.324 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f1aa61c1: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:33.325 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3785ff8f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:33.347 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:33.348 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3785ff8f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:33.379 14534 14534 I R1Dispatch: t=145817562723723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1577.0, 1576.0, 1673.0)
+09-06 14:02:33.412 14534 14534 I R1Dispatch: t=145817595819107 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1716.0, 1576.0, 1812.0)
+09-06 14:02:33.439 14534 14534 I R1Dispatch: t=145817622538800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1969.0, 1576.0, 2065.0)
+09-06 14:02:33.442 14534 14534 I R1Dispatch: t=145817625566107 thread=main stage=WORKER_RETURN identity=android-therapy-3 committed=true
+09-06 14:02:33.507 14534 14534 I R1Dispatch: t=145817690632646 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:33.546 14534 14534 I R1Dispatch: t=145817729640569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2142.0, 1576.0, 2238.0)
+09-06 14:02:33.583 14534 14534 I R1Dispatch: t=145817766509184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2253.0, 1576.0, 2349.0)
+09-06 14:02:33.607 14534 14534 I R1Dispatch: t=145817790975338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2272.0, 1576.0, 2368.0)
+09-06 14:02:33.628 14534 14534 I R1Dispatch: t=145817811268030 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2279.0, 1576.0, 2375.0)
+09-06 14:02:33.652 14534 14534 I R1Dispatch: t=145817835048954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:33.655 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d56cadf1: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:33.656 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f1aa61c1: onHidden
+09-06 14:02:33.824 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=3 identity=android-therapy-3 committed=true draftEmpty=true
+09-06 14:02:34.046 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e11548b0: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:34.234 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1887bf9e: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:34.306 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1887bf9e: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:34.320 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=4 input=Another detail is: the organizer moved the date
+09-06 14:02:34.345 14534 14534 I R1Dispatch: t=145818528220954 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=47
+09-06 14:02:34.353 14534 14534 I R1Dispatch: t=145818536466492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:34.388 14534 14534 I R1Dispatch: t=145818571424338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1963.0, 1576.0, 2059.0)
+09-06 14:02:34.414 14534 14534 I R1Dispatch: t=145818597119338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1784.0, 1576.0, 1880.0)
+09-06 14:02:34.435 14534 14534 I R1Dispatch: t=145818618856569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:34.456 14534 14534 I R1Dispatch: t=145818639650800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1683.0, 1576.0, 1779.0)
+09-06 14:02:34.478 14534 14534 I R1Dispatch: t=145818661209877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:34.500 14534 14534 I R1Dispatch: t=145818683348261 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1602.0, 1576.0, 1698.0)
+09-06 14:02:34.521 14534 14534 I R1Dispatch: t=145818704368877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1585.0, 1576.0, 1681.0)
+09-06 14:02:34.541 14534 14534 I R1Dispatch: t=145818724755646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1572.0, 1576.0, 1668.0)
+09-06 14:02:34.562 14534 14534 I R1Dispatch: t=145818745486723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1554.0, 1576.0, 1650.0)
+09-06 14:02:34.582 14534 14534 I R1Dispatch: t=145818766009184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1549.0, 1576.0, 1645.0)
+09-06 14:02:34.603 14534 14534 I R1Dispatch: t=145818786049800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1546.0, 1576.0, 1642.0)
+09-06 14:02:34.622 14534 14534 I R1Dispatch: t=145818805372261 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1545.0, 1576.0, 1641.0)
+09-06 14:02:34.625 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e11548b0: onShown
+09-06 14:02:34.643 14534 14534 I R1Dispatch: t=145818826576031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:34.686 14534 14534 I R1Dispatch: t=145818869464338 thread=main stage=UI_ON_CLICK
+09-06 14:02:34.686 14534 14534 I R1Dispatch: t=145818869588954 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:34.686 14534 14534 I R1Dispatch: t=145818869664031 thread=main stage=GUARD_ACCEPT
+09-06 14:02:34.686 14534 14534 I R1Dispatch: t=145818870019415 thread=main stage=IDENTITY_ALLOCATED index=4
+09-06 14:02:34.687 14534 14534 I R1Dispatch: t=145818870423107 thread=main stage=PROCESSING_TRUE
+09-06 14:02:34.687 14534 14534 I R1Dispatch: t=145818870670723 thread=main stage=JOB_ENTER
+09-06 14:02:34.688 14534 14599 I R1Dispatch: t=145818871151723 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:34.688 14534 14599 I System.out: R1_DISPATCH t=92436713058970 RUNTIME_ENTER index=4
+09-06 14:02:34.688 14534 14599 I System.out: R1_DISPATCH t=92436713135970 PIPELINE_ACCEPT index=4
+09-06 14:02:34.699 14534 14599 I System.out: R1_DISPATCH t=92436724338354 STORE_ENTER key=therapy.capture.capture-android-therapy-4
+09-06 14:02:34.730 14534 14599 I System.out: R1_DISPATCH t=92436754839970 STORE_COMMITTED revision=4
+09-06 14:02:34.734 14534 14534 I R1Dispatch: t=145818917221184 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=47
+09-06 14:02:34.745 14534 14534 I R1Dispatch: t=145818928262184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:34.805 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6ccfb860: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:34.805 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:af1be5d7: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:34.826 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:34.827 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:af1be5d7: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:34.846 14534 14534 I R1Dispatch: t=145819029992031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1577.0, 1576.0, 1673.0)
+09-06 14:02:34.877 14534 14534 I R1Dispatch: t=145819060273492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1705.0, 1576.0, 1801.0)
+09-06 14:02:34.912 14534 14534 I R1Dispatch: t=145819095097877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1969.0, 1576.0, 2065.0)
+09-06 14:02:34.921 14534 14599 I System.out: R1_DISPATCH t=92436945984508 RENDER_ENTER act=BRIEF_REFLECTION
+09-06 14:02:34.933 14534 14534 I R1Dispatch: t=145819116956954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2098.0, 1576.0, 2194.0)
+09-06 14:02:34.953 14534 14534 I R1Dispatch: t=145819136127415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2142.0, 1576.0, 2238.0)
+09-06 14:02:34.955 14534 14534 I R1Dispatch: t=145819138288031 thread=main stage=WORKER_RETURN identity=android-therapy-4 committed=true
+09-06 14:02:35.027 14534 14534 I R1Dispatch: t=145819210889261 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:35.077 14534 14534 I R1Dispatch: t=145819260641492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2223.0, 1576.0, 2319.0)
+09-06 14:02:35.117 14534 14534 I R1Dispatch: t=145819300158800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2279.0, 1576.0, 2375.0)
+09-06 14:02:35.123 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ad92861a: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:35.123 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6ccfb860: onHidden
+09-06 14:02:35.140 14534 14534 I R1Dispatch: t=145819323390184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:35.307 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=4 identity=android-therapy-4 committed=true draftEmpty=true
+09-06 14:02:35.461 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fe42b742: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:35.632 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4cb81eb3: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:35.727 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4cb81eb3: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:35.729 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=5 input=Please pause
+09-06 14:02:35.749 14534 14534 I R1Dispatch: t=145819932939338 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=12
+09-06 14:02:35.767 14534 14534 I R1Dispatch: t=145819950674492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2248.0, 1576.0, 2344.0)
+09-06 14:02:35.808 14534 14534 I R1Dispatch: t=145819991414800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1856.0, 1576.0, 1952.0)
+09-06 14:02:35.837 14534 14534 I R1Dispatch: t=145820020807723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:35.859 14534 14534 I R1Dispatch: t=145820042703954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1649.0, 1576.0, 1745.0)
+09-06 14:02:35.879 14534 14534 I R1Dispatch: t=145820062338108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:35.900 14534 14534 I R1Dispatch: t=145820083935338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1602.0, 1576.0, 1698.0)
+09-06 14:02:35.919 14534 14534 I R1Dispatch: t=145820102917800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1584.0, 1576.0, 1680.0)
+09-06 14:02:35.938 14534 14534 I R1Dispatch: t=145820121845261 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1572.0, 1576.0, 1668.0)
+09-06 14:02:35.957 14534 14534 I R1Dispatch: t=145820140754415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1561.0, 1576.0, 1657.0)
+09-06 14:02:35.976 14534 14534 I R1Dispatch: t=145820159324338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1549.0, 1576.0, 1645.0)
+09-06 14:02:35.995 14534 14534 I R1Dispatch: t=145820178373184 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1546.0, 1576.0, 1642.0)
+09-06 14:02:36.013 14534 14534 I R1Dispatch: t=145820196889877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1545.0, 1576.0, 1641.0)
+09-06 14:02:36.016 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fe42b742: onShown
+09-06 14:02:36.033 14534 14534 I R1Dispatch: t=145820216276031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:36.066 14534 14534 I R1Dispatch: t=145820249359031 thread=main stage=UI_ON_CLICK
+09-06 14:02:36.066 14534 14534 I R1Dispatch: t=145820249447954 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:36.066 14534 14534 I R1Dispatch: t=145820249498184 thread=main stage=GUARD_ACCEPT
+09-06 14:02:36.066 14534 14534 I R1Dispatch: t=145820249824877 thread=main stage=IDENTITY_ALLOCATED index=5
+09-06 14:02:36.067 14534 14534 I R1Dispatch: t=145820250068646 thread=main stage=PROCESSING_TRUE
+09-06 14:02:36.067 14534 14534 I R1Dispatch: t=145820250263338 thread=main stage=JOB_ENTER
+09-06 14:02:36.067 14534 14599 I R1Dispatch: t=145820250638723 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:36.067 14534 14599 I System.out: R1_DISPATCH t=92438092513816 RUNTIME_ENTER index=5
+09-06 14:02:36.067 14534 14599 I System.out: R1_DISPATCH t=92438092566739 PIPELINE_ACCEPT index=5
+09-06 14:02:36.076 14534 14599 I System.out: R1_DISPATCH t=92438101646970 STORE_ENTER key=therapy.capture.capture-android-therapy-5
+09-06 14:02:36.115 14534 14534 I R1Dispatch: t=145820298586492 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=12
+09-06 14:02:36.125 14534 14534 I R1Dispatch: t=145820308365569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:36.133 14534 14599 I System.out: R1_DISPATCH t=92438158216585 STORE_COMMITTED revision=5
+09-06 14:02:36.181 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:24960ef8: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:36.182 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bf976d80: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:36.204 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:36.208 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bf976d80: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:36.234 14534 14534 I R1Dispatch: t=145820417213492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1573.0, 1576.0, 1669.0)
+09-06 14:02:36.262 14534 14539 I ctv215r1fixture: Background concurrent mark compact GC freed 43MB AllocSpace bytes, 28(720KB) LOS objects, 49% free, 8143KB/15MB, paused 746us,3.002ms total 117.062ms
+09-06 14:02:36.281 14534 14534 I R1Dispatch: t=145820464105261 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1862.0, 1576.0, 1958.0)
+09-06 14:02:36.309 14534 14534 I R1Dispatch: t=145820492515723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2041.0, 1576.0, 2137.0)
+09-06 14:02:36.336 14534 14534 I R1Dispatch: t=145820519183954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2140.0, 1576.0, 2236.0)
+09-06 14:02:36.354 14534 14534 I R1Dispatch: t=145820537681492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2174.0, 1576.0, 2270.0)
+09-06 14:02:36.372 14534 14534 I R1Dispatch: t=145820555060031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2201.0, 1576.0, 2297.0)
+09-06 14:02:36.407 14534 14534 I R1Dispatch: t=145820590155108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2222.0, 1576.0, 2318.0)
+09-06 14:02:36.413 14534 14599 I System.out: R1_DISPATCH t=92438438733816 RENDER_ENTER act=NO_RESPONSE
+09-06 14:02:36.427 14534 14534 I R1Dispatch: t=145820610811415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2263.0, 1576.0, 2359.0)
+09-06 14:02:36.430 14534 14534 I R1Dispatch: t=145820613468261 thread=main stage=WORKER_RETURN identity=android-therapy-5 committed=true
+09-06 14:02:36.528 14534 14534 I R1Dispatch: t=145820711461184 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:36.559 14534 14534 I R1Dispatch: t=145820742453877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:36.571 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:603ecfa6: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:36.572 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:24960ef8: onHidden
+09-06 14:02:36.739 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=5 identity=android-therapy-5 committed=true draftEmpty=true
+09-06 14:02:36.983 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:57e1d279: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:37.142 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4d7195f8: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:37.229 14534 14534 I R1Dispatch: t=145821412795338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2252.0, 1576.0, 2348.0)
+09-06 14:02:37.233 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4d7195f8: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:37.251 14534 14534 I R1Dispatch: t=145821434562108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2120.0, 1576.0, 2216.0)
+09-06 14:02:37.273 14534 14534 I R1Dispatch: t=145821456463031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1963.0, 1576.0, 2059.0)
+09-06 14:02:37.295 14534 14534 I R1Dispatch: t=145821478294108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1784.0, 1576.0, 1880.0)
+09-06 14:02:37.300 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=6 input=I am ready to resume
+09-06 14:02:37.317 14534 14534 I R1Dispatch: t=145821500905261 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=20
+09-06 14:02:37.333 14534 14534 I R1Dispatch: t=145821516383031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:37.361 14534 14534 I R1Dispatch: t=145821544636954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:37.385 14534 14534 I R1Dispatch: t=145821568765569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1603.0, 1576.0, 1699.0)
+09-06 14:02:37.403 14534 14534 I R1Dispatch: t=145821586850415 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1585.0, 1576.0, 1681.0)
+09-06 14:02:37.421 14534 14534 I R1Dispatch: t=145821604314108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1572.0, 1576.0, 1668.0)
+09-06 14:02:37.440 14534 14534 I R1Dispatch: t=145821623871723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1562.0, 1576.0, 1658.0)
+09-06 14:02:37.458 14534 14534 I R1Dispatch: t=145821641515338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1549.0, 1576.0, 1645.0)
+09-06 14:02:37.475 14534 14534 I R1Dispatch: t=145821658691723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1546.0, 1576.0, 1642.0)
+09-06 14:02:37.492 14534 14534 I R1Dispatch: t=145821675873569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1545.0, 1576.0, 1641.0)
+09-06 14:02:37.495 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:57e1d279: onShown
+09-06 14:02:37.510 14534 14534 I R1Dispatch: t=145821693855646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:37.548 14534 14534 I R1Dispatch: t=145821731553569 thread=main stage=UI_ON_CLICK
+09-06 14:02:37.548 14534 14534 I R1Dispatch: t=145821731666415 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:37.548 14534 14534 I R1Dispatch: t=145821731732954 thread=main stage=GUARD_ACCEPT
+09-06 14:02:37.549 14534 14534 I R1Dispatch: t=145821732172954 thread=main stage=IDENTITY_ALLOCATED index=6
+09-06 14:02:37.549 14534 14534 I R1Dispatch: t=145821732491338 thread=main stage=PROCESSING_TRUE
+09-06 14:02:37.549 14534 14534 I R1Dispatch: t=145821732709800 thread=main stage=JOB_ENTER
+09-06 14:02:37.550 14534 14599 I R1Dispatch: t=145821733227954 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:37.550 14534 14599 I System.out: R1_DISPATCH t=92439575124585 RUNTIME_ENTER index=6
+09-06 14:02:37.550 14534 14599 I System.out: R1_DISPATCH t=92439575176893 PIPELINE_ACCEPT index=6
+09-06 14:02:37.566 14534 14599 I System.out: R1_DISPATCH t=92439591255277 STORE_ENTER key=therapy.capture.capture-android-therapy-6
+09-06 14:02:37.589 14534 14534 I R1Dispatch: t=145821772264954 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=20
+09-06 14:02:37.598 14534 14599 I System.out: R1_DISPATCH t=92439623689124 STORE_COMMITTED revision=6
+09-06 14:02:37.598 14534 14534 I R1Dispatch: t=145821781968954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:37.659 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e13a172f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:37.659 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f91312e0: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:37.675 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:37.692 14534 14534 I R1Dispatch: t=145821875873569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1577.0, 1576.0, 1673.0)
+09-06 14:02:37.719 14534 14534 I R1Dispatch: t=145821902667031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1716.0, 1576.0, 1812.0)
+09-06 14:02:37.723 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f91312e0: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:37.745 14534 14534 I R1Dispatch: t=145821928230108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1862.0, 1576.0, 1958.0)
+09-06 14:02:37.773 14534 14534 I R1Dispatch: t=145821956483338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2045.0, 1576.0, 2141.0)
+09-06 14:02:37.814 14534 14534 I R1Dispatch: t=145821997887031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2142.0, 1576.0, 2238.0)
+09-06 14:02:37.833 14534 14534 I R1Dispatch: t=145822016903338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2201.0, 1576.0, 2297.0)
+09-06 14:02:37.850 14534 14534 I R1Dispatch: t=145822033532954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2223.0, 1576.0, 2319.0)
+09-06 14:02:37.866 14534 14534 I R1Dispatch: t=145822049891646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2241.0, 1576.0, 2337.0)
+09-06 14:02:37.883 14534 14534 I R1Dispatch: t=145822066257877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2253.0, 1576.0, 2349.0)
+09-06 14:02:37.902 14534 14534 I R1Dispatch: t=145822085582800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2264.0, 1576.0, 2360.0)
+09-06 14:02:37.918 14534 14599 I System.out: R1_DISPATCH t=92439943819662 RENDER_ENTER act=CLARIFYING_QUESTION
+09-06 14:02:37.920 14534 14534 I R1Dispatch: t=145822104017569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2272.0, 1576.0, 2368.0)
+09-06 14:02:37.945 14534 14534 I R1Dispatch: t=145822129008954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2276.0, 1576.0, 2372.0)
+09-06 14:02:37.961 14534 14534 I R1Dispatch: t=145822144861492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:37.967 14534 14534 I R1Dispatch: t=145822150889800 thread=main stage=WORKER_RETURN identity=android-therapy-6 committed=true
+09-06 14:02:38.030 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:dd9bff29: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:38.031 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e13a172f: onHidden
+09-06 14:02:38.085 14534 14534 I R1Dispatch: t=145822268393800 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:38.107 14534 14534 I R1Dispatch: t=145822290427108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:38.272 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=6 identity=android-therapy-6 committed=true draftEmpty=true
+09-06 14:02:38.497 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:24cf4f3e: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:38.638 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c81f96ca: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:38.716 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c81f96ca: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:38.721 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=7 input=I don't want to discuss this
+09-06 14:02:38.745 14534 14534 I R1Dispatch: t=145822928467108 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=28
+09-06 14:02:38.752 14534 14534 I R1Dispatch: t=145822936023108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:38.782 14534 14534 I R1Dispatch: t=145822965588262 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1963.0, 1576.0, 2059.0)
+09-06 14:02:38.803 14534 14534 I R1Dispatch: t=145822986826723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1856.0, 1576.0, 1952.0)
+09-06 14:02:38.820 14534 14534 I R1Dispatch: t=145823003406800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1780.0, 1576.0, 1876.0)
+09-06 14:02:38.837 14534 14534 I R1Dispatch: t=145823020977569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:38.854 14534 14534 I R1Dispatch: t=145823037444646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1683.0, 1576.0, 1779.0)
+09-06 14:02:38.872 14534 14534 I R1Dispatch: t=145823055149262 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1649.0, 1576.0, 1745.0)
+09-06 14:02:38.889 14534 14534 I R1Dispatch: t=145823072639954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:38.905 14534 14534 I R1Dispatch: t=145823088903954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1602.0, 1576.0, 1698.0)
+09-06 14:02:38.922 14534 14534 I R1Dispatch: t=145823105205492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1584.0, 1576.0, 1680.0)
+09-06 14:02:38.938 14534 14534 I R1Dispatch: t=145823121376338 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1572.0, 1576.0, 1668.0)
+09-06 14:02:38.955 14534 14534 I R1Dispatch: t=145823138044031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1561.0, 1576.0, 1657.0)
+09-06 14:02:38.972 14534 14534 I R1Dispatch: t=145823155658108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1553.0, 1576.0, 1649.0)
+09-06 14:02:39.000 14534 14534 I R1Dispatch: t=145823183096954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1546.0, 1576.0, 1642.0)
+09-06 14:02:39.015 14534 14534 I R1Dispatch: t=145823198403646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1545.0, 1576.0, 1641.0)
+09-06 14:02:39.017 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:24cf4f3e: onShown
+09-06 14:02:39.031 14534 14534 I R1Dispatch: t=145823214145800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:39.066 14534 14534 I R1Dispatch: t=145823249536877 thread=main stage=UI_ON_CLICK
+09-06 14:02:39.066 14534 14534 I R1Dispatch: t=145823249659031 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:39.066 14534 14534 I R1Dispatch: t=145823249724569 thread=main stage=GUARD_ACCEPT
+09-06 14:02:39.067 14534 14534 I R1Dispatch: t=145823250121185 thread=main stage=IDENTITY_ALLOCATED index=7
+09-06 14:02:39.067 14534 14534 I R1Dispatch: t=145823250475954 thread=main stage=PROCESSING_TRUE
+09-06 14:02:39.067 14534 14534 I R1Dispatch: t=145823250673800 thread=main stage=JOB_ENTER
+09-06 14:02:39.068 14534 14599 I R1Dispatch: t=145823251200338 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:39.068 14534 14599 I System.out: R1_DISPATCH t=92441093122047 RUNTIME_ENTER index=7
+09-06 14:02:39.068 14534 14599 I System.out: R1_DISPATCH t=92441093178047 PIPELINE_ACCEPT index=7
+09-06 14:02:39.086 14534 14599 I System.out: R1_DISPATCH t=92441111035585 STORE_ENTER key=therapy.capture.capture-android-therapy-7
+09-06 14:02:39.105 14534 14534 I R1Dispatch: t=145823288604338 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=28
+09-06 14:02:39.115 14534 14534 I R1Dispatch: t=145823298301800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:39.116 14534 14599 I System.out: R1_DISPATCH t=92441140929739 STORE_COMMITTED revision=7
+09-06 14:02:39.163 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:5b93090b: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:39.163 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7edfb96d: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:39.185 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:39.188 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7edfb96d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:39.224 14534 14534 I R1Dispatch: t=145823407642800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1577.0, 1576.0, 1673.0)
+09-06 14:02:39.255 14534 14534 I R1Dispatch: t=145823438657185 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1862.0, 1576.0, 1958.0)
+09-06 14:02:39.279 14534 14534 I R1Dispatch: t=145823462045185 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2041.0, 1576.0, 2137.0)
+09-06 14:02:39.297 14534 14534 I R1Dispatch: t=145823481026723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2098.0, 1576.0, 2194.0)
+09-06 14:02:39.333 14534 14534 I R1Dispatch: t=145823516119108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2142.0, 1576.0, 2238.0)
+09-06 14:02:39.348 14534 14534 I R1Dispatch: t=145823531803723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2201.0, 1576.0, 2297.0)
+09-06 14:02:39.362 14534 14534 I R1Dispatch: t=145823546019954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2223.0, 1576.0, 2319.0)
+09-06 14:02:39.378 14534 14534 I R1Dispatch: t=145823561187646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2240.0, 1576.0, 2336.0)
+09-06 14:02:39.393 14534 14534 I R1Dispatch: t=145823576205492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2253.0, 1576.0, 2349.0)
+09-06 14:02:39.410 14534 14534 I R1Dispatch: t=145823593888031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2264.0, 1576.0, 2360.0)
+09-06 14:02:39.425 14534 14534 I R1Dispatch: t=145823608418108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2271.0, 1576.0, 2367.0)
+09-06 14:02:39.448 14534 14534 I R1Dispatch: t=145823631635031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2276.0, 1576.0, 2372.0)
+09-06 14:02:39.463 14534 14534 I R1Dispatch: t=145823647016569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2279.0, 1576.0, 2375.0)
+09-06 14:02:39.477 14534 14534 I R1Dispatch: t=145823660600031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:39.481 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:572b3945: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:39.481 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:5b93090b: onHidden
+09-06 14:02:39.495 14534 14599 I System.out: R1_DISPATCH t=92441520523047 RENDER_ENTER act=NO_RESPONSE
+09-06 14:02:39.496 14534 14534 I R1Dispatch: t=145823679678185 thread=main stage=WORKER_RETURN identity=android-therapy-7 committed=true
+09-06 14:02:39.615 14534 14534 I R1Dispatch: t=145823798702723 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:39.635 14534 14534 I R1Dispatch: t=145823818536262 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:39.788 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=7 identity=android-therapy-7 committed=true draftEmpty=true
+09-06 14:02:40.013 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:807d4646: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:40.161 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bccf5d76: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:40.239 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=8 input=I want to continue
+09-06 14:02:40.266 14534 14534 I R1Dispatch: t=145824449443108 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=18
+09-06 14:02:40.273 14534 14534 I R1Dispatch: t=145824456554185 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:40.287 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bccf5d76: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:40.341 14534 14534 I R1Dispatch: t=145824524771723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2248.0, 1576.0, 2344.0)
+09-06 14:02:40.358 14534 14534 I R1Dispatch: t=145824541254723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2109.0, 1576.0, 2205.0)
+09-06 14:02:40.374 14534 14534 I R1Dispatch: t=145824558019954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1963.0, 1576.0, 2059.0)
+09-06 14:02:40.391 14534 14534 I R1Dispatch: t=145824574471954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1856.0, 1576.0, 1952.0)
+09-06 14:02:40.406 14534 14534 I R1Dispatch: t=145824589908031 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1780.0, 1576.0, 1876.0)
+09-06 14:02:40.422 14534 14534 I R1Dispatch: t=145824606017800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:40.439 14534 14534 I R1Dispatch: t=145824622283646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1683.0, 1576.0, 1779.0)
+09-06 14:02:40.456 14534 14534 I R1Dispatch: t=145824639351108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1649.0, 1576.0, 1745.0)
+09-06 14:02:40.466 14534 14534 I R1Dispatch: t=145824649987954 thread=main stage=UI_ON_CLICK
+09-06 14:02:40.467 14534 14534 I R1Dispatch: t=145824650073877 thread=main stage=VIEWMODEL_ENTER
+09-06 14:02:40.467 14534 14534 I R1Dispatch: t=145824650132646 thread=main stage=GUARD_ACCEPT
+09-06 14:02:40.467 14534 14534 I R1Dispatch: t=145824650540339 thread=main stage=IDENTITY_ALLOCATED index=8
+09-06 14:02:40.467 14534 14534 I R1Dispatch: t=145824650816339 thread=main stage=PROCESSING_TRUE
+09-06 14:02:40.467 14534 14534 I R1Dispatch: t=145824651002185 thread=main stage=JOB_ENTER
+09-06 14:02:40.468 14534 14599 I R1Dispatch: t=145824651408031 thread=DefaultDispatcher-worker-1 stage=WORKER_ENTER
+09-06 14:02:40.468 14534 14599 I System.out: R1_DISPATCH t=92442493302354 RUNTIME_ENTER index=8
+09-06 14:02:40.468 14534 14599 I System.out: R1_DISPATCH t=92442493350739 PIPELINE_ACCEPT index=8
+09-06 14:02:40.481 14534 14599 I System.out: R1_DISPATCH t=92442505859662 STORE_ENTER key=therapy.capture.capture-android-therapy-8
+09-06 14:02:40.484 14534 14534 I R1Dispatch: t=145824667294185 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:40.521 14534 14534 I R1Dispatch: t=145824704564262 thread=main stage=BUTTON_STATE enabled=false processing=true draftLength=18
+09-06 14:02:40.532 14534 14534 I R1Dispatch: t=145824715690492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1624.0, 1576.0, 1720.0)
+09-06 14:02:40.540 14534 14599 I System.out: R1_DISPATCH t=92442565600508 STORE_COMMITTED revision=8
+09-06 14:02:40.580 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:baba0ac0: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:40.581 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a8c63e81: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 14:02:40.582 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:807d4646: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:02:40.620 14534 14534 I R1Dispatch: t=145824803334492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:40.620 14534 14539 I ctv215r1fixture: Background young concurrent mark compact GC freed 8104KB AllocSpace bytes, 21(456KB) LOS objects, 54% free, 7211KB/15MB, paused 509us,7.752ms total 47.576ms
+09-06 14:02:40.636 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a8c63e81: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:40.636 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:40.657 14534 14534 I R1Dispatch: t=145824840713569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1577.0, 1576.0, 1673.0)
+09-06 14:02:40.678 14534 14534 I R1Dispatch: t=145824861599416 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1705.0, 1576.0, 1801.0)
+09-06 14:02:40.702 14534 14534 I R1Dispatch: t=145824885345492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1862.0, 1576.0, 1958.0)
+09-06 14:02:40.723 14534 14534 I R1Dispatch: t=145824906506492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 1969.0, 1576.0, 2065.0)
+09-06 14:02:40.737 14534 14534 I R1Dispatch: t=145824920691339 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2098.0, 1576.0, 2194.0)
+09-06 14:02:40.770 14534 14534 I R1Dispatch: t=145824953899646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2142.0, 1576.0, 2238.0)
+09-06 14:02:40.785 14534 14534 I R1Dispatch: t=145824968912877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2174.0, 1576.0, 2270.0)
+09-06 14:02:40.799 14534 14534 I R1Dispatch: t=145824982994800 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2201.0, 1576.0, 2297.0)
+09-06 14:02:40.813 14534 14534 I R1Dispatch: t=145824996214108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2223.0, 1576.0, 2319.0)
+09-06 14:02:40.827 14534 14534 I R1Dispatch: t=145825010862185 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2240.0, 1576.0, 2336.0)
+09-06 14:02:40.842 14534 14534 I R1Dispatch: t=145825025148569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2253.0, 1576.0, 2349.0)
+09-06 14:02:40.858 14534 14534 I R1Dispatch: t=145825041873877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2264.0, 1576.0, 2360.0)
+09-06 14:02:40.872 14534 14534 I R1Dispatch: t=145825055795954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2271.0, 1576.0, 2367.0)
+09-06 14:02:40.896 14534 14534 I R1Dispatch: t=145825079822185 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2276.0, 1576.0, 2372.0)
+09-06 14:02:40.910 14534 14534 I R1Dispatch: t=145825093488569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2279.0, 1576.0, 2375.0)
+09-06 14:02:40.923 14534 14534 I R1Dispatch: t=145825106888954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1353.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:40.927 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2d329231: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:02:40.928 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:baba0ac0: onHidden
+09-06 14:02:40.977 14534 14599 I System.out: R1_DISPATCH t=92443002695662 RENDER_ENTER act=CLARIFYING_QUESTION
+09-06 14:02:40.986 14534 14534 I R1Dispatch: t=145825169060877 thread=main stage=WORKER_RETURN identity=android-therapy-8 committed=true
+09-06 14:02:41.124 14534 14534 I R1Dispatch: t=145825307104877 thread=main stage=BUTTON_STATE enabled=false processing=false draftLength=0
+09-06 14:02:41.141 14534 14534 I R1Dispatch: t=145825324658108 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:41.304 14534 14547 I System.out: R1 DISPATCH_ACCEPTED ordinal=8 identity=android-therapy-8 committed=true draftEmpty=true
+09-06 14:02:41.512 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fc1be2e8: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:02:41.653 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:cf1cec34: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:02:41.737 14534 14547 I System.out: R1 DISPATCH_TOUCH ordinal=9 input=I don’t want to discuss this
+09-06 14:02:41.757 14534 14534 I R1Dispatch: t=145825940467646 thread=main stage=BUTTON_STATE enabled=true processing=false draftLength=28
+09-06 14:02:41.765 14534 14534 I R1Dispatch: t=145825948157492 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2280.0, 1576.0, 2376.0)
+09-06 14:02:41.777 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:cf1cec34: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:41.839 14534 14534 I R1Dispatch: t=145826022732646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2248.0, 1576.0, 2344.0)
+09-06 14:02:41.855 14534 14534 I R1Dispatch: t=145826038532262 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 2109.0, 1576.0, 2205.0)
+09-06 14:02:41.872 14534 14534 I R1Dispatch: t=145826055302416 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1963.0, 1576.0, 2059.0)
+09-06 14:02:41.887 14534 14534 I R1Dispatch: t=145826071027723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1856.0, 1576.0, 1952.0)
+09-06 14:02:41.904 14534 14534 I R1Dispatch: t=145826087852646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1780.0, 1576.0, 1876.0)
+09-06 14:02:41.921 14534 14534 I R1Dispatch: t=145826104748339 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1727.0, 1576.0, 1823.0)
+09-06 14:02:41.938 14534 14534 I R1Dispatch: t=145826121709877 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1683.0, 1576.0, 1779.0)
+09-06 14:02:41.957 14534 14534 I R1Dispatch: t=145826140159723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1649.0, 1576.0, 1745.0)
+09-06 14:02:41.990 14534 14534 I R1Dispatch: t=145826173760339 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1602.0, 1576.0, 1698.0)
+09-06 14:02:42.026 14534 14534 I R1Dispatch: t=145826209409569 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1584.0, 1576.0, 1680.0)
+09-06 14:02:42.054 14534 14534 I R1Dispatch: t=145826237869262 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1561.0, 1576.0, 1657.0)
+09-06 14:02:42.098 14534 14534 I R1Dispatch: t=145826281251954 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1549.0, 1576.0, 1645.0)
+09-06 14:02:42.145 14534 14534 I R1Dispatch: t=145826328536646 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1545.0, 1576.0, 1641.0)
+09-06 14:02:42.151 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fc1be2e8: onShown
+09-06 14:02:42.192 14534 14534 I R1Dispatch: t=145826375531723 thread=main stage=BUTTON_BOUNDS Rect.fromLTRB(1380.0, 1544.0, 1576.0, 1640.0)
+09-06 14:02:42.669 14534 14534 I R1Dispatch: t=145826852751954 thread=main stage=VIEWMODEL_CLEARED
+09-06 14:02:42.670 14534 14534 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@b245d5c
+09-06 14:02:42.705 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c00ce6cf: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:02:42.706 14534 14534 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c00ce6cf: onFailed at PHASE_CLIENT_VIEW_SERVED
+09-06 14:02:42.706 14534 14534 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 14:02:42.709 14534 14534 I ImeTracker: com.tcl.android.launcher:83d7e873: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:02:42.714 14534 14547 E TestRunner: failed: twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-06 14:02:42.715 14534 14547 E TestRunner: ----- begin exception -----
+09-06 14:02:42.715 14534 14547 E TestRunner: java.lang.AssertionError: SILENT_SUBMISSION_LOSS ordinal=9 processing=false draftLength=28
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at org.junit.Assert.fail(Assert.java:89)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at org.junit.Assert.assertTrue(Assert.java:42)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest.twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce$lambda$6$lambda$3(CTV215R1DispatchInstrumentedTest.kt:68)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest$$ExternalSyntheticLambda1.invoke(D8$$SyntheticClass:0)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at androidx.compose.ui.test.AndroidSynchronization_androidKt.runOnUiThread$lambda$0(AndroidSynchronization.android.kt:39)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at androidx.compose.ui.test.AndroidSynchronization_androidKt$$ExternalSyntheticLambda0.call(D8$$SyntheticClass:0)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at android.app.Instrumentation$SyncRunnable.run(Instrumentation.java:2632)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at android.os.Handler.handleCallback(Handler.java:959)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at android.os.Looper.loopOnce(Looper.java:254)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at android.os.Looper.loop(Looper.java:350)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at android.app.ActivityThread.main(ActivityThread.java:8860)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:617)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1133)
+09-06 14:02:42.715 14534 14547 E TestRunner: 	Suppressed: java.util.concurrent.ExecutionException: An Exception occurred on the UI thread during runOnUiThread()
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidSynchronization_androidKt.runOnUiThread(AndroidSynchronization.android.kt:50)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.runOnUiThread(ComposeUiTest.android.kt:834)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.runOnIdle(ComposeUiTest.android.kt:841)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.junit4.AndroidComposeTestRule.runOnIdle(AndroidComposeTestRule.android.kt:475)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest.twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce(CTV215R1DispatchInstrumentedTest.kt:67)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at java.lang.reflect.Method.invoke(Native Method)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$testWithDisposal$1.evaluate(AndroidComposeTestRule.android.kt:418)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invokeSuspend(AndroidComposeTestRule.android.kt:438)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:8)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:4)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invokeSuspend(ComposeUiTest.android.kt:682)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:8)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:2)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:69)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invokeSuspend(ComposeUiTest.android.kt:679)
+09-06 14:02:42.715 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:8)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:4)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend(TestBuilders.kt:318)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(TestDispatcher.kt:24)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(TestCoroutineScheduler.kt:99)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(TestBuilders.kt:327)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.BuildersKt.runBlocking(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.BuildersKt.runBlocking$default(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(TestBuildersJvm.kt:10)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:310)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:168)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:658)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:438)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.Suite.runChild(Suite.java:128)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.Suite.runChild(Suite.java:27)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+09-06 14:02:42.716 14534 14547 E TestRunner: 		at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2614)
+09-06 14:02:42.716 14534 14547 E TestRunner: ----- end exception -----
+09-06 14:02:42.719 14534 14547 I TestRunner: finished: twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-06 14:02:42.724 14534 14547 I TestRunner: run finished: 1 tests, 1 failed, 0 ignored

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-06T21:18:27.800Z" hostname="MENARD" time="0.003">
+  <properties/>
+  <testcase name="journalNoResponseDoesNotInvokeRealizerOrAlterHistory" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.001"/>
+  <testcase name="exactDuplicateSearchesBeyondSelectedReferenceAndBaseFallback" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.001"/>
+  <testcase name="allAuthorizedFormsAndFallbackExhaustedIsExplicitFailureNotSilence" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.0"/>
+  <testcase name="distinctFallbackIsIndependentlyValidatedAfterReferenceExhaustion" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.0"/>
+  <testcase name="invalidReferenceAlternativesStillPassThroughFullValidator" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.0"/>
+  <testcase name="distinctButUnauthorizedMeaningCannotRescueExhaustedCommand" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.001"/>
+  <testcase name="repeatedOpeningRejectsCandidateButAcceptsAuthorizedDifferentOpening" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.0"/>
+  <testcase name="oneUnchangedSurfaceAndDuplicateFallbackRemainProhibited" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.0"/>
+  <testcase name="legitimateFixedSafetyPhraseStillRepeatsExactly" classname="com.conundrum.thomas.v2.qualification.CTV215R1RendererRecurrenceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

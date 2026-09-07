@@ -1,0 +1,59 @@
+{
+  "disposition": "OPEN_UNSEALED_FINAL_PHYSICAL_GATE_FAILED",
+  "software": {
+    "suites": 64,
+    "tests": 1000,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "lintErrors": 0,
+    "lintFatals": 0,
+    "lintWarningsAggregate": 17,
+    "cleanBuild": "PASS"
+  },
+  "finalDispatchRun": {
+    "run": "run-07",
+    "controlledSeconds": 4.205,
+    "twentyTurnSeconds": 45.129,
+    "reopenSeconds": 2.72,
+    "acceptedExactlyOnce": 20,
+    "durableExactSourcesAfterReopen": 20
+  },
+  "finalPhysicalRun": {
+    "run": "run-08",
+    "a": {
+      "result": "PASS",
+      "seconds": 452.967
+    },
+    "b": {
+      "result": "PASS",
+      "seconds": 81.585
+    },
+    "c": {
+      "result": "FAIL",
+      "seconds": 712.553
+    },
+    "d": "NOT_RUN",
+    "e": "NOT_RUN"
+  },
+  "newBlocker": {
+    "checkpoint": 16,
+    "committedIdentity": "android-therapy-84",
+    "draftCleared": true,
+    "notSavedAbsent": true,
+    "expectedLastAction": "core-verify-problem-understanding",
+    "observedLastAction": "core-summarize-shared-understanding",
+    "underlyingCause": "NOT_ESTABLISHED; no further repair authorized by this failed gate"
+  },
+  "uiCommittedCheckpoints": 16,
+  "uiIdentityRangeFromSequentialAssertionsAndLiveObservations": [
+    69,
+    84
+  ],
+  "finalMainLogBufferStartsAtUiInput": 8,
+  "custodyUnchanged": true,
+  "disposablePackagesRemaining": 0,
+  "canonicalCommitsCreated": 0,
+  "tagCreated": false,
+  "push": false
+}

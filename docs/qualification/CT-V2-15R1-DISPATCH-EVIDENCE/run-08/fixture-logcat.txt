@@ -1,0 +1,241 @@
+--------- beginning of system
+09-06 14:22:27.797 16950 16950 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-06 14:30:02.066 17173 17173 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-06 14:31:24.945 17220 17220 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-06 14:31:33.038 17220 17220 W Looper  : Slow dispatch took 7302ms main h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver@34d176d m=0
+09-06 14:32:05.539 17220 17220 W Looper  : Slow dispatch took 5008ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@45f5b88] m=0
+09-06 14:32:43.237 17220 17220 W Looper  : Slow dispatch took 5086ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@5fc9602] m=0
+09-06 14:33:14.944 17220 17220 W Looper  : Slow dispatch took 5250ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@9e79e21] m=0
+09-06 14:33:54.032 17220 17220 W Looper  : Slow dispatch took 5337ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@ae75eaf] m=0
+09-06 14:34:34.350 17220 17220 W Looper  : Slow dispatch took 5735ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@d4a776c] m=0
+09-06 14:35:13.455 17220 17220 W Looper  : Slow dispatch took 5480ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@b77c654] m=0
+09-06 14:35:54.170 17220 17220 W Looper  : Slow dispatch took 5768ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@17826ed] m=0
+--------- beginning of main
+09-06 14:36:08.028 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:37dd1cf9: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:36:08.158 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8f66c715: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:36:08.227 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=I want to continue processing=false draft=I want to continue status=No response
+09-06 14:36:08.274 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8f66c715: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:36:08.347 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:36:08.350 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ee40a005: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:36:08.369 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:37dd1cf9: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:36:08.684 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:482ece31: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:36:08.685 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ee40a005: onHidden
+09-06 14:36:08.869 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bd5673cc: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:36:08.869 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bd5673cc: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:36:37.378 17220 17220 W Looper  : Slow dispatch took 6029ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@9d81331] m=0
+09-06 14:36:37.444 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=29546
+09-06 14:36:44.632 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=75 beforeRevision=75 allocated=76 identity=android-therapy-76 source=therapy.android-session.android-therapy-76 afterRevision=76 committed=true NOT_SAVED=false
+09-06 14:36:44.632 17220 17235 I System.out: R1 UI input=I want to continue expectedAction=invite-further-expression actual=CoreActionExecution(actionId=PolicyActionId(value=core-invite-further-expression), conversationRevision=7, route=LISTEN_SUPPORT) revision=7 pending=MORE_USER_EXPRESSION status=Completed displayed=What more would you like to share about it?
+09-06 14:36:51.686 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c81e5bfa: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:36:51.818 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1e26fd46: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:36:51.896 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=That's all for now processing=false draft=That's all for now status=Completed
+09-06 14:36:51.939 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1e26fd46: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:36:51.999 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:36:52.003 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:45df3848: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:36:52.019 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c81e5bfa: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:36:52.335 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:dc6d0355: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:36:52.336 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:45df3848: onHidden
+09-06 14:36:52.520 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:844ac08f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:36:52.520 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:844ac08f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:36:59.681 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 7664KB AllocSpace bytes, 0(0B) LOS objects, 48% free, 8027KB/15MB, paused 287us,5.171ms total 19.841ms
+09-06 14:37:22.027 17220 17220 W Looper  : Slow dispatch took 6327ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@da7659c] m=0
+09-06 14:37:22.087 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=30538
+09-06 14:37:26.486 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 8020KB AllocSpace bytes, 0(0B) LOS objects, 50% free, 7915KB/15MB, paused 216us,5.344ms total 19.230ms
+09-06 14:37:29.517 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=76 beforeRevision=76 allocated=77 identity=android-therapy-77 source=therapy.android-session.android-therapy-77 afterRevision=77 committed=true NOT_SAVED=false
+09-06 14:37:29.517 17220 17235 I System.out: R1 UI input=That's all for now expectedAction=summarize-listening actual=CoreActionExecution(actionId=PolicyActionId(value=core-summarize-listening), conversationRevision=8, route=LISTEN_SUPPORT) revision=8 pending=CLOSURE_OR_NEW_DIRECTION status=Completed displayed=What I have heard is: the synthetic UI appointment; the organizer moved the date.
+09-06 14:37:36.834 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f08b7d3f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:37:36.953 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bde3054a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:37:37.033 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=Thank you processing=false draft=Thank you status=Completed
+09-06 14:37:37.078 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bde3054a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:37:37.133 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:37:37.136 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7f1c083: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:37:37.152 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f08b7d3f: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:37:37.470 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a08e4a15: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:37:37.472 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7f1c083: onHidden
+09-06 14:37:37.654 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f199190a: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:37:37.654 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f199190a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:38:05.540 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 8352KB AllocSpace bytes, 0(0B) LOS objects, 47% free, 8427KB/15MB, paused 371us,10.473ms total 32.924ms
+09-06 14:38:06.735 17220 17232 I ctv215r1fixture: Waiting for a blocking GC ProfileSaver
+09-06 14:38:06.749 17220 17232 I ctv215r1fixture: WaitForGcToComplete blocked ProfileSaver on Background for 14.229ms
+09-06 14:38:07.552 17220 17220 W Looper  : Slow dispatch took 6423ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@c9423fa] m=0
+09-06 14:38:07.615 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=30911
+09-06 14:38:15.294 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=77 beforeRevision=77 allocated=78 identity=android-therapy-78 source=therapy.android-session.android-therapy-78 afterRevision=78 committed=true NOT_SAVED=false
+09-06 14:38:15.294 17220 17235 I System.out: R1 UI input=Thank you expectedAction=check-further-or-close actual=CoreActionExecution(actionId=PolicyActionId(value=core-check-further-or-close), conversationRevision=9, route=LISTEN_SUPPORT) revision=9 pending=CLOSURE_OR_NEW_DIRECTION status=Completed displayed=Would you like to add anything, or stop here?
+09-06 14:38:22.898 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4cbb131d: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:38:23.014 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:31be835: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:38:23.098 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=My specific concern is: a cancelled UI meeting
+09-06 14:38:23.098 17220 17235 I System.out: What I haven't explained is: who changed it processing=false draft=My specific concern is: a cancelled UI meeting
+09-06 14:38:23.098 17220 17235 I System.out: What I haven't explained is: who changed it status=Completed
+09-06 14:38:23.140 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:31be835: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:38:23.202 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:38:23.206 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e97c5b2: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:38:23.223 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4cbb131d: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:38:23.539 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3c31cb0c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:38:23.540 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e97c5b2: onHidden
+09-06 14:38:23.715 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d6eae76e: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:38:23.715 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d6eae76e: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:38:45.026 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 7940KB AllocSpace bytes, 0(0B) LOS objects, 47% free, 8863KB/16MB, paused 241us,5.117ms total 20.521ms
+09-06 14:38:54.347 17220 17220 W Looper  : Slow dispatch took 6597ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@fc25534] m=0
+09-06 14:38:54.404 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=31682
+09-06 14:39:02.184 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=78 beforeRevision=78 allocated=79 identity=android-therapy-79 source=therapy.android-session.android-therapy-79 afterRevision=79 committed=true NOT_SAVED=false
+09-06 14:39:02.185 17220 17235 I System.out: R1 UI input=My specific concern is: a cancelled UI meeting
+09-06 14:39:02.185 17220 17235 I System.out: What I haven't explained is: who changed it expectedAction=ask-important-missing-piece actual=CoreActionExecution(actionId=PolicyActionId(value=core-ask-important-missing-piece), conversationRevision=11, route=UNDERSTAND_CLARIFY) revision=11 pending=IMPORTANT_MISSING_INFORMATION status=Completed displayed=Could you clarify who changed it?
+09-06 14:39:09.831 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:cc6aab66: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:39:09.942 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8a529150: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:39:10.015 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=The missing detail is: the organizer changed the time processing=false draft=The missing detail is: the organizer changed the time status=Completed
+09-06 14:39:10.056 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8a529150: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:39:10.104 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:39:10.108 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a8a04156: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:39:10.123 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:cc6aab66: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:39:10.441 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:99036c5e: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:39:10.442 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a8a04156: onHidden
+09-06 14:39:10.606 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f8eb7de: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:39:10.606 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f8eb7de: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:39:42.483 17220 17220 W Looper  : Slow dispatch took 6758ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@1100423] m=0
+09-06 14:39:42.537 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=32830
+09-06 14:39:50.506 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=79 beforeRevision=79 allocated=80 identity=android-therapy-80 source=therapy.android-session.android-therapy-80 afterRevision=80 committed=true NOT_SAVED=false
+09-06 14:39:50.506 17220 17235 I System.out: R1 UI input=The missing detail is: the organizer changed the time expectedAction=verify-tentative-understanding actual=CoreActionExecution(actionId=PolicyActionId(value=core-verify-tentative-understanding), conversationRevision=12, route=UNDERSTAND_CLARIFY) revision=12 pending=SHARED_UNDERSTANDING_CONFIRMATION status=Completed displayed=I might be understanding this as a cancelled UI meeting; the organizer changed the time. Is that right?
+09-06 14:39:58.340 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ee9e75b5: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:39:58.449 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:aa5de80a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:39:58.514 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=No, that's not what I mean processing=false draft=No, that's not what I mean status=Completed
+09-06 14:39:58.557 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:aa5de80a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:39:58.606 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:39:58.609 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:518f5f35: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:39:58.624 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ee9e75b5: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:39:58.959 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b0a3d58b: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:39:58.960 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:518f5f35: onHidden
+09-06 14:39:59.117 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ba352690: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:39:59.118 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ba352690: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:40:04.893 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 8488KB AllocSpace bytes, 0(0B) LOS objects, 55% free, 7395KB/16MB, paused 149us,5.641ms total 19.461ms
+09-06 14:40:15.222 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 7920KB AllocSpace bytes, 0(0B) LOS objects, 50% free, 8271KB/16MB, paused 255us,5.624ms total 20.578ms
+09-06 14:40:31.725 17220 17220 W Looper  : Slow dispatch took 6972ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@f7cbfcc] m=0
+09-06 14:40:31.782 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=33566
+09-06 14:40:40.123 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=80 beforeRevision=80 allocated=81 identity=android-therapy-81 source=therapy.android-session.android-therapy-81 afterRevision=81 committed=true NOT_SAVED=false
+09-06 14:40:40.124 17220 17235 I System.out: R1 UI input=No, that's not what I mean expectedAction=acknowledge-correction actual=CoreActionExecution(actionId=PolicyActionId(value=core-acknowledge-correction), conversationRevision=13, route=UNDERSTAND_CLARIFY) revision=13 pending=CORRECTED_MEANING status=Completed displayed=I had that wrong. What would be a better way to understand it?
+09-06 14:40:45.026 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 8608KB AllocSpace bytes, 0(0B) LOS objects, 52% free, 7791KB/16MB, paused 139us,5.464ms total 20.017ms
+09-06 14:40:48.152 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:842bfca1: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:40:48.261 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:60a4d6fe: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:40:48.337 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=What I mean is: the UI meeting was delayed processing=false draft=What I mean is: the UI meeting was delayed status=Completed
+09-06 14:40:48.381 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:60a4d6fe: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:40:48.440 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:40:48.443 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2df6b945: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:40:48.459 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:842bfca1: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:40:48.778 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:86a7249c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:40:48.779 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2df6b945: onHidden
+09-06 14:40:48.935 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2f582544: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:40:48.935 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2f582544: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:41:22.490 17220 17220 W Looper  : Slow dispatch took 7193ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@fd26c77] m=0
+09-06 14:41:22.545 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=34515
+09-06 14:41:30.942 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=81 beforeRevision=81 allocated=82 identity=android-therapy-82 source=therapy.android-session.android-therapy-82 afterRevision=82 committed=true NOT_SAVED=false
+09-06 14:41:30.942 17220 17235 I System.out: R1 UI input=What I mean is: the UI meeting was delayed expectedAction=verify-tentative-understanding actual=CoreActionExecution(actionId=PolicyActionId(value=core-verify-tentative-understanding), conversationRevision=14, route=UNDERSTAND_CLARIFY) revision=14 pending=SHARED_UNDERSTANDING_CONFIRMATION status=Completed displayed=I might be understanding this as the UI meeting was delayed. Is that right?
+09-06 14:41:35.159 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 7852KB AllocSpace bytes, 0(0B) LOS objects, 51% free, 7687KB/15MB, paused 297us,12.711ms total 26.995ms
+09-06 14:41:39.249 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3c97b16f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:41:39.354 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ee08cbef: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:41:39.418 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=Yes, that's right processing=false draft=Yes, that's right status=Completed
+09-06 14:41:39.456 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ee08cbef: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:41:39.509 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:41:39.512 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:23025490: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:41:39.526 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3c97b16f: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:41:39.846 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b294d689: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:41:39.846 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:23025490: onHidden
+09-06 14:41:40.018 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:685b6720: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:41:40.018 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:685b6720: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:41:58.435 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 7860KB AllocSpace bytes, 0(0B) LOS objects, 46% free, 8927KB/16MB, paused 256us,5.906ms total 21.372ms
+09-06 14:42:14.566 17220 17220 W Looper  : Slow dispatch took 7576ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@bd39cfc] m=0
+09-06 14:42:14.622 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=35494
+09-06 14:42:15.744 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 8636KB AllocSpace bytes, 0(0B) LOS objects, 52% free, 7763KB/15MB, paused 155us,5.588ms total 19.296ms
+09-06 14:42:23.520 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=82 beforeRevision=82 allocated=83 identity=android-therapy-83 source=therapy.android-session.android-therapy-83 afterRevision=83 committed=true NOT_SAVED=false
+09-06 14:42:23.521 17220 17235 I System.out: R1 UI input=Yes, that's right expectedAction=summarize-shared-understanding actual=CoreActionExecution(actionId=PolicyActionId(value=core-summarize-shared-understanding), conversationRevision=15, route=UNDERSTAND_CLARIFY) revision=15 pending=CLOSURE_OR_NEW_DIRECTION status=Completed displayed=What we have established is: the UI meeting was delayed.
+09-06 14:42:32.222 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:55c289da: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:42:32.325 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bdd755e5: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 14:42:32.402 17220 17235 I System.out: R1 UI_BEFORE_CLICK input=My specific concern is: arranging a new UI meeting processing=false draft=My specific concern is: arranging a new UI meeting status=Completed
+09-06 14:42:32.441 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:bdd755e5: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:42:32.493 17220 17220 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-06 14:42:32.496 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:379ec9b0: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 14:42:32.509 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:55c289da: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 14:42:32.831 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e3c1345f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 14:42:32.833 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:379ec9b0: onHidden
+09-06 14:42:32.999 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:93cd792f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 14:42:32.999 17220 17220 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:93cd792f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 14:42:45.357 17220 17225 I ctv215r1fixture: Background young concurrent mark compact GC freed 7856KB AllocSpace bytes, 0(0B) LOS objects, 49% free, 8111KB/15MB, paused 7.346ms,2.490ms total 24.335ms
+09-06 14:43:08.413 17220 17220 W Looper  : Slow dispatch took 7690ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@727d1ac] m=0
+09-06 14:43:08.472 17220 17235 I System.out: R1 UI_COMPLETED elapsedMs=36417
+09-06 14:43:17.350 17220 17235 I System.out: R1 UI_IDENTITY beforeFrontier=83 beforeRevision=83 allocated=84 identity=android-therapy-84 source=therapy.android-session.android-therapy-84 afterRevision=84 committed=true NOT_SAVED=false
+09-06 14:43:17.936 17220 17220 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@3ac349f
+09-06 14:43:17.977 17220 17235 E TestRunner: failed: cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-06 14:43:17.978 17220 17235 E TestRunner: ----- begin exception -----
+09-06 14:43:17.978 17220 17235 E TestRunner: org.junit.ComparisonFailure: expected:<core-[verify-problem]-understanding> but was:<core-[summarize-shared]-understanding>
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.Assert.assertEquals(Assert.java:117)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.Assert.assertEquals(Assert.java:146)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send(CTV215R1ProductionUiInstrumentedTest.kt:76)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send$default(CTV215R1ProductionUiInstrumentedTest.kt:33)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.cActualInputControlsAndSemanticProgression(CTV215R1ProductionUiInstrumentedTest.kt:129)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$testWithDisposal$1.evaluate(AndroidComposeTestRule.android.kt:418)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invokeSuspend(AndroidComposeTestRule.android.kt:438)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:8)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:4)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invokeSuspend(ComposeUiTest.android.kt:682)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:8)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:2)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:69)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invokeSuspend(ComposeUiTest.android.kt:679)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:8)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:4)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend(TestBuilders.kt:318)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(TestDispatcher.kt:24)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(TestCoroutineScheduler.kt:99)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(TestBuilders.kt:327)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.BuildersKt.runBlocking(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.BuildersKt.runBlocking$default(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(TestBuildersJvm.kt:10)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:310)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:168)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:658)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:438)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+09-06 14:43:17.978 17220 17235 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2614)
+09-06 14:43:17.978 17220 17235 E TestRunner: ----- end exception -----
+09-06 14:43:17.981 17220 17235 I TestRunner: finished: cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-06 14:43:17.988 17220 17235 I TestRunner: run finished: 1 tests, 1 failed, 0 ignored

@@ -1,0 +1,5 @@
+9491G
+15
+35
+arm64-v8a
+TCL/9491G_ZZ/Hera_Vis_WIFI:15/AP3A.240905.015.A2/2FA6:user/release-keys

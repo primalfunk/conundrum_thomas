@@ -1,0 +1,317 @@
+--------- beginning of system
+09-07 10:53:17.301 28920 28920 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+--------- beginning of main
+09-07 10:53:21.998 28920 28920 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@b245d5c
+09-07 10:53:22.023 28920 28934 I TestRunner: finished: keyboardMovementCannotStrandAnIntendedSubmission(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-07 10:53:22.028 28920 28934 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+09-07 10:53:22.690 29081 29081 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-07 10:53:22.707 29081 29081 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+09-07 10:53:22.751 29081 29081 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-07 10:53:23.152 29081 29081 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-07 10:53:23.153 29081 29081 I AndroidJUnitRunner: newApplication android.app.Application
+09-07 10:53:23.190 29081 29081 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=336]
+09-07 10:53:23.215 29081 29081 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-07 10:53:23.216 29081 29081 I M-ProMotion: M-ProMotion is disabled
+09-07 10:53:23.226 29081 29098 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-07 10:53:23.248 29081 29098 I TestRunner: run started: 1 tests
+09-07 10:53:23.249 29081 29098 I TestRunner: started: twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-07 10:53:23.321 29081 29098 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-07 10:53:23.330 29081 29081 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:53:23.330 29081 29081 I ctv215r1fixture: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:53:23.330 29081 29081 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:53:23.349 29081 29098 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-07 10:53:23.442 29081 29081 I HWUI    : Bitmap_setFineEn: g_isFineEn = 1, g_isBitmapJniOk = 1
+09-07 10:53:23.505 29081 29081 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@876f7f0
+09-07 10:53:23.510 29081 29081 W HWUI    : Unknown dataspace 0
+09-07 10:53:23.724 29081 29081 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/compose/ui/platform/AndroidComposeView$Companion; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:53:23.955 29081 29085 I ctv215r1fixture: Compiler allocated 6868KB to compile void android.view.ViewRootImpl.performTraversals()
+09-07 10:53:24.365 29081 29081 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+09-07 10:53:24.428 29081 29102 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 10:53:24.440 29081 29102 I mali    : [DebugProp] GPU Debug-Mechanism Disable !
+09-07 10:53:24.491 29081 29102 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+09-07 10:53:24.491 29081 29102 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 10:53:24.494 29081 29081 I Choreographer: Skipped 56 frames!  The application may be doing too much work on its main thread.
+09-07 10:53:24.522 29081 29130 I HWUI    : Davey! duration=971ms; Flags=1, FrameTimelineVsyncId=2075830, IntendedVsync=167485547899572, Vsync=167485547899572, InputEventId=0, HandleInputStart=167485550033058, AnimationStart=167485550035135, PerformTraversalsStart=167485550035827, DrawStart=167486433043520, FrameDeadline=167485564566239, FrameInterval=167485550015212, FrameStartTime=16667717, SyncQueued=167486452969289, SyncStart=167486453121674, IssueDrawCommandsStart=167486453493597, SwapBuffers=167486513854212, FrameCompleted=167486519118827, DequeueBufferDuration=17616, QueueBufferDuration=538770, GpuCompleted=167486519118827, SwapBuffersCompleted=167486516935135, DisplayPresentTime=72904454231359566, CommandSubmissionCompleted=167486513854212,
+09-07 10:53:25.019 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4809b5f8: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:25.027 29081 29081 I AssistStructure: Flattened final assist data: 896 bytes, containing 1 windows, 5 views
+09-07 10:53:25.265 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7543e39e: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:25.345 29081 29081 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.conundrum.thomas.v2.ctv215r1fixture
+09-07 10:53:25.348 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7543e39e: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:25.367 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=1 input=There is no current emergency.
+09-07 10:53:25.367 29081 29098 I System.out: There is no acute medical emergency.
+09-07 10:53:25.367 29081 29098 I System.out: Self-harm is not relevant now.
+09-07 10:53:25.367 29081 29098 I System.out: Harm to others is not relevant now.
+09-07 10:53:25.367 29081 29098 I System.out: I report no specialized condition for this conversation.
+09-07 10:53:25.367 29081 29098 I System.out: I am an adult in the supported setting.
+09-07 10:53:25.367 29081 29098 I System.out: My present concern is one bounded ordinary personal problem.
+09-07 10:53:25.367 29081 29098 I System.out: My specific concern is: the synthetic UI appointment
+09-07 10:53:25.679 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4809b5f8: onShown
+09-07 10:53:25.709 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:25.717 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:dc1bff40: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:26.041 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b92122a2: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:26.041 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:dc1bff40: onHidden
+09-07 10:53:26.264 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:25718fdf: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:26.264 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:25718fdf: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:26.600 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=1 identity=android-therapy-2 committed=true draftEmpty=true
+09-07 10:53:26.708 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f3fd1275: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:26.907 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e1178f35: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:26.965 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e1178f35: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:27.295 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f3fd1275: onShown
+09-07 10:53:27.327 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=2 input=My specific concern is: THE synthetic UI appointment!
+09-07 10:53:27.420 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:27.423 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:76d8cd17: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:27.776 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fd75d240: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:27.776 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:76d8cd17: onHidden
+09-07 10:53:27.992 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ef7f8fc2: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:27.992 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ef7f8fc2: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:28.356 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=2 identity=android-therapy-3 committed=true draftEmpty=true
+09-07 10:53:28.514 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8c2190e1: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:28.701 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f6a7b8a8: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:28.797 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=3 input=My specific concern is: the synthetic UI appointment.
+09-07 10:53:28.798 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f6a7b8a8: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:29.150 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8c2190e1: onShown
+09-07 10:53:29.170 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:29.174 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2b1fe6e8: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:29.525 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e7e21abd: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:29.526 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2b1fe6e8: onHidden
+09-07 10:53:29.734 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:84e65be4: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:29.734 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:84e65be4: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:30.054 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=3 identity=android-therapy-4 committed=true draftEmpty=true
+09-07 10:53:30.228 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d5488e6b: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:30.409 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6eebbd0c: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:30.513 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=4 input=Another detail is: the organizer moved the date
+09-07 10:53:30.514 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6eebbd0c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:30.840 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:30.844 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a598f9c6: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:30.864 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d5488e6b: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:31.183 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e1396113: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:31.184 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a598f9c6: onHidden
+09-07 10:53:31.379 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3ce0e324: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:31.379 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3ce0e324: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:31.854 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=4 identity=android-therapy-5 committed=true draftEmpty=true
+09-07 10:53:32.079 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3df2d965: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:32.248 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a275a951: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:32.347 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=5 input=Please pause
+09-07 10:53:32.347 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a275a951: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:32.681 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3df2d965: onShown
+09-07 10:53:32.698 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:32.701 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1b063f97: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:33.027 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d1390093: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:33.028 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1b063f97: onHidden
+09-07 10:53:33.216 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f4541b29: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:33.216 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f4541b29: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:33.737 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=5 identity=android-therapy-6 committed=true draftEmpty=true
+09-07 10:53:33.960 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:aa12b275: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:34.117 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:215c347f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:34.202 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=6 input=I am ready to resume
+09-07 10:53:34.255 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:215c347f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:34.390 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:34.394 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:67b220b9: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:34.412 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:aa12b275: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:34.725 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7d20bb70: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:34.726 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:67b220b9: onHidden
+09-07 10:53:34.924 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c4706342: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:34.924 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c4706342: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:35.006 29081 29086 I ctv215r1fixture: Background concurrent mark compact GC freed 5088KB AllocSpace bytes, 0(0B) LOS objects, 49% free, 7203KB/14MB, paused 224us,6.397ms total 40.565ms
+09-07 10:53:35.503 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=6 identity=android-therapy-7 committed=true draftEmpty=true
+09-07 10:53:35.745 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:28fd5430: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:35.895 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:96351c63: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:35.967 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=7 input=I don't want to discuss this
+09-07 10:53:36.021 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:96351c63: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:36.107 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:36.110 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d9271feb: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:36.128 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:28fd5430: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:36.442 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3ee215db: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:36.443 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d9271feb: onHidden
+09-07 10:53:36.640 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3f3ae81d: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:36.640 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3f3ae81d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:37.269 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=7 identity=android-therapy-8 committed=true draftEmpty=true
+09-07 10:53:37.458 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:44a8888f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:37.596 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:9cdb8c7d: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:37.665 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=8 input=I want to continue
+09-07 10:53:37.707 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:9cdb8c7d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:37.789 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:37.793 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d8a0bb92: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:37.814 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:44a8888f: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:38.125 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:61fb2e02: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:38.126 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d8a0bb92: onHidden
+09-07 10:53:38.296 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:27e651fb: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:38.296 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:27e651fb: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:39.035 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=8 identity=android-therapy-9 committed=true draftEmpty=true
+09-07 10:53:39.188 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:585387b6: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:39.322 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8ed56e83: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:39.404 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=9 input=I don’t want to discuss this
+09-07 10:53:39.449 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8ed56e83: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:39.506 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:39.509 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b0818d1d: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:39.525 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:585387b6: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:39.842 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:dc5f8228: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:39.843 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b0818d1d: onHidden
+09-07 10:53:40.014 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1c50d320: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:40.014 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1c50d320: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:40.835 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=9 identity=android-therapy-10 committed=true draftEmpty=true
+09-07 10:53:40.969 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7410f35a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:41.094 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:11fffcc2: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:41.167 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=10 input=I am ready to resume
+09-07 10:53:41.290 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:41.294 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:55b09dc5: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:41.328 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:11fffcc2: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:41.642 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e0f37907: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:41.643 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:55b09dc5: onHidden
+09-07 10:53:41.814 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c067ad04: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:41.814 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c067ad04: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:42.728 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=10 identity=android-therapy-11 committed=true draftEmpty=true
+09-07 10:53:42.843 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1afee4e5: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:42.965 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4037594d: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:43.031 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=11 input=That's all for now
+09-07 10:53:43.069 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4037594d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:43.153 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:43.156 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1efc6647: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:43.172 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1afee4e5: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:43.492 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:5f270d76: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:43.493 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1efc6647: onHidden
+09-07 10:53:43.659 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fc72031c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:43.659 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:fc72031c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:44.783 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=11 identity=android-therapy-12 committed=true draftEmpty=true
+09-07 10:53:44.893 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3debcbe7: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:45.016 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7943932f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:45.081 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=12 input=Thank you
+09-07 10:53:45.121 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7943932f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:45.188 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:45.191 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:813e2831: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:45.207 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3debcbe7: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:45.526 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f0e8ccdf: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:45.528 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:813e2831: onHidden
+09-07 10:53:45.702 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:442dede6: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:45.703 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:442dede6: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:46.853 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=12 identity=android-therapy-13 committed=true draftEmpty=true
+09-07 10:53:46.990 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:87b169ce: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:47.106 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2b44f480: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:47.184 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=13 input=Stop
+09-07 10:53:47.224 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2b44f480: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:47.292 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:47.296 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c4c751af: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:47.314 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:87b169ce: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:47.643 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:54e78bca: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:47.644 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c4c751af: onHidden
+09-07 10:53:47.804 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:50b9f2dd: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:47.804 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:50b9f2dd: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:49.033 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=13 identity=android-therapy-14 committed=true draftEmpty=true
+09-07 10:53:49.154 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b3ccf21f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:49.270 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3737dfab: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:49.347 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=14 input=My specific concern is: a different synthetic scheduling question
+09-07 10:53:49.384 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3737dfab: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:49.437 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:49.440 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c7dcd38e: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:49.456 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b3ccf21f: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:49.777 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ef879176: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:49.778 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c7dcd38e: onHidden
+09-07 10:53:49.944 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:690d75d3: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:49.945 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:690d75d3: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:51.267 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=14 identity=android-therapy-15 committed=true draftEmpty=true
+09-07 10:53:51.385 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:72de5942: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:51.496 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a039ec5c: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:51.567 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=15 input=Another detail is: the invitation contains an earlier date and I need to understand which date was intended before describing the rest of this synthetic scheduling concern.
+09-07 10:53:51.607 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a039ec5c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:51.656 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:51.660 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ca8487f8: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:51.674 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:72de5942: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:51.993 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:84acbd9f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:51.994 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ca8487f8: onHidden
+09-07 10:53:52.152 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7811cf84: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:52.152 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7811cf84: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:53.651 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=15 identity=android-therapy-16 committed=true draftEmpty=true
+09-07 10:53:53.785 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b7f7f256: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:53.900 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c6590fc6: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:53.965 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=16 input=Yes, that's right
+09-07 10:53:54.057 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:54.060 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7d893d9e: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:54.074 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c6590fc6: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:54.393 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7b1aa9bb: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:54.395 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7d893d9e: onHidden
+09-07 10:53:54.542 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:70d49e60: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:54.542 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:70d49e60: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:56.167 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=16 identity=android-therapy-17 committed=true draftEmpty=true
+09-07 10:53:56.287 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:9881bfa4: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:56.396 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8993a4cb: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:56.465 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=17 input=Please pause
+09-07 10:53:56.500 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8993a4cb: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:56.572 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:56.575 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:324a73b1: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:56.590 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:9881bfa4: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:56.910 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:91a877a3: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:56.912 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:324a73b1: onHidden
+09-07 10:53:57.060 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8021d28d: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:57.060 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:8021d28d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:58.817 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=17 identity=android-therapy-18 committed=true draftEmpty=true
+09-07 10:53:58.936 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2bd26e0d: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:59.045 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c6534738: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:53:59.116 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=18 input=I am ready to resume
+09-07 10:53:59.153 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c6534738: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:53:59.206 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:53:59.209 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d30f6ec0: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:53:59.223 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2bd26e0d: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:53:59.543 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e58f2f42: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:53:59.544 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d30f6ec0: onHidden
+09-07 10:53:59.711 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c7bd9e7e: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:53:59.712 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c7bd9e7e: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:54:01.650 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=18 identity=android-therapy-19 committed=true draftEmpty=true
+09-07 10:54:01.770 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:37f5397: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:54:01.875 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e7d0bb0b: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:54:01.954 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=19 input=I do not want to discuss this
+09-07 10:54:01.990 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e7d0bb0b: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:54:02.038 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:54:02.041 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:71b1914c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:54:02.054 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:37f5397: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:54:02.377 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:48b67e9c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:54:02.379 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:71b1914c: onHidden
+09-07 10:54:02.541 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4a490cba: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:54:02.541 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4a490cba: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:54:04.585 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=19 identity=android-therapy-20 committed=true draftEmpty=true
+09-07 10:54:04.700 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c2718943: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:54:04.806 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7ce02406: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 10:54:04.882 29081 29098 I System.out: R1 DISPATCH_TOUCH ordinal=20 input=I want to continue
+09-07 10:54:04.915 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:7ce02406: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:54:04.974 29081 29081 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 10:54:04.978 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f551ad9: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 10:54:04.990 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c2718943: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-07 10:54:05.310 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:d0b168cd: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 10:54:05.312 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f551ad9: onHidden
+09-07 10:54:05.465 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:180c775f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 10:54:05.466 29081 29081 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:180c775f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 10:54:07.734 29081 29098 I System.out: R1 DISPATCH_ACCEPTED ordinal=20 identity=android-therapy-21 committed=true draftEmpty=true
+09-07 10:54:07.760 29081 29098 I System.out: R1 TWENTY_TOUCH_SUBMISSIONS_EXACTLY_ONCE=true
+09-07 10:54:08.350 29081 29081 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@4934019
+09-07 10:54:08.367 29081 29098 I TestRunner: finished: twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-07 10:54:08.370 29081 29098 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+09-07 10:54:09.082 29223 29223 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-07 10:54:09.099 29223 29223 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+09-07 10:54:09.140 29223 29223 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-07 10:54:09.538 29223 29223 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-07 10:54:09.539 29223 29223 I AndroidJUnitRunner: newApplication android.app.Application
+09-07 10:54:09.575 29223 29223 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=276]
+09-07 10:54:09.599 29223 29223 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-07 10:54:09.600 29223 29223 I M-ProMotion: M-ProMotion is disabled
+09-07 10:54:09.613 29223 29237 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-07 10:54:09.634 29223 29237 I TestRunner: run started: 1 tests
+09-07 10:54:09.635 29223 29237 I TestRunner: started: twentySubmittedTurnsSurviveProcessReopen(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-07 10:54:09.710 29223 29237 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-07 10:54:09.718 29223 29223 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:54:09.718 29223 29223 I ctv215r1fixture: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:54:09.718 29223 29223 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:54:09.734 29223 29237 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-07 10:54:09.818 29223 29223 I HWUI    : Bitmap_setFineEn: g_isFineEn = 1, g_isBitmapJniOk = 1
+09-07 10:54:09.874 29223 29223 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@876f7f0
+09-07 10:54:09.878 29223 29223 W HWUI    : Unknown dataspace 0
+09-07 10:54:10.080 29223 29223 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/compose/ui/platform/AndroidComposeView$Companion; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 10:54:10.310 29223 29227 I ctv215r1fixture: Compiler allocated 6868KB to compile void android.view.ViewRootImpl.performTraversals()
+09-07 10:54:11.535 29223 29223 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+09-07 10:54:11.613 29223 29240 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 10:54:11.633 29223 29240 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+09-07 10:54:11.634 29223 29240 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 10:54:11.638 29223 29223 I Choreographer: Skipped 101 frames!  The application may be doing too much work on its main thread.
+09-07 10:54:11.657 29223 29234 I HWUI    : Davey! duration=1745ms; Flags=1, FrameTimelineVsyncId=2101243, IntendedVsync=167531916222597, Vsync=167531916222597, InputEventId=0, HandleInputStart=167531922375215, AnimationStart=167531922376753, PerformTraversalsStart=167531922377599, DrawStart=167533619619523, FrameDeadline=167531932889264, FrameInterval=167531922358907, FrameStartTime=16666843, SyncQueued=167533637318523, SyncStart=167533637490523, IssueDrawCommandsStart=167533638233676, SwapBuffers=167533656982523, FrameCompleted=167533661978215, DequeueBufferDuration=10385, QueueBufferDuration=424847, GpuCompleted=167533661978215, SwapBuffersCompleted=167533659663830, DisplayPresentTime=72904454231359566, CommandSubmissionCompleted=167533656982523,
+09-07 10:54:11.717 29223 29237 I System.out: R1 TWENTY_SUBMISSIONS_DURABLE_AFTER_PROCESS_REOPEN=true identities=[android-therapy-10, android-therapy-11, android-therapy-12, android-therapy-13, android-therapy-14, android-therapy-15, android-therapy-16, android-therapy-17, android-therapy-18, android-therapy-19, android-therapy-2, android-therapy-20, android-therapy-21, android-therapy-3, android-therapy-4, android-therapy-5, android-therapy-6, android-therapy-7, android-therapy-8, android-therapy-9]
+09-07 10:54:12.271 29223 29223 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@677e360
+09-07 10:54:12.290 29223 29237 I TestRunner: finished: twentySubmittedTurnsSurviveProcessReopen(com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest)
+09-07 10:54:12.296 29223 29237 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored

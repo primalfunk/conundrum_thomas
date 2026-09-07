@@ -1,0 +1,2 @@
+List of devices attached
+BC9424B4E3C5002        device product:9491G_ZZ model:9491G device:Hera_Vis_WIFI transport_id:1

@@ -1,0 +1,224 @@
+[
+  {
+    "file": "canonical-apk-after.sha256",
+    "rawBytes": 165,
+    "rawSHA256": "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+    "evidenceBytes": 161,
+    "evidenceSHA256": "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+  },
+  {
+    "file": "canonical-apk-before.sha256",
+    "rawBytes": 165,
+    "rawSHA256": "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+    "evidenceBytes": 161,
+    "evidenceSHA256": "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+  },
+  {
+    "file": "canonical-files-after.sha256",
+    "rawBytes": 313,
+    "rawSHA256": "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+    "evidenceBytes": 307,
+    "evidenceSHA256": "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+  },
+  {
+    "file": "canonical-files-after.stat",
+    "rawBytes": 179,
+    "rawSHA256": "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+    "evidenceBytes": 173,
+    "evidenceSHA256": "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+  },
+  {
+    "file": "canonical-files-before.sha256",
+    "rawBytes": 313,
+    "rawSHA256": "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+    "evidenceBytes": 307,
+    "evidenceSHA256": "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+  },
+  {
+    "file": "canonical-files-before.stat",
+    "rawBytes": 179,
+    "rawSHA256": "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+    "evidenceBytes": 173,
+    "evidenceSHA256": "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+  },
+  {
+    "file": "canonical-inventory-after.txt",
+    "rawBytes": 115,
+    "rawSHA256": "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+    "evidenceBytes": 109,
+    "evidenceSHA256": "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+  },
+  {
+    "file": "canonical-inventory-before.txt",
+    "rawBytes": 115,
+    "rawSHA256": "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+    "evidenceBytes": 109,
+    "evidenceSHA256": "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+  },
+  {
+    "file": "canonical-package-after.txt",
+    "rawBytes": 414,
+    "rawSHA256": "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+    "evidenceBytes": 403,
+    "evidenceSHA256": "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+  },
+  {
+    "file": "canonical-package-before.txt",
+    "rawBytes": 414,
+    "rawSHA256": "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+    "evidenceBytes": 403,
+    "evidenceSHA256": "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+  },
+  {
+    "file": "cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+    "rawBytes": 20,
+    "rawSHA256": "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+    "evidenceBytes": 8,
+    "evidenceSHA256": "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+  },
+  {
+    "file": "cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+    "rawBytes": 20,
+    "rawSHA256": "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+    "evidenceBytes": 8,
+    "evidenceSHA256": "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+  },
+  {
+    "file": "device-fixture-source.kt",
+    "rawBytes": 28661,
+    "rawSHA256": "ebc45f3148a295b0e8bc1a333689de2586c02ef11d64b662ab8ff96e3a59347e",
+    "evidenceBytes": 28661,
+    "evidenceSHA256": "ebc45f3148a295b0e8bc1a333689de2586c02ef11d64b662ab8ff96e3a59347e"
+  },
+  {
+    "file": "device.txt",
+    "rawBytes": 102,
+    "rawSHA256": "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+    "evidenceBytes": 94,
+    "evidenceSHA256": "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+  },
+  {
+    "file": "devices.txt",
+    "rawBytes": 127,
+    "rawSHA256": "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+    "evidenceBytes": 120,
+    "evidenceSHA256": "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219"
+  },
+  {
+    "file": "dispatch-fixture-source.kt",
+    "rawBytes": 7585,
+    "rawSHA256": "dc9843827705dd38ab6a56f1e8c81aed719d81997ae46b7e0714bba2935e1d13",
+    "evidenceBytes": 7585,
+    "evidenceSHA256": "dc9843827705dd38ab6a56f1e8c81aed719d81997ae46b7e0714bba2935e1d13"
+  },
+  {
+    "file": "final-disposition.txt",
+    "rawBytes": 104,
+    "rawSHA256": "22ef73fb411fbca9cb654b315ce045bf2f78e8908b41e2d401ced05c19d79611",
+    "evidenceBytes": 98,
+    "evidenceSHA256": "2f960d89424c458b4f07d1537f62cf8759ad9ff8b96b0328b3f29cfe3a93a4f2"
+  },
+  {
+    "file": "fixture-artifacts.json",
+    "rawBytes": 340,
+    "rawSHA256": "54a30c68fdfed5fe6715e4c28aceb742fc0ecc9c52d240b9b812edeb8d5a8b36",
+    "evidenceBytes": 325,
+    "evidenceSHA256": "a70e70c752dacbc0f7c04645d3d83daca3b13d7f66743dc3e0d9a64359e10bf1"
+  },
+  {
+    "file": "fixture-logcat.txt",
+    "rawBytes": 99858,
+    "rawSHA256": "5b10e1604f2429091f686bb9a9af0f89221ef6ed8dbf5d46daf0e121d5426c24",
+    "evidenceBytes": 49594,
+    "evidenceSHA256": "e7465d96e42a80bf4102eb80dce8150d3432f9a7a09a3c4e4db92efce9954296"
+  },
+  {
+    "file": "fixture-manifest.txt",
+    "rawBytes": 7999,
+    "rawSHA256": "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+    "evidenceBytes": 7912,
+    "evidenceSHA256": "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+  },
+  {
+    "file": "fixture-package.txt",
+    "rawBytes": 351,
+    "rawSHA256": "d7c0a6a447ccdb95f3adb5c5e002037a1942cb018484ccc2610219e40fca8629",
+    "evidenceBytes": 341,
+    "evidenceSHA256": "dbbe21400772f70407e00e2ddc3cb60ae153ff5a1e39dad851ca5240f7e5226d"
+  },
+  {
+    "file": "fixture-test-manifest.txt",
+    "rawBytes": 4685,
+    "rawSHA256": "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+    "evidenceBytes": 4630,
+    "evidenceSHA256": "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+  },
+  {
+    "file": "fixture-test.apk",
+    "rawBytes": 2462970,
+    "rawSHA256": "048abed235c0cd891b7458d704934cdecb3a38d1f590980fe7ac13e8b53e7b68",
+    "retention": "APK retained in ignored raw qualification capture"
+  },
+  {
+    "file": "fixture.apk",
+    "rawBytes": 31564640,
+    "rawSHA256": "17bde74cb3e4c24699eddcd56425c27ee20c4a2e7026067289f2de72f5d0e551",
+    "retention": "APK retained in ignored raw qualification capture"
+  },
+  {
+    "file": "install-fixture.txt",
+    "rawBytes": 78,
+    "rawSHA256": "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+    "evidenceBytes": 36,
+    "evidenceSHA256": "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+  },
+  {
+    "file": "install-test.txt",
+    "rawBytes": 78,
+    "rawSHA256": "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+    "evidenceBytes": 36,
+    "evidenceSHA256": "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+  },
+  {
+    "file": "instrumentation-f.txt",
+    "rawBytes": 1798,
+    "rawSHA256": "f318617b3cf9a3907a80b3bcc9be55e521d00a403966529fafca1f1acf265580",
+    "evidenceBytes": 875,
+    "evidenceSHA256": "70ddf6e19c86f94963383e6050b6e607f7f7c2718eb09b311f04ca50b012a746"
+  },
+  {
+    "file": "instrumentation-g.txt",
+    "rawBytes": 1708,
+    "rawSHA256": "d4bc87545ab9dd7d884e750bbf48ac7d2a044f309b2a1fe52c16e7ed3887fbe8",
+    "evidenceBytes": 830,
+    "evidenceSHA256": "78ea4414b12f2754313b1d59c81de7fd710ff1bdd01447331aea550e19b2f7ee"
+  },
+  {
+    "file": "instrumentation-h.txt",
+    "rawBytes": 1674,
+    "rawSHA256": "bffce6a2937f816af8bc4ae6281b636e67deac5f863b0bc56f0f37a1869e82a1",
+    "evidenceBytes": 813,
+    "evidenceSHA256": "a31029bb865bb6ec4fa3e1f38af2b0c2f81fa40c876b01e3563cbaf3c0f798a4"
+  },
+  {
+    "file": "submission-driver-source.kt",
+    "rawBytes": 2498,
+    "rawSHA256": "c1eb3c289b68745e5f8dd22d51e603cb9db2a256d5b32ac14bd8feb28395264a",
+    "evidenceBytes": 2493,
+    "evidenceSHA256": "f5654716dcc389b79cd8c79d24da4e0bc86ce45dc312b7cdabd8348efb1a5181"
+  },
+  {
+    "file": "ui-fixture-source.kt",
+    "rawBytes": 14459,
+    "rawSHA256": "c9d38e0ed337eff3c72a03e35033dedc0b331435a3e940c56c400a4903f288e5",
+    "evidenceBytes": 14459,
+    "evidenceSHA256": "c9d38e0ed337eff3c72a03e35033dedc0b331435a3e940c56c400a4903f288e5"
+  },
+  {
+    "file": "uid-isolation.txt",
+    "rawBytes": 121,
+    "rawSHA256": "e13726ef5fa73fb7907c94b719d22ca249323a7b35fb18c8e4347134209b6aa5",
+    "evidenceBytes": 115,
+    "evidenceSHA256": "810406e16cac225dac5d823ca2d286f266d211493715d7f9a51153706db0070b"
+  }
+]

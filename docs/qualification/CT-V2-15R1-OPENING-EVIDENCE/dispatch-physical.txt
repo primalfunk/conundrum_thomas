@@ -1,0 +1,125 @@
+INSTRUMENTATION_STATUS: numtests=1
+
+INSTRUMENTATION_STATUS: stream=
+
+com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest:
+
+INSTRUMENTATION_STATUS: test=keyboardMovementCannotStrandAnIntendedSubmission
+
+INSTRUMENTATION_STATUS_CODE: 1
+
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=1
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=1
+
+INSTRUMENTATION_STATUS: stream=.
+
+INSTRUMENTATION_STATUS: test=keyboardMovementCannotStrandAnIntendedSubmission
+
+INSTRUMENTATION_STATUS_CODE: 0
+
+INSTRUMENTATION_RESULT: stream=
+
+
+
+Time: 4.201
+
+
+
+OK (1 test)
+
+
+
+
+
+INSTRUMENTATION_CODE: -1
+
+PHYSICAL_METHOD_PASSED=g
+
+INSTRUMENTATION_STATUS: numtests=1
+
+INSTRUMENTATION_STATUS: stream=
+
+com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest:
+
+INSTRUMENTATION_STATUS: test=twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce
+
+INSTRUMENTATION_STATUS_CODE: 1
+
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=1
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=1
+
+INSTRUMENTATION_STATUS: stream=.
+
+INSTRUMENTATION_STATUS: test=twentyConsecutiveTouchSubmissionsCrossPresentationAdmissionExactlyOnce
+
+INSTRUMENTATION_STATUS_CODE: 0
+
+INSTRUMENTATION_RESULT: stream=
+
+
+
+Time: 45.122
+
+
+
+OK (1 test)
+
+
+
+
+
+INSTRUMENTATION_CODE: -1
+
+PHYSICAL_METHOD_PASSED=f
+
+INSTRUMENTATION_STATUS: numtests=1
+
+INSTRUMENTATION_STATUS: stream=
+
+com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest:
+
+INSTRUMENTATION_STATUS: test=twentySubmittedTurnsSurviveProcessReopen
+
+INSTRUMENTATION_STATUS_CODE: 1
+
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1DispatchInstrumentedTest
+
+INSTRUMENTATION_STATUS: current=1
+
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+
+INSTRUMENTATION_STATUS: numtests=1
+
+INSTRUMENTATION_STATUS: stream=.
+
+INSTRUMENTATION_STATUS: test=twentySubmittedTurnsSurviveProcessReopen
+
+INSTRUMENTATION_STATUS_CODE: 0
+
+INSTRUMENTATION_RESULT: stream=
+
+
+
+Time: 2.662
+
+
+
+OK (1 test)
+
+
+
+
+
+INSTRUMENTATION_CODE: -1
+
+PHYSICAL_METHOD_PASSED=h

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-07T17:51:55.443Z" hostname="MENARD" time="0.912">
+  <properties/>
+  <testcase name="verificationFormsRetainTentativenessReferentAndSingleCorrectionQuestion" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.001"/>
+  <testcase name="verificationAtExistingCharacterBoundaryRetainsAllSevenForms" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.0"/>
+  <testcase name="oldSingletonStillFailsAndLeavesHistoryUnchanged" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.001"/>
+  <testcase name="preferredUnusedOnceTwiceAndExactDuplicateStayStrict" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.001"/>
+  <testcase name="dynamicCatalogsPreserveTheExistingCharacterBoundary" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.001"/>
+  <testcase name="allFiniteRecurrenceBlockingStatesHaveAnAuthorizedVerification" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.831"/>
+  <testcase name="everyOrdinaryCatalogHasSevenValidatedDistinctOpeningsAndSixCannotExhaustIt" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.032"/>
+  <testcase name="multipleRejectedCandidatesAndRepeatedFallbackAdvanceToFirstValidForm" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.0"/>
+  <testcase name="recurrenceWindowRollsAndRenderingRemainsDeterministic" classname="com.conundrum.thomas.v2.qualification.CTV215R1OpeningExhaustionTest" time="0.045"/>
+  <system-out><![CDATA[FINITE_RECURRENCE_EQUIVALENCE_CLASSES=2269 ALL_FIRST_VALID_VERIFICATION_PASS
+CATALOG_AUDIT=core-acknowledge-close FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-acknowledge-correction FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-ask-important-missing-piece FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-ask-influenceable-part FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-ask-present-concern FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-ask-problem-description FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-ask-readiness-for-options FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-ask-support-preference FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-ask-user-to-choose-option FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-check-further-or-close FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-check-understanding-next-direction FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-consolidate-plan-learning FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-develop-bounded-plan FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-invite-expression FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-invite-further-expression FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-invite-user-options FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-offer-direction-choice FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-reflect-established-content FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-review-reported-outcome FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-summarize-listening FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-summarize-shared-understanding FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-verify-problem-understanding FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+CATALOG_AUDIT=core-verify-tentative-understanding FORMS=7 OPENINGS=7 SIX_RECENT_EXHAUSTION=IMPOSSIBLE
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

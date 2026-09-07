@@ -1,0 +1,47 @@
+[
+  {
+    "path": "docs/qualification/CT-V2-15R1-DISPATCH-EVIDENCE/PRE-REPAIR-TRACE.md",
+    "beforeSHA256": "83d7b87ba5c14e475441a0c030eacfd1a6ebb0563119d8a84608317ec3962fc6",
+    "afterSHA256": "2a7d091e33591a10f5a9fb401aade097efba010aaad4d2d2acdfa00f60b95cda",
+    "change": "remove blank lines at EOF only"
+  },
+  {
+    "path": "docs/qualification/CT-V2-15R1-DISPATCH-EVIDENCE/ROOT-CAUSE-AND-REPAIR.md",
+    "beforeSHA256": "2a017239c6232730351446152eca5a619657c30e25b18dd29914edb43435ba2d",
+    "afterSHA256": "9d9b1b01794bf08adcb57514290b6c6d1dc29958fa2f36935ddc90dc2ca7564c",
+    "change": "remove blank lines at EOF only"
+  },
+  {
+    "path": "docs/qualification/CT-V2-15R1-DISPATCH-EVIDENCE/capture-software.py",
+    "beforeSHA256": "acaf2d523ec7f920c6007a61db74c52492083b47bf91a65465bded64c69de5ae",
+    "afterSHA256": "7433e74cd125c4287b4fe8ec615bb9602bfa3776c1fd7f8eefcfb068b51cb865",
+    "change": "remove blank lines at EOF only"
+  },
+  {
+    "path": "docs/qualification/CT-V2-15R1-DURABLE-IDENTITY-QUALIFICATION.md",
+    "beforeSHA256": "376e217e577b5000ff3ea16f086b9eb86e89f38a10d62c1a3850003ef7a470bb",
+    "afterSHA256": "246934e90de4bfcfcfe974cb7e80a0320dd1773777f11c865a0d22fd174bb986",
+    "change": "remove blank lines at EOF only"
+  },
+  {
+    "path": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/capture-automated.py",
+    "beforeSHA256": "009cd552395bf00f07d7a1ea4d47d0457a33de2093d1f41da2f2d2ae20d2f33b",
+    "afterSHA256": "cd94b159d5ad65abeb6baa94f5a70d7e1756e29ae111ccf774fc81ab74e8e656",
+    "change": "remove blank lines at EOF only"
+  },
+  {
+    "path": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/devices.txt",
+    "beforeSHA256": "d4544ca38382afdeaa0b1ccf700f9515720eb8e7180c53b9873d6092e58b1ffd",
+    "afterSHA256": "178b2289ebba65dc5c994230338f4582e8f1bc6e9031033d2aeec3e05beb7219",
+    "change": "remove blank lines at EOF only"
+  },
+  {
+    "path": "app/src/androidTest/java/com/conundrum/thomas/v2/UiSubmissionDriver.kt",
+    "beforeSHA256": "c1eb3c289b68745e5f8dd22d51e603cb9db2a256d5b32ac14bd8feb28395264a",
+    "afterSHA256": "fe449e89fcf88a8a4da49758ac62b6a1161d37a3de90ad31580c6f2e0a67e8bd",
+    "change": "remove one blank line at EOF only",
+    "rebuiltAppAndTestAPKsExactlyMatchPhysicallyTestedArtifacts": true,
+    "appAPK": "17bde74cb3e4c24699eddcd56425c27ee20c4a2e7026067289f2de72f5d0e551",
+    "testAPK": "048abed235c0cd891b7458d704934cdecb3a38d1f590980fe7ac13e8b53e7b68"
+  }
+]

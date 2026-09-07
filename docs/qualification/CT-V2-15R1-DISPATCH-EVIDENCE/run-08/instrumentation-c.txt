@@ -1,0 +1,47 @@
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest:
+INSTRUMENTATION_STATUS: test=cActualInputControlsAndSemanticProgression
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stack=org.junit.ComparisonFailure: expected:<core-[verify-problem]-understanding> but was:<core-[summarize-shared]-understanding>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send(CTV215R1ProductionUiInstrumentedTest.kt:76)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send$default(CTV215R1ProductionUiInstrumentedTest.kt:33)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.cActualInputControlsAndSemanticProgression(CTV215R1ProductionUiInstrumentedTest.kt:129)
+
+INSTRUMENTATION_STATUS: stream=
+Error in cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest):
+org.junit.ComparisonFailure: expected:<core-[verify-problem]-understanding> but was:<core-[summarize-shared]-understanding>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send(CTV215R1ProductionUiInstrumentedTest.kt:76)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send$default(CTV215R1ProductionUiInstrumentedTest.kt:33)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.cActualInputControlsAndSemanticProgression(CTV215R1ProductionUiInstrumentedTest.kt:129)
+
+INSTRUMENTATION_STATUS: test=cActualInputControlsAndSemanticProgression
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 712.553
+There was 1 failure:
+1) cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+org.junit.ComparisonFailure: expected:<core-[verify-problem]-understanding> but was:<core-[summarize-shared]-understanding>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send(CTV215R1ProductionUiInstrumentedTest.kt:76)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send$default(CTV215R1ProductionUiInstrumentedTest.kt:33)
+	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.cActualInputControlsAndSemanticProgression(CTV215R1ProductionUiInstrumentedTest.kt:129)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

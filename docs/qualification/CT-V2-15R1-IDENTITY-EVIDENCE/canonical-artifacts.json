@@ -1,0 +1,20 @@
+[
+  {
+    "path": "app/build/outputs/apk/debug/app-debug.apk",
+    "bytes": 31564628,
+    "sha256": "3819e58ff9ad224225f8e3be2256c76efb119f1f69048acf0febe8c01fb42992",
+    "modelArtifacts": [],
+    "inferenceMarkers": [],
+    "versionControl": {}
+  },
+  {
+    "path": "app/build/outputs/apk/release/app-release-unsigned.apk",
+    "bytes": 24295695,
+    "sha256": "ae54829ca31fd569c3bcdbfa0de87a701dd759862f585599ab4a0e80e35df6e4",
+    "modelArtifacts": [],
+    "inferenceMarkers": [],
+    "versionControl": {
+      "META-INF/version-control-info.textproto": "repositories {\n  system: GIT\n  local_root_path: \"$PROJECT_DIR\"\n  revision: \"4f822fb3498b67b40124c0fb4ec1f19f98c92c8b\"\n}\n"
+    }
+  }
+]

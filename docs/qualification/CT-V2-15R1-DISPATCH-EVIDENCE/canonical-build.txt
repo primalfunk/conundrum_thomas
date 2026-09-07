@@ -1,0 +1,723 @@
+Calculating task graph as no cached configuration is available for tasks: clean build lint generateRuntimeProvenanceDb
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :thomas:biographer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:language-evidence:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:longitudinal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:longitudinal-admission:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:context-packet:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:retrieval:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:longitudinal-store:clean UP-TO-DATE
+> Task :thomas:domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:engine:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:ontology:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:provenance:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:safety:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :platform:renderer-llama-android:clean UP-TO-DATE
+> Task :qualification:clean UP-TO-DATE
+> Task :thomas:journal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tools:provenance:clean UP-TO-DATE
+> Task :thomas:language-renderer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:runtime:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:therapy-longitudinal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:personal-data-persistence:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :platform:persistence-android:preBuild UP-TO-DATE
+> Task :platform:speech-android:preBuild UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :platform:persistence-android:preDebugBuild UP-TO-DATE
+> Task :platform:persistence-android:generateDebugAssets UP-TO-DATE
+> Task :platform:speech-android:generateDebugAssets UP-TO-DATE
+> Task :platform:speech-android:preDebugBuild UP-TO-DATE
+> Task :platform:speech-android:preReleaseBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :platform:persistence-android:preReleaseBuild UP-TO-DATE
+> Task :platform:persistence-android:generateReleaseAssets UP-TO-DATE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :platform:speech-android:generateReleaseAssets UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :platform:persistence-android:preDebugAndroidTestBuild UP-TO-DATE
+> Task :platform:persistence-android:preDebugUnitTestBuild UP-TO-DATE
+> Task :platform:speech-android:preDebugUnitTestBuild UP-TO-DATE
+> Task :platform:speech-android:preDebugAndroidTestBuild UP-TO-DATE
+> Task :qualification:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:longitudinal-store:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :platform:renderer-llama-android:preBuild UP-TO-DATE
+> Task :qualification:processTestResources NO-SOURCE
+> Task :thomas:longitudinal-store:processResources NO-SOURCE
+> Task :qualification:processResources NO-SOURCE
+> Task :platform:renderer-llama-android:generateDebugAssets UP-TO-DATE
+> Task :platform:renderer-llama-android:preDebugBuild UP-TO-DATE
+> Task :platform:renderer-llama-android:preReleaseBuild UP-TO-DATE
+> Task :platform:renderer-llama-android:generateReleaseAssets UP-TO-DATE
+> Task :platform:renderer-llama-android:processDebugNavigationResources
+> Task :platform:renderer-llama-android:prepareLintJarForPublish
+> Task :platform:renderer-llama-android:checkDebugAarMetadata
+> Task :platform:renderer-llama-android:extractDeepLinksForAarDebug
+> Task :platform:renderer-llama-android:mergeDebugJniLibFolders
+> Task :platform:renderer-llama-android:prepareDebugArtProfile
+> Task :platform:renderer-llama-android:mergeDebugNativeLibs NO-SOURCE
+> Task :platform:renderer-llama-android:javaPreCompileDebug
+> Task :platform:renderer-llama-android:stripDebugDebugSymbols NO-SOURCE
+> Task :platform:renderer-llama-android:mergeDebugAssets
+> Task :platform:renderer-llama-android:generateDebugResources
+> Task :platform:renderer-llama-android:checkReleaseAarMetadata
+> Task :platform:renderer-llama-android:copyDebugJniLibsProjectAndLocalJars
+> Task :thomas:provenance:clean
+> Task :thomas:provenance:processResources NO-SOURCE
+> Task :platform:renderer-llama-android:writeDebugAarMetadata
+> Task :thomas:domain:clean
+> Task :platform:renderer-llama-android:processReleaseNavigationResources
+> Task :thomas:domain:processResources NO-SOURCE
+> Task :platform:renderer-llama-android:extractDeepLinksForAarRelease
+> Task :platform:renderer-llama-android:mergeReleaseJniLibFolders
+> Task :platform:renderer-llama-android:javaPreCompileRelease
+> Task :platform:renderer-llama-android:mergeReleaseNativeLibs NO-SOURCE
+> Task :platform:renderer-llama-android:mergeReleaseAssets
+> Task :platform:renderer-llama-android:stripReleaseDebugSymbols NO-SOURCE
+> Task :platform:renderer-llama-android:prepareReleaseArtProfile
+> Task :platform:renderer-llama-android:generateReleaseResources
+> Task :platform:renderer-llama-android:copyReleaseJniLibsProjectAndLocalJars
+> Task :platform:renderer-llama-android:writeReleaseAarMetadata
+> Task :thomas:context-packet:clean
+> Task :thomas:context-packet:processResources NO-SOURCE
+> Task :platform:renderer-llama-android:preDebugAndroidTestBuild UP-TO-DATE
+> Task :platform:renderer-llama-android:mapReleaseSourceSetPaths
+> Task :platform:renderer-llama-android:packageDebugResources
+> Task :thomas:journal:clean
+> Task :thomas:journal:processResources NO-SOURCE
+> Task :platform:renderer-llama-android:preDebugUnitTestBuild UP-TO-DATE
+> Task :platform:speech-android:clean
+> Task :platform:renderer-llama-android:writeDebugLintModelMetadata
+> Task :platform:renderer-llama-android:processDebugManifest
+> Task :platform:renderer-llama-android:javaPreCompileDebugUnitTest
+> Task :thomas:retrieval:clean
+> Task :thomas:retrieval:processResources NO-SOURCE
+> Task :platform:renderer-llama-android:extractProguardFiles
+> Task :thomas:therapy-longitudinal:clean
+> Task :platform:renderer-llama-android:packageReleaseResources
+> Task :thomas:therapy-longitudinal:processResources NO-SOURCE
+> Task :platform:speech-android:processDebugNavigationResources
+> Task :platform:renderer-llama-android:processReleaseManifest
+> Task :platform:speech-android:javaPreCompileDebug
+> Task :thomas:biographer:clean
+> Task :thomas:biographer:processResources NO-SOURCE
+> Task :thomas:ontology:clean
+> Task :thomas:ontology:processResources NO-SOURCE
+> Task :platform:renderer-llama-android:parseDebugLocalResources
+> Task :platform:speech-android:writeDebugAarMetadata
+> Task :platform:speech-android:processReleaseNavigationResources
+> Task :thomas:runtime:clean
+> Task :thomas:runtime:processResources NO-SOURCE
+> Task :platform:speech-android:mergeDebugAssets
+> Task :platform:renderer-llama-android:mergeReleaseResources
+> Task :platform:speech-android:mapDebugSourceSetPaths
+> Task :platform:speech-android:writeReleaseAarMetadata
+> Task :platform:speech-android:javaPreCompileRelease
+> Task :platform:speech-android:extractDeepLinksRelease
+> Task :thomas:personal-data-persistence:clean
+> Task :thomas:language-renderer:clean
+> Task :thomas:personal-data-persistence:processResources NO-SOURCE
+> Task :thomas:language-renderer:processResources NO-SOURCE
+> Task :thomas:language-evidence:clean
+> Task :platform:speech-android:mergeReleaseAssets
+> Task :thomas:language-evidence:processResources NO-SOURCE
+> Task :platform:speech-android:extractDeepLinksDebug
+> Task :platform:speech-android:prepareReleaseArtProfile
+> Task :platform:speech-android:prepareLintJarForPublish
+> Task :platform:speech-android:mergeReleaseJniLibFolders
+> Task :platform:speech-android:checkDebugAarMetadata
+> Task :platform:speech-android:extractDeepLinksForAarRelease
+> Task :platform:speech-android:checkReleaseAarMetadata
+> Task :platform:speech-android:mapReleaseSourceSetPaths
+> Task :platform:speech-android:writeReleaseLintModelMetadata
+> Task :platform:speech-android:mergeDebugJniLibFolders
+> Task :platform:speech-android:generateDebugResources
+> Task :thomas:domain:processTestResources NO-SOURCE
+> Task :thomas:biographer:processTestResources NO-SOURCE
+> Task :platform:speech-android:extractDeepLinksForAarDebug
+> Task :thomas:journal:processTestResources NO-SOURCE
+> Task :platform:speech-android:mergeReleaseNativeLibs NO-SOURCE
+> Task :thomas:context-packet:processTestResources NO-SOURCE
+> Task :platform:speech-android:mergeDebugNativeLibs NO-SOURCE
+> Task :thomas:language-evidence:processTestResources NO-SOURCE
+> Task :platform:speech-android:extractProguardFiles
+> Task :platform:persistence-android:clean
+> Task :thomas:language-renderer:processTestResources NO-SOURCE
+> Task :thomas:longitudinal-store:processTestResources NO-SOURCE
+> Task :platform:speech-android:stripReleaseDebugSymbols NO-SOURCE
+> Task :platform:speech-android:prepareDebugArtProfile
+> Task :platform:speech-android:stripDebugDebugSymbols NO-SOURCE
+> Task :thomas:ontology:processTestResources NO-SOURCE
+> Task :platform:speech-android:copyDebugJniLibsProjectOnly
+> Task :platform:speech-android:generateReleaseResources
+> Task :platform:speech-android:javaPreCompileDebugUnitTest
+> Task :platform:speech-android:copyReleaseJniLibsProjectOnly
+> Task :platform:persistence-android:processDebugNavigationResources
+> Task :platform:speech-android:writeDebugLintModelMetadata
+> Task :platform:persistence-android:mapDebugSourceSetPaths
+> Task :platform:renderer-llama-android:parseReleaseLocalResources
+> Task :platform:persistence-android:processReleaseNavigationResources
+> Task :platform:persistence-android:javaPreCompileDebug
+> Task :thomas:longitudinal-admission:clean
+> Task :thomas:longitudinal-admission:processResources NO-SOURCE
+> Task :thomas:safety:clean
+> Task :thomas:safety:processResources NO-SOURCE
+> Task :platform:persistence-android:writeDebugAarMetadata
+> Task :platform:persistence-android:mergeReleaseJniLibFolders
+> Task :platform:persistence-android:javaPreCompileRelease
+> Task :platform:persistence-android:writeReleaseAarMetadata
+> Task :platform:persistence-android:mergeDebugAssets
+> Task :platform:persistence-android:mergeDebugJniLibFolders
+> Task :platform:speech-android:processReleaseManifest
+> Task :platform:persistence-android:extractDeepLinksDebug
+> Task :platform:persistence-android:extractDeepLinksRelease
+> Task :platform:persistence-android:mergeReleaseNativeLibs NO-SOURCE
+> Task :platform:renderer-llama-android:generateDebugRFile
+> Task :platform:persistence-android:mapReleaseSourceSetPaths
+> Task :platform:persistence-android:mergeDebugNativeLibs NO-SOURCE
+> Task :platform:speech-android:processDebugManifest
+> Task :platform:persistence-android:prepareReleaseArtProfile
+> Task :platform:persistence-android:stripDebugDebugSymbols NO-SOURCE
+> Task :platform:persistence-android:prepareDebugArtProfile
+> Task :platform:speech-android:packageDebugResources
+> Task :platform:persistence-android:extractDeepLinksForAarDebug
+> Task :platform:persistence-android:extractDeepLinksForAarRelease
+> Task :platform:persistence-android:checkReleaseAarMetadata
+> Task :platform:persistence-android:prepareLintJarForPublish
+> Task :platform:persistence-android:checkDebugAarMetadata
+> Task :platform:persistence-android:stripReleaseDebugSymbols NO-SOURCE
+> Task :platform:speech-android:packageReleaseResources
+> Task :platform:persistence-android:mergeReleaseAssets
+> Task :platform:persistence-android:generateReleaseResources
+> Task :platform:persistence-android:generateDebugResources
+> Task :platform:persistence-android:copyDebugJniLibsProjectOnly
+> Task :platform:persistence-android:copyReleaseJniLibsProjectOnly
+> Task :platform:speech-android:compileDebugLibraryResources
+> Task :platform:persistence-android:javaPreCompileDebugUnitTest
+> Task :platform:persistence-android:copyDebugJniLibsProjectAndLocalJars
+> Task :thomas:longitudinal-admission:processTestResources NO-SOURCE
+> Task :thomas:personal-data-persistence:processTestResources NO-SOURCE
+> Task :platform:speech-android:copyDebugJniLibsProjectAndLocalJars
+> Task :platform:persistence-android:writeDebugLintModelMetadata
+> Task :thomas:provenance:processTestResources NO-SOURCE
+> Task :platform:persistence-android:copyReleaseJniLibsProjectAndLocalJars
+> Task :thomas:runtime:processTestResources NO-SOURCE
+> Task :thomas:retrieval:processTestResources NO-SOURCE
+> Task :tools:provenance:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :thomas:safety:processTestResources NO-SOURCE
+> Task :thomas:therapy-longitudinal:processTestResources NO-SOURCE
+> Task :tools:provenance:processResources NO-SOURCE
+> Task :platform:speech-android:parseDebugLocalResources
+> Task :platform:speech-android:copyReleaseJniLibsProjectAndLocalJars
+> Task :tools:provenance:processTestResources NO-SOURCE
+> Task :platform:speech-android:parseReleaseLocalResources
+> Task :platform:speech-android:compileReleaseLibraryResources
+> Task :platform:persistence-android:writeReleaseLintModelMetadata
+> Task :platform:persistence-android:extractProguardFiles
+> Task :platform:renderer-llama-android:generateDebugUnitTestStubRFile
+> Task :platform:persistence-android:processReleaseManifest
+> Task :platform:persistence-android:processDebugManifest
+> Task :platform:renderer-llama-android:generateReleaseRFile
+> Task :thomas:longitudinal:clean
+> Task :thomas:longitudinal:processResources NO-SOURCE
+> Task :thomas:longitudinal:processTestResources NO-SOURCE
+> Task :platform:speech-android:generateDebugRFile
+> Task :platform:speech-android:generateReleaseRFile
+> Task :platform:speech-android:mergeReleaseResources
+> Task :platform:persistence-android:mergeReleaseResources
+> Task :platform:persistence-android:packageDebugResources
+> Task :platform:persistence-android:packageReleaseResources
+> Task :platform:speech-android:generateDebugUnitTestStubRFile
+> Task :platform:persistence-android:compileDebugLibraryResources
+> Task :platform:persistence-android:compileReleaseLibraryResources
+> Task :platform:persistence-android:parseDebugLocalResources
+> Task :platform:persistence-android:parseReleaseLocalResources
+> Task :platform:persistence-android:generateReleaseRFile
+> Task :platform:persistence-android:generateDebugRFile
+> Task :thomas:engine:clean
+> Task :thomas:engine:processResources NO-SOURCE
+> Task :thomas:engine:processTestResources NO-SOURCE
+> Task :platform:persistence-android:generateDebugUnitTestStubRFile
+> Task :platform:renderer-llama-android:verifyReleaseResources
+> Task :platform:persistence-android:verifyReleaseResources
+> Task :platform:speech-android:verifyReleaseResources
+> Task :app:clean
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:processReleaseNavigationResources
+> Task :app:processDebugNavigationResources
+> Task :app:javaPreCompileDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:writeDebugAppMetadata
+> Task :app:javaPreCompileRelease
+> Task :app:mapDebugSourceSetPaths
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:extractDeepLinksDebug
+> Task :app:mergeReleaseStartupProfile
+> Task :app:mergeDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:desugarReleaseFileDependencies
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:mergeDebugJniLibFolders
+> Task :app:extractDeepLinksRelease
+> Task :app:checkDebugAarMetadata
+> Task :app:checkReleaseAarMetadata
+> Task :app:compileDebugNavigationResources
+> Task :app:writeReleaseSigningConfigVersions
+> Task :app:generateDebugResources
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:compileReleaseNavigationResources
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:writeReleaseAppMetadata
+> Task :app:generateReleaseResources
+> Task :app:compressDebugAssets
+> Task :app:mergeReleaseAssets
+> Task :app:extractProguardFiles
+> Task :app:mergeReleaseJniLibFolders
+> Task :app:checkDebugDuplicateClasses
+> Task :app:compressReleaseAssets
+> Task :app:mergeReleaseArtProfile
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:processReleaseMainManifest
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processReleaseManifest
+> Task :app:collectReleaseDependencies
+> Task :app:processDebugManifestForPackage
+> Task :app:processReleaseManifestForPackage
+> Task :app:packageDebugResources
+> Task :app:packageReleaseResources
+> Task :app:parseDebugLocalResources
+> Task :app:parseReleaseLocalResources
+> Task :app:sdkReleaseDependencyData
+> Task :app:generateDebugRFile
+> Task :app:generateReleaseRFile
+> Task :app:generateDebugGlobalSynthetics
+> Task :app:mergeDebugResources
+> Task :app:mergeReleaseResources
+> Task :app:processDebugResources
+> Task :app:processReleaseResources
+> Task :app:optimizeReleaseResources
+> Task :app:mergeExtDexRelease
+> Task :app:mergeExtDexDebug
+> Task :thomas:domain:compileKotlin
+> Task :thomas:domain:compileJava NO-SOURCE
+> Task :thomas:domain:classes UP-TO-DATE
+> Task :thomas:domain:jar
+> Task :thomas:domain:assemble
+> Task :thomas:domain:compileTestKotlin NO-SOURCE
+> Task :thomas:domain:compileTestJava NO-SOURCE
+> Task :thomas:domain:testClasses UP-TO-DATE
+> Task :platform:speech-android:compileDebugKotlin NO-SOURCE
+> Task :platform:speech-android:compileDebugJavaWithJavac NO-SOURCE
+> Task :platform:speech-android:compileReleaseKotlin NO-SOURCE
+> Task :platform:renderer-llama-android:compileDebugKotlin NO-SOURCE
+> Task :thomas:domain:test NO-SOURCE
+> Task :platform:speech-android:processDebugJavaRes NO-SOURCE
+> Task :platform:renderer-llama-android:compileReleaseKotlin NO-SOURCE
+> Task :thomas:domain:check UP-TO-DATE
+> Task :thomas:domain:build
+> Task :platform:speech-android:compileReleaseJavaWithJavac NO-SOURCE
+> Task :platform:renderer-llama-android:compileReleaseJavaWithJavac NO-SOURCE
+> Task :platform:renderer-llama-android:processDebugJavaRes NO-SOURCE
+> Task :platform:renderer-llama-android:processReleaseJavaRes NO-SOURCE
+> Task :platform:speech-android:processReleaseJavaRes NO-SOURCE
+> Task :platform:renderer-llama-android:compileDebugJavaWithJavac NO-SOURCE
+> Task :platform:speech-android:bundleLibRuntimeToDirRelease
+> Task :platform:speech-android:mergeReleaseGeneratedProguardFiles
+> Task :platform:speech-android:bundleLibRuntimeToDirDebug
+> Task :platform:speech-android:bundleLibCompileToJarDebug
+> Task :platform:speech-android:mergeDebugGeneratedProguardFiles
+> Task :platform:speech-android:bundleLibRuntimeToJarDebug
+> Task :platform:speech-android:bundleLibCompileToJarRelease
+> Task :platform:speech-android:bundleLibRuntimeToJarRelease
+> Task :platform:speech-android:mergeReleaseJavaResource
+> Task :platform:speech-android:mergeDebugJavaResource
+> Task :platform:renderer-llama-android:mergeDebugGeneratedProguardFiles
+> Task :platform:speech-android:mergeReleaseConsumerProguardFiles
+> Task :platform:speech-android:mergeDebugConsumerProguardFiles
+> Task :platform:renderer-llama-android:mergeReleaseGeneratedProguardFiles
+> Task :platform:speech-android:createFullJarDebug
+> Task :platform:speech-android:createFullJarRelease
+> Task :platform:renderer-llama-android:mergeDebugConsumerProguardFiles
+> Task :platform:renderer-llama-android:mergeReleaseConsumerProguardFiles
+> Task :platform:speech-android:compileDebugUnitTestKotlin NO-SOURCE
+> Task :platform:renderer-llama-android:bundleLibRuntimeToJarDebug
+> Task :platform:speech-android:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :platform:renderer-llama-android:mergeDebugJavaResource
+> Task :platform:speech-android:processDebugUnitTestJavaRes NO-SOURCE
+> Task :platform:renderer-llama-android:bundleLibCompileToJarDebug
+> Task :platform:speech-android:testDebugUnitTest NO-SOURCE
+> Task :platform:speech-android:test UP-TO-DATE
+> Task :platform:renderer-llama-android:mergeReleaseJavaResource
+> Task :platform:renderer-llama-android:createFullJarDebug
+> Task :platform:renderer-llama-android:compileDebugUnitTestKotlin NO-SOURCE
+> Task :platform:renderer-llama-android:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :platform:renderer-llama-android:processDebugUnitTestJavaRes NO-SOURCE
+> Task :platform:renderer-llama-android:testDebugUnitTest NO-SOURCE
+> Task :platform:renderer-llama-android:test UP-TO-DATE
+> Task :platform:speech-android:extractDebugAnnotations
+> Task :platform:renderer-llama-android:extractReleaseAnnotations
+> Task :platform:speech-android:syncDebugLibJars
+> Task :platform:renderer-llama-android:syncReleaseLibJars
+> Task :platform:speech-android:bundleDebugAar
+> Task :platform:speech-android:assembleDebug
+> Task :platform:renderer-llama-android:extractDebugAnnotations
+> Task :platform:speech-android:bundleDebugLocalLintAar
+> Task :platform:renderer-llama-android:syncDebugLibJars
+> Task :platform:renderer-llama-android:bundleReleaseAar
+> Task :platform:renderer-llama-android:assembleRelease
+> Task :platform:renderer-llama-android:bundleDebugLocalLintAar
+> Task :platform:renderer-llama-android:bundleDebugAar
+> Task :platform:renderer-llama-android:assembleDebug
+> Task :platform:renderer-llama-android:assemble
+> Task :platform:speech-android:extractReleaseAnnotations
+> Task :platform:speech-android:syncReleaseLibJars
+> Task :platform:speech-android:bundleReleaseAar
+> Task :platform:speech-android:bundleReleaseLocalLintAar
+> Task :platform:speech-android:assembleRelease
+> Task :platform:speech-android:assemble
+> Task :thomas:longitudinal:compileKotlin
+> Task :thomas:longitudinal:compileJava NO-SOURCE
+> Task :thomas:longitudinal:classes UP-TO-DATE
+> Task :thomas:longitudinal:jar
+> Task :thomas:longitudinal:assemble
+> Task :platform:speech-android:generateReleaseLintVitalModel
+> Task :platform:speech-android:generateReleaseLintModel
+> Task :platform:renderer-llama-android:generateDebugLintReportModel
+> Task :platform:speech-android:generateDebugLintModel
+> Task :platform:speech-android:generateDebugLintReportModel
+> Task :platform:speech-android:lintVitalAnalyzeRelease
+> Task :platform:speech-android:generateDebugAndroidTestLintModel
+> Task :platform:renderer-llama-android:generateDebugUnitTestLintModel
+> Task :platform:speech-android:generateDebugUnitTestLintModel
+> Task :platform:renderer-llama-android:generateDebugAndroidTestLintModel
+> Task :thomas:provenance:compileKotlin
+> Task :thomas:provenance:compileJava NO-SOURCE
+> Task :thomas:provenance:classes UP-TO-DATE
+> Task :thomas:provenance:jar
+> Task :thomas:provenance:assemble
+> Task :thomas:provenance:compileTestKotlin NO-SOURCE
+> Task :thomas:provenance:compileTestJava NO-SOURCE
+> Task :thomas:provenance:testClasses UP-TO-DATE
+> Task :thomas:provenance:test NO-SOURCE
+> Task :thomas:provenance:check UP-TO-DATE
+> Task :thomas:provenance:build
+> Task :platform:speech-android:lintAnalyzeDebugAndroidTest
+> Task :platform:speech-android:lintAnalyzeDebugUnitTest
+> Task :platform:renderer-llama-android:lintAnalyzeDebugAndroidTest
+> Task :platform:renderer-llama-android:lintAnalyzeDebugUnitTest
+> Task :platform:speech-android:lintAnalyzeDebug
+> Task :platform:speech-android:lintReportDebug
+> Task :platform:speech-android:lintDebug
+> Task :platform:speech-android:lint
+> Task :platform:speech-android:check
+> Task :platform:speech-android:build
+> Task :platform:renderer-llama-android:lintAnalyzeDebug
+
+> Task :platform:renderer-llama-android:lintReportDebug
+Wrote HTML report to file:///C:/Android%20Studio%20Projects/ConundrumThomasV2/out/ct-v2-15r1-dispatch/workspace/platform/renderer-llama-android/build/reports/lint-results-debug.html
+Wrote SARIF report to file:///C:/Android%20Studio%20Projects/ConundrumThomasV2/out/ct-v2-15r1-dispatch/workspace/platform/renderer-llama-android/build/reports/lint-results-debug.sarif
+
+> Task :platform:renderer-llama-android:lintDebug
+> Task :platform:renderer-llama-android:lint
+> Task :platform:renderer-llama-android:check
+> Task :platform:renderer-llama-android:build
+> Task :thomas:longitudinal:compileTestKotlin
+> Task :thomas:longitudinal:compileTestJava NO-SOURCE
+> Task :thomas:longitudinal:testClasses UP-TO-DATE
+> Task :thomas:longitudinal:test
+> Task :thomas:longitudinal:check
+> Task :thomas:longitudinal:build
+> Task :tools:provenance:compileKotlin
+> Task :tools:provenance:compileJava NO-SOURCE
+> Task :tools:provenance:classes UP-TO-DATE
+> Task :tools:provenance:jar
+> Task :tools:provenance:assemble
+
+> Task :tools:provenance:generateRuntimeProvenanceDb
+Generated provenance/generated/thomas-provenance.sqlite
+
+> Task :generateRuntimeProvenanceDb
+> Task :thomas:ontology:compileKotlin
+> Task :thomas:ontology:compileJava NO-SOURCE
+> Task :thomas:ontology:classes UP-TO-DATE
+> Task :thomas:longitudinal-admission:compileKotlin
+> Task :thomas:longitudinal-admission:compileJava NO-SOURCE
+> Task :thomas:longitudinal-admission:classes UP-TO-DATE
+> Task :thomas:ontology:jar
+> Task :thomas:ontology:assemble
+> Task :thomas:longitudinal-admission:jar
+> Task :thomas:longitudinal-admission:assemble
+> Task :thomas:longitudinal-admission:compileTestKotlin NO-SOURCE
+> Task :thomas:longitudinal-admission:compileTestJava NO-SOURCE
+> Task :thomas:longitudinal-admission:testClasses UP-TO-DATE
+> Task :thomas:longitudinal-admission:test NO-SOURCE
+> Task :thomas:longitudinal-admission:check UP-TO-DATE
+> Task :thomas:longitudinal-admission:build
+> Task :thomas:ontology:compileTestKotlin
+> Task :thomas:ontology:compileTestJava NO-SOURCE
+> Task :thomas:ontology:testClasses UP-TO-DATE
+> Task :thomas:ontology:test
+> Task :thomas:ontology:check
+> Task :thomas:ontology:build
+> Task :thomas:safety:compileKotlin
+> Task :thomas:safety:compileJava NO-SOURCE
+> Task :thomas:safety:classes UP-TO-DATE
+> Task :thomas:safety:jar
+> Task :thomas:safety:assemble
+> Task :thomas:safety:compileTestKotlin NO-SOURCE
+> Task :thomas:safety:compileTestJava NO-SOURCE
+> Task :thomas:safety:testClasses UP-TO-DATE
+> Task :thomas:safety:test NO-SOURCE
+> Task :thomas:safety:check UP-TO-DATE
+> Task :thomas:safety:build
+> Task :thomas:language-evidence:compileKotlin
+> Task :thomas:language-evidence:compileJava NO-SOURCE
+> Task :thomas:language-evidence:classes UP-TO-DATE
+> Task :thomas:language-evidence:jar
+> Task :thomas:language-evidence:assemble
+> Task :thomas:retrieval:compileKotlin
+> Task :thomas:retrieval:compileJava NO-SOURCE
+> Task :thomas:retrieval:classes UP-TO-DATE
+> Task :thomas:retrieval:jar
+> Task :thomas:retrieval:assemble
+> Task :thomas:retrieval:compileTestKotlin NO-SOURCE
+> Task :thomas:retrieval:compileTestJava NO-SOURCE
+> Task :thomas:retrieval:testClasses UP-TO-DATE
+> Task :thomas:retrieval:test NO-SOURCE
+> Task :thomas:retrieval:check UP-TO-DATE
+> Task :thomas:retrieval:build
+> Task :thomas:personal-data-persistence:compileKotlin
+> Task :thomas:personal-data-persistence:compileJava NO-SOURCE
+> Task :thomas:personal-data-persistence:classes UP-TO-DATE
+> Task :thomas:personal-data-persistence:jar
+> Task :thomas:personal-data-persistence:assemble
+> Task :platform:persistence-android:extractReleaseAnnotations
+> Task :platform:persistence-android:extractDebugAnnotations
+> Task :platform:persistence-android:compileDebugKotlin
+> Task :platform:persistence-android:compileDebugJavaWithJavac NO-SOURCE
+> Task :platform:persistence-android:mergeDebugGeneratedProguardFiles
+> Task :platform:persistence-android:compileReleaseKotlin
+> Task :platform:persistence-android:compileReleaseJavaWithJavac NO-SOURCE
+> Task :platform:persistence-android:mergeDebugConsumerProguardFiles
+> Task :platform:persistence-android:bundleLibCompileToJarDebug
+> Task :platform:persistence-android:bundleLibRuntimeToJarDebug
+> Task :platform:persistence-android:mergeReleaseGeneratedProguardFiles
+> Task :platform:persistence-android:generateDebugLintReportModel
+> Task :platform:persistence-android:compileDebugUnitTestKotlin NO-SOURCE
+> Task :platform:persistence-android:generateDebugLintModel
+> Task :platform:persistence-android:mergeReleaseConsumerProguardFiles
+> Task :platform:persistence-android:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :platform:persistence-android:processDebugJavaRes
+> Task :platform:persistence-android:processDebugUnitTestJavaRes NO-SOURCE
+> Task :platform:persistence-android:testDebugUnitTest NO-SOURCE
+> Task :platform:persistence-android:test UP-TO-DATE
+> Task :platform:persistence-android:generateReleaseLintVitalModel
+> Task :platform:persistence-android:generateReleaseLintModel
+> Task :platform:persistence-android:bundleLibRuntimeToJarRelease
+> Task :platform:persistence-android:bundleLibCompileToJarRelease
+> Task :platform:persistence-android:processReleaseJavaRes
+> Task :thomas:language-evidence:compileTestKotlin
+> Task :thomas:language-evidence:compileTestJava NO-SOURCE
+> Task :thomas:language-evidence:testClasses UP-TO-DATE
+> Task :platform:persistence-android:createFullJarDebug
+> Task :platform:persistence-android:createFullJarRelease
+> Task :platform:persistence-android:mergeDebugJavaResource
+> Task :platform:persistence-android:mergeReleaseJavaResource
+> Task :platform:persistence-android:bundleLibRuntimeToDirDebug
+> Task :platform:persistence-android:syncDebugLibJars
+> Task :platform:persistence-android:syncReleaseLibJars
+> Task :platform:persistence-android:bundleLibRuntimeToDirRelease
+> Task :platform:persistence-android:bundleDebugAar
+> Task :platform:persistence-android:assembleDebug
+> Task :platform:persistence-android:bundleDebugLocalLintAar
+> Task :platform:persistence-android:bundleReleaseLocalLintAar
+> Task :platform:persistence-android:bundleReleaseAar
+> Task :platform:persistence-android:assembleRelease
+> Task :platform:persistence-android:assemble
+> Task :platform:persistence-android:generateDebugUnitTestLintModel
+> Task :platform:persistence-android:generateDebugAndroidTestLintModel
+> Task :platform:persistence-android:lintAnalyzeDebugUnitTest
+> Task :platform:persistence-android:lintAnalyzeDebugAndroidTest
+> Task :thomas:language-evidence:test
+> Task :thomas:language-evidence:check
+> Task :thomas:language-evidence:build
+> Task :thomas:journal:compileKotlin
+> Task :thomas:journal:compileJava NO-SOURCE
+> Task :thomas:journal:classes UP-TO-DATE
+> Task :thomas:journal:jar
+> Task :thomas:journal:assemble
+> Task :platform:persistence-android:lintVitalAnalyzeRelease
+> Task :thomas:context-packet:compileKotlin
+> Task :thomas:context-packet:compileJava NO-SOURCE
+> Task :thomas:context-packet:classes UP-TO-DATE
+> Task :thomas:context-packet:jar
+> Task :thomas:context-packet:assemble
+> Task :thomas:context-packet:compileTestKotlin NO-SOURCE
+> Task :thomas:context-packet:compileTestJava NO-SOURCE
+> Task :thomas:context-packet:testClasses UP-TO-DATE
+> Task :thomas:context-packet:test NO-SOURCE
+> Task :thomas:context-packet:check UP-TO-DATE
+> Task :thomas:context-packet:build
+> Task :platform:persistence-android:lintAnalyzeDebug
+> Task :platform:persistence-android:lintReportDebug
+> Task :platform:persistence-android:lintDebug
+> Task :platform:persistence-android:lint
+> Task :platform:persistence-android:check
+> Task :platform:persistence-android:build
+> Task :thomas:longitudinal-store:compileKotlin
+> Task :thomas:longitudinal-store:compileJava NO-SOURCE
+> Task :thomas:longitudinal-store:classes UP-TO-DATE
+> Task :thomas:longitudinal-store:jar
+> Task :thomas:longitudinal-store:assemble
+> Task :thomas:longitudinal-store:compileTestKotlin NO-SOURCE
+> Task :thomas:longitudinal-store:compileTestJava NO-SOURCE
+> Task :thomas:longitudinal-store:testClasses UP-TO-DATE
+> Task :thomas:longitudinal-store:test NO-SOURCE
+> Task :thomas:longitudinal-store:check UP-TO-DATE
+> Task :thomas:longitudinal-store:build
+> Task :thomas:personal-data-persistence:compileTestKotlin
+> Task :thomas:biographer:compileKotlin
+> Task :thomas:personal-data-persistence:compileTestJava NO-SOURCE
+> Task :thomas:personal-data-persistence:testClasses UP-TO-DATE
+> Task :thomas:biographer:compileJava NO-SOURCE
+> Task :thomas:biographer:classes UP-TO-DATE
+> Task :thomas:biographer:jar
+> Task :thomas:biographer:assemble
+> Task :thomas:personal-data-persistence:test
+> Task :thomas:personal-data-persistence:check
+> Task :thomas:personal-data-persistence:build
+> Task :thomas:engine:compileKotlin
+> Task :thomas:engine:compileJava NO-SOURCE
+> Task :thomas:engine:classes UP-TO-DATE
+> Task :thomas:journal:compileTestKotlin
+> Task :thomas:journal:compileTestJava NO-SOURCE
+> Task :thomas:journal:testClasses UP-TO-DATE
+> Task :thomas:engine:jar
+> Task :thomas:engine:assemble
+> Task :thomas:engine:compileTestKotlin NO-SOURCE
+> Task :thomas:engine:compileTestJava NO-SOURCE
+> Task :thomas:engine:testClasses UP-TO-DATE
+> Task :thomas:engine:test NO-SOURCE
+> Task :thomas:engine:check UP-TO-DATE
+> Task :thomas:engine:build
+> Task :thomas:journal:test
+> Task :thomas:journal:check
+> Task :thomas:journal:build
+> Task :thomas:biographer:compileTestKotlin
+> Task :thomas:biographer:compileTestJava NO-SOURCE
+> Task :thomas:biographer:testClasses UP-TO-DATE
+> Task :thomas:biographer:test
+> Task :thomas:biographer:check
+> Task :thomas:biographer:build
+> Task :tools:provenance:compileTestKotlin
+> Task :tools:provenance:compileTestJava NO-SOURCE
+> Task :tools:provenance:testClasses UP-TO-DATE
+> Task :thomas:therapy-longitudinal:compileKotlin
+> Task :thomas:therapy-longitudinal:compileJava NO-SOURCE
+> Task :thomas:therapy-longitudinal:classes UP-TO-DATE
+> Task :thomas:therapy-longitudinal:jar
+> Task :thomas:therapy-longitudinal:assemble
+> Task :thomas:therapy-longitudinal:compileTestKotlin NO-SOURCE
+> Task :thomas:therapy-longitudinal:compileTestJava NO-SOURCE
+> Task :thomas:therapy-longitudinal:testClasses UP-TO-DATE
+> Task :thomas:therapy-longitudinal:test NO-SOURCE
+> Task :thomas:therapy-longitudinal:check UP-TO-DATE
+> Task :thomas:therapy-longitudinal:build
+> Task :tools:provenance:test
+> Task :tools:provenance:check
+> Task :tools:provenance:build
+> Task :thomas:language-renderer:compileKotlin
+> Task :thomas:language-renderer:compileJava NO-SOURCE
+> Task :thomas:language-renderer:classes UP-TO-DATE
+> Task :thomas:language-renderer:jar
+> Task :thomas:language-renderer:assemble
+> Task :thomas:language-renderer:compileTestKotlin NO-SOURCE
+> Task :thomas:language-renderer:compileTestJava NO-SOURCE
+> Task :thomas:language-renderer:testClasses UP-TO-DATE
+> Task :thomas:language-renderer:test NO-SOURCE
+> Task :thomas:language-renderer:check UP-TO-DATE
+> Task :thomas:language-renderer:build
+> Task :qualification:compileKotlin
+> Task :qualification:compileJava NO-SOURCE
+> Task :qualification:classes UP-TO-DATE
+> Task :qualification:jar
+> Task :qualification:assemble
+> Task :thomas:runtime:compileKotlin
+> Task :thomas:runtime:compileJava NO-SOURCE
+> Task :thomas:runtime:classes UP-TO-DATE
+> Task :thomas:runtime:jar
+> Task :thomas:runtime:assemble
+> Task :thomas:runtime:compileTestKotlin NO-SOURCE
+> Task :thomas:runtime:compileTestJava NO-SOURCE
+> Task :thomas:runtime:testClasses UP-TO-DATE
+> Task :thomas:runtime:test NO-SOURCE
+> Task :thomas:runtime:check UP-TO-DATE
+> Task :thomas:runtime:build
+> Task :app:mergeReleaseNativeLibs
+> Task :app:mergeDebugNativeLibs
+> Task :app:stripReleaseDebugSymbols
+> Task :app:stripDebugDebugSymbols
+> Task :app:extractReleaseNativeSymbolTables
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:compileReleaseKotlin
+> Task :app:compileReleaseJavaWithJavac NO-SOURCE
+> Task :app:processDebugJavaRes
+> Task :app:processReleaseJavaRes
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:generateDebugLintReportModel
+> Task :app:generateDebugUnitTestLintModel
+> Task :app:generateDebugAndroidTestLintModel
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:dexBuilderRelease
+> Task :app:dexBuilderDebug
+> Task :app:mergeReleaseGlobalSynthetics
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeReleaseJavaResource
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:assembleDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :app:mergeDexRelease
+> Task :app:compileReleaseArtProfile
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+> Task :app:testDebugUnitTest
+> Task :app:test
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease SKIPPED
+> Task :app:lintVitalRelease SKIPPED
+> Task :app:packageRelease
+> Task :app:assembleRelease
+> Task :app:assemble
+> Task :app:createReleaseApkListingFileRedirect
+> Task :qualification:compileTestKotlin
+> Task :qualification:compileTestJava NO-SOURCE
+> Task :qualification:testClasses UP-TO-DATE
+> Task :app:lintAnalyzeDebug
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///C:/Android%20Studio%20Projects/ConundrumThomasV2/out/ct-v2-15r1-dispatch/workspace/app/build/reports/lint-results-debug.html
+Wrote SARIF report to file:///C:/Android%20Studio%20Projects/ConundrumThomasV2/out/ct-v2-15r1-dispatch/workspace/app/build/reports/lint-results-debug.sarif
+
+> Task :app:lintDebug
+> Task :app:lint
+> Task :app:check
+> Task :app:build
+> Task :qualification:test
+> Task :qualification:check
+> Task :qualification:build
+
+BUILD SUCCESSFUL in 1m 44s
+393 actionable tasks: 389 executed, 4 up-to-date
+Configuration cache entry stored.

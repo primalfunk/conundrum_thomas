@@ -1,0 +1,9 @@
+{
+  "entryHead": "4f822fb3498b67b40124c0fb4ec1f19f98c92c8b",
+  "patchSha256": "0ba2c36b74c5921e6ead040e618861bf33a3ad748b957049002eef9487fc0a0f",
+  "archiveSha256": "c0476eca60faf75220312dfb42bf158ebfe1c2dae2461feecabc221917df148c",
+  "candidateFilesExactlyMatched": 63,
+  "forwardCheck": "PASS",
+  "reverseCheck": "PASS",
+  "environment": "isolated local clone; canonical main unchanged"
+}

@@ -1,0 +1,10 @@
+{
+  "entryHead": "4f822fb3498b67b40124c0fb4ec1f19f98c92c8b",
+  "entryTree": "69fa2a2b68105c4371574ac81316aa6002fd4d93",
+  "patchSHA256": "60d152f1b539a58a3e1315649ec374e56336213e51eed2128b4c3e1ecf50422a",
+  "archiveSHA256": "da001ed1ade82075cd4334b34401d7e7dd26d1ebe67ad75971de41ce98baffad",
+  "exactFilesMatched": 336,
+  "forwardCheck": "PASS",
+  "reverseCheck": "PASS",
+  "canonicalMainUnchanged": true
+}

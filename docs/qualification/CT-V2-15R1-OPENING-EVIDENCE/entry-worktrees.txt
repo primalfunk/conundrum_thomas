@@ -1,0 +1,3 @@
+worktree C:/Android Studio Projects/ConundrumThomasV2
+HEAD 4f822fb3498b67b40124c0fb4ec1f19f98c92c8b
+branch refs/heads/main

@@ -1,0 +1,97 @@
+{
+  "adjudication": "CORRECT_PRACTICAL_SELECTION_THEN_RENDERER_OPENING_EXHAUSTION",
+  "uiSelected": "PRACTICAL_HELP",
+  "viewModelSupport": "PRACTICAL_HELP",
+  "requestSupport": "PRACTICAL_HELP",
+  "proceduralRoute": "PRACTICAL_PROBLEM_SOLVING",
+  "selectedAction": "core-verify-problem-understanding",
+  "lastDeliveredActionBeforeAndAfter": "core-summarize-shared-understanding",
+  "rendererSemanticAct": "CLARIFYING_QUESTION",
+  "rendererDisposition": "RENDERING_UNAVAILABLE",
+  "rendererRejection": "REPEATED_OPENING",
+  "committedIdentity": "android-therapy-84",
+  "physicalPreStateCapturedPrefixCharacters": 3992,
+  "directPreStateCharacters": 4339,
+  "physicalClassifiedStateCapturedPrefixCharacters": 3977,
+  "directClassifiedStateCharacters": 4090,
+  "capturedStatePrefixesExactlyMatchDirectReplay": true,
+  "completeDeliveredHistoryMatches": true,
+  "deliveredHistory": [
+    [
+      "core-reflect-established-content",
+      "2",
+      "LISTEN_SUPPORT"
+    ],
+    [
+      "core-offer-direction-choice",
+      "2",
+      "LISTEN_SUPPORT"
+    ],
+    [
+      "core-reflect-established-content",
+      "3",
+      "LISTEN_SUPPORT"
+    ],
+    [
+      "core-pause-without-response",
+      "4",
+      "CONSOLIDATE_CLOSE"
+    ],
+    [
+      "core-invite-further-expression",
+      "5",
+      "LISTEN_SUPPORT"
+    ],
+    [
+      "core-pause-without-response",
+      "6",
+      "CONSOLIDATE_CLOSE"
+    ],
+    [
+      "core-invite-further-expression",
+      "7",
+      "LISTEN_SUPPORT"
+    ],
+    [
+      "core-summarize-listening",
+      "8",
+      "LISTEN_SUPPORT"
+    ],
+    [
+      "core-check-further-or-close",
+      "9",
+      "LISTEN_SUPPORT"
+    ],
+    [
+      "core-ask-important-missing-piece",
+      "11",
+      "UNDERSTAND_CLARIFY"
+    ],
+    [
+      "core-verify-tentative-understanding",
+      "12",
+      "UNDERSTAND_CLARIFY"
+    ],
+    [
+      "core-acknowledge-correction",
+      "13",
+      "UNDERSTAND_CLARIFY"
+    ],
+    [
+      "core-verify-tentative-understanding",
+      "14",
+      "UNDERSTAND_CLARIFY"
+    ],
+    [
+      "core-summarize-shared-understanding",
+      "15",
+      "UNDERSTAND_CLARIFY"
+    ]
+  ],
+  "completeRenderResultExactlyMatchesDirectReplay": true,
+  "canonicalRenderDigest": "56ba5b5032ddaf69b0c6ef465bca6c02462e803f332cfe7ebe4f5d0a8235b840",
+  "context": "Both select zero historical candidates and no relevant memory; corpus contents/revisions/digests differ and are not claimed equal",
+  "logLimit": "Long state/plan Logcat lines truncate; prefixes are compared explicitly, complete action history reconstructed from per-turn markers. The renderer result fits and is compared in full.",
+  "productionRepairMade": false,
+  "oracleExpectedActionChanged": false
+}

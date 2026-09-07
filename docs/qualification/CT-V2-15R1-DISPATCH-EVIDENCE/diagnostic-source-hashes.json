@@ -1,0 +1,32 @@
+[
+  {
+    "path": "app/src/main/java/com/conundrum/thomas/v2/MainActivity.kt",
+    "sha256": "b70e63ccd6573a2d61a0213180ac26669da8ddf8b3f9ccbe30e668a82d568cf9",
+    "snapshot": "diagnostic-sources/activity.kt"
+  },
+  {
+    "path": "app/src/main/java/com/conundrum/thomas/v2/ThomasViewModel.kt",
+    "sha256": "565c332a989e2bcbedfa020eed3e0a418b6857a6696a27a326bd22be582989de",
+    "snapshot": "diagnostic-sources/vm.kt"
+  },
+  {
+    "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ThomasProductionRuntime.kt",
+    "sha256": "75b146159c8439b7592eb175125b1bdeff1049509af2cd1f765eaf276831b514",
+    "snapshot": "diagnostic-sources/runtime.kt"
+  },
+  {
+    "path": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/ProtectedPersonalDataStoreImpl.kt",
+    "sha256": "991ad14a2e43651f780b659796a4847911464a06d5a9699b2fa5019367afe984",
+    "snapshot": "diagnostic-sources/store.kt"
+  },
+  {
+    "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1ProductionUiInstrumentedTest.kt",
+    "sha256": "77aa4fcff6904eaf8e19e8895ffeb6c2d1844568aa4da6d2b850ddaabcac42db",
+    "snapshot": "diagnostic-sources/ui.kt"
+  },
+  {
+    "path": "app/src/main/java/com/conundrum/thomas/v2/SubmissionDispatchProbe.kt",
+    "sha256": "a2dc8abb78d201cd9790741ba751dee1e2e4d7c7bcfb4da1d03b62e49a76ee94",
+    "snapshot": "diagnostic-sources/probe.kt"
+  }
+]

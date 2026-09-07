@@ -1,0 +1,1009 @@
+{
+  "changedProductionAgainstIncoming": [
+    "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/DeterministicReferenceRealizer.kt",
+    "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/RendererContracts.kt",
+    "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/TherapyRenderCommandAdapter.kt"
+  ],
+  "productionFilesCompared": 155,
+  "qualifiedCode": [
+    {
+      "path": "app/build.gradle.kts",
+      "sha256": "36c1e3fc92bb6c003d52908c47f06382c975d220eca7edfc447b5199349c41ed"
+    },
+    {
+      "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215DevicePersistenceInstrumentedTest.kt",
+      "sha256": "62d3ad36a3694832760baec7582166a9b382ca0d8c02698d92cd24e73b0e8fca"
+    },
+    {
+      "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215ProductionUiInstrumentedTest.kt",
+      "sha256": "1ba85cdc7820f7c762da27a93ec57d1e99bc8bc9311aebd76d02809f39928bcf"
+    },
+    {
+      "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1ProductionDeviceInstrumentedTest.kt",
+      "sha256": "ebc45f3148a295b0e8bc1a333689de2586c02ef11d64b662ab8ff96e3a59347e"
+    },
+    {
+      "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1ProductionUiInstrumentedTest.kt",
+      "sha256": "b756aa9d6f6b64ae029e96c1722c73e382dbb202d2a1b1b926c163079175ba0f"
+    },
+    {
+      "path": "app/src/androidTest/java/com/conundrum/thomas/v2/FoundationInstrumentedTest.kt",
+      "sha256": "b5476ff769168ec9371aaec9b5a8d90a4f8f69ecce5633ee6ae6d6a0f8bbcbb3"
+    },
+    {
+      "path": "app/src/main/AndroidManifest.xml",
+      "sha256": "9f7eda718d98f4916ffc0220d4b83e2df5c273cff60d574273becca17fe468b8"
+    },
+    {
+      "path": "app/src/main/java/com/conundrum/thomas/v2/AndroidDataCustodyController.kt",
+      "sha256": "72fa92240d3df2dc21c596acfc8d40f351c262269b50ae711fa16189cdac152e"
+    },
+    {
+      "path": "app/src/main/java/com/conundrum/thomas/v2/MainActivity.kt",
+      "sha256": "98056c047a25a6c3dea6d08046ba35c863a722381f653639a4f20a917452bf56"
+    },
+    {
+      "path": "app/src/main/java/com/conundrum/thomas/v2/ThomasAndroidCompositionRoot.kt",
+      "sha256": "05cb312b5912921c1ac8b6adb9b165c7701178ef2d278277457fdd167befda93"
+    },
+    {
+      "path": "app/src/main/java/com/conundrum/thomas/v2/ThomasViewModel.kt",
+      "sha256": "08a2b697208d8ada205d6166c4bc56046a26053ba0f6e443d968333377bfe902"
+    },
+    {
+      "path": "app/src/main/java/com/conundrum/thomas/v2/ui/theme/Color.kt",
+      "sha256": "42e258abbb2e10c34fc3718be334bf06e1c0a5e1597b5f66571b9532aa08ab2c"
+    },
+    {
+      "path": "app/src/main/java/com/conundrum/thomas/v2/ui/theme/Theme.kt",
+      "sha256": "a4afac99e7379053dc4b471bab31a7be2991dd1af7e831e870733280cd3f4466"
+    },
+    {
+      "path": "app/src/main/java/com/conundrum/thomas/v2/ui/theme/Type.kt",
+      "sha256": "c2da10f77888e48e6cd1fb646cfa428434de1c1808e13cb6c93ba44e5eff2c24"
+    },
+    {
+      "path": "app/src/main/keepRules/rules.keep",
+      "sha256": "9e920813dbf36db3bdcc279837aac74db4c80647585a84d3e3f0c23d700105f2"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_launcher_background.xml",
+      "sha256": "38381d0d0a64770d992c98e5b5e492555690af40e2fc6ee59e5a1c2a7c0fdcde"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_launcher_foreground.xml",
+      "sha256": "6e3c1bb64d9bec079cf0030d867c58b064d2fb19ca6c5a691543c43134f64a2a"
+    },
+    {
+      "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "sha256": "e7c073fbec1a51a73f678b266a1cb207aa6468e3ea1504d24f43591f31d2b7c5"
+    },
+    {
+      "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "sha256": "e7c073fbec1a51a73f678b266a1cb207aa6468e3ea1504d24f43591f31d2b7c5"
+    },
+    {
+      "path": "app/src/main/res/mipmap-hdpi/ic_launcher.webp",
+      "sha256": "dd00996198640ed28fbc09cdcd7a3807cf8707f3eb255b659634da3ca6a6ff01"
+    },
+    {
+      "path": "app/src/main/res/mipmap-hdpi/ic_launcher_round.webp",
+      "sha256": "1ed73f5341a69d3b41c7e02e126803f50cc8c3284adf4bbb737f0c93577aef07"
+    },
+    {
+      "path": "app/src/main/res/mipmap-mdpi/ic_launcher.webp",
+      "sha256": "846219e6f72fe9a6c104ca8919cbee36a101e7d2ff8da9da67b689a5888f060d"
+    },
+    {
+      "path": "app/src/main/res/mipmap-mdpi/ic_launcher_round.webp",
+      "sha256": "4e2c58b91de01130e6479e00cbbaaf6e77cd961dd2c8e303cf13cd077fa92632"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xhdpi/ic_launcher.webp",
+      "sha256": "398340dad816fc9a6338cb151a8cf1e45b926f9bfb70628b24c4bd2523cc94d4"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp",
+      "sha256": "91b490aef86574901137f0a252272e1f1add99c1ad709e0696ed68929b88d261"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
+      "sha256": "58ae87fa0c5b5d1562d27fd648d2c061553fe20e3ed570bde588162d01ea7a27"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp",
+      "sha256": "3009fad079f5772f30ecd767f98924367fbe0f81c30048d672d4fda2d5ca7d12"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp",
+      "sha256": "f98fef5bc3bfe5b65692c40ad1cbae2bec4faf9f1b249c397626740db71b62d8"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp",
+      "sha256": "5faf033745c8c882c43bb1b372d4e4a5890caec63d9892a2e756c954108b85dc"
+    },
+    {
+      "path": "app/src/main/res/values/colors.xml",
+      "sha256": "31e0230ab2d96fa128a11705e85e590f3462745dc3c04bc851bc724a445921c1"
+    },
+    {
+      "path": "app/src/main/res/values/strings.xml",
+      "sha256": "17f54d774025e910584ca6b487e48d09cfba8e73b986b07db655c08e604993fc"
+    },
+    {
+      "path": "app/src/main/res/values/themes.xml",
+      "sha256": "576ee85f8288a33d8024568807d145e061dd9a18a34d681ba3c3ce5e0857aead"
+    },
+    {
+      "path": "app/src/main/res/xml/backup_rules.xml",
+      "sha256": "b870cc4467465fa7135a72206ced9aa01131272382301dfcfa7be0ba26ada481"
+    },
+    {
+      "path": "app/src/main/res/xml/data_extraction_rules.xml",
+      "sha256": "e1e678caa975cfe5a2b3f6ff7cc4ec5204cbb5912feffead0bee893148a523a9"
+    },
+    {
+      "path": "app/src/test/java/com/conundrum/thomas/v2/FoundationUnitTest.kt",
+      "sha256": "a31237b8a29c4242c2b7dbb7997059ceb0d7238d5c7749552f012b761c0dc70d"
+    },
+    {
+      "path": "build.gradle.kts",
+      "sha256": "46c536f4aaef9a07f80d438dd9ab66f96b9c6395677cd316a6788dd9c7c80447"
+    },
+    {
+      "path": "platform/persistence-android/build.gradle.kts",
+      "sha256": "2c263a60ee105c31b707bb80714250dcbf8841a2b516d7eecf5faa6b0f1b26c6"
+    },
+    {
+      "path": "platform/persistence-android/src/main/AndroidManifest.xml",
+      "sha256": "faaba9392e4f5baf2dfc419b7598c06068afc4cf53f57dee439078abd607da41"
+    },
+    {
+      "path": "platform/persistence-android/src/main/kotlin/com/conundrum/thomas/v2/platform/persistence/AndroidAtomicProtectedArtifactStorage.kt",
+      "sha256": "61c73b4e35bac5ba9e4159359a35bc01232cf5d852da2948d8a34e3eacfc3157"
+    },
+    {
+      "path": "platform/persistence-android/src/main/kotlin/com/conundrum/thomas/v2/platform/persistence/AndroidKeystorePersonalDataKeyProvider.kt",
+      "sha256": "4ace5262c904752593760f7664aa894c01252d99e1429544523681e721013cbb"
+    },
+    {
+      "path": "platform/persistence-android/src/main/kotlin/com/conundrum/thomas/v2/platform/persistence/AndroidPersonalDataPersistenceFactory.kt",
+      "sha256": "60e04f766d88dfa20e2c9dcf5e1de9ddefa26428aef0b28e517c86f6aa7dbc61"
+    },
+    {
+      "path": "platform/renderer-llama-android/build.gradle.kts",
+      "sha256": "6a39e79f918c7a457b76c943e7b248c1e0e1303bc91e044967a63cf234512da3"
+    },
+    {
+      "path": "platform/speech-android/build.gradle.kts",
+      "sha256": "28d965c9550e7c75b26a9f561a767b2e4c02c8f96b0b57ba35c9c65bb9c82b5c"
+    },
+    {
+      "path": "qualification/build.gradle.kts",
+      "sha256": "5f540092c366320c26daaa36246c91daaf4eba5e0c7ff5b8274fcd3049f82200"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/biographer/GovernedBiographerPipeline.kt",
+      "sha256": "4ab18492b1b500b66bab98f4ebc88946b02795944bdbfef7c1db3336c9f8099b"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/journal/DeterministicJournalRenderer.kt",
+      "sha256": "fa349b85dc151e028ffc89c626115a34794884f59b1d12e7ddf14a6123fe7946"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/journal/GovernedJournalCapturePipeline.kt",
+      "sha256": "194c6dab55265c918597a0a97474839e2475c00f8b891b5123242ad133a94f85"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/languageevidence/GovernedLanguageEvidencePipeline.kt",
+      "sha256": "4c300528513ecae5080a12e18d4b3514f7e7dd23f88ac771bb2bf592282a980b"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/longitudinal/CanonicalLongitudinalFixtures.kt",
+      "sha256": "33805d89bc28aef92e7c10bbe386659d48d415ac5dd9f8a18eebe10ebe212c97"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/longitudinalstore/SyntheticLongitudinalStoreHarness.kt",
+      "sha256": "8ced4591a10d34607bb92251c241c7df7e66f2ff88995edbae05c3a8fe29545e"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/ordinary/CanonicalCoreConversations.kt",
+      "sha256": "e337435a4cc0ea35b712003654e69129f45c7348c93e6c8329bc2b49c2a18aa6"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/ordinary/DeterministicCoreOrdinaryRenderer.kt",
+      "sha256": "4f472881f1d488267f12be52cce319af5768521c15787f09271bf9c2a5815c68"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/retrieval/QualificationRetrievalPipeline.kt",
+      "sha256": "00a91a3faf0c4ae8a6d402ee192df88b752590bc7cb4da859348f05554d50c5b"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/safety/DeterministicSafetyGateRenderer.kt",
+      "sha256": "2536a0e687bd4e172390b7d7dbe04be454845de30fd2de706d44f414d58d574b"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/safety/QualificationSafetyGate.kt",
+      "sha256": "793dfe9c22dd5d568a0e0e56caaf6de5813002e402a7c610a03315d8184cf4a1"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/therapy/GovernedLongitudinalTherapyPipeline.kt",
+      "sha256": "a31de502fc3c918b8788a97464801bbfe3bcd7fa22568aa0e7b44caf3dfe41dd"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/verticalslice/CanonicalBoundedProblemScenario.kt",
+      "sha256": "96246c5472839bd9ddda599858ec4de5fc29e00ed6493e8a58cb27f3ddae0618"
+    },
+    {
+      "path": "qualification/src/main/kotlin/com/conundrum/thomas/v2/qualification/verticalslice/DeterministicQualificationRenderer.kt",
+      "sha256": "df626b567c2a36d0c3ff2fb8a5fae92c43a78f86d387f3a3754ff6f5714075fe"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/BiographerAuthorityQualificationTest.kt",
+      "sha256": "e158f15a892a4febf838c70cabc30a19851d994a78a5a2db9786c4b7545fd3a0"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/BiographerCoverageQualificationTest.kt",
+      "sha256": "8f9e23d3fde099ae8f419a3f7a33fb5e06a5a35ac0d00d19fe3b3c1b26e5313a"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/BiographerSelectionQualificationTest.kt",
+      "sha256": "e53840959ca5256415c0590b50453832332757ecf6da4720a653b2c015297398"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV207TestSupport.kt",
+      "sha256": "dd41aa242d9c477304baa6e1abf81f123405bb1aa3225eb3f6be6c372beefe2d"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV208TestSupport.kt",
+      "sha256": "d51ad8b526df5fb08203e44c763116c024c74fbaba9804c8523c120a4a01b217"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV209TestSupport.kt",
+      "sha256": "76f8fe904bfb93ec316e7ee509381a36f7cc1ba273cbd894c353071835109be7"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV210TestSupport.kt",
+      "sha256": "ef130fe067b25f90c413d22b3ea43211c01ecc48a31b3e84f34505bed86e1b00"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV211AcceptanceTest.kt",
+      "sha256": "f2f60b3ef93d26b1e5285d29dd402a77c679724d7f5f56ba65a82b1a7d9e8550"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV211ScenariosA.kt",
+      "sha256": "2e7126a55f21b66cf08e5c4e1d1397de5ac64ec445ea8110126cb4b59ee57720"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV211ScenariosB.kt",
+      "sha256": "c659ae7ce04a2ca739b08cba9c15ca6db30f613bad243398d7a5b9292fefeb7b"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV211ScenariosC.kt",
+      "sha256": "38b4009a50116cdd1f2962d77cd7f640a7e0a49eae8a05ddb016b24200af79c0"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV211TestSupport.kt",
+      "sha256": "9da1cbc60215a28fb90360ef85f59826b986268fe6fbbfb19b97a49f63a284f6"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV212AcceptanceTest.kt",
+      "sha256": "cd0f64cd2146d5335b4f680795fe1a9dc8e42cc84ef15b7daaeeb2198b4e2238"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV212ScenariosA.kt",
+      "sha256": "3e70c204f236c3f3b30e907314c2e46908f69bab76a20bd82e5c1586a0b29c9b"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV212ScenariosB.kt",
+      "sha256": "c5c3ed174a11cbe945a87cd4a7e186543921bc2bcf8853e0079c7a71819db9b1"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV212ScenariosC.kt",
+      "sha256": "bf65bfa1d00d194590fe313ada7573b8a5a751d56f6c70c1c616edbdeb9126b6"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV212ScenariosD.kt",
+      "sha256": "f9b23452649a880ff05b3a9f9d743ddbc7a843ca1cf199ce54bfbf2ab45500ad"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV212TestSupport.kt",
+      "sha256": "737914f460db5ad99a4ea44bdf69f5e52e6ee9fbe1e1047ac1c4f31e28bb9caa"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV213AcceptanceTest.kt",
+      "sha256": "24ba064b50add648c86955de3a9765fbbfd683806cbfcf643a9d28dc3e5d1e36"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV213ScenariosA.kt",
+      "sha256": "1635f33d57f9bfb81cea63065707af37d81359ad1df5e5dab308bef8dd725408"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV213ScenariosB.kt",
+      "sha256": "534cc43907ebc507497f425a2f3b4cf27a8e9741b96ac6f08683ef62c0e16d2a"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV213ScenariosC.kt",
+      "sha256": "a1510196b8789b6aeac5d6080c00468307af2390224811d90b3f71aba2ee6c78"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV213ScenariosD.kt",
+      "sha256": "1a8e03421424c985851e2df112b80eb08c2ff99c066d4b30ddd352443d930337"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV213TestSupport.kt",
+      "sha256": "5a0d99f2a6c03e57b8c30bc4cefa7861fd5ed06b57c3081846915b147b2ca3cc"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV214PersonalDataGovernanceQualificationTest.kt",
+      "sha256": "361c6c31b549bf028f0a295bbc4313a97192e21d2504589e670b2db7eaf91e66"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215LifecycleAndAuthorityQualificationTest.kt",
+      "sha256": "7aeb44f907bb7b6f3a49b99bb8baae6db0d004e99fb6249351e679cb8ea75acf"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215ProductionRuntimeQualificationTest.kt",
+      "sha256": "8d30497ce355a58d65e90af1038d3a02e243651cc053f78a4ab3892045739b12"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1ProductionConversationTest.kt",
+      "sha256": "f2445dc250829091441aed69029d57cfaafad1276a8c4d3d316bac4f8e0509a8"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1RecurrenceRuntimeTest.kt",
+      "sha256": "13819b91b98d07448e8bad47b5b3ea8a132f5357e8281f0cd5ac860a83577c3e"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1RendererRecurrenceTest.kt",
+      "sha256": "7dbc1697a37fde4fa6391c43881739ea58824668f521f5f38c36bb0e55c37693"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1ReopenIdentityDiagnosticTest.kt",
+      "sha256": "af6ae62ccb74bec3cd503182f806eef8a93236a93d4451bc61cb780e0a5435a8"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215TestSupport.kt",
+      "sha256": "664446e51b0ba6b83b6b69dd4148a2b3b6a77e5f46b6064741163bf5b3d6a623"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CoreOrdinaryConversationTest.kt",
+      "sha256": "ced68536546095d2c12fd69d6aaf22b917d7179b5b0a2fd374e1fd4607d4cb99"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CoreOrdinaryDecisionMatrixTest.kt",
+      "sha256": "1ad2672f1b18aefe5644cac449e4801021b469e0185d9daf62ae698ad2350732"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CoreOrdinaryInvariantTest.kt",
+      "sha256": "244d5947f6c25847ec09127a800bcb70b9ab5dadb84891912645e26522e4541f"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CoreOrdinaryProgressionTest.kt",
+      "sha256": "34f49ea22befae7a61ec80f1658f0d09a76b676a21869cd28e7ea41c14bfb29a"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CoreOrdinaryRendererTest.kt",
+      "sha256": "48c0034d018c31b8c84858346db12bbbb42fa84f75251ed31764f96ff451d517"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CoreOrdinaryTestFixtures.kt",
+      "sha256": "c4a2df0a35b490471f4979f6c210fee66efa2c7a7d7ab2c4598e73f688f8d178"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/FoundationArchitectureTest.kt",
+      "sha256": "8b4cae31c7bd31fd9a6408b26974e8f962b313c3f5c457c5634577e86336f5df"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/GovernedLongitudinalStoreCoreTest.kt",
+      "sha256": "6ecd9dfbbb62f3be553a6b1c7faa5f50b687eb857f30f64e0951c2026f0465f7"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/JournalAuthorityQualificationTest.kt",
+      "sha256": "2c8167f8914f9b0d12f1f9d02594e5abee900d7a71157fe0785afb870f1ed01e"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/JournalCaptureQualificationTest.kt",
+      "sha256": "c2bda66f317def06897571486299f0959ac0f2def0762034cff814410bffb5b7"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/JournalModeAndLanguageQualificationTest.kt",
+      "sha256": "c58211beb71296c3d7ba77d41f294619aef77494fc0f8681c5cc4c6475400a5c"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LanguageEvidenceBoundaryQualificationTest.kt",
+      "sha256": "bf1365ed3e9678d9735e8cd7560d11eabd3a175d973c8eef835ff4de59d3dac4"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LanguageEvidencePipelineTest.kt",
+      "sha256": "f222ddf65a7cb0399d1d6ff56ec19af42ec3fd0ceb7e3c03a4ebc1cc43c4ea6e"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LanguageStateFormationTest.kt",
+      "sha256": "a673dc17ed309268ee8d093d63f3fd501147c9b20d26ff0cf4b13b16fd66898b"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LongitudinalAdmissionRevisionTest.kt",
+      "sha256": "a24be7a72bdc26dd810fa425a5a5232f14ff4a34ae68be8ff2996e8a8bce8971"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LongitudinalBoundaryQualificationTest.kt",
+      "sha256": "3b89caddb396f1f9a8e7787c5ad511d36f2030e1a3633ab9b5b73f102bc9ab97"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LongitudinalDurableFixtureTest.kt",
+      "sha256": "30cfd25de289accb9944b41346e5b77f55317cf2926b74c374e32ef85c33edd3"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LongitudinalFixtureTest.kt",
+      "sha256": "7e7da268ddf0e635bff1eaed20b429340dc4e9d01299b148d90160d1cdd48cff"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LongitudinalStoreBoundaryQualificationTest.kt",
+      "sha256": "c2f67ddd8ff1f806567a2d3cdc8a8b34ed90704de0735cb464a219a3eedf4549"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LongitudinalStoreInvariantTest.kt",
+      "sha256": "827592f39b79706d434543c6006fb1ad640e186ee91c9efe15cb535e06106cac"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/LongitudinalTemporalPersistenceTest.kt",
+      "sha256": "d8f1052a70805964306d60b4d857489ac8cd54e8c8c8f43379b84f36c7ea1bd9"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/OntologyAuthorityQualificationTest.kt",
+      "sha256": "09d5553f2e9055ddaa291ad61b49f8f31e4a4c2249b04ca750a9a745d54b3bad"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/ProceduralDecisionTableTest.kt",
+      "sha256": "d428adafabbcb9214957c70211f40bf56fb7521b7703d5917b300e8f48b03ad9"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/ProceduralPolicyInvariantTest.kt",
+      "sha256": "f211511c24462c7815f781238ae515e2443e8f6ced8519f5bfc7b283464e9c14"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/RendererBoundaryQualificationTest.kt",
+      "sha256": "877bc51f416f66ff931e0ec92043d79de03e1369fd3b0e8ee139bfd558bea378"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/SafetyGateCapabilityTest.kt",
+      "sha256": "b8bff051ff3077d14e4049ca170ca2913adff05ba5df9ca18f64c54081fe2100"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/SafetyRendererBoundaryTest.kt",
+      "sha256": "ffb4656936b9ad6c556927cf8b229de49f2d59d0f8f8dd88b4a68e5941090e76"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/SafetyScopeDecisionTableTest.kt",
+      "sha256": "a9574a0c66a568757dc440c57ef8f0aeaabfc079c2a815acabe39ac65c12bfe5"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/SafetyScopeInvariantTest.kt",
+      "sha256": "2fe732f9831dc5c776fc4d4e7578c07cbef7a9ec7ce419f9a72dc7dd62d684d3"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "sha256": "17ef3409a8309048cefbe8d1f1654174a52431e76ecefcd73e60921870bfc826"
+    },
+    {
+      "path": "thomas/biographer/build.gradle.kts",
+      "sha256": "4923136bb533f3eb43d5eb5972aef81b3e135483cc3fdf2a64a02dd5da1ab6a4"
+    },
+    {
+      "path": "thomas/biographer/src/main/kotlin/com/conundrum/thomas/v2/biographer/BiographerAnswerCaptureEngine.kt",
+      "sha256": "b4c0d6cb03fe00d9e128b1d730eb7d3a54f304f726d7dc76e287fa9e70436f2c"
+    },
+    {
+      "path": "thomas/biographer/src/main/kotlin/com/conundrum/thomas/v2/biographer/BiographerContracts.kt",
+      "sha256": "384bf983aa7be3cc7be0183d415f952b4a675c1749c6c7dcbb54686f5a63edd2"
+    },
+    {
+      "path": "thomas/biographer/src/main/kotlin/com/conundrum/thomas/v2/biographer/DeterministicCoverageEngine.kt",
+      "sha256": "e61b9f274278426d6f42fe498048ca79ae09cc03e889bc2139862ddfc5472cfe"
+    },
+    {
+      "path": "thomas/biographer/src/main/kotlin/com/conundrum/thomas/v2/biographer/GovernedBiographerCoverage.kt",
+      "sha256": "67dd946b847780e03c24eb0ffbf4ac83d2c296fb70f07e74d1763d5d7c1db0f9"
+    },
+    {
+      "path": "thomas/biographer/src/test/kotlin/com/conundrum/thomas/v2/biographer/DeterministicBiographerCoverageEngineTest.kt",
+      "sha256": "b88a7758791f1c77a94ea65e71ba69520360a7f67a9e551f20cb8a890cb4bd5e"
+    },
+    {
+      "path": "thomas/context-packet/build.gradle.kts",
+      "sha256": "8f5684f8bdc11fdf0e96695012c31e315e32c6630512f2018de6f3f1e3ad031e"
+    },
+    {
+      "path": "thomas/context-packet/src/main/kotlin/com/conundrum/thomas/v2/contextpacket/ContextPacketContracts.kt",
+      "sha256": "64afb30acd5248019f947fcd6c4c82c55f32bbffdc86d44408d537f8fbe9d3d9"
+    },
+    {
+      "path": "thomas/context-packet/src/main/kotlin/com/conundrum/thomas/v2/contextpacket/DeterministicContextPacketBuilder.kt",
+      "sha256": "548eb8730ccf83d291f082456846c2247115422ccf1254c6cfdce07c3957478e"
+    },
+    {
+      "path": "thomas/domain/build.gradle.kts",
+      "sha256": "7ddc49524b12d7bd26b746b606cc3a6068b5558487ab1b29b54b7aa2b1fd06e0"
+    },
+    {
+      "path": "thomas/domain/src/main/kotlin/com/conundrum/thomas/v2/domain/mode/ThomasModeAuthority.kt",
+      "sha256": "61d69254c52c397ae26ded0770394288e65b8dbd4a06ddcb4f88b925412637ff"
+    },
+    {
+      "path": "thomas/domain/src/main/kotlin/com/conundrum/thomas/v2/domain/rendering/RendererContracts.kt",
+      "sha256": "82d6bfbab2ad58c7e7f1035cc05c708a01745b1e69c120a4278ced57092721d1"
+    },
+    {
+      "path": "thomas/engine/build.gradle.kts",
+      "sha256": "69de7d6509275796d6085e4bc0e00f7f9ba27f3b33946b815b70e7594eef8054"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/PolicyContract.kt",
+      "sha256": "1aaef2808dc2e1fa27bdb050144a64d44572a6fd5c7cb19bf6a0690b8bee7afa"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/ordinary/CoreOrdinaryActions.kt",
+      "sha256": "463da997ead696377f9c55cdac6154e43331a56b3ba6935daf3743fa12e0e5e8"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/ordinary/CoreOrdinaryModel.kt",
+      "sha256": "471bcad4cd5c20ab36eae53f03b1e6f0e5f01ef898650fc577baac0325862a11"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/ordinary/CoreOrdinaryPolicy.kt",
+      "sha256": "916eb21282016b6387d4fccc722ec67838d362ae594753bc4de97f922ef5170f"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/ordinary/CoreOrdinaryState.kt",
+      "sha256": "3588be5074b0621125ef083749aca75ca5ef3e7cf123933b58934c4e977750f1"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/verticalslice/ActionModel.kt",
+      "sha256": "e78fbfca8b6301fbc3fee98a63bce16ca2ab6cb511d21cee6fcd95b5f1673dee"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/verticalslice/BoundedProblemPolicy.kt",
+      "sha256": "d6e46b1d4e2e2233897892cb925745b4d29a2ea981da039b1f5a501a65085858"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/verticalslice/PolicyState.kt",
+      "sha256": "2a31455bcd75bb148a2fce8fa05ad37a7229a74990b25b64d774a4b7ad0bf46a"
+    },
+    {
+      "path": "thomas/engine/src/main/kotlin/com/conundrum/thomas/v2/engine/verticalslice/RuleModel.kt",
+      "sha256": "0133de3e5da809bf4c312edede8a24f58a2ac781c4a6845c22ad840e0dba9943"
+    },
+    {
+      "path": "thomas/journal/build.gradle.kts",
+      "sha256": "4923136bb533f3eb43d5eb5972aef81b3e135483cc3fdf2a64a02dd5da1ab6a4"
+    },
+    {
+      "path": "thomas/journal/src/main/kotlin/com/conundrum/thomas/v2/journal/JournalCaptureEngine.kt",
+      "sha256": "5056b883498b3200554a51571c0ed849eb175b96425211fa2f0dfcf791e764d8"
+    },
+    {
+      "path": "thomas/journal/src/main/kotlin/com/conundrum/thomas/v2/journal/JournalContracts.kt",
+      "sha256": "e7cbef7e9d38c594905c7f35c4355b6c75117c7062019cc3e4a36c818df7f309"
+    },
+    {
+      "path": "thomas/journal/src/main/kotlin/com/conundrum/thomas/v2/journal/JournalResponsePolicy.kt",
+      "sha256": "19c69531f53cdad27911dac73b34cd8e0b2c4c2c20486d0670138f151e33ea09"
+    },
+    {
+      "path": "thomas/journal/src/test/kotlin/com/conundrum/thomas/v2/journal/JournalCaptureEngineTest.kt",
+      "sha256": "364139ad5fddf07d56c6e4ce9ccea7bac6789aacfdd790272aa9c4d47fbf05a3"
+    },
+    {
+      "path": "thomas/language-evidence/build.gradle.kts",
+      "sha256": "a7bc347176d182f0d29f3fc061aef3adfac149ad420e97224b246a20864207a0"
+    },
+    {
+      "path": "thomas/language-evidence/src/main/kotlin/com/conundrum/thomas/v2/languageevidence/GovernedLanguageEvidencePipeline.kt",
+      "sha256": "65d743f9d33011d5887930683663f7f9fd303c908fe033d7ebde2d9b515ff8e1"
+    },
+    {
+      "path": "thomas/language-evidence/src/main/kotlin/com/conundrum/thomas/v2/languageevidence/perception/ConservativeLanguagePerception.kt",
+      "sha256": "e42f2c226bcb588331b8b8af9f305d3cdfbec296e0fa335baebe9528e483f2b1"
+    },
+    {
+      "path": "thomas/language-evidence/src/main/kotlin/com/conundrum/thomas/v2/languageevidence/perception/PerceptionContracts.kt",
+      "sha256": "989762eda5e52a36d08c495d59e7f6ed934fe46b9c0f3e1e310bae5bbb7d0551"
+    },
+    {
+      "path": "thomas/language-evidence/src/main/kotlin/com/conundrum/thomas/v2/languageevidence/stateformation/DeterministicStateFormation.kt",
+      "sha256": "844c7ebdaaeea09b19ed9b5a22b2d9b9020f5959911aa58f96bebe1099a79258"
+    },
+    {
+      "path": "thomas/language-evidence/src/main/kotlin/com/conundrum/thomas/v2/languageevidence/stateformation/StateFormationContracts.kt",
+      "sha256": "9d4b58a1a104ad7eb57e97ce56afbf1dc9a1b4e41460c590990d93d69e3e9e72"
+    },
+    {
+      "path": "thomas/language-evidence/src/main/kotlin/com/conundrum/thomas/v2/languageevidence/stateformation/StructuralContradictionDetector.kt",
+      "sha256": "648287a28fea72844e56bd0574665184bd958c4566a0998e6b7c829cb7739c9d"
+    },
+    {
+      "path": "thomas/language-evidence/src/test/kotlin/com/conundrum/thomas/v2/languageevidence/AdversarialLanguageCorpusTest.kt",
+      "sha256": "ef1df0f5552ac25212b954045c87172885b2c97b31cba0c17fb1365ba6a6a9d2"
+    },
+    {
+      "path": "thomas/language-evidence/src/test/kotlin/com/conundrum/thomas/v2/languageevidence/ConservativeLanguagePerceptionTest.kt",
+      "sha256": "db920af95cf9b05f48b2eb5a2f79c0708c481e309413c03d4818eee8aae6c918"
+    },
+    {
+      "path": "thomas/language-evidence/src/test/kotlin/com/conundrum/thomas/v2/languageevidence/SourceSpanGroundingTest.kt",
+      "sha256": "dbf0b67d3589a334a4f4dd1cb518d7042365c279f9b8c97d99227b8d7accebec"
+    },
+    {
+      "path": "thomas/language-evidence/src/test/kotlin/com/conundrum/thomas/v2/languageevidence/TemporalLanguagePerceptionTest.kt",
+      "sha256": "465d168575f086257d7f09c29808b674a752a2bd0458fc549b7c11ae54878792"
+    },
+    {
+      "path": "thomas/language-renderer/build.gradle.kts",
+      "sha256": "338cd5ca13bea95c3e27748c0d9aab25d4e5be1f553bfe9d87e6d6e28e44406e"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/BiographerRenderCommandAdapter.kt",
+      "sha256": "9bb2c81335bf772cdd2fdde3554474ee6583287210b818d3286897bc332ac5bd"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/DeterministicReferenceRealizer.kt",
+      "sha256": "21a708b8d7cfd3aa3f23ca20c0333f6af6b6366e65e1ca985fbe223f943372b8"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/DeterministicRenderValidator.kt",
+      "sha256": "c648da0aaf064b44f8e96a2c9efe172124874d3f06674a178cf7509984d8e016"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/GovernedLanguageRenderer.kt",
+      "sha256": "66885a488bf37f6058955ad7a7fbb44a53fdf03d7843f76744300971681e2b21"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/JournalRenderCommandAdapter.kt",
+      "sha256": "6bfbf8379cce8a50e03f0dee48772d56cb32f2bf4c62d41ce823b7bdd157b95a"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/RenderCommandSupport.kt",
+      "sha256": "64d7f61fe86ac4e999b3cd216fed37554070a257a8e0cd1840fda6088680df06"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/RenderText.kt",
+      "sha256": "eec9fecad4d0d7c2703b406ee0f9ee89435a9cfb83cfda2368daf377fc2ae4f7"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/RendererContracts.kt",
+      "sha256": "c59a8ebbcae823da18e57b877daf10ef095dfad5339d1dc55cab449a3fec3f16"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/SafetyRenderCommandAdapter.kt",
+      "sha256": "45e58296c83ef7566a1e38145369ef8434e73ca82fef742252fdb5a27efe64fa"
+    },
+    {
+      "path": "thomas/language-renderer/src/main/kotlin/com/conundrum/thomas/v2/languagerenderer/TherapyRenderCommandAdapter.kt",
+      "sha256": "a2b54842c2b61da23f31c7982d7a52345f7f64caa5a5b0175f46d71ec4eeac89"
+    },
+    {
+      "path": "thomas/longitudinal-admission/build.gradle.kts",
+      "sha256": "f11ff247e0913715c130e8b2d6e3c68ecb1c12c47fba83183bd233a9cd83c186"
+    },
+    {
+      "path": "thomas/longitudinal-admission/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/admission/AdmissionContracts.kt",
+      "sha256": "fe629e27b71bcfede5774b2d6586e22f4614dc1ce77ce7e2897d3b23f0c1c25c"
+    },
+    {
+      "path": "thomas/longitudinal-admission/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/admission/CanonicalLongitudinalEncoding.kt",
+      "sha256": "d1d60998f85cd6f0f0d47f06f7604f5b935dec2d8a16c896236ceb716b56c79d"
+    },
+    {
+      "path": "thomas/longitudinal-admission/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/admission/LongitudinalAdmissionPolicy.kt",
+      "sha256": "637d3d450c93c3d74aa5fffacde82b8b6b90ce96d63293e24e185319314e39b1"
+    },
+    {
+      "path": "thomas/longitudinal-admission/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/GovernedPersistencePorts.kt",
+      "sha256": "0d97475877bc1fa1018f965f087eaa132e573de33900454230003caa5877e083"
+    },
+    {
+      "path": "thomas/longitudinal-store/build.gradle.kts",
+      "sha256": "f83ca2fcf65025bb522b7305e17cb57ec77aabb9fc898337e70cd38ca20c7c97"
+    },
+    {
+      "path": "thomas/longitudinal-store/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/LongitudinalStoreSchema.kt",
+      "sha256": "feb5d87845edafec1b08865c72b757caa2ad56227a17f813e3adadd3a9aec0ed"
+    },
+    {
+      "path": "thomas/longitudinal-store/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/SQLiteQualificationLongitudinalStore.kt",
+      "sha256": "c8cea4fffc64cf5954df5b9f7a44c9d2aaf0663bcd1b88d7bcef99a659af8c24"
+    },
+    {
+      "path": "thomas/longitudinal-store/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/store/StoreContracts.kt",
+      "sha256": "a104651f5b9e68cbf60633ee51adbc18209f575b8abef930908c0add7771e8a2"
+    },
+    {
+      "path": "thomas/longitudinal/build.gradle.kts",
+      "sha256": "8e4765b30060ee15eeaacb8c5b7822c595486a68196301237a5443d6a7674808"
+    },
+    {
+      "path": "thomas/longitudinal/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/EvidenceRelations.kt",
+      "sha256": "432c296490c7f37c60888c4c6b3c698e9a0e317fa184716b1c00a5f37e6adf9c"
+    },
+    {
+      "path": "thomas/longitudinal/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/LifeStructure.kt",
+      "sha256": "e1975bf8f5735abac1458e41c71e29535257da73caa352c5ab6feb4aaf49a336"
+    },
+    {
+      "path": "thomas/longitudinal/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/LongitudinalEvidenceSnapshot.kt",
+      "sha256": "31572f775dc838688da3f71547b06f06a9f5e85e63e1b4d80bcd3839870bc4a8"
+    },
+    {
+      "path": "thomas/longitudinal/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/LongitudinalIdentifiers.kt",
+      "sha256": "42f53affcb00a5c2a07de80689b45058e0ef0486b9e84c48d29a79f706638cc9"
+    },
+    {
+      "path": "thomas/longitudinal/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/PersonalEvidence.kt",
+      "sha256": "71fdff3b006d8fd69042cc5d167bc49230daa999838305a07727a775c5140341"
+    },
+    {
+      "path": "thomas/longitudinal/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/SourceGrounding.kt",
+      "sha256": "9501c07a73f743103cde1fa890e04d11728aa4ae090e6e0e98ea036b956c403c"
+    },
+    {
+      "path": "thomas/longitudinal/src/main/kotlin/com/conundrum/thomas/v2/longitudinal/TemporalModel.kt",
+      "sha256": "7bf02b105391a83066c55072e4049b8b91dd6a737edccf0813110fe8ff830703"
+    },
+    {
+      "path": "thomas/longitudinal/src/test/kotlin/com/conundrum/thomas/v2/longitudinal/LifeStructureTest.kt",
+      "sha256": "38bff7a69ba97ecb6ebef0b35d735a3d273f884eb17f576890f59c30a223b293"
+    },
+    {
+      "path": "thomas/longitudinal/src/test/kotlin/com/conundrum/thomas/v2/longitudinal/LongitudinalValidationTest.kt",
+      "sha256": "4b8f7f03f3b906148e1bb17c50b8540362c33b19a48d1933fec597d0ea136344"
+    },
+    {
+      "path": "thomas/longitudinal/src/test/kotlin/com/conundrum/thomas/v2/longitudinal/TemporalModelTest.kt",
+      "sha256": "ccfb6bf1949372c994210ffc8d0dede87cd8c8149c0656a2bd740a355aa06ff8"
+    },
+    {
+      "path": "thomas/ontology/build.gradle.kts",
+      "sha256": "d11e52d3267cab5f13c1779602025f63fe1b315378da0ec8b3b7b5cca3ccc771"
+    },
+    {
+      "path": "thomas/ontology/src/main/kotlin/com/conundrum/thomas/v2/ontology/ConceptModel.kt",
+      "sha256": "7404dd88196ee21b4f80a636c87cc7460b0602cac5aabf76240ee398ad054f2f"
+    },
+    {
+      "path": "thomas/ontology/src/main/kotlin/com/conundrum/thomas/v2/ontology/EpistemicModel.kt",
+      "sha256": "db6d659c40237b2857b01a604dd0ccebf2fb23f22e157cc876a4b28acaa96e12"
+    },
+    {
+      "path": "thomas/ontology/src/main/kotlin/com/conundrum/thomas/v2/ontology/OntologyPrimitives.kt",
+      "sha256": "5358367528f6511dcae01a1cca0c18e4e9e54dcab974b25f20096d2c1553275a"
+    },
+    {
+      "path": "thomas/ontology/src/main/kotlin/com/conundrum/thomas/v2/ontology/SourceBindings.kt",
+      "sha256": "29dc8cbffbaf9f3740d6c16f27d75c7303e63ba199e8711496e29dfaa8207a8d"
+    },
+    {
+      "path": "thomas/ontology/src/main/kotlin/com/conundrum/thomas/v2/ontology/TherapeuticOntologyCatalog.kt",
+      "sha256": "2c67f24b4f1329fe0e11b18885a4b30233ea1c063929c3856285edee35666c76"
+    },
+    {
+      "path": "thomas/ontology/src/test/kotlin/com/conundrum/thomas/v2/ontology/TherapeuticOntologyTest.kt",
+      "sha256": "54ac3e2c3d20008723ae525aa06d3f78525bffb3b825d50b3faa7c3ee99cef5c"
+    },
+    {
+      "path": "thomas/personal-data-persistence/build.gradle.kts",
+      "sha256": "9ab27c43966d985d017ec420eb3fdc052f460c88c05cc12560a4b9806813f17f"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/AuthenticatedProtection.kt",
+      "sha256": "b8d4b52fb139bf03cc90b933534e7c5c6d64cee110d5785041cadbf3e8491fa7"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/NioAtomicProtectedArtifactStorage.kt",
+      "sha256": "4782f8340a69590e8d8e2d1295dc69a7b739a7e7ddcbc1e413825df79f8c3728"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataContracts.kt",
+      "sha256": "8ed30d505aa45309d187709dd9cf7187c4e04bde5b15c44f5aa4e5fdfabbfb01"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataDocumentCodec.kt",
+      "sha256": "99e14687a910dcfeeb04085b2d01210f6e56fe11e990f77fcac275e98d05d13b"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataExportRenderer.kt",
+      "sha256": "ac9413e5248ee206a621387472c534fa054cfb1b831bb91f3098cfe0ee1ee3be"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/ProtectedPersonalDataStoreImpl.kt",
+      "sha256": "a30a16a45fd1fc6b62751c9c29c95447c0cf1f51a0d883833d0bab26613ae8f5"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/test/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataBackupExportTest.kt",
+      "sha256": "8deb508fc215d5fcb4ce6628eddf68892a8ee58cc6877267b7a2f9541aa5672f"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/test/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataLifecycleTest.kt",
+      "sha256": "dd7cc7346e1021deb95991fdbf3794ea51aa6bf5215c28bea23ce8147af76610"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/test/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataLineageIntegrationTest.kt",
+      "sha256": "3af8b32444c4a939619be761446a952c3288b1aaf9fb0470df66de43714e3ae1"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/test/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataMigrationRecoveryTest.kt",
+      "sha256": "a6ab95bbdea46920f85719ee348a186ee2875be94122c3758216823c41d2bef5"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/test/kotlin/com/conundrum/thomas/v2/personaldata/PersonalDataTestSupport.kt",
+      "sha256": "d9843a41139ab3a8297f77800730e2ea3fa24e5371f90cded575c6c4d9b372fd"
+    },
+    {
+      "path": "thomas/personal-data-persistence/src/test/kotlin/com/conundrum/thomas/v2/personaldata/ProtectedPersonalDataStoreCoreTest.kt",
+      "sha256": "e6f9dbee009e960dee6aafb2b92e3d81ab4bae1e3729d7915e9f920ccadb11ce"
+    },
+    {
+      "path": "thomas/provenance/build.gradle.kts",
+      "sha256": "75d82b30acebeb40c0332c6862aeca59b07d95ac04527773d67bfc1b4ecd4242"
+    },
+    {
+      "path": "thomas/provenance/src/main/kotlin/com/conundrum/thomas/v2/provenance/SourceGovernance.kt",
+      "sha256": "64aa04d96a8304ca8463422b25c9eceeb660343c10c4eb854edc2d65df986bfa"
+    },
+    {
+      "path": "thomas/provenance/src/main/kotlin/com/conundrum/thomas/v2/provenance/SourceReferences.kt",
+      "sha256": "144720a2dfd8f82743e85ae17a88a62c6443f1775153acbc348e25c6847b398f"
+    },
+    {
+      "path": "thomas/retrieval/build.gradle.kts",
+      "sha256": "e313effc355530ede424d7170764321b5426f330fa82c19a1210de14c5e610b8"
+    },
+    {
+      "path": "thomas/retrieval/src/main/kotlin/com/conundrum/thomas/v2/retrieval/DeterministicLexicalPolicy.kt",
+      "sha256": "dcfa406f997eab35dabbd15fd05447abc791208211652640438bb1e579b06f77"
+    },
+    {
+      "path": "thomas/retrieval/src/main/kotlin/com/conundrum/thomas/v2/retrieval/DeterministicLongitudinalRetriever.kt",
+      "sha256": "01c9c9ab7d5880a54a2718e6a1b8d82bbf333372319178054100d4b4b1b340fa"
+    },
+    {
+      "path": "thomas/retrieval/src/main/kotlin/com/conundrum/thomas/v2/retrieval/GovernedLongitudinalReadPort.kt",
+      "sha256": "10ec17eec049d77ae03013369f321079ca4f9fbba0913c76225d53b00b21a357"
+    },
+    {
+      "path": "thomas/retrieval/src/main/kotlin/com/conundrum/thomas/v2/retrieval/RetrievalContracts.kt",
+      "sha256": "6bf4edfac6af2851c882786d4f68b335ae26a24feb6a0bd2b83819e6a09a454a"
+    },
+    {
+      "path": "thomas/runtime/build.gradle.kts",
+      "sha256": "7f1a67e6dcce5284e6840c986cc3e79390f5273ab6a8fad9d4ae96a02f806095"
+    },
+    {
+      "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ProductionBiographerPipeline.kt",
+      "sha256": "33abde082da8db88f4af4a40bd275ad129fed741f222ac1b4ab1b2170c569573"
+    },
+    {
+      "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ProductionJournalPipeline.kt",
+      "sha256": "d4733b647b14887452b1e2ea3f371aabf6580010d731252ed2714922a22f5308"
+    },
+    {
+      "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ProductionRuntimeContracts.kt",
+      "sha256": "36e63f42d306bcdc2ade43fb52c5e27d06d2c6b2e6041acb9115c98de818945c"
+    },
+    {
+      "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ProductionSafetyObservationBoundary.kt",
+      "sha256": "f1a56fca43b3659f385154c15776943c921ff1c295ada6a9fa8c20b576af9f51"
+    },
+    {
+      "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ProductionTherapyInputBoundary.kt",
+      "sha256": "c9d7989ef00c33a12ddce3408a0e005d298c8fd5d07c58f6b894f9192b2f07a6"
+    },
+    {
+      "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ProductionTherapyPipeline.kt",
+      "sha256": "7818f8be3abcce0ee7cd39f23d83a08ac5a76aba467ad6b673d58e910583a28f"
+    },
+    {
+      "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ThomasProductionRuntime.kt",
+      "sha256": "c86e1222569557f72b26fd5ca8b9f7a8f26cb408d18613b04b99f4ce1fb51e20"
+    },
+    {
+      "path": "thomas/safety/build.gradle.kts",
+      "sha256": "ac1584cdfaa3e2661c233fa63a7cb85dcf06ef241a1b14180defdd75700be62d"
+    },
+    {
+      "path": "thomas/safety/src/main/kotlin/com/conundrum/thomas/v2/safety/SafetyActions.kt",
+      "sha256": "2936832213c0076ce0f710fae9e96d2b793b370254d26a7728ad2fa076dede48"
+    },
+    {
+      "path": "thomas/safety/src/main/kotlin/com/conundrum/thomas/v2/safety/SafetyAuthority.kt",
+      "sha256": "c5772a320460326315d95e3b1394e683da1c57143bbd3aff3dd5646ac96380df"
+    },
+    {
+      "path": "thomas/safety/src/main/kotlin/com/conundrum/thomas/v2/safety/SafetyEvidence.kt",
+      "sha256": "8b6b0f20cb6b1a7500bdfa80194043b7395e5a7f9c044b85f67641099e2260a0"
+    },
+    {
+      "path": "thomas/safety/src/main/kotlin/com/conundrum/thomas/v2/safety/SafetyRuleModel.kt",
+      "sha256": "313e4bc37c94d8e16aae501a73c5c67e08598f19f74e886eff6abd14af1346ad"
+    },
+    {
+      "path": "thomas/safety/src/main/kotlin/com/conundrum/thomas/v2/safety/SafetyScopeGate.kt",
+      "sha256": "4d3a156317db06be1dbad416bf0d7d6246ed1cf82e16e03f160641bfdc801996"
+    },
+    {
+      "path": "thomas/safety/src/main/kotlin/com/conundrum/thomas/v2/safety/ScreeningInstrumentReferences.kt",
+      "sha256": "ea086144f01733621a05195a1a861e86a0e97fd5c94bc597d94f9ec134674146"
+    },
+    {
+      "path": "thomas/therapy-longitudinal/build.gradle.kts",
+      "sha256": "255ef24064ea67d25f2c1d5e0f7c60f1a9abd6bdd717442ade7485d90792652f"
+    },
+    {
+      "path": "thomas/therapy-longitudinal/src/main/kotlin/com/conundrum/thomas/v2/therapylongitudinal/DeterministicTherapyMemoryUseGate.kt",
+      "sha256": "e5a3fab77a53780fabc71336c751cd33aaf26233e050fb319219eb278566086d"
+    },
+    {
+      "path": "thomas/therapy-longitudinal/src/main/kotlin/com/conundrum/thomas/v2/therapylongitudinal/LongitudinalTherapyIntegrationEngine.kt",
+      "sha256": "aef1cd88ad92836259b8d25358329b4a79e877c03c61571a35062980c89b984c"
+    },
+    {
+      "path": "thomas/therapy-longitudinal/src/main/kotlin/com/conundrum/thomas/v2/therapylongitudinal/TherapyLongitudinalContracts.kt",
+      "sha256": "15f4270f7d44da2a6ec1449493e9d66e557a783f1f50416ed689f66a887e4dc1"
+    },
+    {
+      "path": "tools/provenance/build.gradle.kts",
+      "sha256": "6327af25754cb8b49b0ddd047d0b27b5e1b1540505899f22251bb474f653c2ff"
+    },
+    {
+      "path": "tools/provenance/src/main/kotlin/com/conundrum/thomas/v2/tools/provenance/ProvenanceDatabaseBuilder.kt",
+      "sha256": "8601d77ce37ac116568263ccad6622ac7c71a1318f479b03eae38f9693edb55b"
+    },
+    {
+      "path": "tools/provenance/src/test/kotlin/com/conundrum/thomas/v2/tools/provenance/CoreOrdinaryRuleSourceBindingTest.kt",
+      "sha256": "a677b7edcc51adaee5c248c1583630fe6f93d79f9cca4642988721c6a23c6c2a"
+    },
+    {
+      "path": "tools/provenance/src/test/kotlin/com/conundrum/thomas/v2/tools/provenance/OntologySourceBindingTest.kt",
+      "sha256": "98b6ed19e2b82a1f309b3483d754431e9ec2ae0ad5b0f830e9c1c951866810e0"
+    },
+    {
+      "path": "tools/provenance/src/test/kotlin/com/conundrum/thomas/v2/tools/provenance/ProceduralRuleSourceBindingTest.kt",
+      "sha256": "29554dae1f62ca0c227d6bb11786f6a5505ba44831afb4075f67ca91c4d03a00"
+    },
+    {
+      "path": "tools/provenance/src/test/kotlin/com/conundrum/thomas/v2/tools/provenance/ProvenanceDatabaseTest.kt",
+      "sha256": "a13b92479e2aa60c1701d0d63b1390c870c6284d4e6d0bddaf54dd772beebebe"
+    },
+    {
+      "path": "tools/provenance/src/test/kotlin/com/conundrum/thomas/v2/tools/provenance/SafetyRuleSourceBindingTest.kt",
+      "sha256": "4d56d5b50c9af9c891342805db5d962d2954b6a01b27948003c1339a320fc06f"
+    },
+    {
+      "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1DispatchInstrumentedTest.kt",
+      "sha256": "dc9843827705dd38ab6a56f1e8c81aed719d81997ae46b7e0714bba2935e1d13"
+    },
+    {
+      "path": "app/src/androidTest/java/com/conundrum/thomas/v2/UiSubmissionDriver.kt",
+      "sha256": "fe449e89fcf88a8a4da49758ac62b6a1161d37a3de90ad31580c6f2e0a67e8bd"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1DurableTurnIdentityTest.kt",
+      "sha256": "13a4ee3566d58d4b746f3b69ba241cf719187dde84e836d0d6c6e7b6f27af0d5"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1OpeningExhaustionTest.kt",
+      "sha256": "2e87a678a2b0a234d0208e05ee890aec652ba6934bf9026feba69a6ec3086a31"
+    },
+    {
+      "path": "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1PracticalAdjudicationTest.kt",
+      "sha256": "8bea3550bd175e63fce71868c282c6e057f0214cdfdbebd21444104383eb98c4"
+    }
+  ],
+  "unchangedIdentityFiles": [
+    "app/src/main/java/com/conundrum/thomas/v2/ThomasViewModel.kt",
+    "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ThomasProductionRuntime.kt"
+  ],
+  "unchangedValidators": true,
+  "unchangedProceduralPolicy": true,
+  "unchangedDispatchAndModePath": true
+}

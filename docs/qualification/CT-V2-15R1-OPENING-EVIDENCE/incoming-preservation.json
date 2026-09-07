@@ -1,0 +1,8 @@
+{
+  "incomingFiles": 434,
+  "unchanged": 432,
+  "changed": [
+    "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1ProductionUiInstrumentedTest.kt",
+    "qualification/src/test/kotlin/com/conundrum/thomas/v2/qualification/CTV215R1PracticalAdjudicationTest.kt"
+  ]
+}

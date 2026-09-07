@@ -1,0 +1,48 @@
+{
+  "run-01": {
+    "methods": {
+      "f": {
+        "passed": true,
+        "seconds": 45.122
+      },
+      "g": {
+        "passed": true,
+        "seconds": 4.201
+      },
+      "h": {
+        "passed": true,
+        "seconds": 2.662
+      }
+    },
+    "custodyUnchanged": true,
+    "disposablePackagesRemaining": 0,
+    "allMethodsPassed": true
+  },
+  "run-02": {
+    "methods": {
+      "a": {
+        "passed": true,
+        "seconds": 451.904
+      },
+      "b": {
+        "passed": true,
+        "seconds": 81.089
+      },
+      "c": {
+        "passed": true,
+        "seconds": 1198.696
+      },
+      "d": {
+        "passed": true,
+        "seconds": 104.487
+      },
+      "e": {
+        "passed": true,
+        "seconds": 175.744
+      }
+    },
+    "custodyUnchanged": true,
+    "disposablePackagesRemaining": 0,
+    "allMethodsPassed": true
+  }
+}

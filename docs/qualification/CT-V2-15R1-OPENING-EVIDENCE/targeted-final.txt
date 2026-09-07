@@ -1,0 +1,235 @@
+Reusing configuration cache.
+
+> Task :thomas:language-evidence:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:context-packet:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:retrieval:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:engine:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:biographer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :qualification:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:ontology:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:longitudinal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:longitudinal-admission:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:provenance:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:safety:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:ontology:processResources NO-SOURCE
+
+> Task :thomas:engine:processResources NO-SOURCE
+
+> Task :thomas:provenance:processResources NO-SOURCE
+
+> Task :thomas:longitudinal:processResources NO-SOURCE
+
+> Task :thomas:runtime:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:safety:processResources NO-SOURCE
+
+> Task :thomas:journal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:domain:processResources NO-SOURCE
+
+> Task :thomas:longitudinal-store:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:language-renderer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:personal-data-persistence:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:therapy-longitudinal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:context-packet:processResources NO-SOURCE
+
+> Task :qualification:processResources NO-SOURCE
+
+> Task :thomas:personal-data-persistence:processResources NO-SOURCE
+
+> Task :thomas:longitudinal-store:processResources NO-SOURCE
+
+> Task :thomas:runtime:processResources NO-SOURCE
+
+> Task :qualification:processTestResources NO-SOURCE
+
+> Task :thomas:language-evidence:processResources NO-SOURCE
+
+> Task :thomas:therapy-longitudinal:processResources NO-SOURCE
+
+> Task :thomas:journal:processResources NO-SOURCE
+
+> Task :thomas:biographer:processResources NO-SOURCE
+
+> Task :thomas:language-renderer:processResources NO-SOURCE
+
+> Task :thomas:longitudinal-admission:processResources NO-SOURCE
+
+> Task :thomas:retrieval:processResources NO-SOURCE
+
+> Task :thomas:domain:compileKotlin UP-TO-DATE
+
+> Task :thomas:longitudinal:compileKotlin UP-TO-DATE
+
+> Task :thomas:domain:compileJava NO-SOURCE
+
+> Task :thomas:longitudinal:compileJava NO-SOURCE
+
+> Task :thomas:domain:classes UP-TO-DATE
+
+> Task :thomas:longitudinal:classes UP-TO-DATE
+
+> Task :thomas:domain:jar UP-TO-DATE
+
+> Task :thomas:longitudinal:jar UP-TO-DATE
+
+> Task :thomas:provenance:compileKotlin UP-TO-DATE
+
+> Task :thomas:longitudinal-admission:compileKotlin UP-TO-DATE
+
+> Task :thomas:longitudinal-admission:compileJava NO-SOURCE
+
+> Task :thomas:provenance:compileJava NO-SOURCE
+
+> Task :thomas:provenance:classes UP-TO-DATE
+
+> Task :thomas:longitudinal-admission:classes UP-TO-DATE
+
+> Task :thomas:provenance:jar UP-TO-DATE
+
+> Task :thomas:longitudinal-admission:jar UP-TO-DATE
+
+> Task :thomas:retrieval:compileKotlin UP-TO-DATE
+
+> Task :thomas:personal-data-persistence:compileKotlin UP-TO-DATE
+
+> Task :thomas:retrieval:compileJava NO-SOURCE
+
+> Task :thomas:retrieval:classes UP-TO-DATE
+
+> Task :thomas:ontology:compileKotlin UP-TO-DATE
+
+> Task :thomas:language-evidence:compileKotlin UP-TO-DATE
+
+> Task :thomas:personal-data-persistence:compileJava NO-SOURCE
+
+> Task :thomas:retrieval:jar UP-TO-DATE
+
+> Task :thomas:language-evidence:compileJava NO-SOURCE
+
+> Task :thomas:ontology:compileJava NO-SOURCE
+
+> Task :thomas:personal-data-persistence:classes UP-TO-DATE
+
+> Task :thomas:ontology:classes UP-TO-DATE
+
+> Task :thomas:language-evidence:classes UP-TO-DATE
+
+> Task :thomas:language-evidence:jar UP-TO-DATE
+
+> Task :thomas:personal-data-persistence:jar UP-TO-DATE
+
+> Task :thomas:ontology:jar UP-TO-DATE
+
+> Task :thomas:context-packet:compileKotlin UP-TO-DATE
+
+> Task :thomas:context-packet:compileJava NO-SOURCE
+
+> Task :thomas:context-packet:classes UP-TO-DATE
+
+> Task :thomas:longitudinal-store:compileKotlin UP-TO-DATE
+
+> Task :thomas:journal:compileKotlin UP-TO-DATE
+
+> Task :thomas:safety:compileKotlin UP-TO-DATE
+
+> Task :thomas:journal:compileJava NO-SOURCE
+
+> Task :thomas:biographer:compileKotlin UP-TO-DATE
+
+> Task :thomas:longitudinal-store:compileJava NO-SOURCE
+
+> Task :thomas:context-packet:jar UP-TO-DATE
+
+> Task :thomas:journal:classes UP-TO-DATE
+
+> Task :thomas:longitudinal-store:classes UP-TO-DATE
+
+> Task :thomas:safety:compileJava NO-SOURCE
+
+> Task :thomas:safety:classes UP-TO-DATE
+
+> Task :thomas:biographer:compileJava NO-SOURCE
+
+> Task :thomas:biographer:classes UP-TO-DATE
+
+> Task :thomas:longitudinal-store:jar UP-TO-DATE
+
+> Task :thomas:journal:jar UP-TO-DATE
+
+> Task :thomas:safety:jar UP-TO-DATE
+
+> Task :thomas:biographer:jar UP-TO-DATE
+
+> Task :thomas:engine:compileKotlin UP-TO-DATE
+
+> Task :thomas:engine:compileJava NO-SOURCE
+
+> Task :thomas:engine:classes UP-TO-DATE
+
+> Task :thomas:engine:jar UP-TO-DATE
+
+> Task :thomas:therapy-longitudinal:compileKotlin UP-TO-DATE
+
+> Task :thomas:therapy-longitudinal:compileJava NO-SOURCE
+
+> Task :thomas:therapy-longitudinal:classes UP-TO-DATE
+
+> Task :thomas:therapy-longitudinal:jar UP-TO-DATE
+
+> Task :thomas:language-renderer:compileKotlin
+
+> Task :thomas:language-renderer:compileJava NO-SOURCE
+
+> Task :thomas:language-renderer:classes UP-TO-DATE
+
+> Task :thomas:language-renderer:jar
+
+> Task :qualification:compileKotlin UP-TO-DATE
+
+> Task :thomas:runtime:compileKotlin UP-TO-DATE
+
+> Task :qualification:compileJava NO-SOURCE
+
+> Task :qualification:classes UP-TO-DATE
+
+> Task :thomas:runtime:compileJava NO-SOURCE
+
+> Task :thomas:runtime:classes UP-TO-DATE
+
+> Task :qualification:jar UP-TO-DATE
+
+> Task :thomas:runtime:jar UP-TO-DATE
+
+> Task :qualification:compileTestKotlin UP-TO-DATE
+
+> Task :qualification:compileTestJava NO-SOURCE
+
+> Task :qualification:testClasses UP-TO-DATE
+
+> Task :qualification:test
+
+
+
+BUILD SUCCESSFUL in 6s
+
+38 actionable tasks: 3 executed, 35 up-to-date
+
+Configuration cache entry reused.

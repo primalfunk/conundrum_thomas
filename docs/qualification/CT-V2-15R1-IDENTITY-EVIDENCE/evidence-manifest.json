@@ -1,0 +1,224 @@
+[
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-apk-after.sha256",
+    "sha256": "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-apk-after.sha256",
+    "normalizedSha256": "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-apk-before.sha256",
+    "sha256": "a943ca33d3dd4341626ccc1bb6996add2d7e5bb3e5a00bac5015e7e158a89186",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-apk-before.sha256",
+    "normalizedSha256": "84385621f005530d73ae3d5918c2ad907b4b2f3eae4e16e2d7dc632813c69c60"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-files-after.sha256",
+    "sha256": "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-files-after.sha256",
+    "normalizedSha256": "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-files-after.stat",
+    "sha256": "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-files-after.stat",
+    "normalizedSha256": "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-files-before.sha256",
+    "sha256": "e45b931742ea971a84a70f9e98d3d23dc4e26955dd60545cd9aeb9950208e741",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-files-before.sha256",
+    "normalizedSha256": "7d9bae9d59e0f7f3a84fb41f826c58d700f7896553ef23dd7f9a8d9b9a9a3a64"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-files-before.stat",
+    "sha256": "791c2ecac04ecc6915373306f269d2e5df7de10d17ef95cfda82327edfcb3a40",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-files-before.stat",
+    "normalizedSha256": "a8c4b4546aaa1ce8a2e1e8241e2c12bcb8ecc24c6754c15fbca1019f205826b5"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-inventory-after.txt",
+    "sha256": "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-inventory-after.txt",
+    "normalizedSha256": "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-inventory-before.txt",
+    "sha256": "5c9c14c10a8e57a961799fa570454bea5137c500472d39666e2dbc2d621f89d7",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-inventory-before.txt",
+    "normalizedSha256": "fc3d95e05f953d9dfb835f95ac7961eb146d4cf945d2eff27ef0b359b658d7f4"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-package-after.txt",
+    "sha256": "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-package-after.txt",
+    "normalizedSha256": "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/canonical-package-before.txt",
+    "sha256": "994d64073d1f4d31fc2956e8cd6cf3d2b2fc272f7c2e493331902780be92a1f8",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/canonical-package-before.txt",
+    "normalizedSha256": "1ea82c1f36d100939a9f96fe6e12cde87e4ea8d906bbdbe8196b5ef5c147fcec"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+    "sha256": "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.test.txt",
+    "normalizedSha256": "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+    "sha256": "e83857fc7e103da3c64649078ce4977f583526d149d0f6e8501b6ba75c9ac678",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/cleanup-com.conundrum.thomas.v2.ctv215r1fixture.txt",
+    "normalizedSha256": "7fc0023a6402c7bd7abd98bb3e580968de4833eed07d88d1cc8d70819d69c7a0"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/device-fixture-source.kt",
+    "sha256": "ebc45f3148a295b0e8bc1a333689de2586c02ef11d64b662ab8ff96e3a59347e",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/device-fixture-source.kt",
+    "normalizedSha256": "ebc45f3148a295b0e8bc1a333689de2586c02ef11d64b662ab8ff96e3a59347e"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/device.txt",
+    "sha256": "4efdb23e30c1836b734e9f69ba38a24ed10fdbaa8a6893b90aaab8b6c79cad2c",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/device.txt",
+    "normalizedSha256": "6eac45704331b9b6da6f81f9ffbd57d8bed3e7efbe8720c5eacaf2688835dca7"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/devices.txt",
+    "sha256": "9ac21f7170d7f760701333c5be5eb9aaa46645311328b6f6ce7f872db94814b0",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/devices.txt",
+    "normalizedSha256": "d4544ca38382afdeaa0b1ccf700f9515720eb8e7180c53b9873d6092e58b1ffd"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/final-disposition.txt",
+    "sha256": "cc5887684336744fb07fb173c630797932020e0de8ade8479c8bcfa8fb4fa5fb",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/final-disposition.txt",
+    "normalizedSha256": "1c3e31ed8aa2e08e7b74dd3e86eecabba7c18a346d886f249f6d4afb8dab25ea"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/fixture-artifacts.json",
+    "sha256": "7446523c571a16a89d35ad4280093acc896340b1265dc3d4341bf9b0e3355ada",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/fixture-artifacts.json",
+    "normalizedSha256": "44c2b0a5d364ae661d0ef65cd3eec30fe6b858d65e2187c2060b346744c488c3"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/fixture-logcat.txt",
+    "sha256": "cf523d7187fbacd4869f1b2e259a36746ae365f7bb1672ab5558e687dedf1380",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/fixture-logcat.txt",
+    "normalizedSha256": "6724ff32376cbfa4b05a85c454579d0fc58a72568950c149cd91eb7364ef74f1"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/fixture-manifest.txt",
+    "sha256": "bf06943ea369324d54df42cf72308b9485ccebd2accc11bed2dc01d1576c46f2",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/fixture-manifest.txt",
+    "normalizedSha256": "f2149e04002cbe20a6d570c37d0516d162bf3977627b98e895f87015d59d21d7"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/fixture-package.txt",
+    "sha256": "700a53d42917b24b361d1759500f4f0e876210f02f62027e747f02016db170c5",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/fixture-package.txt",
+    "normalizedSha256": "a077435aae34e61c73196167f4cffc5b327e5198dfd49a6c36e37ad69d5cba8f"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/fixture-test-manifest.txt",
+    "sha256": "d3fd9616c20930903b1492574c9290e462006f240d5bb8f23b1919d9b89e60b3",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/fixture-test-manifest.txt",
+    "normalizedSha256": "240a2717e3fdb544073c5d6b2d6de8bcfbcb1fd59276ea89250424cc08f8d520"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/install-fixture.txt",
+    "sha256": "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/install-fixture.txt",
+    "normalizedSha256": "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/install-test.txt",
+    "sha256": "4dbdc95cc34f134cec3335a1cb220862b88ecce0d65412b9bd88908c08194dc9",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/install-test.txt",
+    "normalizedSha256": "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/instrumentation-a.txt",
+    "sha256": "ea4dfd41ed7d80842ba6ecfac999bc74f18caff4796214044992508745d6ba1a",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/instrumentation-a.txt",
+    "normalizedSha256": "08e32baa4594f844a588d5132f739cf6078b4e17b4194db1b89ae918e88e9586"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/instrumentation-b.txt",
+    "sha256": "6c125f96f9b43004ecc46c65556dda9f319708ab7db9431fa6c02330dce28452",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/instrumentation-b.txt",
+    "normalizedSha256": "212c43a6705e52cafa7011fc776c8e09f25e26765658f24937d207b220d34cd7"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/instrumentation-c.txt",
+    "sha256": "994a73821757a7201170ad2a5a14b10ca48af62df6242514240d333f7e391486",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/instrumentation-c.txt",
+    "normalizedSha256": "c639e92b3b57dbf3e882fd53761989f5c5fd8432082cd83d3722fc070aa26d5a"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/ui-fixture-source.kt",
+    "sha256": "9d4c21be0015ff3caafa8efecbcb94a86235c14095943024072402d18de91549",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/ui-fixture-source.kt",
+    "normalizedSha256": "9d4c21be0015ff3caafa8efecbcb94a86235c14095943024072402d18de91549"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/run-01/uid-isolation.txt",
+    "sha256": "fef1f66c70a1202349923c8c9a8c2a3d32e62c335dfd2be9ee410f085d2e4288",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/run-01/uid-isolation.txt",
+    "normalizedSha256": "122be4e82ea2ffa121b2d0f1730e81a65bba99cf91ae92c76119ba28bc58b147"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/pre-repair.txt",
+    "sha256": "7b3a2070accfe679ce7b563fc4c491a9e98f4f20b6b5ac24103eebb77cae7b4b",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/capture-pre-repair.txt",
+    "normalizedSha256": "01f658c9c9c7f5b2fde605fa0e25633faa90e8c791ba79e771120f77405db871"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/targeted.txt",
+    "sha256": "ecf5070c7d2e8c6784dd95cc63e44cbf7a1b612ea461bd43b15e3e0891915c9b",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/capture-targeted.txt",
+    "normalizedSha256": "b00403b227a4343381a68b1bec33f63cdeeafbc82c5e9833eca792012fcd3923"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/canonical-build.txt",
+    "sha256": "c283648610ca61922dd065d2d714ab6180bfdd01f95bb77c764f394701c245cb",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/capture-canonical-build.txt",
+    "normalizedSha256": "8c3cb221c2cf3994e474a50e4a45f38a4cd46c2f9792e2928b22adf0b1397632"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/final-canonical-build.txt",
+    "sha256": "1fa3862edde5d27884a5fac5c726b3bf5d79eec90dcedf1497f2e35227822881",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/capture-final-canonical-build.txt",
+    "normalizedSha256": "a13860c086147d05a62e77261e90e0615ff0ea361078e96b7f11692f7f075f65"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/fixture-build.txt",
+    "sha256": "af7828ec5bd5d4c53755af68fd1b32970d2447c936a29b0dffd844f9a07155de",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/capture-fixture-build.txt",
+    "normalizedSha256": "306ce7b2524417b4c486649fd76da000f6df9f2bc3c981c0e92311f2dd651791"
+  },
+  {
+    "capture": "out/ct-v2-15r1-identity/fixture-build-corrected.txt",
+    "sha256": "1803738cebe545e8632e5bd1ecec714375f702b49d397745bbc216211bfb1ca6",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/capture-fixture-build-corrected.txt",
+    "normalizedSha256": "958525414e499f900f48932ad997cf0b4b5d3b8c32d20b2d7ee17329a1d59fb6"
+  },
+  {
+    "capture": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/fixture-import-failure.txt",
+    "sha256": "af7828ec5bd5d4c53755af68fd1b32970d2447c936a29b0dffd844f9a07155de",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/fixture-import-failure.txt",
+    "normalizedSha256": "306ce7b2524417b4c486649fd76da000f6df9f2bc3c981c0e92311f2dd651791"
+  },
+  {
+    "capture": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/pre-repair-build.txt",
+    "sha256": "7b3a2070accfe679ce7b563fc4c491a9e98f4f20b6b5ac24103eebb77cae7b4b",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/pre-repair-build.txt",
+    "normalizedSha256": "01f658c9c9c7f5b2fde605fa0e25633faa90e8c791ba79e771120f77405db871"
+  },
+  {
+    "capture": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/targeted-build.txt",
+    "sha256": "ecf5070c7d2e8c6784dd95cc63e44cbf7a1b612ea461bd43b15e3e0891915c9b",
+    "evidence": "docs/qualification/CT-V2-15R1-IDENTITY-EVIDENCE/targeted-build.txt",
+    "normalizedSha256": "b00403b227a4343381a68b1bec33f63cdeeafbc82c5e9833eca792012fcd3923"
+  }
+]

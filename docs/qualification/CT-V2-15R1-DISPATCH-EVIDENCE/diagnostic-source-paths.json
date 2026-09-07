@@ -1,0 +1,7 @@
+{
+  "activity": "app/src/main/java/com/conundrum/thomas/v2/MainActivity.kt",
+  "vm": "app/src/main/java/com/conundrum/thomas/v2/ThomasViewModel.kt",
+  "runtime": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ThomasProductionRuntime.kt",
+  "store": "thomas/personal-data-persistence/src/main/kotlin/com/conundrum/thomas/v2/personaldata/ProtectedPersonalDataStoreImpl.kt",
+  "ui": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1ProductionUiInstrumentedTest.kt"
+}

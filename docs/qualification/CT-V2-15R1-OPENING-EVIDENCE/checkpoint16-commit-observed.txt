@@ -1,0 +1,1 @@
+09-07 11:15:04.232 29758 29773 I System.out: R1 UI_IDENTITY beforeFrontier=83 beforeRevision=83 allocated=84 identity=android-therapy-84 source=therapy.android-session.android-therapy-84 afterRevision=84 committed=true NOT_SAVED=false

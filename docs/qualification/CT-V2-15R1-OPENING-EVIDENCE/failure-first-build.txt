@@ -1,0 +1,283 @@
+Calculating task graph as no cached configuration is available for tasks: :qualification:test --tests *CTV215R1PracticalAdjudicationTest
+
+> Task :thomas:engine:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:longitudinal-admission:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :qualification:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:language-renderer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:therapy-longitudinal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:safety:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:ontology:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:longitudinal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:longitudinal-store:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:provenance:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:biographer:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:retrieval:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:language-evidence:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:journal:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:personal-data-persistence:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:context-packet:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:runtime:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :thomas:context-packet:processResources NO-SOURCE
+
+> Task :thomas:ontology:processResources NO-SOURCE
+
+> Task :thomas:provenance:processResources NO-SOURCE
+
+> Task :thomas:language-renderer:processResources NO-SOURCE
+
+> Task :thomas:language-evidence:processResources NO-SOURCE
+
+> Task :thomas:domain:processResources NO-SOURCE
+
+> Task :thomas:runtime:processResources NO-SOURCE
+
+> Task :thomas:engine:processResources NO-SOURCE
+
+> Task :thomas:retrieval:processResources NO-SOURCE
+
+> Task :thomas:therapy-longitudinal:processResources NO-SOURCE
+
+> Task :thomas:personal-data-persistence:processResources NO-SOURCE
+
+> Task :qualification:processResources NO-SOURCE
+
+> Task :thomas:longitudinal-store:processResources NO-SOURCE
+
+> Task :thomas:biographer:processResources NO-SOURCE
+
+> Task :thomas:safety:processResources NO-SOURCE
+
+> Task :thomas:journal:processResources NO-SOURCE
+
+> Task :thomas:longitudinal:processResources NO-SOURCE
+
+> Task :thomas:longitudinal-admission:processResources NO-SOURCE
+
+> Task :qualification:processTestResources NO-SOURCE
+
+> Task :thomas:domain:compileKotlin
+
+> Task :thomas:domain:compileJava NO-SOURCE
+
+> Task :thomas:domain:classes UP-TO-DATE
+
+> Task :thomas:domain:jar
+
+> Task :thomas:longitudinal:compileKotlin
+
+> Task :thomas:longitudinal:compileJava NO-SOURCE
+
+> Task :thomas:longitudinal:classes UP-TO-DATE
+
+> Task :thomas:longitudinal:jar
+
+> Task :thomas:provenance:compileKotlin
+
+> Task :thomas:provenance:compileJava NO-SOURCE
+
+> Task :thomas:provenance:classes UP-TO-DATE
+
+> Task :thomas:provenance:jar
+
+> Task :thomas:longitudinal-admission:compileKotlin
+
+> Task :thomas:longitudinal-admission:compileJava NO-SOURCE
+
+> Task :thomas:longitudinal-admission:classes UP-TO-DATE
+
+> Task :thomas:longitudinal-admission:jar
+
+> Task :thomas:ontology:compileKotlin
+
+> Task :thomas:ontology:compileJava NO-SOURCE
+
+> Task :thomas:ontology:classes UP-TO-DATE
+
+> Task :thomas:ontology:jar
+
+> Task :thomas:safety:compileKotlin
+
+> Task :thomas:safety:compileJava NO-SOURCE
+
+> Task :thomas:safety:classes UP-TO-DATE
+
+> Task :thomas:safety:jar
+
+> Task :thomas:language-evidence:compileKotlin
+
+> Task :thomas:language-evidence:compileJava NO-SOURCE
+
+> Task :thomas:language-evidence:classes UP-TO-DATE
+
+> Task :thomas:language-evidence:jar
+
+> Task :thomas:retrieval:compileKotlin
+
+> Task :thomas:retrieval:compileJava NO-SOURCE
+
+> Task :thomas:retrieval:classes UP-TO-DATE
+
+> Task :thomas:retrieval:jar
+
+> Task :thomas:personal-data-persistence:compileKotlin
+
+> Task :thomas:personal-data-persistence:compileJava NO-SOURCE
+
+> Task :thomas:personal-data-persistence:classes UP-TO-DATE
+
+> Task :thomas:personal-data-persistence:jar
+
+> Task :thomas:journal:compileKotlin
+
+> Task :thomas:journal:compileJava NO-SOURCE
+
+> Task :thomas:journal:classes UP-TO-DATE
+
+> Task :thomas:journal:jar
+
+> Task :thomas:context-packet:compileKotlin
+
+> Task :thomas:context-packet:compileJava NO-SOURCE
+
+> Task :thomas:context-packet:classes UP-TO-DATE
+
+> Task :thomas:context-packet:jar
+
+> Task :thomas:longitudinal-store:compileKotlin
+
+> Task :thomas:longitudinal-store:compileJava NO-SOURCE
+
+> Task :thomas:longitudinal-store:classes UP-TO-DATE
+
+> Task :thomas:longitudinal-store:jar
+
+> Task :thomas:biographer:compileKotlin
+
+> Task :thomas:biographer:compileJava NO-SOURCE
+
+> Task :thomas:biographer:classes UP-TO-DATE
+
+> Task :thomas:biographer:jar
+
+> Task :thomas:engine:compileKotlin
+
+> Task :thomas:engine:compileJava NO-SOURCE
+
+> Task :thomas:engine:classes UP-TO-DATE
+
+> Task :thomas:engine:jar
+
+> Task :thomas:therapy-longitudinal:compileKotlin
+
+> Task :thomas:therapy-longitudinal:compileJava NO-SOURCE
+
+> Task :thomas:therapy-longitudinal:classes UP-TO-DATE
+
+> Task :thomas:therapy-longitudinal:jar
+
+> Task :thomas:language-renderer:compileKotlin
+
+> Task :thomas:language-renderer:compileJava NO-SOURCE
+
+> Task :thomas:language-renderer:classes UP-TO-DATE
+
+> Task :thomas:language-renderer:jar
+
+> Task :qualification:compileKotlin
+
+> Task :qualification:compileJava NO-SOURCE
+
+> Task :qualification:classes UP-TO-DATE
+
+> Task :qualification:jar
+
+> Task :thomas:runtime:compileKotlin
+
+> Task :thomas:runtime:compileJava NO-SOURCE
+
+> Task :thomas:runtime:classes UP-TO-DATE
+
+> Task :thomas:runtime:jar
+
+> Task :qualification:compileTestKotlin
+
+> Task :qualification:compileTestJava NO-SOURCE
+
+> Task :qualification:testClasses UP-TO-DATE
+
+
+
+> Task :qualification:test
+
+
+
+CTV215R1PracticalAdjudicationTest > selectedVerificationMustBeDeliveredAtCheckpoint16 FAILED
+
+    java.lang.AssertionError at CTV215R1PracticalAdjudicationTest.kt:167
+
+.\gradlew.bat :
+
+At line:38 char:1
+
++ .\gradlew.bat :qualification:test --tests '*CTV215R1PracticalAdjudica ...
+
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+
+5 tests completed, 1 failed
+
+
+
+> Task :qualification:test FAILED
+
+
+
+FAILURE: Build failed with an exception.
+
+
+
+* What went wrong:
+
+Execution failed for task ':qualification:test'.
+
+> There were failing tests. See the report at: file:///C:/Android%20Studio%20Projects/ConundrumThomasV2/ou
+
+t/ct-v2-15r1-opening/workspace/qualification/build/reports/tests/test/index.html
+
+
+
+* Try:
+
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+
+
+BUILD FAILED in 51s
+
+38 actionable tasks: 38 executed
+
+Configuration cache entry stored.

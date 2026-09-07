@@ -1,0 +1,1 @@
+Diagnostic run-01 intentionally stopped after the exact seventh specimen and subsequent resume both committed. The added geometry observation may synchronize IME movement; use focused run-02 to reproduce the original unsynchronized touch path. This is not a completed physical qualification.

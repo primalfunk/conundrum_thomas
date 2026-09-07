@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-09-06T22:47:23.449Z" hostname="MENARD" time="0.063">
+  <properties/>
+  <testcase name="committedLongMaximumFailsClosedWithoutWraparound" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.005"/>
+  <testcase name="freshStoreStartsAtOne" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.001"/>
+  <testcase name="revisionAheadOfTurnIndexDoesNotGovernAllocation" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.006"/>
+  <testcase name="explicitConflictingPayloadRemainsRejectedAfterAllocatorRepair" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.004"/>
+  <testcase name="consecutiveAllocationsRemainDistinctAcrossModesAndUncommittedPrompts" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.008"/>
+  <testcase name="multipleCommittedTurnsReopenAboveDurableIdentityFrontier" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.014"/>
+  <testcase name="everyLifecycleKeyAndRevisionKeyContributesItsDurableFrontier" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.01"/>
+  <testcase name="deletedHighestTurnStillReservesItsIdentity" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.006"/>
+  <testcase name="directCommittedIndexesAreObservedByAnAlreadyLiveAllocator" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.003"/>
+  <testcase name="sparsePreexistingHistoryUsesMaximumNotCountOrLastCommit" classname="com.conundrum.thomas.v2.qualification.CTV215R1DurableTurnIdentityTest" time="0.005"/>
+  <system-out><![CDATA[BEFORE_REOPEN committed=[android-therapy-2, android-therapy-3] revision=2
+AFTER_REOPEN selected=android-therapy-4 revision=3 source=SourceIdentityId(value=therapy.android-session.android-therapy-4) reasons=[NO_ELIGIBLE_RELEVANT_HISTORICAL_OBJECT, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

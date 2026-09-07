@@ -1,0 +1,434 @@
+--------- beginning of system
+09-07 10:54:16.170 29597 29597 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-07 10:54:16.647 29597 29597 D MbrainDebugManagerImpl: getService failed
+09-07 11:01:49.781 29711 29711 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-07 11:01:50.207 29711 29711 D MbrainDebugManagerImpl: getService failed
+09-07 11:03:12.301 29758 29758 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-07 11:03:12.724 29758 29758 D MbrainDebugManagerImpl: getService failed
+09-07 11:03:12.953 29758 29758 V ActivityThread: Handling launch of ActivityRecord{7845ac7 token=android.os.BinderProxy@42c5ee1 {com.conundrum.thomas.v2.ctv215r1fixture/com.conundrum.thomas.v2.MainActivity}} called by android.app.servertransaction.LaunchActivityItem.execute:112 android.app.servertransaction.TransactionExecutor.executeNonLifecycleItem:174 android.app.servertransaction.TransactionExecutor.executeTransactionItems:109
+09-07 11:03:20.381 29758 29758 W Looper  : Slow dispatch took 7310ms main h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver@34d176d m=0
+09-07 11:04:30.705 29758 29758 W Looper  : Slow dispatch took 5018ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@a44ab4d] m=0
+09-07 11:05:02.350 29758 29758 W Looper  : Slow dispatch took 5226ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@6da5488] m=0
+09-07 11:05:41.281 29758 29758 W Looper  : Slow dispatch took 5267ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@a40b689] m=0
+09-07 11:06:21.244 29758 29758 W Looper  : Slow dispatch took 5428ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@d4a2740] m=0
+09-07 11:07:01.849 29758 29758 W Looper  : Slow dispatch took 5593ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@a98d7a8] m=0
+09-07 11:07:43.742 29758 29758 W Looper  : Slow dispatch took 5852ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@8a230b1] m=0
+09-07 11:08:26.782 29758 29758 W Looper  : Slow dispatch took 5953ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@b6920b5] m=0
+09-07 11:09:11.069 29758 29758 W Looper  : Slow dispatch took 6170ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@6c39270] m=0
+09-07 11:09:56.405 29758 29758 W Looper  : Slow dispatch took 6356ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@ec67ef0] m=0
+09-07 11:10:43.155 29758 29758 W Looper  : Slow dispatch took 6503ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@536ac7a] m=0
+09-07 11:11:31.058 29758 29758 W Looper  : Slow dispatch took 6674ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@13734a1] m=0
+09-07 11:12:19.859 29758 29758 W Looper  : Slow dispatch took 6838ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@4c6a9a0] m=0
+09-07 11:13:10.080 29758 29758 W Looper  : Slow dispatch took 7078ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@caa519b] m=0
+09-07 11:14:02.232 29758 29758 W Looper  : Slow dispatch took 7337ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@766ffc9] m=0
+09-07 11:14:55.509 29758 29758 W Looper  : Slow dispatch took 7446ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@727d1ac] m=0
+09-07 11:15:50.051 29758 29758 W Looper  : Slow dispatch took 7715ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@2b0d2eb] m=0
+09-07 11:16:45.641 29758 29758 W Looper  : Slow dispatch took 7883ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@eb8b5b] m=0
+09-07 11:17:43.154 29758 29758 W Looper  : Slow dispatch took 8090ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@58953a8] m=0
+09-07 11:18:41.496 29758 29758 W Looper  : Slow dispatch took 8275ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@7513517] m=0
+09-07 11:19:41.129 29758 29758 W Looper  : Slow dispatch took 8565ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@a466720] m=0
+09-07 11:20:42.695 29758 29758 W Looper  : Slow dispatch took 8816ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@2deeb0b] m=0
+09-07 11:21:45.454 29758 29758 W Looper  : Slow dispatch took 8999ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@1128457] m=0
+09-07 11:22:49.832 29758 29758 W Looper  : Slow dispatch took 9204ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@7f59f89] m=0
+--------- beginning of main
+09-07 11:23:11.348 29758 29758 D VRI[MainActivity]: visibilityChanged oldVisibility=true newVisibility=false
+09-07 11:23:11.385 29758 29758 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:1) destructor()
+09-07 11:23:11.385 29758 29758 D BufferQueueConsumer: [VRI[MainActivity]#0(BLAST Consumer)0](id:743e00000000,api:0,p:-1,c:29758) disconnect
+09-07 11:23:11.390 29758 29758 D AppMemTag: onActivityStopped com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:11.390 29758 29758 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: STOPPED
+09-07 11:23:11.391 29758 29758 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:11.452 29758 29758 D AppMemTag: onActivityDestroyed com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:11.453 29758 29758 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: DESTROYED
+09-07 11:23:11.453 29758 29758 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+09-07 11:23:11.453 29758 29758 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@3ac349f
+09-07 11:23:11.461 29758 29773 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@dbb20cf]
+09-07 11:23:11.463 29758 29758 D View    : [Warning] assignParent to null: this = DecorView@dd2e169[MainActivity]
+09-07 11:23:11.485 29758 29773 I TestRunner: finished: cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-07 11:23:11.488 29758 29773 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+09-07 11:23:12.601 30345 30345 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-07 11:23:12.619 30345 30345 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+09-07 11:23:12.626 30345 30345 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+09-07 11:23:12.656 30345 30345 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-07 11:23:12.658 30345 30345 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+09-07 11:23:12.658 30345 30345 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+09-07 11:23:12.846 30345 30345 D nativeloader: Configuring clns-7 for other apk /data/app/~~2XY9V7NmfKaH20jR7C4sVg==/com.conundrum.thomas.v2.ctv215r1fixture.test-6aPTZzfEMwifE1qI8ZnYEQ==/base.apk:/data/app/~~2mBNBV4jq_wGPNMVWJCmKA==/com.conundrum.thomas.v2.ctv215r1fixture-sBJdwWQAQsjZw304-18MjQ==/base.apk. target_sdk_version=37, uses_libraries=, library_path=/data/app/~~2XY9V7NmfKaH20jR7C4sVg==/com.conundrum.thomas.v2.ctv215r1fixture.test-6aPTZzfEMwifE1qI8ZnYEQ==/lib/arm64:/data/app/~~2mBNBV4jq_wGPNMVWJCmKA==/com.conundrum.thomas.v2.ctv215r1fixture-sBJdwWQAQsjZw304-18MjQ==/lib/arm64:/data/app/~~2XY9V7NmfKaH20jR7C4sVg==/com.conundrum.thomas.v2.ctv215r1fixture.test-6aPTZzfEMwifE1qI8ZnYEQ==/base.apk!/lib/arm64-v8a:/data/app/~~2mBNBV4jq_wGPNMVWJCmKA==/com.conundrum.thomas.v2.ctv215r1fixture-sBJdwWQAQsjZw304-18MjQ==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.conundrum.thomas.v2.ctv215r1fixture
+09-07 11:23:12.858 30345 30345 V GraphicsEnvironment: Currently set values for:
+09-07 11:23:12.858 30345 30345 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+09-07 11:23:12.858 30345 30345 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+09-07 11:23:12.858 30345 30345 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+09-07 11:23:12.859 30345 30345 V GraphicsEnvironment: App is not on the allowlist for updatable production driver.
+09-07 11:23:13.070 30345 30345 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-07 11:23:13.071 30345 30345 I AndroidJUnitRunner: newApplication android.app.Application
+09-07 11:23:13.103 30345 30345 D MbrainDebugManagerImpl: getService failed
+09-07 11:23:13.108 30345 30345 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=276]
+09-07 11:23:13.109 30345 30345 D AndroidJUnitRunner: Use the raw file system for managing file I/O.
+09-07 11:23:13.127 30345 30345 V TestEventClient: No service name argument was given (testDiscoveryService, testRunEventService or orchestratorService)
+09-07 11:23:13.127 30345 30359 D AndroidJUnitRunner: onStart is called.
+09-07 11:23:13.135 30345 30345 D nativeloader: Load libpowerhalwrap_jni.so using system ns (caller=/system_ext/framework/mediatek-framework.jar): ok
+09-07 11:23:13.135 30345 30345 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-07 11:23:13.136 30345 30345 I M-ProMotion: M-ProMotion is disabled
+09-07 11:23:13.146 30345 30359 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-07 11:23:13.170 30345 30359 I TestRunner: run started: 1 tests
+09-07 11:23:13.172 30345 30359 I TestRunner: started: dActualUiIdentityAfterProcessReopen(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-07 11:23:13.247 30345 30359 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-07 11:23:13.256 30345 30345 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:23:13.256 30345 30345 I ctv215r1fixture: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:23:13.256 30345 30345 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:23:13.257 30345 30359 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@dbb20cf]
+09-07 11:23:13.272 30345 30359 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-07 11:23:13.313 30345 30345 V ActivityThread: Handling launch of ActivityRecord{7845ac7 token=android.os.BinderProxy@42c5ee1 {com.conundrum.thomas.v2.ctv215r1fixture/com.conundrum.thomas.v2.MainActivity}} called by android.app.servertransaction.LaunchActivityItem.execute:112 android.app.servertransaction.TransactionExecutor.executeNonLifecycleItem:174 android.app.servertransaction.TransactionExecutor.executeTransactionItems:109
+09-07 11:23:13.319 30345 30363 D libMEOW : meow new tls: 0xb4000079bf484040
+09-07 11:23:13.319 30345 30363 D libMEOW : meow reload base cfg path: na
+09-07 11:23:13.319 30345 30363 D libMEOW : meow reload overlay cfg path: na
+09-07 11:23:13.319 30345 30363 D libMEOW : applied 0 plugin for [com.conundrum.thomas.v2.ctv215r1fixture].
+09-07 11:23:13.320 30345 30363 D libMEOW : rebuild call chain: 0xb4000079bf4d4090
+09-07 11:23:13.320 30345 30363 D libMEOW : meow delete tls: 0xb4000079bf484040
+09-07 11:23:13.341 30345 30345 I HWUI    : Bitmap_setFineEn: g_isFineEn = 1, g_isBitmapJniOk = 1
+09-07 11:23:13.347 30345 30345 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: PRE_ON_CREATE
+09-07 11:23:13.347 30345 30345 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+09-07 11:23:13.348 30345 30345 D AppMemTag: onActivityCreated com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:13.393 30345 30345 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: CREATED
+09-07 11:23:13.393 30345 30345 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:13.395 30345 30345 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: STARTED
+09-07 11:23:13.396 30345 30345 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:13.398 30345 30345 D AppMemTag: onActivityResumed com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:13.398 30345 30345 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: RESUMED
+09-07 11:23:13.398 30345 30345 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:23:13.400 30345 30345 D ActivityThread: handleResumeActivity#3 r.window=nulla.mFinished = falsewillBeVisible = true
+09-07 11:23:13.400 30345 30345 D ActivityThread: handleResumeActivity#4 addView a.mVisibleFromClient=truea.mWindowAdded=falsedecor=DecorView@dd2e169[]
+09-07 11:23:13.400 30345 30345 D ActivityThread: handleResumeActivity#5 addView decor=DecorView@dd2e169[]
+09-07 11:23:13.402 30345 30345 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@3ae27ee
+09-07 11:23:13.406 30345 30345 W HWUI    : Unknown dataspace 0
+09-07 11:23:13.410 30345 30345 D VRI[MainActivity]: hardware acceleration = true, forceHwAccelerated = false
+09-07 11:23:13.422 30345 30345 D InputEventReceiver: Input log is disabled in InputEventReceiver.
+09-07 11:23:13.616 30345 30345 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/compose/ui/platform/AndroidComposeView$Companion; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:23:13.857 30345 30349 I ctv215r1fixture: Compiler allocated 6868KB to compile void android.view.ViewRootImpl.performTraversals()
+09-07 11:23:25.691 30345 30345 D BufferQueueConsumer: [](id:768900000000,api:0,p:-1,c:30345) connect: controlledByApp=false
+09-07 11:23:25.693 30345 30345 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:0) constructor()
+09-07 11:23:25.693 30345 30345 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:0) update width=1600 height=2400 format=-1 mTransformHint=0
+09-07 11:23:25.694 30345 30345 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+09-07 11:23:25.696 30345 30362 D libMEOW : meow new tls: 0xb4000079bf5240e0
+09-07 11:23:25.696 30345 30362 D libMEOW : applied 0 plugin for [com.conundrum.thomas.v2.ctv215r1fixture].
+09-07 11:23:25.696 30345 30362 D libMEOW : rebuild call chain: 0xb4000079bf5140d0
+09-07 11:23:25.753 30345 30362 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 11:23:25.753 30345 30362 D ctv215r1fixture: MBrain is disabled
+09-07 11:23:25.753 30345 30362 D ctv215r1fixture: initMbrain failed
+09-07 11:23:25.772 30345 30362 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+09-07 11:23:25.773 30345 30362 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=1600x2400 mFrameNumber=1 applyTransaction=true mTimestamp=169287797649089(auto) mPendingTransactions.size=0 graphicBufferId=130330782597122 transform=0
+09-07 11:23:25.773 30345 30362 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 11:23:25.773 30345 30362 D ctv215r1fixture: MBrain is disabled
+09-07 11:23:25.773 30345 30362 D ctv215r1fixture: initMbrain failed
+09-07 11:23:25.775 30345 30345 D VRI[MainActivity]: reportDrawFinished
+09-07 11:23:25.776 30345 30345 W Looper  : Slow dispatch took 12353ms main h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver@34d176d m=0
+09-07 11:23:25.776 30345 30345 W Looper  : Slow delivery took 12321ms main h=android.os.Handler c=androidx.compose.ui.platform.AndroidUiDispatcher$dispatchCallback$1@445fa2 m=0
+09-07 11:23:25.776 30345 30345 I Choreographer: Skipped 738 frames!  The application may be doing too much work on its main thread.
+09-07 11:23:25.779 30345 30345 W Looper  : Drained
+09-07 11:23:25.782 30345 30388 D ProfileInstaller: Installing profile for com.conundrum.thomas.v2.ctv215r1fixture
+09-07 11:23:25.805 30345 30356 I HWUI    : Davey! duration=12354ms; Flags=1, FrameTimelineVsyncId=2144109, IntendedVsync=169275446332448, Vsync=169275446332448, InputEventId=0, HandleInputStart=169275448521780, AnimationStart=169275448523319, PerformTraversalsStart=169275448524165, DrawStart=169287758556550, FrameDeadline=169275462999115, FrameInterval=169275448504473, FrameStartTime=16667304, SyncQueued=169287776893473, SyncStart=169287777050319, IssueDrawCommandsStart=169287777802396, SwapBuffers=169287795337781, FrameCompleted=169287800890089, DequeueBufferDuration=16385, QueueBufferDuration=513307, GpuCompleted=169287800890089, SwapBuffersCompleted=169287798722012, DisplayPresentTime=72904454231359566, CommandSubmissionCompleted=169287795337781,
+09-07 11:23:37.536 30345 30359 I System.out: R1 CHECKPOINT16_REOPEN_PASS stage=c identity=android-therapy-84
+09-07 11:23:37.541 30345 30359 I System.out: R1 UI_REOPEN_DURABILITY_PASS stage=c identity=android-therapy-92 frontier=92 revision=92 digest=bf0690565d0a76806d3cb578656ea236dd0d694ac20a8c8e5b867329a0e1cf7e
+09-07 11:23:49.027 30345 30345 D InsetsController: show(ime(), fromIme=false)
+09-07 11:23:49.029 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:87f0cf46: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 11:23:49.030 30345 30345 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{762df7f VFED..... .F....ID 0,0-1600,2400 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+09-07 11:23:49.038 30345 30345 I AssistStructure: Flattened final assist data: 896 bytes, containing 1 windows, 5 views
+09-07 11:23:49.274 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:72248bf1: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 11:23:49.275 30345 30345 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{762df7f VFED..... .F....ID 0,0-1600,2400 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+09-07 11:23:49.283 30345 30345 D Autofill Status: Autofill popup isn't shown because autofill is not available.
+09-07 11:23:49.283 30345 30345 D Autofill Status:
+09-07 11:23:49.283 30345 30345 D Autofill Status: Did you set up autofill?
+09-07 11:23:49.283 30345 30345 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced > Autofill Service
+09-07 11:23:49.283 30345 30345 D Autofill Status: 2. Pick a service
+09-07 11:23:49.283 30345 30345 D Autofill Status:
+09-07 11:23:49.283 30345 30345 D Autofill Status: Did you add an account?
+09-07 11:23:49.283 30345 30345 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced
+09-07 11:23:49.283 30345 30345 D Autofill Status: 2. Click on the settings icon next to the Autofill Service
+09-07 11:23:49.283 30345 30345 D Autofill Status: 3. Add your account
+09-07 11:23:49.352 30345 30345 D InsetsController: show(ime(), fromIme=true)
+09-07 11:23:49.353 30345 30359 I System.out: R1 UI_BEFORE_CLICK input=There is no current emergency.
+09-07 11:23:49.353 30345 30359 I System.out: There is no acute medical emergency.
+09-07 11:23:49.353 30345 30359 I System.out: Self-harm is not relevant now.
+09-07 11:23:49.353 30345 30359 I System.out: Harm to others is not relevant now.
+09-07 11:23:49.353 30345 30359 I System.out: I report no specialized condition for this conversation.
+09-07 11:23:49.353 30345 30359 I System.out: I am an adult in the supported setting.
+09-07 11:23:49.353 30345 30359 I System.out: My present concern is one bounded ordinary personal problem.
+09-07 11:23:49.353 30345 30359 I System.out: My specific concern is: the synthetic identity reopen meeting processing=false draft=There is no current emergency.
+09-07 11:23:49.353 30345 30359 I System.out: There is no acute medical emergency.
+09-07 11:23:49.353 30345 30359 I System.out: Self-harm is not relevant now.
+09-07 11:23:49.353 30345 30359 I System.out: Harm to others is not relevant now.
+09-07 11:23:49.353 30345 30359 I System.out: I report no specialized condition for this conversation.
+09-07 11:23:49.353 30345 30359 I System.out: I am an adult in the supported setting.
+09-07 11:23:49.353 30345 30359 I System.out: My present concern is one bounded ordinary personal problem.
+09-07 11:23:49.353 30345 30359 I System.out: My specific concern is: the synthetic identity reopen meeting status=Mode: Therapy
+09-07 11:23:49.354 30345 30345 D InsetsController: show(ime(), fromIme=true)
+09-07 11:23:49.354 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:72248bf1: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 11:23:49.361 30345 30345 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.conundrum.thomas.v2.ctv215r1fixture
+09-07 11:23:49.695 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:87f0cf46: onShown
+09-07 11:23:49.726 30345 30345 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 11:23:49.733 30345 30345 D IdlingRegistry: Registering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@673252b]
+09-07 11:23:49.733 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:70f55c88: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 11:23:49.738 30345 30345 D InsetsController: hide(ime(), fromIme=true)
+09-07 11:23:50.057 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:5bcd0789: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 11:23:50.058 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:70f55c88: onHidden
+09-07 11:23:50.083 30345 30345 D IdlingRegistry: Unregistering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@673252b]
+09-07 11:23:50.321 30345 30345 D InsetsController: hide(ime(), fromIme=false)
+09-07 11:23:50.322 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4b75901c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 11:23:50.322 30345 30345 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4b75901c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 11:23:57.644 30345 30357 I ctv215r1fixture: Waiting for a blocking GC ProfileSaver
+09-07 11:23:57.658 30345 30357 I ctv215r1fixture: WaitForGcToComplete blocked ProfileSaver on Background for 14.396ms
+09-07 11:24:35.322 30345 30345 W Looper  : Slow dispatch took 9665ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@4b04f64] m=0
+09-07 11:24:35.462 30345 30359 I System.out: R1 UI_COMPLETED elapsedMs=46775
+09-07 11:24:46.508 30345 30359 I System.out: R1 UI_IDENTITY beforeFrontier=92 beforeRevision=92 allocated=93 identity=android-therapy-93 source=therapy.android-session.android-therapy-93 afterRevision=93 committed=true NOT_SAVED=false
+09-07 11:24:46.509 30345 30359 I System.out: R1 UI input=There is no current emergency.
+09-07 11:24:46.509 30345 30359 I System.out: There is no acute medical emergency.
+09-07 11:24:46.509 30345 30359 I System.out: Self-harm is not relevant now.
+09-07 11:24:46.509 30345 30359 I System.out: Harm to others is not relevant now.
+09-07 11:24:46.509 30345 30359 I System.out: I report no specialized condition for this conversation.
+09-07 11:24:46.509 30345 30359 I System.out: I am an adult in the supported setting.
+09-07 11:24:46.509 30345 30359 I System.out: My present concern is one bounded ordinary personal problem.
+09-07 11:24:46.509 30345 30359 I System.out: My specific concern is: the synthetic identity reopen meeting expectedAction=reflect-established-content actual=CoreActionExecution(actionId=PolicyActionId(value=core-reflect-established-content), conversationRevision=2, route=LISTEN_SUPPORT) revision=2 pending=RESPONSE_TO_REFLECTION status=Completed displayed=Your concern is: the synthetic identity reopen meeting.
+09-07 11:24:57.241 30345 30359 I System.out: R1 UI_DURABILITY_EXPECT stage=d identity=android-therapy-93 frontier=93 revision=93 digest=a4be697d635593239216bd5f44b8c337f852c81a63c459cfb846e55873db2555
+09-07 11:24:57.241 30345 30359 I System.out: R1 UI_FIRST_IDENTITY_REOPEN_COMPLETE=true
+09-07 11:24:57.277 30345 30345 D AppMemTag: onActivityPaused com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:57.277 30345 30345 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: PAUSED
+09-07 11:24:57.277 30345 30345 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:57.494 30345 30345 D VRI[MainActivity]: visibilityChanged oldVisibility=true newVisibility=false
+09-07 11:24:57.529 30345 30345 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:1) destructor()
+09-07 11:24:57.529 30345 30345 D BufferQueueConsumer: [VRI[MainActivity]#0(BLAST Consumer)0](id:768900000000,api:0,p:-1,c:30345) disconnect
+09-07 11:24:57.533 30345 30345 D AppMemTag: onActivityStopped com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:57.534 30345 30345 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: STOPPED
+09-07 11:24:57.535 30345 30345 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:57.625 30345 30345 D AppMemTag: onActivityDestroyed com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:57.627 30345 30345 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: DESTROYED
+09-07 11:24:57.627 30345 30345 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+09-07 11:24:57.627 30345 30345 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@3ac349f
+09-07 11:24:57.636 30345 30345 D View    : [Warning] assignParent to null: this = DecorView@dd2e169[MainActivity]
+09-07 11:24:57.641 30345 30359 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@dbb20cf]
+09-07 11:24:57.653 30345 30359 I TestRunner: finished: dActualUiIdentityAfterProcessReopen(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-07 11:24:57.657 30345 30359 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+09-07 11:24:58.587 30453 30453 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-07 11:24:58.604 30453 30453 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+09-07 11:24:58.612 30453 30453 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+09-07 11:24:58.640 30453 30453 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-07 11:24:58.642 30453 30453 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+09-07 11:24:58.643 30453 30453 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+09-07 11:24:58.827 30453 30453 D nativeloader: Configuring clns-7 for other apk /data/app/~~2XY9V7NmfKaH20jR7C4sVg==/com.conundrum.thomas.v2.ctv215r1fixture.test-6aPTZzfEMwifE1qI8ZnYEQ==/base.apk:/data/app/~~2mBNBV4jq_wGPNMVWJCmKA==/com.conundrum.thomas.v2.ctv215r1fixture-sBJdwWQAQsjZw304-18MjQ==/base.apk. target_sdk_version=37, uses_libraries=, library_path=/data/app/~~2XY9V7NmfKaH20jR7C4sVg==/com.conundrum.thomas.v2.ctv215r1fixture.test-6aPTZzfEMwifE1qI8ZnYEQ==/lib/arm64:/data/app/~~2mBNBV4jq_wGPNMVWJCmKA==/com.conundrum.thomas.v2.ctv215r1fixture-sBJdwWQAQsjZw304-18MjQ==/lib/arm64:/data/app/~~2XY9V7NmfKaH20jR7C4sVg==/com.conundrum.thomas.v2.ctv215r1fixture.test-6aPTZzfEMwifE1qI8ZnYEQ==/base.apk!/lib/arm64-v8a:/data/app/~~2mBNBV4jq_wGPNMVWJCmKA==/com.conundrum.thomas.v2.ctv215r1fixture-sBJdwWQAQsjZw304-18MjQ==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.conundrum.thomas.v2.ctv215r1fixture
+09-07 11:24:58.840 30453 30453 V GraphicsEnvironment: Currently set values for:
+09-07 11:24:58.840 30453 30453 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+09-07 11:24:58.840 30453 30453 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+09-07 11:24:58.840 30453 30453 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+09-07 11:24:58.840 30453 30453 V GraphicsEnvironment: App is not on the allowlist for updatable production driver.
+09-07 11:24:59.038 30453 30453 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-07 11:24:59.039 30453 30453 I AndroidJUnitRunner: newApplication android.app.Application
+09-07 11:24:59.072 30453 30453 D MbrainDebugManagerImpl: getService failed
+09-07 11:24:59.078 30453 30453 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=292]
+09-07 11:24:59.078 30453 30453 D AndroidJUnitRunner: Use the raw file system for managing file I/O.
+09-07 11:24:59.094 30453 30453 V TestEventClient: No service name argument was given (testDiscoveryService, testRunEventService or orchestratorService)
+09-07 11:24:59.095 30453 30468 D AndroidJUnitRunner: onStart is called.
+09-07 11:24:59.103 30453 30453 D nativeloader: Load libpowerhalwrap_jni.so using system ns (caller=/system_ext/framework/mediatek-framework.jar): ok
+09-07 11:24:59.103 30453 30453 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-07 11:24:59.103 30453 30453 I M-ProMotion: M-ProMotion is disabled
+09-07 11:24:59.114 30453 30468 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-07 11:24:59.136 30453 30468 I TestRunner: run started: 1 tests
+09-07 11:24:59.137 30453 30468 I TestRunner: started: eSecondReopenDurabilityAndSubsequentIdentity(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-07 11:24:59.225 30453 30468 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-07 11:24:59.235 30453 30453 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:24:59.235 30453 30453 I ctv215r1fixture: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:24:59.235 30453 30453 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:24:59.236 30453 30468 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@dbb20cf]
+09-07 11:24:59.253 30453 30468 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-07 11:24:59.310 30453 30453 V ActivityThread: Handling launch of ActivityRecord{7845ac7 token=android.os.BinderProxy@42c5ee1 {com.conundrum.thomas.v2.ctv215r1fixture/com.conundrum.thomas.v2.MainActivity}} called by android.app.servertransaction.LaunchActivityItem.execute:112 android.app.servertransaction.TransactionExecutor.executeNonLifecycleItem:174 android.app.servertransaction.TransactionExecutor.executeTransactionItems:109
+09-07 11:24:59.315 30453 30472 D libMEOW : meow new tls: 0xb4000079bf484040
+09-07 11:24:59.315 30453 30472 D libMEOW : meow reload base cfg path: na
+09-07 11:24:59.315 30453 30472 D libMEOW : meow reload overlay cfg path: na
+09-07 11:24:59.316 30453 30472 D libMEOW : applied 0 plugin for [com.conundrum.thomas.v2.ctv215r1fixture].
+09-07 11:24:59.316 30453 30472 D libMEOW : rebuild call chain: 0xb4000079bf4d4090
+09-07 11:24:59.316 30453 30472 D libMEOW : meow delete tls: 0xb4000079bf484040
+09-07 11:24:59.338 30453 30453 I HWUI    : Bitmap_setFineEn: g_isFineEn = 1, g_isBitmapJniOk = 1
+09-07 11:24:59.343 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: PRE_ON_CREATE
+09-07 11:24:59.343 30453 30453 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+09-07 11:24:59.344 30453 30453 D AppMemTag: onActivityCreated com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:59.382 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: CREATED
+09-07 11:24:59.383 30453 30453 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:59.385 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: STARTED
+09-07 11:24:59.385 30453 30453 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:59.387 30453 30453 D AppMemTag: onActivityResumed com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:59.388 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: RESUMED
+09-07 11:24:59.388 30453 30453 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:24:59.389 30453 30453 D ActivityThread: handleResumeActivity#3 r.window=nulla.mFinished = falsewillBeVisible = true
+09-07 11:24:59.389 30453 30453 D ActivityThread: handleResumeActivity#4 addView a.mVisibleFromClient=truea.mWindowAdded=falsedecor=DecorView@dd2e169[]
+09-07 11:24:59.389 30453 30453 D ActivityThread: handleResumeActivity#5 addView decor=DecorView@dd2e169[]
+09-07 11:24:59.391 30453 30453 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@3ae27ee
+09-07 11:24:59.396 30453 30453 W HWUI    : Unknown dataspace 0
+09-07 11:24:59.401 30453 30453 D VRI[MainActivity]: hardware acceleration = true, forceHwAccelerated = false
+09-07 11:24:59.411 30453 30453 D InputEventReceiver: Input log is disabled in InputEventReceiver.
+09-07 11:24:59.590 30453 30453 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/compose/ui/platform/AndroidComposeView$Companion; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-07 11:24:59.833 30453 30457 I ctv215r1fixture: Compiler allocated 6868KB to compile void android.view.ViewRootImpl.performTraversals()
+09-07 11:25:11.839 30453 30453 D BufferQueueConsumer: [](id:76f500000000,api:0,p:-1,c:30453) connect: controlledByApp=false
+09-07 11:25:11.840 30453 30453 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:0) constructor()
+09-07 11:25:11.840 30453 30453 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:0) update width=1600 height=2400 format=-1 mTransformHint=0
+09-07 11:25:11.842 30453 30453 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+09-07 11:25:11.843 30453 30471 D libMEOW : meow new tls: 0xb4000079bf484040
+09-07 11:25:11.843 30453 30471 D libMEOW : applied 0 plugin for [com.conundrum.thomas.v2.ctv215r1fixture].
+09-07 11:25:11.844 30453 30471 D libMEOW : rebuild call chain: 0xb4000079bf4d4090
+09-07 11:25:11.901 30453 30471 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 11:25:11.901 30453 30471 D ctv215r1fixture: MBrain is disabled
+09-07 11:25:11.901 30453 30471 D ctv215r1fixture: initMbrain failed
+09-07 11:25:11.922 30453 30471 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+09-07 11:25:11.922 30453 30471 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=1600x2400 mFrameNumber=1 applyTransaction=true mTimestamp=169393947192787(auto) mPendingTransactions.size=0 graphicBufferId=130794639065090 transform=0
+09-07 11:25:11.923 30453 30471 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-07 11:25:11.923 30453 30471 D ctv215r1fixture: MBrain is disabled
+09-07 11:25:11.923 30453 30471 D ctv215r1fixture: initMbrain failed
+09-07 11:25:11.925 30453 30453 D VRI[MainActivity]: reportDrawFinished
+09-07 11:25:11.926 30453 30453 W Looper  : Slow dispatch took 12514ms main h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver@34d176d m=0
+09-07 11:25:11.927 30453 30453 W Looper  : Slow delivery took 12484ms main h=android.os.Handler c=androidx.compose.ui.platform.AndroidUiDispatcher$dispatchCallback$1@445fa2 m=0
+09-07 11:25:11.927 30453 30453 I Choreographer: Skipped 748 frames!  The application may be doing too much work on its main thread.
+09-07 11:25:11.930 30453 30453 W Looper  : Drained
+09-07 11:25:11.935 30453 30503 D ProfileInstaller: Installing profile for com.conundrum.thomas.v2.ctv215r1fixture
+09-07 11:25:11.942 30453 30463 I HWUI    : Davey! duration=12516ms; Flags=1, FrameTimelineVsyncId=2148283, IntendedVsync=169381433546960, Vsync=169381433546960, InputEventId=0, HandleInputStart=169381437549787, AnimationStart=169381437551325, PerformTraversalsStart=169381437552479, DrawStart=169393907779633, FrameDeadline=169381450213627, FrameInterval=169381437533710, FrameStartTime=16666908, SyncQueued=169393925709095, SyncStart=169393925861172, IssueDrawCommandsStart=169393926589480, SwapBuffers=169393945048787, FrameCompleted=169393950539633, DequeueBufferDuration=10769, QueueBufferDuration=539615, GpuCompleted=169393950539633, SwapBuffersCompleted=169393948326326, DisplayPresentTime=0, CommandSubmissionCompleted=169393945048787,
+09-07 11:25:23.688 30453 30468 I System.out: R1 CHECKPOINT16_REOPEN_PASS stage=d identity=android-therapy-84
+09-07 11:25:23.692 30453 30468 I System.out: R1 UI_REOPEN_DURABILITY_PASS stage=d identity=android-therapy-93 frontier=93 revision=93 digest=a4be697d635593239216bd5f44b8c337f852c81a63c459cfb846e55873db2555
+09-07 11:25:35.295 30453 30453 D InsetsController: show(ime(), fromIme=false)
+09-07 11:25:35.297 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2248c36a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 11:25:35.298 30453 30453 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{762df7f VFED..... .F....ID 0,0-1600,2400 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+09-07 11:25:35.305 30453 30453 I AssistStructure: Flattened final assist data: 896 bytes, containing 1 windows, 5 views
+09-07 11:25:35.533 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a04fc6f3: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 11:25:35.533 30453 30453 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{762df7f VFED..... .F....ID 0,0-1600,2400 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+09-07 11:25:35.541 30453 30453 D Autofill Status: Autofill popup isn't shown because autofill is not available.
+09-07 11:25:35.541 30453 30453 D Autofill Status:
+09-07 11:25:35.541 30453 30453 D Autofill Status: Did you set up autofill?
+09-07 11:25:35.541 30453 30453 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced > Autofill Service
+09-07 11:25:35.541 30453 30453 D Autofill Status: 2. Pick a service
+09-07 11:25:35.541 30453 30453 D Autofill Status:
+09-07 11:25:35.541 30453 30453 D Autofill Status: Did you add an account?
+09-07 11:25:35.541 30453 30453 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced
+09-07 11:25:35.541 30453 30453 D Autofill Status: 2. Click on the settings icon next to the Autofill Service
+09-07 11:25:35.541 30453 30453 D Autofill Status: 3. Add your account
+09-07 11:25:35.626 30453 30468 I System.out: R1 UI_BEFORE_CLICK input=There is no current emergency.
+09-07 11:25:35.626 30453 30468 I System.out: There is no acute medical emergency.
+09-07 11:25:35.626 30453 30468 I System.out: Self-harm is not relevant now.
+09-07 11:25:35.626 30453 30453 D InsetsController: show(ime(), fromIme=true)
+09-07 11:25:35.626 30453 30468 I System.out: Harm to others is not relevant now.
+09-07 11:25:35.626 30453 30468 I System.out: I report no specialized condition for this conversation.
+09-07 11:25:35.626 30453 30468 I System.out: I am an adult in the supported setting.
+09-07 11:25:35.626 30453 30468 I System.out: My present concern is one bounded ordinary personal problem.
+09-07 11:25:35.626 30453 30468 I System.out: My specific concern is: the next synthetic identity meeting processing=false draft=There is no current emergency.
+09-07 11:25:35.626 30453 30468 I System.out: There is no acute medical emergency.
+09-07 11:25:35.626 30453 30468 I System.out: Self-harm is not relevant now.
+09-07 11:25:35.626 30453 30468 I System.out: Harm to others is not relevant now.
+09-07 11:25:35.626 30453 30468 I System.out: I report no specialized condition for this conversation.
+09-07 11:25:35.626 30453 30468 I System.out: I am an adult in the supported setting.
+09-07 11:25:35.627 30453 30468 I System.out: My present concern is one bounded ordinary personal problem.
+09-07 11:25:35.627 30453 30468 I System.out: My specific concern is: the next synthetic identity meeting status=Mode: Therapy
+09-07 11:25:35.628 30453 30453 D InsetsController: show(ime(), fromIme=true)
+09-07 11:25:35.628 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a04fc6f3: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 11:25:35.635 30453 30453 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.conundrum.thomas.v2.ctv215r1fixture
+09-07 11:25:35.958 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2248c36a: onShown
+09-07 11:25:35.988 30453 30453 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 11:25:35.994 30453 30453 D IdlingRegistry: Registering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@116c97a]
+09-07 11:25:35.995 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e3f8389c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 11:25:35.999 30453 30453 D InsetsController: hide(ime(), fromIme=true)
+09-07 11:25:36.330 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:9528e0fd: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 11:25:36.331 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e3f8389c: onHidden
+09-07 11:25:36.354 30453 30453 D IdlingRegistry: Unregistering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@116c97a]
+09-07 11:25:36.608 30453 30453 D InsetsController: hide(ime(), fromIme=false)
+09-07 11:25:36.609 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b11241e6: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 11:25:36.609 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b11241e6: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 11:25:42.715 30453 30458 I ctv215r1fixture: Background young concurrent mark compact GC freed 7312KB AllocSpace bytes, 0(0B) LOS objects, 52% free, 7047KB/14MB, paused 152us,10.434ms total 24.321ms
+09-07 11:25:43.627 30453 30465 I ctv215r1fixture: Waiting for a blocking GC ProfileSaver
+09-07 11:25:43.639 30453 30465 I ctv215r1fixture: WaitForGcToComplete blocked ProfileSaver on Background for 12.513ms
+09-07 11:26:22.316 30453 30453 W Looper  : Slow dispatch took 10030ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@cbbc948] m=0
+09-07 11:26:22.443 30453 30453 W Looper  : Slow delivery took 10022ms main h=android.app.ActivityThread$H c=android.app.Instrumentation$SyncRunnable@a0752e0 m=0
+09-07 11:26:22.455 30453 30468 I System.out: R1 UI_COMPLETED elapsedMs=47473
+09-07 11:26:22.463 30453 30453 W Looper  : Drained
+09-07 11:26:33.725 30453 30468 I System.out: R1 UI_IDENTITY beforeFrontier=93 beforeRevision=93 allocated=94 identity=android-therapy-94 source=therapy.android-session.android-therapy-94 afterRevision=94 committed=true NOT_SAVED=false
+09-07 11:26:33.726 30453 30468 I System.out: R1 UI input=There is no current emergency.
+09-07 11:26:33.726 30453 30468 I System.out: There is no acute medical emergency.
+09-07 11:26:33.726 30453 30468 I System.out: Self-harm is not relevant now.
+09-07 11:26:33.726 30453 30468 I System.out: Harm to others is not relevant now.
+09-07 11:26:33.726 30453 30468 I System.out: I report no specialized condition for this conversation.
+09-07 11:26:33.726 30453 30468 I System.out: I am an adult in the supported setting.
+09-07 11:26:33.726 30453 30468 I System.out: My present concern is one bounded ordinary personal problem.
+09-07 11:26:33.726 30453 30468 I System.out: My specific concern is: the next synthetic identity meeting expectedAction=reflect-established-content actual=CoreActionExecution(actionId=PolicyActionId(value=core-reflect-established-content), conversationRevision=2, route=LISTEN_SUPPORT) revision=2 pending=RESPONSE_TO_REFLECTION status=Completed displayed=What stands out is that the next synthetic identity meeting.
+09-07 11:26:33.728 30453 30453 I ActivityThread: Schedule relaunch activity: com.conundrum.thomas.v2.MainActivity
+09-07 11:26:33.729 30453 30453 D AppMemTag: onActivityPaused com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:26:33.729 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: PAUSED
+09-07 11:26:33.730 30453 30453 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:26:33.730 30453 30453 D AppMemTag: onActivityStopped com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:26:33.730 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: STOPPED
+09-07 11:26:33.730 30453 30453 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:26:33.776 30453 30453 D AppMemTag: onActivityDestroyed com.conundrum.thomas.v2.MainActivity@96aab78
+09-07 11:26:33.777 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@96aab78 in: DESTROYED
+09-07 11:26:33.777 30453 30453 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+09-07 11:26:33.780 30453 30453 V ActivityThread: Handling launch of ActivityRecord{7845ac7 token=android.os.BinderProxy@42c5ee1 {com.conundrum.thomas.v2.ctv215r1fixture/com.conundrum.thomas.v2.MainActivity}} called by android.app.ActivityThread.handleRelaunchActivityInner:6450 android.app.ActivityThread.handleRelaunchActivity:6335 android.app.servertransaction.ActivityRelaunchItem.execute:79
+09-07 11:26:33.781 30453 30526 D libMEOW : meow new tls: 0xb4000079bf5b4170
+09-07 11:26:33.781 30453 30526 D libMEOW : applied 0 plugin for [com.conundrum.thomas.v2.ctv215r1fixture].
+09-07 11:26:33.781 30453 30526 D libMEOW : rebuild call chain: 0xb4000079bf584140
+09-07 11:26:33.781 30453 30526 D libMEOW : meow delete tls: 0xb4000079bf5b4170
+09-07 11:26:33.782 30453 30453 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@3ac349f
+09-07 11:26:33.783 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@a08d9be in: PRE_ON_CREATE
+09-07 11:26:33.783 30453 30453 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was DESTROYED
+09-07 11:26:33.785 30453 30453 D AppMemTag: onActivityCreated com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:26:33.803 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@a08d9be in: CREATED
+09-07 11:26:33.803 30453 30453 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:26:33.805 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@a08d9be in: STARTED
+09-07 11:26:33.805 30453 30453 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:26:33.807 30453 30453 D AppMemTag: onActivityResumed com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:26:33.807 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@a08d9be in: RESUMED
+09-07 11:26:33.807 30453 30453 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:26:33.808 30453 30453 D ActivityThread: handleResumeActivity#3 r.window=nulla.mFinished = falsewillBeVisible = true
+09-07 11:26:33.809 30453 30453 D ActivityThread: handleResumeActivity#4 addView a.mVisibleFromClient=truea.mWindowAdded=truedecor=DecorView@dd2e169[]
+09-07 11:26:34.017 30453 30453 D VRI[MainActivity]: reportDrawFinished
+09-07 11:26:34.019 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b30c2ff2: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_CLOSE_CURRENT_SESSION fromUser false
+09-07 11:26:45.004 30453 30453 D InsetsController: show(ime(), fromIme=false)
+09-07 11:26:45.005 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c41bab5a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 11:26:45.006 30453 30453 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{ab5b16c VFED..... .F....ID 0,0-1600,2400 aid=1073741829} flags=0 reason=SHOW_SOFT_INPUT_BY_INSETS_API
+09-07 11:26:45.012 30453 30453 I AssistStructure: Flattened final assist data: 896 bytes, containing 1 windows, 5 views
+09-07 11:26:45.203 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ddda691a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-07 11:26:45.203 30453 30453 D InputMethodManager: showSoftInput() view=androidx.compose.ui.platform.AndroidComposeView{ab5b16c VFED..... .F....ID 0,0-1600,2400 aid=1073741829} flags=0 reason=SHOW_SOFT_INPUT
+09-07 11:26:45.211 30453 30453 D Autofill Status: Autofill popup isn't shown because autofill is not available.
+09-07 11:26:45.211 30453 30453 D Autofill Status:
+09-07 11:26:45.211 30453 30453 D Autofill Status: Did you set up autofill?
+09-07 11:26:45.211 30453 30453 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced > Autofill Service
+09-07 11:26:45.211 30453 30453 D Autofill Status: 2. Pick a service
+09-07 11:26:45.211 30453 30453 D Autofill Status:
+09-07 11:26:45.211 30453 30453 D Autofill Status: Did you add an account?
+09-07 11:26:45.211 30453 30453 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced
+09-07 11:26:45.211 30453 30453 D Autofill Status: 2. Click on the settings icon next to the Autofill Service
+09-07 11:26:45.211 30453 30453 D Autofill Status: 3. Add your account
+09-07 11:26:45.262 30453 30453 D InsetsController: show(ime(), fromIme=true)
+09-07 11:26:45.285 30453 30453 D InsetsController: show(ime(), fromIme=true)
+09-07 11:26:45.285 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ddda691a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 11:26:45.318 30453 30468 I System.out: R1 UI_BEFORE_CLICK input=Yes, that's right processing=false draft=Yes, that's right status=Completed
+09-07 11:26:45.598 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c41bab5a: onShown
+09-07 11:26:45.650 30453 30453 I ViewInteraction: Performing 'close keyboard' action on view view.getRootView() to equal view
+09-07 11:26:45.653 30453 30453 D IdlingRegistry: Registering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@2277802]
+09-07 11:26:45.654 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:629b904a: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-07 11:26:45.661 30453 30453 D InsetsController: hide(ime(), fromIme=true)
+09-07 11:26:45.983 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:308f3132: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-07 11:26:45.984 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:629b904a: onHidden
+09-07 11:26:45.987 30453 30453 D IdlingRegistry: Unregistering idling resources: [androidx.test.espresso.action.CloseKeyboardAction$CloseKeyboardIdlingResult@2277802]
+09-07 11:26:46.210 30453 30453 D InsetsController: hide(ime(), fromIme=false)
+09-07 11:26:46.210 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:48a36f68: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-07 11:26:46.210 30453 30453 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:48a36f68: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-07 11:27:31.893 30453 30453 W Looper  : Slow dispatch took 9993ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@ecdf302] m=0
+09-07 11:27:31.987 30453 30468 I System.out: R1 UI_COMPLETED elapsedMs=47202
+09-07 11:27:43.409 30453 30468 I System.out: R1 UI_IDENTITY beforeFrontier=94 beforeRevision=94 allocated=95 identity=android-therapy-95 source=therapy.android-session.android-therapy-95 afterRevision=95 committed=true NOT_SAVED=false
+09-07 11:27:43.410 30453 30468 I System.out: R1 UI input=Yes, that's right expectedAction=invite-further-expression actual=CoreActionExecution(actionId=PolicyActionId(value=core-invite-further-expression), conversationRevision=3, route=LISTEN_SUPPORT) revision=3 pending=MORE_USER_EXPRESSION status=Completed displayed=What else would you like to say about it?
+09-07 11:27:54.494 30453 30468 I System.out: R1 UI_DURABILITY_EXPECT stage=e identity=android-therapy-95 frontier=95 revision=95 digest=c8ab4e3adac7c9bed03eb5bfda55af45873414cead830acf1e7e61a13ff2a099
+09-07 11:27:54.494 30453 30468 I System.out: R1 UI_SECOND_REOPEN_AND_SUBSEQUENT_IDENTITY_COMPLETE=true
+09-07 11:27:54.521 30453 30453 D AppMemTag: onActivityPaused com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:27:54.521 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@a08d9be in: PAUSED
+09-07 11:27:54.521 30453 30453 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:27:54.711 30453 30453 D VRI[MainActivity]: visibilityChanged oldVisibility=true newVisibility=false
+09-07 11:27:54.742 30453 30453 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:1) destructor()
+09-07 11:27:54.742 30453 30453 D BufferQueueConsumer: [VRI[MainActivity]#0(BLAST Consumer)0](id:76f500000000,api:0,p:-1,c:30453) disconnect
+09-07 11:27:54.746 30453 30453 D AppMemTag: onActivityStopped com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:27:54.747 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@a08d9be in: STOPPED
+09-07 11:27:54.750 30453 30453 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:27:54.859 30453 30453 D AppMemTag: onActivityDestroyed com.conundrum.thomas.v2.MainActivity@a08d9be
+09-07 11:27:54.860 30453 30453 D LifecycleMonitor: Lifecycle status change: com.conundrum.thomas.v2.MainActivity@a08d9be in: DESTROYED
+09-07 11:27:54.860 30453 30453 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+09-07 11:27:54.862 30453 30453 D View    : [Warning] assignParent to null: this = DecorView@dd2e169[]
+09-07 11:27:54.871 30453 30468 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@dbb20cf]
+09-07 11:27:54.876 30453 30468 I TestRunner: finished: eSecondReopenDurabilityAndSubsequentIdentity(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-07 11:27:54.880 30453 30468 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored

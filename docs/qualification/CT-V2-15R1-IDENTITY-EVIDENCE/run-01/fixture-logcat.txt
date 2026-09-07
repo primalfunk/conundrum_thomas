@@ -1,0 +1,297 @@
+--------- beginning of system
+09-06 12:44:23.758 12615 12615 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+--------- beginning of main
+09-06 12:51:22.221 12615 12629 I System.out: R1 TURN=63 input=Self-harm is relevant now. mode=THERAPY result=COMPLETED revision=4 route=null action=null progression=null pending=RESPONSE_TO_REFLECTION safety=CLARIFICATION_REQUIRED bio=null nextTarget=null render=SAFETY_MESSAGE/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[CURRENT_SAFETY_AUTHORITY_PREEMPTED_ORDINARY_THERAPY_AND_RETRIEVAL, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=Does the present situation include a self-harm concern that needs a different support path?
+09-06 12:51:27.129 12615 12629 I System.out: R1 IDENTITY index=63 identity=android-therapy-63 source=SourceIdentityId(value=therapy.android-session.android-therapy-63) storeRevision=64
+09-06 12:51:27.131 12615 12629 I System.out: R1 SAFETY observations=[SafetyObservationTrace(field=CURRENT_EMERGENCY, resolution=ESTABLISHED, value=NONE_ESTABLISHED, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-0-explicit-declaration]), SafetyObservationTrace(field=ACUTE_MEDICAL_EMERGENCY, resolution=ESTABLISHED, value=ABSENT, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-1-explicit-declaration]), SafetyObservationTrace(field=SELF_HARM_RELEVANCE, resolution=CONTRADICTORY, value=null, origin=DERIVED_STRUCTURED_FACT, evidenceReferences=[android-therapy-state-62-line-0-correction, android-therapy-state-63-line-0-explicit-declaration]), SafetyObservationTrace(field=HARM_TO_OTHERS_RELEVANCE, resolution=ESTABLISHED, value=ABSENT, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-3-explicit-declaration]), SafetyObservationTrace(field=SPECIALIZED_SCOPE_CONDITION, resolution=ESTABLISHED, value=NONE_IDENTIFIED, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-4-explicit-declaration]), SafetyObservationTrace(field=POPULATION_APPLICABILITY, resolution=ESTABLISHED, value=SUPPORTED_ADULT_QUALIFICATION_CONTEXT, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-5-explicit-declaration]), SafetyObservationTrace(field=PRESENTING_SCOPE, resolution=ESTABLISHED, value=BOUNDED_ORDINARY_PERSONAL_PROBLEM, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-6-explicit-declaration])]
+09-06 12:51:28.154 12615 12620 I ctv215r1fixture: Background concurrent mark compact GC freed 6136KB AllocSpace bytes, 2(144KB) LOS objects, 58% free, 4331KB/10MB, paused 1.237ms,30.916ms total 57.420ms
+09-06 12:51:36.407 12615 12620 I ctv215r1fixture: Background young concurrent mark compact GC freed 7404KB AllocSpace bytes, 0(0B) LOS objects, 53% free, 4899KB/10MB, paused 330us,6.620ms total 26.400ms
+09-06 12:51:37.995 12615 12629 I System.out: R1 TURN=64 input=Correction: Self-harm is relevant now. mode=THERAPY result=SAFETY_PREEMPTED revision=4 route=null action=null progression=null pending=RESPONSE_TO_REFLECTION safety=SPECIALIZED_POLICY_REQUIRED bio=null nextTarget=null render=null/null validation=null reasons=[CURRENT_SAFETY_AUTHORITY_PREEMPTED_ORDINARY_THERAPY_AND_RETRIEVAL, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=null
+09-06 12:51:43.067 12615 12629 I System.out: R1 IDENTITY index=64 identity=android-therapy-64 source=SourceIdentityId(value=therapy.android-session.android-therapy-64) storeRevision=65
+09-06 12:51:43.068 12615 12629 I System.out: R1 SAFETY observations=[SafetyObservationTrace(field=CURRENT_EMERGENCY, resolution=ESTABLISHED, value=NONE_ESTABLISHED, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-0-explicit-declaration]), SafetyObservationTrace(field=ACUTE_MEDICAL_EMERGENCY, resolution=ESTABLISHED, value=ABSENT, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-1-explicit-declaration]), SafetyObservationTrace(field=SELF_HARM_RELEVANCE, resolution=ESTABLISHED, value=PRESENT, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-64-line-0-correction]), SafetyObservationTrace(field=HARM_TO_OTHERS_RELEVANCE, resolution=ESTABLISHED, value=ABSENT, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-3-explicit-declaration]), SafetyObservationTrace(field=SPECIALIZED_SCOPE_CONDITION, resolution=ESTABLISHED, value=NONE_IDENTIFIED, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-4-explicit-declaration]), SafetyObservationTrace(field=POPULATION_APPLICABILITY, resolution=ESTABLISHED, value=SUPPORTED_ADULT_QUALIFICATION_CONTEXT, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-5-explicit-declaration]), SafetyObservationTrace(field=PRESENTING_SCOPE, resolution=ESTABLISHED, value=BOUNDED_ORDINARY_PERSONAL_PROBLEM, origin=DIRECT_USER_REPORT, evidenceReferences=[android-therapy-state-60-line-6-explicit-declaration])]
+09-06 12:51:45.997 12615 12620 I ctv215r1fixture: Background young concurrent mark compact GC freed 6228KB AllocSpace bytes, 0(0B) LOS objects, 66% free, 3211KB/9451KB, paused 7.465ms,1.486ms total 15.859ms
+09-06 12:51:56.802 12615 12629 I System.out: R1 FINAL count=56 revision=65 digest=9ccbe6af98603df30a93f64ee8ecd02b36ef45bb5c2aa58c03ac3522526818f9 key=AndroidKeystoreObservation(alias=ct-v2-14.personal-data.primary.v1, algorithm=AES, hardwareBacked=true, userAuthenticationRequired=false, provider=AndroidKeyStore) uid=10272
+09-06 12:51:56.803 12615 12629 I System.out: R1 A_THROUGH_M_COMPLETE=true
+09-06 12:51:56.804 12615 12629 I TestRunner: finished: aCompleteTypedProductionScenarios(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+09-06 12:51:56.806 12615 12629 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+09-06 12:51:57.714 12731 12731 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-06 12:51:57.732 12731 12731 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+09-06 12:51:57.780 12731 12731 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-06 12:51:58.174 12731 12731 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-06 12:51:58.176 12731 12731 I AndroidJUnitRunner: newApplication android.app.Application
+09-06 12:51:58.209 12731 12731 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=276]
+09-06 12:51:58.245 12731 12731 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-06 12:51:58.246 12731 12731 I M-ProMotion: M-ProMotion is disabled
+09-06 12:51:58.261 12731 12746 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-06 12:51:58.284 12731 12746 I TestRunner: run started: 1 tests
+09-06 12:51:58.285 12731 12746 I TestRunner: started: bColdReopenDurabilityAndCoverage(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+09-06 12:51:58.306 12731 12746 I System.out: R1 ISOLATION uid=10272 data=/data/user/0/com.conundrum.thomas.v2.ctv215r1fixture
+09-06 12:52:15.540 12731 12746 I System.out: R1 PROMPT_DECISION=BiographerQuestionDecision(disposition=AUTHORIZED, plan=BiographerQuestionPlan(posture=TARGETED_COVERAGE, targetId=InvestigationTargetId(value=temporal-gap.1990.2010.5df761a1aa5b231a), targetKind=TEMPORAL_GAP, groundingIds=[journal.android-journal-1.rev-1.move, journal.android-journal-8.rev-1.move], safeFacts=[CoverageSafeFact(concept=represented-history-boundary, groundingIds=[journal.android-journal-8.rev-1.move], temporalExpression=Range(start=CalendarYear(value=1990), end=CalendarYear(value=1990), startApproximate=false, endApproximate=false)), CoverageSafeFact(concept=represented-history-boundary, groundingIds=[journal.android-journal-1.rev-1.move], temporalExpression=Range(start=CalendarYear(value=2010), end=CalendarYear(value=2010), startApproximate=false, endApproximate=false))], uncertaintyConstraints=[PRESERVE_SOURCE_UNCERTAINTY, DO_NOT_INCREASE_TEMPORAL_PRECISION, DO_NOT_ASSUME_AN_UNSTATED_EVENT_OR_CAUSE], semanticAct=EXPLORE_STRUCTURAL_GAP, maximumQuestionCount=1, prohibitedActs=[DIAGNOSIS, THERAPEUTIC_TECHNIQUE, PSYCHOLOGICAL_CAUSAL_CLAIM, TRAUMA_PRESUPPOSITION, UNSUPPORTED_EMOTION, UNSUPPORTED_DATE, IDENTITY_MERGE, MULTIPLE_QUESTIONS, COVERAGE_PRESSURE], reasonCode=SPARSE_INTERVAL_BETWEEN_REPRESENTED_HISTORY, questionRuleVersion=ct-v2-10.question.v1), coverageMap=BiographerCoverageMap(storeRevision=65, representedPeriods=[], sparsePeriodIds=[], unresolvedTemporalTargetIds=[InvestigationTargetId(value=temporal-gap.1970.1980.3fbc492e25096b5e), InvestigationTargetId(value=temporal-gap.1980.1990.922aa0ee1b6a337e), InvestigationTargetId(value=temporal-gap.1990.2010.5df761a1aa5b231a), InvestigationTargetId(value=temporal-gap.2010.2018.04363742099ddaa4)], representedRoleIds=[], representedPlaceIds=[LifeEntityId(value=journal.android-journal-1.rev-1.move-place), LifeEntityId(value=journal.android-journal-2.rev-1.move-place), LifeEntityId(value=journal.android-journal-51.rev-1.move-place), LifeEntityId(value=journal.android-journal-7.rev-1.move-place), LifeEntityId(value=journal.android-journal-8.rev-1.move-place)], representedRelationshipIds=[], unresolvedIdentityTargetIds=[], unresolvedContradictionTargetIds=[], unresolvedCorrectionTargetIds=[], openEvidenceTargetIds=[], deferredTargetIds=[], declinedTargetIds=[InvestigationTargetId(value=temporal-gap.1980.1990.922aa0ee1b6a337e)], privateTargetIds=[InvestigationTargetId(value=temporal-gap.1970.1980.3fbc492e25096b5e)], previouslyInvestigatedTargetIds=[], targets=[InvestigationTarget(id=InvestigationTargetId(value=temporal-gap.1970.1980.3fbc492e25096b5e), kind=TEMPORAL_GAP, groundingIds=[journal.android-journal-51.rev-1.move, journal.android-journal-7.rev-1.move], relevantEntityIds=[], temporalBounds=[Range(start=CalendarYear(value=1970), end=CalendarYear(value=1970), startApproximate=false, endApproximate=false), Range(start=CalendarYear(value=1980), end=CalendarYear(value=1980), startApproximate=false, endApproximate=false)], uncertainty=true, reasonCode=SPARSE_INTERVAL_BETWEEN_REPRESENTED_HISTORY, eligibility=PRIVATE, priorInvestigation=null, safeFacts=[CoverageSafeFact(concept=represented-history-boundary, groundingIds=[journal.android-journal-51.rev-1.move], temporalExpression=Range(start=CalendarYear(value=1970), end=CalendarYear(value=1970), startApproximate=false, endApproximate=false)), CoverageSafeFact(concept=represented-history-boundary, groundingIds=[journal.android-journal-7.rev-1.move], temporalExpression=Range(start=CalendarYear(value=1980), end=CalendarYear(value=1980), startApproximate=false, endApproximate=false))], materialChangeToken=c90396c80865cda2), InvestigationTarget(id=InvestigationTargetId(value=temporal-gap.1980.1990.922aa0ee1b6a337e), kind=TEMPORAL_GAP, groundingIds=[journal.android-journal-7.rev-1.move, journal.android-journal-8.rev-1.move], relevantEntityIds=[], temporalBounds=[Range(start=CalendarYear(value=1980), end=CalendarYear(value=1980), startApproximate=false, endApproximate=false), Range(start=CalendarYear(value=1990), end=CalendarYear(value=1990), startApproximate=f
+09-06 12:52:15.927 12731 12746 I System.out: R1 TARGET=temporal-gap.1990.2010.5df761a1aa5b231a kind=TEMPORAL_GAP grounding=[journal.android-journal-1.rev-1.move, journal.android-journal-8.rev-1.move] bounds=[Range(start=CalendarYear(value=1990), end=CalendarYear(value=1990), startApproximate=false, endApproximate=false), Range(start=CalendarYear(value=2010), end=CalendarYear(value=2010), startApproximate=false, endApproximate=false)] digest=5c0e2ce8222c6c29eedd86ea8a9d49a9ccc7cf44b30758794510de49bebbf26c text=What do you remember about your history between 1990 and 2010?
+09-06 12:52:27.762 12731 12746 I System.out: R1 TURN=66 input=I attempted the plan mode=THERAPY result=COMPLETED revision=1 route=null action=null progression=null pending=null safety=CLARIFICATION_REQUIRED bio=null nextTarget=null render=SAFETY_MESSAGE/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[CURRENT_SAFETY_AUTHORITY_PREEMPTED_ORDINARY_THERAPY_AND_RETRIEVAL, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=Is an emergency happening right now that means ordinary problem-solving must stop?
+09-06 12:52:33.094 12731 12746 I System.out: R1 IDENTITY index=66 identity=android-therapy-66 source=SourceIdentityId(value=therapy.android-session.android-therapy-66) storeRevision=66
+09-06 12:52:33.095 12731 12746 I System.out: R1 SAFETY observations=[SafetyObservationTrace(field=CURRENT_EMERGENCY, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=ACUTE_MEDICAL_EMERGENCY, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=SELF_HARM_RELEVANCE, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=HARM_TO_OTHERS_RELEVANCE, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=SPECIALIZED_SCOPE_CONDITION, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=POPULATION_APPLICABILITY, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[]), SafetyObservationTrace(field=PRESENTING_SCOPE, resolution=UNKNOWN, value=null, origin=null, evidenceReferences=[])]
+09-06 12:52:51.030 12731 12746 I System.out: R1 TURN=67 input=My specific concern is: remembering Denver
+09-06 12:52:51.030 12731 12746 I System.out: Please recall my earlier words: I moved to Denver in 2010. mode=THERAPY result=COMPLETED revision=2 route=LISTEN_SUPPORT action=core-reflect-established-content progression=NEW_ACTION pending=null safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=EXPLICIT_RECALL/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[EXPLICIT_USER_RECALL_AUTHORIZED_BOUNDED_CONTEXT, PURPOSE_BOUND_SELECTION_COMPLETE, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=You wrote in your Journal “I moved to Denver in 2010.”. I am not sure of the event time. You wrote in your Journal “an earlier eligible account”. I hear that remembering Denver.
+09-06 12:52:56.492 12731 12746 I System.out: R1 IDENTITY index=67 identity=android-therapy-67 source=SourceIdentityId(value=therapy.android-session.android-therapy-67) storeRevision=67
+09-06 12:53:14.791 12731 12746 I System.out: R1 TURN=68 input=My specific concern is: remembering jobs
+09-06 12:53:14.791 12731 12746 I System.out: Please recall my earlier words: Around 2014 I changed jobs. mode=THERAPY result=COMPLETED revision=3 route=LISTEN_SUPPORT action=core-reflect-established-content progression=NEW_ACTION pending=null safety=ORDINARY_POLICY_ALLOWED bio=null nextTarget=null render=BRIEF_REFLECTION/ACCEPTED_REFERENCE_REALIZATION validation=[VALID] reasons=[EXPLICIT_RECALL_FOUND_NO_ELIGIBLE_MEMORY, NO_ELIGIBLE_RELEVANT_ITEM, THERAPY_SOURCE_CAPTURED_BEFORE_POLICY] text=You have described that remembering jobs.
+09-06 12:53:20.382 12731 12746 I System.out: R1 IDENTITY index=68 identity=android-therapy-68 source=SourceIdentityId(value=therapy.android-session.android-therapy-68) storeRevision=68
+09-06 12:53:20.384 12731 12746 I System.out: R1 N_REOPEN_COMPLETE=true digestAtOpen=9ccbe6af98603df30a93f64ee8ecd02b36ef45bb5c2aa58c03ac3522526818f9 rebuiltTarget=temporal-gap.1990.2010.5df761a1aa5b231a
+09-06 12:53:20.384 12731 12746 I TestRunner: finished: bColdReopenDurabilityAndCoverage(com.conundrum.thomas.v2.CTV215R1ProductionDeviceInstrumentedTest)
+09-06 12:53:20.389 12731 12746 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+09-06 12:53:21.266 12778 12778 I ctv215r1fixture: Late-enabling -Xcheck:jni
+09-06 12:53:21.283 12778 12778 I ctv215r1fixture: Using generational CollectorTypeCMC GC.
+09-06 12:53:21.323 12778 12778 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.conundrum.thomas.v2.ctv215r1fixture]: arm64-v8a, null instrumentation[com.conundrum.thomas.v2.ctv215r1fixture.test]: null, null
+09-06 12:53:21.715 12778 12778 I LoadedApk: No resource references to update in package com.tct.widget.resources
+09-06 12:53:21.716 12778 12778 I AndroidJUnitRunner: newApplication android.app.Application
+09-06 12:53:21.751 12778 12778 I AndroidJUnitRunner: onCreate Bundle[mParcelledData.dataSize=288]
+09-06 12:53:21.776 12778 12778 I PowerHalWrapper: PowerHalWrapper.getInstance
+09-06 12:53:21.776 12778 12778 I M-ProMotion: M-ProMotion is disabled
+09-06 12:53:21.790 12778 12793 I InstrConnection: Could not send broadcast or register receiver (isolatedProcess?)
+09-06 12:53:21.818 12778 12793 I TestRunner: run started: 1 tests
+09-06 12:53:21.819 12778 12793 I TestRunner: started: cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-06 12:53:21.897 12778 12793 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-06 12:53:21.906 12778 12778 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 12:53:21.906 12778 12778 I ctv215r1fixture: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 12:53:21.906 12778 12778 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/TestLooperManagerCompat; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 12:53:21.921 12778 12793 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-06 12:53:22.031 12778 12778 I HWUI    : Bitmap_setFineEn: g_isFineEn = 1, g_isBitmapJniOk = 1
+09-06 12:53:22.093 12778 12778 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@3ae27ee
+09-06 12:53:22.097 12778 12778 W HWUI    : Unknown dataspace 0
+09-06 12:53:22.315 12778 12778 I ctv215r1fixture: hiddenapi: Accessing hidden method Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/compose/ui/platform/AndroidComposeView$Companion; (domain=app, TargetSdkVersion=37) using reflection: allowed
+09-06 12:53:22.483 12778 12782 I ctv215r1fixture: Compiler allocated 6868KB to compile void android.view.ViewRootImpl.performTraversals()
+09-06 12:53:26.264 12778 12783 I ctv215r1fixture: Background young concurrent mark compact GC freed 6104KB AllocSpace bytes, 0(0B) LOS objects, 53% free, 4901KB/10MB, paused 191us,8.518ms total 23.792ms
+09-06 12:53:29.234 12778 12778 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+09-06 12:53:29.297 12778 12796 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-06 12:53:29.308 12778 12796 I mali    : [DebugProp] GPU Debug-Mechanism Disable !
+09-06 12:53:29.356 12778 12796 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+09-06 12:53:29.356 12778 12796 W libc    : Access denied finding property "vendor.mbrain.enabled"
+09-06 12:53:29.359 12778 12778 W Looper  : Slow dispatch took 7242ms main h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver@34d176d m=0
+09-06 12:53:29.360 12778 12778 I Choreographer: Skipped 430 frames!  The application may be doing too much work on its main thread.
+09-06 12:53:29.375 12778 12825 I HWUI    : Davey! duration=7251ms; Flags=1, FrameTimelineVsyncId=1019821, IntendedVsync=88284132512300, Vsync=88284132512300, InputEventId=0, HandleInputStart=88284142566799, AnimationStart=88284142568876, PerformTraversalsStart=88284142569876, DrawStart=88291302102722, FrameDeadline=88284149178967, FrameInterval=88284142540645, FrameStartTime=16665061, SyncQueued=88291321242184, SyncStart=88291321399415, IssueDrawCommandsStart=88291321771030, SwapBuffers=88291377978492, FrameCompleted=88291384128876, DequeueBufferDuration=9923, QueueBufferDuration=443077, GpuCompleted=88291384128876, SwapBuffersCompleted=88291381792569, DisplayPresentTime=72904454231359566, CommandSubmissionCompleted=88291377978492,
+09-06 12:53:29.588 12778 12783 I ctv215r1fixture: Background young concurrent mark compact GC freed 5268KB AllocSpace bytes, 0(0B) LOS objects, 36% free, 6650KB/10MB, paused 1.108ms,5.328ms total 54.624ms
+09-06 12:53:36.026 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ce5b3df8: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:53:36.036 12778 12778 I AssistStructure: Flattened final assist data: 896 bytes, containing 1 windows, 5 views
+09-06 12:53:36.271 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ca218290: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 12:53:36.356 12778 12793 I System.out: R1 UI_BEFORE_CLICK input=There is no current emergency.
+09-06 12:53:36.356 12778 12793 I System.out: There is no acute medical emergency.
+09-06 12:53:36.356 12778 12793 I System.out: Self-harm is not relevant now.
+09-06 12:53:36.356 12778 12793 I System.out: Harm to others is not relevant now.
+09-06 12:53:36.356 12778 12793 I System.out: I report no specialized condition for this conversation.
+09-06 12:53:36.356 12778 12793 I System.out: I am an adult in the supported setting.
+09-06 12:53:36.356 12778 12793 I System.out: My present concern is one bounded ordinary personal problem.
+09-06 12:53:36.357 12778 12793 I System.out: My specific concern is: the synthetic UI appointment processing=false draft=There is no current emergency.
+09-06 12:53:36.357 12778 12793 I System.out: There is no acute medical emergency.
+09-06 12:53:36.357 12778 12793 I System.out: Self-harm is not relevant now.
+09-06 12:53:36.357 12778 12793 I System.out: Harm to others is not relevant now.
+09-06 12:53:36.357 12778 12793 I System.out: I report no specialized condition for this conversation.
+09-06 12:53:36.357 12778 12793 I System.out: I am an adult in the supported setting.
+09-06 12:53:36.357 12778 12793 I System.out: My present concern is one bounded ordinary personal problem.
+09-06 12:53:36.357 12778 12793 I System.out: My specific concern is: the synthetic UI appointment status=Mode: Therapy
+09-06 12:53:36.412 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ca218290: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:53:36.417 12778 12778 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.conundrum.thomas.v2.ctv215r1fixture
+09-06 12:53:36.731 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:ce5b3df8: onShown
+09-06 12:53:36.882 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2e138593: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:53:36.882 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:53e13359: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 12:53:36.916 12778 12778 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 12:53:36.947 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:53e13359: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:53:37.246 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:c6407ef9: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 12:53:37.247 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2e138593: onHidden
+09-06 12:54:01.148 12778 12793 I System.out: R1 UI_COMPLETED elapsedMs=25394
+09-06 12:54:07.138 12778 12793 I System.out: R1 UI_IDENTITY beforeFrontier=68 beforeRevision=68 allocated=69 identity=android-therapy-69 source=therapy.android-session.android-therapy-69 afterRevision=69 committed=true NOT_SAVED=false
+09-06 12:54:07.139 12778 12793 I System.out: R1 UI input=There is no current emergency.
+09-06 12:54:07.139 12778 12793 I System.out: There is no acute medical emergency.
+09-06 12:54:07.139 12778 12793 I System.out: Self-harm is not relevant now.
+09-06 12:54:07.139 12778 12793 I System.out: Harm to others is not relevant now.
+09-06 12:54:07.139 12778 12793 I System.out: I report no specialized condition for this conversation.
+09-06 12:54:07.139 12778 12793 I System.out: I am an adult in the supported setting.
+09-06 12:54:07.139 12778 12793 I System.out: My present concern is one bounded ordinary personal problem.
+09-06 12:54:07.139 12778 12793 I System.out: My specific concern is: the synthetic UI appointment expectedAction=reflect-established-content actual=CoreActionExecution(actionId=PolicyActionId(value=core-reflect-established-content), conversationRevision=2, route=LISTEN_SUPPORT) revision=2 pending=RESPONSE_TO_REFLECTION status=Completed displayed=You have described that the synthetic UI appointment.
+09-06 12:54:12.974 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6ed1130a: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:54:13.163 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:13c061c6: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 12:54:13.268 12778 12793 I System.out: R1 UI_BEFORE_CLICK input=My specific concern is: THE synthetic UI appointment! processing=false draft=My specific concern is: THE synthetic UI appointment! status=Completed
+09-06 12:54:13.268 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:13c061c6: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:54:13.586 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6ed1130a: onShown
+09-06 12:54:13.722 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:94521566: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:54:13.723 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4770a128: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 12:54:13.758 12778 12778 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 12:54:13.782 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4770a128: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:54:14.071 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:aff96fd2: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 12:54:14.071 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:94521566: onHidden
+09-06 12:54:30.141 12778 12783 I ctv215r1fixture: Background young concurrent mark compact GC freed 7088KB AllocSpace bytes, 0(0B) LOS objects, 47% free, 7971KB/14MB, paused 214us,5.234ms total 18.783ms
+09-06 12:54:36.484 12778 12783 I ctv215r1fixture: Background young concurrent mark compact GC freed 5788KB AllocSpace bytes, 0(0B) LOS objects, 32% free, 10MB/14MB, paused 6.497ms,2.563ms total 30.271ms
+09-06 12:54:37.974 12778 12778 W Looper  : Slow dispatch took 5120ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@1c8d0dd] m=0
+09-06 12:54:38.067 12778 12793 I System.out: R1 UI_COMPLETED elapsedMs=25215
+09-06 12:54:44.208 12778 12793 I System.out: R1 UI_IDENTITY beforeFrontier=69 beforeRevision=69 allocated=70 identity=android-therapy-70 source=therapy.android-session.android-therapy-70 afterRevision=70 committed=true NOT_SAVED=false
+09-06 12:54:44.208 12778 12793 I System.out: R1 UI input=My specific concern is: THE synthetic UI appointment! expectedAction=offer-direction-choice actual=CoreActionExecution(actionId=PolicyActionId(value=core-offer-direction-choice), conversationRevision=2, route=LISTEN_SUPPORT) revision=2 pending=RESPONSE_TO_REFLECTION status=Completed displayed=Would you rather continue, change direction, pause, or stop?
+09-06 12:54:50.127 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:30d075e0: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:54:50.312 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3d3a8dad: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 12:54:50.392 12778 12793 I System.out: R1 UI_BEFORE_CLICK input=My specific concern is: the synthetic UI appointment. processing=false draft=My specific concern is: the synthetic UI appointment. status=Completed
+09-06 12:54:50.445 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:3d3a8dad: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:54:50.782 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:30d075e0: onShown
+09-06 12:54:50.922 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a55e780c: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:54:50.922 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a7c4867a: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 12:54:50.937 12778 12778 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 12:54:51.036 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a7c4867a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:54:51.241 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e97a9e38: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 12:54:51.242 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a55e780c: onHidden
+09-06 12:55:09.049 12778 12778 W Looper  : Slow dispatch took 5169ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@badeebe] m=0
+09-06 12:55:09.131 12778 12793 I System.out: R1 UI_COMPLETED elapsedMs=19129
+09-06 12:55:15.477 12778 12793 I System.out: R1 UI_IDENTITY beforeFrontier=70 beforeRevision=70 allocated=71 identity=android-therapy-71 source=therapy.android-session.android-therapy-71 afterRevision=71 committed=true NOT_SAVED=false
+09-06 12:55:15.478 12778 12793 I System.out: R1 UI input=My specific concern is: the synthetic UI appointment. expectedAction=null actual=CoreActionExecution(actionId=PolicyActionId(value=core-offer-direction-choice), conversationRevision=2, route=LISTEN_SUPPORT) revision=2 pending=RESPONSE_TO_REFLECTION status=Governed policy no output displayed=My specific concern is: the synthetic UI appointment.
+09-06 12:55:21.506 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:82953d05: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:55:21.679 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b5bdea31: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 12:55:21.765 12778 12793 I System.out: R1 UI_BEFORE_CLICK input=Another detail is: the organizer moved the date processing=false draft=Another detail is: the organizer moved the date status=Governed policy no output
+09-06 12:55:21.807 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b5bdea31: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:55:22.123 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:82953d05: onShown
+09-06 12:55:22.231 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:9494b1aa: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:55:22.232 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b8493529: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 12:55:22.255 12778 12778 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 12:55:22.286 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b8493529: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:55:22.594 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:65aca2ad: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 12:55:22.595 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:9494b1aa: onHidden
+09-06 12:55:47.672 12778 12778 W Looper  : Slow dispatch took 5315ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@771e6eb] m=0
+09-06 12:55:47.756 12778 12793 I System.out: R1 UI_COMPLETED elapsedMs=26365
+09-06 12:55:54.130 12778 12793 I System.out: R1 UI_IDENTITY beforeFrontier=71 beforeRevision=71 allocated=72 identity=android-therapy-72 source=therapy.android-session.android-therapy-72 afterRevision=72 committed=true NOT_SAVED=false
+09-06 12:55:54.131 12778 12793 I System.out: R1 UI input=Another detail is: the organizer moved the date expectedAction=reflect-established-content actual=CoreActionExecution(actionId=PolicyActionId(value=core-reflect-established-content), conversationRevision=3, route=LISTEN_SUPPORT) revision=3 pending=RESPONSE_TO_REFLECTION status=Completed displayed=I hear that the synthetic UI appointment; the organizer moved the date.
+09-06 12:56:00.375 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b975608e: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:56:00.531 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f34bebd: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 12:56:00.611 12778 12793 I System.out: R1 UI_BEFORE_CLICK input=Please pause processing=false draft=Please pause status=Completed
+09-06 12:56:00.659 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f34bebd: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:56:00.981 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:b975608e: onShown
+09-06 12:56:01.087 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:389b4dc9: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:56:01.088 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e7fa4075: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 12:56:01.105 12778 12778 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 12:56:01.131 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:e7fa4075: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:56:01.420 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:da020aef: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 12:56:01.421 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:389b4dc9: onHidden
+09-06 12:56:27.225 12778 12778 W Looper  : Slow dispatch took 5430ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@1aeaa5e] m=0
+09-06 12:56:27.303 12778 12793 I System.out: R1 UI_COMPLETED elapsedMs=27042
+09-06 12:56:33.834 12778 12793 I System.out: R1 UI_IDENTITY beforeFrontier=72 beforeRevision=72 allocated=73 identity=android-therapy-73 source=therapy.android-session.android-therapy-73 afterRevision=73 committed=true NOT_SAVED=false
+09-06 12:56:33.834 12778 12793 I System.out: R1 UI input=Please pause expectedAction=pause-without-response actual=CoreActionExecution(actionId=PolicyActionId(value=core-pause-without-response), conversationRevision=4, route=CONSOLIDATE_CLOSE) revision=4 pending=NONE status=No response displayed=Please pause
+09-06 12:56:40.271 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4d2c5ba9: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:56:40.416 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1c2905ad: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 12:56:40.495 12778 12793 I System.out: R1 UI_BEFORE_CLICK input=I am ready to resume processing=false draft=I am ready to resume status=No response
+09-06 12:56:40.546 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:1c2905ad: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:56:40.844 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6df26c8d: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:56:40.845 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:16086e95: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser false
+09-06 12:56:40.845 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:4d2c5ba9: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+09-06 12:56:40.899 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:16086e95: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:56:40.899 12778 12778 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 12:56:41.205 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:5ed63c25: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_ON_ANIMATION_STATE_CHANGED fromUser false
+09-06 12:56:41.206 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:6df26c8d: onHidden
+09-06 12:57:07.620 12778 12778 W Looper  : Slow dispatch took 5630ms main h=android.os.Handler c=DispatchedContinuation[Dispatchers.Main.immediate, Continuation at com.conundrum.thomas.v2.ThomasViewModel$submit$1.invokeSuspend(ThomasViewModel.kt:106)@1491548] m=0
+09-06 12:57:07.689 12778 12793 I System.out: R1 UI_COMPLETED elapsedMs=27557
+09-06 12:57:14.440 12778 12793 I System.out: R1 UI_IDENTITY beforeFrontier=73 beforeRevision=73 allocated=74 identity=android-therapy-74 source=therapy.android-session.android-therapy-74 afterRevision=74 committed=true NOT_SAVED=false
+09-06 12:57:14.441 12778 12793 I System.out: R1 UI input=I am ready to resume expectedAction=invite-further-expression actual=CoreActionExecution(actionId=PolicyActionId(value=core-invite-further-expression), conversationRevision=5, route=LISTEN_SUPPORT) revision=5 pending=MORE_USER_EXPRESSION status=Completed displayed=What else would you like to say about it?
+09-06 12:57:21.131 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a8d42fee: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+09-06 12:57:21.274 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f7bde42f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+09-06 12:57:21.342 12778 12793 I System.out: R1 UI_BEFORE_CLICK input=I don't want to discuss this processing=false draft=I don't want to discuss this status=Completed
+09-06 12:57:21.389 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:f7bde42f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:57:21.717 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:a8d42fee: onShown
+09-06 12:58:21.543 12778 12793 I System.out: R1 UI_TIMEOUT processing=false draft=I don't want to discuss this status=Completed sources=65
+09-06 12:58:21.555 12778 12793 I System.out: R1 THREAD DefaultDispatcher-worker-2
+09-06 12:58:21.555 12778 12793 I System.out: jdk.internal.misc.Unsafe.park(Native Method)
+09-06 12:58:21.555 12778 12793 I System.out: java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:417)
+09-06 12:58:21.555 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.park(CoroutineScheduler.kt:858)
+09-06 12:58:21.555 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.tryPark(CoroutineScheduler.kt:806)
+09-06 12:58:21.556 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:754)
+09-06 12:58:21.556 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+09-06 12:58:21.556 12778 12793 I System.out: R1 THREAD DefaultDispatcher-worker-1
+09-06 12:58:21.556 12778 12793 I System.out: jdk.internal.misc.Unsafe.park(Native Method)
+09-06 12:58:21.557 12778 12793 I System.out: java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:417)
+09-06 12:58:21.557 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.park(CoroutineScheduler.kt:858)
+09-06 12:58:21.557 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.tryPark(CoroutineScheduler.kt:806)
+09-06 12:58:21.557 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:754)
+09-06 12:58:21.557 12778 12793 I System.out: kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+09-06 12:58:21.558 12778 12793 I System.out: R1 THREAD main
+09-06 12:58:21.558 12778 12793 I System.out: android.os.MessageQueue.nativePollOnce(Native Method)
+09-06 12:58:21.558 12778 12793 I System.out: android.os.MessageQueue.next(MessageQueue.java:346)
+09-06 12:58:21.558 12778 12793 I System.out: android.os.Looper.loopOnce(Looper.java:189)
+09-06 12:58:21.558 12778 12793 I System.out: android.os.Looper.loop(Looper.java:350)
+09-06 12:58:21.558 12778 12793 I System.out: android.app.ActivityThread.main(ActivityThread.java:8860)
+09-06 12:58:21.558 12778 12793 I System.out: java.lang.reflect.Method.invoke(Native Method)
+09-06 12:58:21.558 12778 12793 I System.out: com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:617)
+09-06 12:58:21.558 12778 12793 I System.out: com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1133)
+09-06 12:58:22.283 12778 12778 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@3ac349f
+09-06 12:58:22.303 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2b5e14bc: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+09-06 12:58:22.303 12778 12778 I ImeTracker: com.conundrum.thomas.v2.ctv215r1fixture:2b5e14bc: onFailed at PHASE_CLIENT_VIEW_SERVED
+09-06 12:58:22.304 12778 12778 W RemoteInputConnectionImpl: requestCursorUpdates on inactive InputConnection
+09-06 12:58:22.306 12778 12778 I ImeTracker: com.tcl.android.launcher:edcb8ce6: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+09-06 12:58:22.310 12778 12793 E TestRunner: failed: cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-06 12:58:22.311 12778 12793 E TestRunner: ----- begin exception -----
+09-06 12:58:22.311 12778 12793 E TestRunner: androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 60000 ms
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:887)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:482)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.send(CTV215R1ProductionUiInstrumentedTest.kt:43)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest.cActualInputControlsAndSemanticProgression(CTV215R1ProductionUiInstrumentedTest.kt:105)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$testWithDisposal$1.evaluate(AndroidComposeTestRule.android.kt:418)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invokeSuspend(AndroidComposeTestRule.android.kt:438)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:8)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:4)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invokeSuspend(ComposeUiTest.android.kt:682)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:8)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:2)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:69)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invokeSuspend(ComposeUiTest.android.kt:679)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:8)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:4)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend(TestBuilders.kt:318)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(TestDispatcher.kt:24)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(TestCoroutineScheduler.kt:99)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(TestBuilders.kt:327)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.BuildersKt.runBlocking(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.BuildersKt.runBlocking$default(dex-id-7f52016328ced39f2ec32179ba2be39ad564c2fa:1)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(TestBuildersJvm.kt:10)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:310)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:168)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(dex-id-2e1aed1b966e7706ed0bb50506986a2be3055219:1)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:658)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:438)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+09-06 12:58:22.311 12778 12793 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2614)
+09-06 12:58:22.311 12778 12793 E TestRunner: ----- end exception -----
+09-06 12:58:22.318 12778 12793 I TestRunner: finished: cActualInputControlsAndSemanticProgression(com.conundrum.thomas.v2.CTV215R1ProductionUiInstrumentedTest)
+09-06 12:58:22.322 12778 12793 I TestRunner: run finished: 1 tests, 1 failed, 0 ignored

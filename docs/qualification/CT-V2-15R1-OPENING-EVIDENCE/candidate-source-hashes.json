@@ -1,0 +1,18 @@
+[
+  {
+    "path": "thomas/runtime/src/main/kotlin/com/conundrum/thomas/v2/runtime/ThomasProductionRuntime.kt",
+    "sha256": "c86e1222569557f72b26fd5ca8b9f7a8f26cb408d18613b04b99f4ce1fb51e20"
+  },
+  {
+    "path": "app/src/main/java/com/conundrum/thomas/v2/ThomasViewModel.kt",
+    "sha256": "08a2b697208d8ada205d6166c4bc56046a26053ba0f6e443d968333377bfe902"
+  },
+  {
+    "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1ProductionDeviceInstrumentedTest.kt",
+    "sha256": "ebc45f3148a295b0e8bc1a333689de2586c02ef11d64b662ab8ff96e3a59347e"
+  },
+  {
+    "path": "app/src/androidTest/java/com/conundrum/thomas/v2/CTV215R1ProductionUiInstrumentedTest.kt",
+    "sha256": "b756aa9d6f6b64ae029e96c1722c73e382dbb202d2a1b1b926c163079175ba0f"
+  }
+]
