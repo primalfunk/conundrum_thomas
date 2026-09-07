@@ -98,9 +98,26 @@ class ThomasProductionRuntime(
     private var rendererCalls = 0L
     private var assistantArtifacts = 0L
     private var closed = false
+    private var allocatedTurnFrontier = 0L
 
     val availability: ProductionRuntimeAvailability
         get() = if (closed) ProductionRuntimeAvailability.CLOSED else ProductionRuntimeAvailability.READY
+
+    /**
+     * The Android corpus shares an index sequence across turns, prompts and lifecycle commands.
+     * Accepted keys survive reopen and source deletion in the redacted admission history.
+     * Store revision counts mutations, not allocated indexes; it is never identity authority.
+     */
+    @Synchronized
+    fun allocateTurnIndex(): Long {
+        check(!closed)
+        val committedFrontier = store.reader.redactedAdmissionHistory().asSequence()
+            .mapNotNull { CANONICAL_ALLOCATION_KEY.matchEntire(it.idempotencyKey)?.groupValues?.get(1) }
+            .map { it.toLong() }
+            .maxOrNull() ?: 0L
+        return Math.incrementExact(maxOf(allocatedTurnFrontier, committedFrontier))
+            .also { allocatedTurnFrontier = it }
+    }
 
     fun submit(request: ProductionTurnRequest): ProductionTurnResult {
         if (closed) return unavailable(request, "RUNTIME_CLOSED")
@@ -792,5 +809,12 @@ class ThomasProductionRuntime(
 
     private companion object {
         val SESSION_ID = TherapySessionId.parse("android-session")
+        val CANONICAL_ALLOCATION_KEY = Regex(
+            "(?:journal\\.commit\\.commit-android-journal-|" +
+                "biographer\\.answer\\.answer-android-biographer-|" +
+                "therapy\\.capture\\.capture-android-therapy-|" +
+                "android-source-revision-|" +
+                "android-lifecycle-(?:make-private|request-eligible-review|delete)-)([1-9][0-9]*)",
+        )
     }
 }

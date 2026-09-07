@@ -55,7 +55,6 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
             sourceSummaries = root.runtime?.sourceSummaries().orEmpty(),
         ),
     )
-    private var nextTurnIndex = (root.runtime?.snapshot()?.storeRevision ?: 0L) + 1L
 
     val state: StateFlow<ThomasUiState> = mutableState.asStateFlow()
 
@@ -172,7 +171,6 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                 runCatching { root.resetAndReopen() }.isSuccess
             }
             drafts.keys.forEach { drafts[it] = "" }
-            nextTurnIndex = (root.runtime?.snapshot()?.storeRevision ?: 0L) + 1L
             mutableState.value = ThomasUiState(
                 runtimeAvailable = root.runtime != null,
                 status = if (succeeded) "All local Thomas personal data was reset" else "Reset failed closed",
@@ -244,8 +242,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         )
     }
 
-    @Synchronized
-    private fun allocateTurnIndex(): Long = nextTurnIndex++
+    private fun allocateTurnIndex(): Long = requireNotNull(root.runtime).allocateTurnIndex()
 
     private fun performSourceLifecycle(
         pendingStatus: String,
