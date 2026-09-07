@@ -1,0 +1,178 @@
+package com.conundrum.thomas.v2.qualification
+
+import com.conundrum.thomas.v2.runtime.*
+import com.conundrum.thomas.v2.engine.ordinary.*
+import com.conundrum.thomas.v2.engine.verticalslice.*
+import com.conundrum.thomas.v2.languagerenderer.*
+import org.junit.Assert.*
+import org.junit.Test
+
+/** Retains the adjudicated decision and strict failure oracle; now requires faithful delivery. */
+class CTV215R1PracticalAdjudicationTest {
+    @Suppress("UNCHECKED_CAST")
+    private fun <T> read(owner: Any, name: String): T =
+        owner.javaClass.getDeclaredField(name).apply { isAccessible = true }.get(owner) as T
+    private fun session(runtime: ThomasProductionRuntime): CoreOrdinaryTherapyState =
+        read(read<Any>(runtime, "therapyInput"), "session")
+
+    private fun prefix(h: CTV215Harness) {
+        val inputs = listOf(
+            CTV215R1ProductionConversationTest.DECLARATIONS + "\nMy specific concern is: the synthetic UI appointment",
+            "My specific concern is: THE synthetic UI appointment!",
+            "My specific concern is: the synthetic UI appointment.",
+            "Another detail is: the organizer moved the date",
+            "Please pause", "I am ready to resume", "I don't want to discuss this", "I want to continue",
+            "That's all for now", "Thank you",
+            "My specific concern is: a cancelled UI meeting\nWhat I haven't explained is: who changed it",
+            "The missing detail is: the organizer changed the time", "No, that's not what I mean",
+            "What I mean is: the UI meeting was delayed", "Yes, that's right"
+        )
+        inputs.forEachIndexed { n, text ->
+            val support = if (n < 10) RequestedOrdinarySupport.LISTEN else RequestedOrdinarySupport.UNDERSTAND
+            val result = h.runtime.submit(h.turn(69L+n, ProductionThomasMode.THERAPY, text).copy(requestedTherapySupport=support))
+            assertNotNull(result.committedSourceId)
+            assertNotEquals("Prefix must not contain an earlier rendering failure", ProductionTurnDisposition.RENDERING_UNAVAILABLE, result.disposition)
+        }
+        val state = session(h.runtime)
+        assertEquals(15L, state.conversationRevision)
+        assertEquals(SharedUnderstanding.CONFIRMED, state.sharedUnderstanding.value)
+        assertEquals(true, state.understandingSummaryDelivered.value)
+        assertEquals(CoreOrdinaryActions.summarizeSharedUnderstanding.id, state.actionHistory.last().actionId)
+        assertEquals(14, state.actionHistory.size)
+    }
+
+    private fun checkpoint(h: CTV215Harness, text: String = SPECIMEN): ProductionTurnResult =
+        h.runtime.submit(h.turn(84, ProductionThomasMode.THERAPY, text).copy(requestedTherapySupport=RequestedOrdinarySupport.PRACTICAL_HELP))
+
+    private fun proveDecision(result: ProductionTurnResult): CorePolicyDecision {
+        val state = requireNotNull(result.therapyObservation)
+        assertEquals(RequestedOrdinarySupport.PRACTICAL_HELP, state.routePreference.value)
+        assertTrue(state.routePreference.isEstablished())
+        assertEquals(ProblemClarity.BOUNDED, state.problemClarity.value)
+        assertEquals(SharedUnderstanding.TENTATIVE, state.sharedUnderstanding.value)
+        val decision = CoreOrdinaryTherapyEvaluator().evaluate(state, requireNotNull(result.safetyObservation!!.ordinaryTherapyPermit))
+        assertEquals(CorePolicyDisposition.ACTION_SELECTED, decision.disposition)
+        assertEquals(OrdinaryRoute.PRACTICAL_PROBLEM_SOLVING, decision.routeSelection.selectedRoute)
+        assertEquals(listOf(CoreOrdinaryActions.verifyProblemUnderstanding.id), decision.eligibleCandidateActions)
+        assertEquals(ProgressionDisposition.NEW_ACTION, decision.progressionTrace!!.disposition)
+        assertEquals(0, decision.progressionTrace!!.occurrencesAtCurrentRevision)
+        val verify = decision.actionRuleTrace.single { it.ruleId.value == "ctv205-a017-problem-verify" }
+        val summarize = decision.actionRuleTrace.single { it.ruleId.value == "ctv205-a013-understand-summarize-confirmed" }
+        assertTrue(verify.matched)
+        assertTrue(verify.rejectionReasons.isEmpty())
+        assertFalse(summarize.matched)
+        assertTrue(summarize.rejectionReasons.any { it.startsWith("route:") })
+        assertTrue(summarize.rejectionReasons.any { it.startsWith("understanding-confirmed:") })
+        assertEquals("core-verify-problem-understanding", result.therapyPlan!!.routeDecision!!.selectedActionId)
+        assertEquals("core-verify-problem-understanding", result.therapyPlan!!.renderSupport!!.command.selectedPolicyActionId)
+        assertEquals(GovernedSemanticAct.CLARIFYING_QUESTION, result.renderResult!!.semanticAct)
+        return decision
+    }
+
+    @Test fun exactCheckpointIsDeterministicAndSummaryIsOnlyPriorDeliveredHistory() {
+        val decisions = mutableSetOf<String>()
+        val renderDigests = mutableSetOf<String>()
+        repeat(10) { repetition ->
+            CTV215Harness().use { h ->
+                prefix(h)
+                val before = session(h.runtime)
+                val history = read<RenderHistoryState>(h.runtime, "renderHistory")
+                val repeated = history.entries.takeLast(CT_V2_13_RECENT_OPENING_WINDOW)
+                    .groupBy { it.openingFingerprint }.values.single { it.size == 2 }
+                assertEquals(listOf(80, 82), repeated.map { it.turnIndex })
+                val result = checkpoint(h)
+                val decision = proveDecision(result)
+                assertEquals(ProductionTurnDisposition.COMPLETED, result.disposition)
+                assertTrue(result.renderResult!!.validation.accepted)
+                assertNotNull(result.assistantArtifact)
+                assertTrue(RenderValidationReason.REPEATED_OPENING in result.renderResult!!.rejectedCandidateReasons.flatten())
+                val command = TherapyRenderCommandAdapter.adapt(RenderCommandId.parse("android.therapy.84"), 84, result.therapyPlan!!.renderSupport!!)
+                val prohibited = CTV213TestSupport.candidate(command, command.authorizedReferenceRealizations.first())
+                assertEquals(listOf(RenderValidationReason.REPEATED_OPENING), DeterministicRenderValidator().validate(command, prohibited, history).reasonCodes)
+                assertEquals(command.authorizedReferenceRealizations[1], result.renderResult!!.finalText)
+                assertEquals(before.actionHistory, session(h.runtime).actionHistory.dropLast(1))
+                assertEquals(CoreOrdinaryActions.verifyProblemUnderstanding.id, session(h.runtime).actionHistory.last().actionId)
+                assertEquals(84, read<RenderHistoryState>(h.runtime, "renderHistory").entries.last().turnIndex)
+                assertEquals("android-therapy-84", result.turnIdentity)
+                assertNotNull(result.committedSourceId)
+                decisions += decision.toString()
+                renderDigests += result.renderResult!!.canonicalRenderDigest
+                if (repetition == 0) {
+                    println("EXACT_PRE_STATE=$before")
+                    println("EXACT_PRE_RENDER_HISTORY=$history")
+                    println("EXACT_CLASSIFICATION=${result.therapyObservation}")
+                    println("EXACT_DECISION=$decision")
+                    println("EXACT_PLAN=${result.therapyPlan}")
+                    println("EXACT_RENDER_RESULT=${result.renderResult}")
+                }
+            }
+        }
+        assertEquals(1, decisions.size)
+        assertEquals(1, renderDigests.size)
+        println("IDENTICAL_STATE_REPETITIONS=10 DISTINCT_DECISIONS=1 DISTINCT_RENDER_RESULTS=1")
+    }
+
+    @Test fun punctuationAndDifferentConcernDoNotChangeTheEstablishedMechanism() {
+        listOf(SPECIMEN, "$SPECIMEN.", "My specific concern is: organizing a different synthetic appointment").forEach { text ->
+            CTV215Harness().use { h ->
+                prefix(h)
+                val result = checkpoint(h, text)
+                proveDecision(result)
+                assertTrue(RenderValidationReason.REPEATED_OPENING in result.renderResult!!.rejectedCandidateReasons.flatten())
+                assertEquals(CoreOrdinaryActions.verifyProblemUnderstanding.id, session(h.runtime).actionHistory.last().actionId)
+                println("SPECIMEN_CONTROL=$text SELECTED=${result.therapyPlan!!.routeDecision!!.selectedActionId} REJECTED=${result.renderResult!!.validation.reasonCodes}")
+            }
+        }
+    }
+
+    @Test fun reopenPreservesSourcesAndIdentityButStartsFreshEphemeralProcedureAndRenderHistory() = CTV215Harness().use { h ->
+        prefix(h)
+        val old = h.runtime.sourceSummaries()
+        val digest = h.runtime.snapshot().logicalStateDigest
+        h.reopen()
+        assertEquals(old, h.runtime.sourceSummaries())
+        assertEquals(digest, h.runtime.snapshot().logicalStateDigest)
+        assertTrue(session(h.runtime).actionHistory.isEmpty())
+        assertTrue(read<RenderHistoryState>(h.runtime, "renderHistory").entries.isEmpty())
+        assertEquals(84L, h.runtime.allocateTurnIndex())
+        val result = checkpoint(h, CTV215R1ProductionConversationTest.DECLARATIONS + "\n" + SPECIMEN)
+        proveDecision(result)
+        assertEquals(ProductionTurnDisposition.COMPLETED, result.disposition)
+        assertEquals(listOf(RenderValidationReason.VALID), result.renderResult!!.validation.reasonCodes)
+        assertEquals(CoreOrdinaryActions.verifyProblemUnderstanding.id, session(h.runtime).actionHistory.last().actionId)
+        val admitted = h.runtime.sourceSummaries()
+        h.reopen()
+        assertEquals(admitted, h.runtime.sourceSummaries())
+        assertTrue(admitted.containsAll(old))
+        assertEquals(85L, h.runtime.allocateTurnIndex())
+        println("COLD_REOPEN_CONTROL=VERIFICATION_DELIVERED SOURCE_84_DURABLE NEXT_IDENTITY=85")
+    }
+
+    @Test fun adjacentPracticalPredicatesRemainOrderedWithoutRendererOpeningExhaustion() = CTV215Harness().use { h ->
+        val sequence = listOf(
+            CTV215R1ProductionConversationTest.DECLARATIONS + "\n" + SPECIMEN to "core-verify-problem-understanding",
+            "Yes, that's right" to "core-ask-influenceable-part",
+            "I can influence: contacting the organizer" to "core-ask-readiness-for-options",
+            "I am willing to act" to "core-invite-user-options",
+        )
+        sequence.forEachIndexed { n, (text, expected) ->
+            val result = h.runtime.submit(h.turn(84L+n, ProductionThomasMode.THERAPY, text)
+                .copy(requestedTherapySupport=RequestedOrdinarySupport.PRACTICAL_HELP))
+            assertEquals(expected, result.therapyPlan!!.routeDecision!!.selectedActionId)
+            assertEquals(expected, result.therapyPlan!!.renderSupport!!.command.selectedPolicyActionId)
+            assertEquals(ProductionTurnDisposition.COMPLETED, result.disposition)
+            assertEquals(listOf(RenderValidationReason.VALID), result.renderResult!!.validation.reasonCodes)
+        }
+    }
+
+    @Test fun selectedVerificationMustBeDeliveredAtCheckpoint16() = CTV215Harness().use { h ->
+        prefix(h)
+        val result = checkpoint(h, "$SPECIMEN.")
+        proveDecision(result)
+        assertEquals(ProductionTurnDisposition.COMPLETED, result.disposition)
+        assertNotNull(result.assistantArtifact)
+        assertEquals(CoreOrdinaryActions.verifyProblemUnderstanding.id, session(h.runtime).actionHistory.last().actionId)
+    }
+
+    private companion object { const val SPECIMEN = "My specific concern is: arranging a new UI meeting" }
+}

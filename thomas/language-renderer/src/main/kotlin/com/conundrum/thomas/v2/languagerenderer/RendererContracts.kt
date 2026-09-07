@@ -271,6 +271,7 @@ data class GovernedRenderCommand(
     val maximumExternalAttempts: Int = CT_V2_13_MAXIMUM_EXTERNAL_ATTEMPTS,
     val fallbackAuthority: RenderFallbackAuthority,
     val renderPolicyVersion: String = CT_V2_13_RENDER_POLICY_VERSION,
+    val referenceCatalogOrder: Boolean = false,
     val qualificationAuthority: RenderQualificationAuthority =
         RenderQualificationAuthority.SYNTHETIC_QUALIFICATION_ONLY,
 ) {
@@ -335,6 +336,7 @@ data class RendererInput(
     val allowedTemporalLiterals: Set<String>,
     val authorizedReferenceRealizations: List<String>,
     val recentOpeningFingerprints: List<String>,
+    val referenceCatalogOrder: Boolean = false,
 ) {
     companion object {
         internal fun from(command: GovernedRenderCommand, history: RenderHistoryState) = RendererInput(
@@ -344,6 +346,7 @@ data class RendererInput(
             command.advicePermitted, command.memoryReferencePermission, command.allowedEntityNames,
             command.allowedTemporalLiterals, command.authorizedReferenceRealizations,
             history.entries.takeLast(CT_V2_13_RECENT_OPENING_WINDOW).map { it.openingFingerprint },
+            command.referenceCatalogOrder,
         )
     }
 }

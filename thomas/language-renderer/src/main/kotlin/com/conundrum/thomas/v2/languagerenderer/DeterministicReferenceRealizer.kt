@@ -5,6 +5,10 @@ class DeterministicReferenceRealizer : LanguageRealizer {
         require(attempt == 1)
         val forms = input.authorizedReferenceRealizations
         if (forms.isEmpty()) return CandidateRealizationOutcome.Unavailable("REFERENCE_FORM_UNAVAILABLE")
+        // Some finite catalogs preserve a preferred realization and let the strict
+        // validator govern when the existing exhaustive fallback search advances.
+        if (input.referenceCatalogOrder) return CandidateRealizationOutcome.Candidate(
+            candidate(input, forms.first(), CT_V2_13_REFERENCE_REALIZER_VERSION))
         val seed = RenderText.sha256(input.commandId.value).take(8).toLong(16).toInt() and Int.MAX_VALUE
         val ordered = forms.indices.map { (seed + it) % forms.size }.map(forms::get)
         val text = ordered.firstOrNull { candidate ->
