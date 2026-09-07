@@ -26,7 +26,6 @@ class CTV215R1ProductionDeviceInstrumentedTest {
     private val context get() = instrumentation.targetContext
     private val prefs get() = context.getSharedPreferences("ct-v2-15r1-physical-fixture", 0)
     private lateinit var runtime: ThomasProductionRuntime
-    private var index = 1L
     private var route = RequestedOrdinarySupport.LISTEN
 
     private fun guard() {
@@ -46,8 +45,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
     private fun send(text: String, mode: ProductionThomasMode = ProductionThomasMode.THERAPY,
                      scope: Boolean = false, recall: Boolean = false,
                      privacy: ProductionTurnPrivacy = ProductionTurnPrivacy.ELIGIBLE): ProductionTurnResult {
-        val turn = index
-        index += 1 // Biographer's answer can issue a question at turn+1.
+        val turn = runtime.allocateTurnIndex()
         val result = runtime.submit(ProductionTurnRequest(turn, mode,
             (if (scope) DECLARATIONS + "\n" else "") + text, privacy = privacy,
             requestedTherapySupport = route,
@@ -62,6 +60,9 @@ class CTV215R1ProductionDeviceInstrumentedTest {
             "/" + result.renderResult?.disposition + " validation=" + result.renderResult?.validation?.reasonCodes + " reasons=" + result.reasonCodes +
             " text=" + result.assistantArtifact?.text)
         assertNotEquals(result.reasonCodes.toString(), ProductionTurnDisposition.PERSISTENCE_UNAVAILABLE, result.disposition)
+        assertFalse(result.reasonCodes.toString(), "IDEMPOTENCY_KEY_PAYLOAD_CONFLICT" in result.reasonCodes)
+        trace("IDENTITY index=" + turn + " identity=" + result.turnIdentity + " source=" + result.committedSourceId +
+            " storeRevision=" + runtime.snapshot().storeRevision)
         return result
     }
 
@@ -140,8 +141,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
     }
 
     private fun prompt(): ProductionBiographerPrompt {
-        val p = requireNotNull(runtime.nextBiographerPrompt(index))
-        index += 1
+        val p = requireNotNull(runtime.nextBiographerPrompt(runtime.allocateTurnIndex()))
         trace("PROMPT_DECISION=" + p.decision + " render=" + p.renderResult)
         val target = requireNotNull(p.decision!!.coverageMap.selectedTarget)
         assertEquals(target.id.value, p.targetId)
@@ -272,8 +272,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
 
             // Exhaustive renderer fallback delivered the post-decline target too. All four
             // unchanged gaps have now been offered; CT-V2-10 correctly forbids immediate re-asking.
-            val exhausted = requireNotNull(runtime.nextBiographerPrompt(index))
-            index += 1
+            val exhausted = requireNotNull(runtime.nextBiographerPrompt(runtime.allocateTurnIndex()))
             assertNull(exhausted.targetId)
             assertTrue(exhausted.decision!!.coverageMap.eligibleTargets.isEmpty())
             assertEquals(BiographerPosture.OPEN_STORY, exhausted.decision!!.plan!!.posture)
@@ -299,7 +298,7 @@ class CTV215R1ProductionDeviceInstrumentedTest {
 
             val secret = send("I moved to Boise in 2005.", ProductionThomasMode.JOURNAL, privacy = ProductionTurnPrivacy.PRIVATE)
             assertNotNull(secret.committedSourceId)
-            assertTrue(runtime.changeSourcePrivacy(biographyId, true, index++).accepted)
+            assertTrue(runtime.changeSourcePrivacy(biographyId, true, runtime.allocateTurnIndex()).accepted)
             val excluded = action(send("My specific concern is: remembering jobs\nPlease recall my earlier words: " + BIOGRAPHY,
                 scope = true, recall = true), "reflect-established-content")
             assertTrue(excluded.therapyPlan!!.surfacedMemories.none { it.exactSourceExcerpt == BIOGRAPHY })
@@ -366,7 +365,6 @@ class CTV215R1ProductionDeviceInstrumentedTest {
             assertEquals(prefs.getString("digest", null), snapshot.logicalStateDigest)
             assertEquals(prefs.getLong("revision", -1), snapshot.storeRevision)
             assertEquals(prefs.getInt("sourceCount", -1), runtime.sourceSummaries().size)
-            index = snapshot.storeRevision + 1
             val p = prompt()
             // Private evidence can remove a former target's grounding; durable control must still exist.
             val store = runtime.javaClass.getDeclaredField("store").apply { isAccessible = true }.get(runtime)
