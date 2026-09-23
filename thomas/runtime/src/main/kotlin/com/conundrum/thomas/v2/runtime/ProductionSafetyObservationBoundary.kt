@@ -110,7 +110,8 @@ internal class ProductionSafetyObservationBoundary {
         var input = previous?.copy(stateId = stateId, evidenceRevision = revision) ?: SafetyScopeInput(
             stateId, revision, ThomasMode.THERAPIST, SafetyEvidence.unknown(), SafetyEvidence.unknown(),
             SafetyEvidence.unknown(), SafetyEvidence.unknown(), SafetyEvidence.unknown(),
-            SafetyEvidence.unknown(), SafetyEvidence.unknown())
+            SafetyEvidence.unknown(), SafetyEvidence.unknown(),
+            SafetyUnknownEvidencePolicy.ALLOW_ORDINARY_WITHOUT_REASSURANCE)
         // The legacy broad declaration has no authority to establish unrelated absences or scope facts.
         if (request.therapySafetyDeclaration == TherapySafetyDeclaration.CURRENT_EMERGENCY) {
             input = input.copy(currentEmergency = SafetyEvidence.established(

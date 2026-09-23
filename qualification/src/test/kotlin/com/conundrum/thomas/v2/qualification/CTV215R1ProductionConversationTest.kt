@@ -132,13 +132,14 @@ class CTV215R1ProductionConversationTest {
         assertTrue(changed.therapyObservation!!.conversationRevision > repeat.therapyObservation!!.conversationRevision)
     }
 
-    @Test fun unknownSafetyAndBroadCheckboxNeverManufactureAbsence() = CTV215Harness().use { h ->
+    @Test fun unknownSafetyDoesNotBlockOrdinaryTherapyOrManufactureAbsence() = CTV215Harness().use { h ->
         val result = h.runtime.submit(h.turn(1, ProductionThomasMode.THERAPY, "My specific concern is: the meeting") {
             copy(therapySafetyDeclaration = TherapySafetyDeclaration.ORDINARY_NON_EMERGENCY_ADULT_CONTEXT)
         })
-        assertNull(result.therapyPlan?.routeDecision)
+        assertNotNull(result.therapyPlan?.routeDecision)
         assertTrue(result.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN && it.evidenceReferences.isEmpty() })
-        assertEquals(SafetyAuthorityState.CLARIFICATION_REQUIRED, result.safetyObservation!!.authorityState)
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, result.safetyObservation!!.authorityState)
+        assertFalse(result.assistantArtifact!!.text.contains("emergency", true))
     }
 
     @Test fun declarationsRemainReportedAndCurrentConflictStopsPolicy() = CTV215Harness().use { h ->
@@ -169,11 +170,13 @@ class CTV215R1ProductionConversationTest {
         assertEquals(SafetyEvidenceResolution.UNKNOWN, quoted.safetyObservation!!.observations.single { it.field == SafetyField.SELF_HARM_RELEVANCE }.resolution)
     }
 
-    @Test fun noButtonEstablishesConcernPlanOrEngagement() = CTV215Harness().use { h ->
-        val result = Conversation(h, RequestedOrdinarySupport.PRACTICAL_HELP).send("Unclassified prose")
-        assertNull(result.therapyPlan?.routeDecision?.selectedActionId)
+    @Test fun ordinaryProseEstablishesOnlyTheCurrentConcernWithoutInventingStructure() = CTV215Harness().use { h ->
+        val result = Conversation(h).send("Unclassified prose")
+        assertNotNull(result.therapyPlan?.routeDecision?.selectedActionId)
         val s = result.therapyObservation!!
-        assertNull(s.concernStatement.value); assertNull(s.problemClarity.value); assertNull(s.engagement.value)
+        assertEquals("Unclassified prose", s.concernStatement.value)
+        assertEquals(ProblemClarity.BOUNDED, s.problemClarity.value)
+        assertEquals(OrdinaryEngagement.ENGAGED, s.engagement.value)
         assertNull(s.generatedOptions.value); assertNull(s.actionPlan.value); assertNull(s.planOutcome.value)
     }
 
@@ -185,7 +188,7 @@ class CTV215R1ProductionConversationTest {
         val after = c.send("I attempted the plan", scope = false)
         assertNull(after.therapyObservation!!.actionPlan.value)
         assertNull(after.therapyObservation!!.planOutcome.value)
-        assertNull(after.therapyPlan?.routeDecision)
+        assertNull(after.therapyPlan?.routeDecision?.selectedActionId)
         assertTrue(after.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN })
     }
 
@@ -264,25 +267,19 @@ class CTV215R1ProductionConversationTest {
 
     @Test fun safetyClarificationAnswersOnlyTheDeliveredField() = CTV215Harness().use { h ->
         val c = Conversation(h)
-        val first = c.send("My specific concern is: the meeting", scope = false)
+        val first = c.send("I am unsure: This is a current emergency.", scope = false)
         assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
-        for (field in listOf(SafetyField.CURRENT_EMERGENCY, SafetyField.ACUTE_MEDICAL_EMERGENCY,
-                SafetyField.SELF_HARM_RELEVANCE, SafetyField.HARM_TO_OTHERS_RELEVANCE, SafetyField.SPECIALIZED_SCOPE_CONDITION)) {
-            val answered = c.send("No", scope = false)
-            assertEquals(SafetyEvidenceResolution.ESTABLISHED, answered.safetyObservation!!.observations.single { it.field == field }.resolution)
-            assertNull(answered.therapyPlan?.routeDecision)
-            assertTrue(answered.safetyObservation!!.observations.single { it.field == field }.evidenceReferences.single().contains("reply-to-"))
-        }
-        val population = c.send("Yes", scope = false)
-        assertEquals(SafetyInformationRequirement.PRESENTING_SCOPE, population.safetyObservation!!.nextExpectedEvidence)
-        val allowed = c.send("Yes", scope = false)
-        action(allowed, "reflect-established-content")
-        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, allowed.safetyObservation!!.authorityState)
+        val answered = c.send("No, there is no emergency.", scope = false)
+        val observation = answered.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }
+        assertEquals(SafetyEvidenceResolution.ESTABLISHED, observation.resolution)
+        assertTrue(observation.evidenceReferences.single().contains("reply-to-"))
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, answered.safetyObservation!!.authorityState)
+        assertNull(answered.safetyObservation!!.nextExpectedEvidence)
     }
 
     @Test fun safetyClarificationAcceptsContextualNegativeAnswerAndExits() = CTV215Harness().use { h ->
         val c = Conversation(h)
-        val first = c.send("I had a frustrating day at work.", scope = false)
+        val first = c.send("I am unsure: This is a current emergency.", scope = false)
         assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
         val answered = c.send("No, there is no emergency.", scope = false)
         assertEquals(SafetyEvidenceResolution.ESTABLISHED,
@@ -296,7 +293,7 @@ class CTV215R1ProductionConversationTest {
             "No, I am not in danger.", "Nothing is happening right now. I just want to talk about my day.",
         )) CTV215Harness().use { h ->
             val c = Conversation(h)
-            val first = c.send("I had a frustrating day at work.", scope = false)
+            val first = c.send("I am unsure: This is a current emergency.", scope = false)
             assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
             val answered = c.send(reply, scope = false)
             val observation = answered.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }
@@ -307,35 +304,38 @@ class CTV215R1ProductionConversationTest {
     }
     @Test fun contradictoryAndAmbiguousSafetyRepliesRemainUnknown() = CTV215Harness().use { h ->
         val c = Conversation(h)
-        c.send("I had a frustrating day at work.", scope = false)
-        for (reply in listOf("No, but there is an emergency.", "I think everything is fine.")) {
-            val result = c.send(reply, scope = false)
-            assertEquals(SafetyEvidenceResolution.UNKNOWN,
-                result.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
-            assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, result.safetyObservation!!.nextExpectedEvidence)
-        }
+        c.send("I am unsure: This is a current emergency.", scope = false)
+        val contradictory = c.send("No, but there is an emergency.", scope = false)
+        assertEquals(SafetyEvidenceResolution.TENTATIVE,
+            contradictory.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, contradictory.safetyObservation!!.nextExpectedEvidence)
+        val ambiguous = c.send("I think everything is fine.", scope = false)
+        assertEquals(SafetyEvidenceResolution.TENTATIVE,
+            ambiguous.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, ambiguous.safetyObservation!!.nextExpectedEvidence)
     }
     @Test fun contextualNegativeReplyDoesNotCrossBindToAnotherSafetyRequirement() = CTV215Harness().use { h ->
         val c = Conversation(h)
-        c.send("I had a frustrating day at work.", scope = false)
+        c.send("I am unsure: This is a current emergency.", scope = false)
         val current = c.send("No", scope = false)
-        assertEquals(SafetyInformationRequirement.ACUTE_MEDICAL_EMERGENCY_STATUS, current.safetyObservation!!.nextExpectedEvidence)
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, current.safetyObservation!!.authorityState)
         val unrelated = c.send("No emergency.", scope = false)
         assertEquals(SafetyEvidenceResolution.UNKNOWN,
             unrelated.safetyObservation!!.observations.single { it.field == SafetyField.ACUTE_MEDICAL_EMERGENCY }.resolution)
-        assertEquals(SafetyInformationRequirement.ACUTE_MEDICAL_EMERGENCY_STATUS, unrelated.safetyObservation!!.nextExpectedEvidence)
+        assertNull(unrelated.safetyObservation!!.nextExpectedEvidence)
     }
     @Test fun pendingSafetyClarificationIsFreshAfterRestart() = CTV215Harness().use { h ->
-        Conversation(h).send("I had a frustrating day at work.", scope = false)
+        Conversation(h).send("I am unsure: This is a current emergency.", scope = false)
         h.reopen()
         val afterRestart = Conversation(h).send("I am safe.", scope = false)
         assertEquals(SafetyEvidenceResolution.UNKNOWN,
             afterRestart.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
-        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, afterRestart.safetyObservation!!.nextExpectedEvidence)
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, afterRestart.safetyObservation!!.authorityState)
+        assertNull(afterRestart.safetyObservation!!.nextExpectedEvidence)
     }
     @Test fun satisfiedSafetyClarificationIsNotResurrectedAfterRestart() = CTV215Harness().use { h ->
         val c = Conversation(h)
-        c.send("I had a frustrating day at work.", scope = false)
+        c.send("I am unsure: This is a current emergency.", scope = false)
         val answered = c.send("I am safe.", scope = false)
         assertEquals(SafetyEvidenceResolution.ESTABLISHED,
             answered.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
@@ -343,18 +343,18 @@ class CTV215R1ProductionConversationTest {
         val afterRestart = Conversation(h).send("My manager changed priorities halfway through the afternoon.", scope = false)
         assertEquals(SafetyEvidenceResolution.UNKNOWN,
             afterRestart.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
-        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, afterRestart.safetyObservation!!.nextExpectedEvidence)
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, afterRestart.safetyObservation!!.authorityState)
+        assertNull(afterRestart.safetyObservation!!.nextExpectedEvidence)
     }
     @Test fun contextualSafetyReplyPreservesTheExistingClarificationAndResumeProgression() = CTV215Harness().use { h ->
         val c = Conversation(h)
-        c.send("My specific concern is: the meeting", scope = false)
+        c.send("I am unsure: This is a current emergency.", scope = false)
         val current = c.send("No, there is no emergency.", scope = false)
-        assertEquals(SafetyInformationRequirement.ACUTE_MEDICAL_EMERGENCY_STATUS, current.safetyObservation!!.nextExpectedEvidence)
-        repeat(4) { c.send("No", scope = false) }
-        assertEquals(SafetyInformationRequirement.PRESENTING_SCOPE, c.send("Yes", scope = false).safetyObservation!!.nextExpectedEvidence)
-        val allowed = c.send("Yes", scope = false)
-        action(allowed, "reflect-established-content")
-        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, allowed.safetyObservation!!.authorityState)
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, current.safetyObservation!!.authorityState)
+        assertNull(current.safetyObservation!!.nextExpectedEvidence)
+        val next = c.send("Work has been frustrating lately.", scope = false)
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, next.safetyObservation!!.authorityState)
+        assertFalse(next.assistantArtifact!!.text.contains("emergency", true))
     }
     @Test fun speechTranscriptUsesTheSameSafetyAndSubmissionPathAsTypedInput() = CTV215Harness().use { spoken ->
         val typed = CTV215Harness()
@@ -362,37 +362,32 @@ class CTV215R1ProductionConversationTest {
             val typedFirst = typed.runtime.submit(typed.turn(1, ProductionThomasMode.THERAPY,
                 "I had a frustrating day at work."))
             val spokenFirst = spoken.runtime.submit(spoken.turn(1, ProductionThomasMode.THERAPY,
-                "I had a frustrating day at work").copy(inputOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT))
-            assertEquals(typedFirst.safetyObservation!!.nextExpectedEvidence,
-                spokenFirst.safetyObservation!!.nextExpectedEvidence)
-
-            val typedAnswer = typed.runtime.submit(typed.turn(2, ProductionThomasMode.THERAPY,
-                "I am safe."))
-            val spokenAnswer = spoken.runtime.submit(spoken.turn(2, ProductionThomasMode.THERAPY,
-                "I am safe.").copy(inputOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT))
-            assertEquals(SafetyEvidenceResolution.ESTABLISHED,
-                spokenAnswer.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
-            assertEquals(typedAnswer.safetyObservation!!.nextExpectedEvidence,
-                spokenAnswer.safetyObservation!!.nextExpectedEvidence)
-            assertEquals(typedAnswer.therapyPlan?.routeDecision?.selectedActionId,
-                spokenAnswer.therapyPlan?.routeDecision?.selectedActionId)
-            assertEquals(typedAnswer.disposition, spokenAnswer.disposition)
+                "I had a frustrating day at work.").copy(inputOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT))
+            assertEquals(typedFirst.therapyObservation!!.concernStatement.value,
+                spokenFirst.therapyObservation!!.concernStatement.value)
+            assertEquals(typedFirst.safetyObservation!!.observations,
+                spokenFirst.safetyObservation!!.observations)
+            assertEquals(typedFirst.therapyPlan?.routeDecision?.selectedActionId,
+                spokenFirst.therapyPlan?.routeDecision?.selectedActionId)
+            assertEquals(typedFirst.assistantArtifact?.text, spokenFirst.assistantArtifact?.text)
+            assertEquals(typedFirst.disposition, spokenFirst.disposition)
         } finally {
             typed.close()
         }
     }
     @Test fun restartDoesNotHydrateAnObsoleteSafetyClarification() = CTV215Harness().use { h ->
         val c = Conversation(h)
-        val first = c.send("I had a frustrating day at work.", scope = false)
+        val first = c.send("I am unsure: This is a current emergency.", scope = false)
         assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
         h.reopen()
         val afterRestart = Conversation(h).send("My manager changed priorities halfway through the afternoon.", scope = false)
-        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, afterRestart.safetyObservation!!.nextExpectedEvidence)
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, afterRestart.safetyObservation!!.authorityState)
+        assertNull(afterRestart.safetyObservation!!.nextExpectedEvidence)
     }
     @Test fun historicalQuotedDeclarationBlockCannotEstablishCurrentSafety() = CTV215Harness().use { h ->
         val result = Conversation(h).send("Historical quotation:\n" + DECLARATIONS, scope = false)
         assertTrue(result.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN })
-        assertNull(result.therapyPlan?.routeDecision)
+        assertNull(result.therapyPlan?.routeDecision?.selectedActionId)
     }
 
     @Test fun ambiguousSafetyPopulationNoDoesNotInventAnAge() = CTV215Harness().use { h ->
@@ -460,7 +455,7 @@ class CTV215R1ProductionConversationTest {
         val result = Conversation(h).send("Historical quotation:\nMy specific concern is: old instructions\nI am willing to act", scope = false)
         assertNull(result.therapyObservation!!.concernStatement.value)
         assertNull(result.therapyObservation!!.willingness.value)
-        assertNull(result.therapyPlan?.routeDecision)
+        assertNull(result.therapyPlan?.routeDecision?.selectedActionId)
     }
 
     @Test fun establishedCurrentSafetyInterruptionBlocksBiographerInvestigation() = CTV215Harness().use { h ->
@@ -479,9 +474,9 @@ class CTV215R1ProductionConversationTest {
         action(first, "verify-tentative-understanding")
         assertTrue(h.runtime.deleteSource(first.committedSourceId!!, 200).accepted)
         val after = c.send("Yes")
-        assertNull(after.therapyObservation!!.concernStatement.value)
+        assertEquals("Yes", after.therapyObservation!!.concernStatement.value)
         assertNull(after.therapyObservation!!.thomasUnderstanding.value)
-        assertNull(after.therapyPlan?.routeDecision)
+        assertNull(after.therapyPlan?.routeDecision?.selectedActionId)
         assertTrue(after.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN })
     }
 
@@ -534,12 +529,14 @@ class CTV215R1ProductionConversationTest {
     }
 
     @Test fun biographerShortAnswerCannotAnswerAPendingTherapySafetyQuestion() = CTV215Harness().use { h ->
-        val first = h.runtime.submit(h.turn(1, ProductionThomasMode.THERAPY, "My specific concern is: the meeting"))
+        val first = h.runtime.submit(h.turn(1, ProductionThomasMode.THERAPY, "I am unsure: This is a current emergency."))
         assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
         h.runtime.submit(h.turn(2, ProductionThomasMode.BIOGRAPHER, "No"))
         val later = h.runtime.submit(h.turn(3, ProductionThomasMode.THERAPY, "I want to begin"))
-        assertTrue(later.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN })
-        assertNull(later.therapyPlan?.routeDecision)
+        assertEquals(SafetyEvidenceResolution.TENTATIVE,
+            later.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, later.safetyObservation!!.nextExpectedEvidence)
+        assertNull(later.therapyPlan?.routeDecision?.selectedActionId)
     }
     @Test fun internalNumericPunctuationCannotCollapseDifferentEvidence() = CTV215Harness().use { h ->
         val c = Conversation(h)

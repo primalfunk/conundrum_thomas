@@ -464,7 +464,9 @@ class ThomasProductionRuntime(
         val lines = proceduralText.lineSequence().toList()
         val currentBlock = lines.size == 1 || ProductionTherapyInputBoundary.startsObservationBlock(lines.first()) ||
             safetyObservations.startsObservationBlock(lines.first())
-        val therapyState = (if (currentBlock) lines else listOf("" )).asSequence()
+        val therapyLines = (if (currentBlock) lines.filterNot(safetyObservations::startsObservationBlock) else listOf(""))
+            .ifEmpty { listOf("") }
+        val therapyState = therapyLines.asSequence()
             .map { therapyInput.observe(request.copy(committedText = it)) }.last()
         val safetyInput = safetyObservations.observe(request)
         val safety = safetyGate.govern(safetyInput)

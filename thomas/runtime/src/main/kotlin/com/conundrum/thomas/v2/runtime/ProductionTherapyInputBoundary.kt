@@ -123,6 +123,18 @@ internal class ProductionTherapyInputBoundary {
             }
             next.pendingInformation == CoreInformationRequirement.OUTCOME_MEANING_OR_OBSTACLE && payload("What happened was: ") != null ->
                 next = next.copy(planReviewStatus = PolicyEvidence.reported(PlanReviewStatus.REVIEWED, ref))
+            next.pendingInformation == CoreInformationRequirement.CLOSURE_OR_NEW_DIRECTION &&
+                normalized in setOf("thank you", "thanks", "okay", "ok") -> Unit
+            // Ordinary Therapy accepts a spoken or typed user turn as the current concern without
+            // pretending to infer a diagnosis, risk level, or hidden structure from its wording.
+            // Explicit procedural/safety declarations are handled by their owning boundaries.
+            text.isNotBlank() ->
+                next = next.copy(
+                    concernStatement = report(text),
+                    problemClarity = PolicyEvidence.reported(ProblemClarity.BOUNDED, ref),
+                    expressionProgress = PolicyEvidence.reported(ExpressionProgress.NEW_CONTENT_AVAILABLE, ref),
+                    engagement = PolicyEvidence.reported(OrdinaryEngagement.ENGAGED, ref),
+                )
         }
         val meaning = meaning(next)
         if (meaning != lastMeaning) revision += 1

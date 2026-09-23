@@ -107,7 +107,7 @@ class CTV215ProductionRuntimeQualificationTest {
     }
 
     @Test
-    fun `unspecified current safety scope preempts ordinary therapy without historical inference`() = CTV215Harness().use { harness ->
+    fun `unspecified current safety scope permits ordinary therapy without historical inference`() = CTV215Harness().use { harness ->
         harness.runtime.submit(
             harness.turn(1, ProductionThomasMode.JOURNAL, "Synthetic archived crisis vocabulary unrelated to now."),
         )
@@ -117,9 +117,12 @@ class CTV215ProductionRuntimeQualificationTest {
             },
         )
 
-        assertNull(result.therapyPlan?.routeDecision)
-        assertTrue(result.therapyPlan?.contextSummary == null)
+        assertNotNull(result.therapyPlan?.routeDecision)
+        assertNotNull(result.therapyPlan?.contextSummary)
         assertNotNull(result.assistantArtifact)
+        assertEquals(com.conundrum.thomas.v2.safety.SafetyAuthorityState.ORDINARY_POLICY_ALLOWED,
+            result.safetyObservation?.authorityState)
+        assertTrue(result.safetyObservation!!.observations.all { it.resolution == com.conundrum.thomas.v2.safety.SafetyEvidenceResolution.UNKNOWN })
     }
 
     @Test

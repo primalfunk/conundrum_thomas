@@ -34,7 +34,9 @@ class CTV215R1PracticalAdjudicationTest {
             assertNotEquals("Prefix must not contain an earlier rendering failure", ProductionTurnDisposition.RENDERING_UNAVAILABLE, result.disposition)
         }
         val state = session(h.runtime)
-        assertEquals(15L, state.conversationRevision)
+        // Ordinary prose is admitted as current concern content; the unchanged acknowledgement
+        // turn does not create a new semantic revision.
+        assertEquals(14L, state.conversationRevision)
         assertEquals(SharedUnderstanding.CONFIRMED, state.sharedUnderstanding.value)
         assertEquals(true, state.understandingSummaryDelivered.value)
         assertEquals(CoreOrdinaryActions.summarizeSharedUnderstanding.id, state.actionHistory.last().actionId)

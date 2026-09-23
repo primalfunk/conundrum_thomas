@@ -328,6 +328,31 @@ class SafetyScopeGate(
             tieBreak = SafetyTieBreakTrace(SafetyTieBreakPrinciple.HIGHEST_PRIORITY_REQUIRES_UNIQUE_WINNER, null, emptyList(), "NO_MATCH"),
         )
 
+        // Production Therapy is allowed to converse while safety evidence is simply absent.
+        // UNKNOWN is deliberately retained in the observations and is never converted into a
+        // reassuring value. Any explicit boundary, tentative/contradictory evidence, declined
+        // evidence, or a caller that requires clarification still follows the ordered rules.
+        val missingEvidenceRule = SafetyRuleId.parse("ctv204-r013-missing-evidence-clarification")
+        if (input.unknownEvidencePolicy == SafetyUnknownEvidencePolicy.ALLOW_ORDINARY_WITHOUT_REASSURANCE &&
+            matched.size == 1 && matched.single().id == missingEvidenceRule) {
+            val reference = decisionReference(input)
+            return decision(
+                input,
+                SafetyAuthorityState.ORDINARY_POLICY_ALLOWED,
+                traces,
+                matched.map { it.id }.sorted(),
+                rejected,
+                unresolved = setOf(SafetyReviewRestriction.PRODUCTION_AUTHORITY_NOT_GRANTED),
+                permit = OrdinaryTherapyPermit(CT_V2_04_SAFETY_SCOPE_POLICY_VERSION, reference, input.stateId, input.evidenceRevision),
+                tieBreak = SafetyTieBreakTrace(
+                    SafetyTieBreakPrinciple.HIGHEST_PRIORITY_REQUIRES_UNIQUE_WINNER,
+                    null,
+                    emptyList(),
+                    "CONDITIONAL_ORDINARY_DEFAULT_WITHOUT_REASSURANCE",
+                ),
+            )
+        }
+
         val highest = matched.maxOf { it.priority }
         val contenders = matched.filter { it.priority == highest }.sortedBy { it.id }
         if (contenders.size != 1) return decision(

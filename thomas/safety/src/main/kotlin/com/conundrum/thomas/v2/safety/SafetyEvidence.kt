@@ -141,6 +141,17 @@ enum class SafetyField {
     PRESENTING_SCOPE,
 }
 
+/**
+ * Controls what the caller does with genuinely absent safety evidence. This is not a safety
+ * value: UNKNOWN remains UNKNOWN in either mode. Qualification callers can require an explicit
+ * clarification; a production conversational caller can continue ordinary therapy until current
+ * content supplies an authorized safety boundary or a clarification is legitimately pending.
+ */
+enum class SafetyUnknownEvidencePolicy {
+    REQUIRE_CLARIFICATION,
+    ALLOW_ORDINARY_WITHOUT_REASSURANCE,
+}
+
 data class SafetyScopeInput(
     val stateId: String,
     val evidenceRevision: SafetyEvidenceRevision,
@@ -152,6 +163,7 @@ data class SafetyScopeInput(
     val specializedScopeCondition: SafetyEvidence<SpecializedScopeCondition>,
     val populationApplicability: SafetyEvidence<PopulationApplicability>,
     val presentingScope: SafetyEvidence<PresentingScope>,
+    val unknownEvidencePolicy: SafetyUnknownEvidencePolicy = SafetyUnknownEvidencePolicy.REQUIRE_CLARIFICATION,
 ) : SafetyReviewInput {
     fun validationErrors(): List<String> = buildList {
         if (!safetyStateIdFormat.matches(stateId)) add("stateId must be a lowercase hyphenated identifier")
