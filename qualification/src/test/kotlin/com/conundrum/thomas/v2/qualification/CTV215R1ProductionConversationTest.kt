@@ -356,6 +356,31 @@ class CTV215R1ProductionConversationTest {
         action(allowed, "reflect-established-content")
         assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, allowed.safetyObservation!!.authorityState)
     }
+    @Test fun speechTranscriptUsesTheSameSafetyAndSubmissionPathAsTypedInput() = CTV215Harness().use { spoken ->
+        val typed = CTV215Harness()
+        try {
+            val typedFirst = typed.runtime.submit(typed.turn(1, ProductionThomasMode.THERAPY,
+                "I had a frustrating day at work."))
+            val spokenFirst = spoken.runtime.submit(spoken.turn(1, ProductionThomasMode.THERAPY,
+                "I had a frustrating day at work").copy(inputOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT))
+            assertEquals(typedFirst.safetyObservation!!.nextExpectedEvidence,
+                spokenFirst.safetyObservation!!.nextExpectedEvidence)
+
+            val typedAnswer = typed.runtime.submit(typed.turn(2, ProductionThomasMode.THERAPY,
+                "I am safe."))
+            val spokenAnswer = spoken.runtime.submit(spoken.turn(2, ProductionThomasMode.THERAPY,
+                "I am safe.").copy(inputOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT))
+            assertEquals(SafetyEvidenceResolution.ESTABLISHED,
+                spokenAnswer.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+            assertEquals(typedAnswer.safetyObservation!!.nextExpectedEvidence,
+                spokenAnswer.safetyObservation!!.nextExpectedEvidence)
+            assertEquals(typedAnswer.therapyPlan?.routeDecision?.selectedActionId,
+                spokenAnswer.therapyPlan?.routeDecision?.selectedActionId)
+            assertEquals(typedAnswer.disposition, spokenAnswer.disposition)
+        } finally {
+            typed.close()
+        }
+    }
     @Test fun restartDoesNotHydrateAnObsoleteSafetyClarification() = CTV215Harness().use { h ->
         val c = Conversation(h)
         val first = c.send("I had a frustrating day at work.", scope = false)

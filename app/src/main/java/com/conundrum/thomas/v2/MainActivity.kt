@@ -1,6 +1,11 @@
 package com.conundrum.thomas.v2
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
@@ -51,6 +56,9 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.conundrum.thomas.v2.engine.ordinary.RequestedOrdinarySupport
 import com.conundrum.thomas.v2.journal.JournalResponsePreference
 import com.conundrum.thomas.v2.runtime.ProductionThomasMode
@@ -72,6 +80,38 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
     val state by viewModel.state.collectAsState()
+    val context = LocalContext.current
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner, viewModel) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_STOP) viewModel.cancelSpeech()
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+    val permissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { granted ->
+        if (granted) viewModel.startSpeech(permissionGranted = true)
+        else viewModel.speechPermissionDenied()
+    }
+    val startSpeech = {
+        if (context.checkSelfPermission(Manifest.permission.RECORD_AUDIO) ==
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            viewModel.startSpeech(permissionGranted = true)
+        } else {
+            permissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
+        }
+    }
+    val openSpeechSettings = {
+        context.startActivity(
+            Intent(
+                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.parse("package:${context.packageName}"),
+            ),
+        )
+    }
     var showData by remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
@@ -92,12 +132,17 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
                         ) { Text("Your data") }
                     }
                     Spacer(Modifier.height(10.dp))
-                    ModeSelector(state.mode, !state.processing, viewModel::selectMode)
+                    ModeSelector(
+                        state.mode,
+                        !state.processing && state.speechState != com.conundrum.thomas.v2.platform.speech.SpeechCaptureState.LISTENING &&
+                            state.speechState != com.conundrum.thomas.v2.platform.speech.SpeechCaptureState.FINALIZING,
+                        viewModel::selectMode,
+                    )
                 }
             }
         },
         bottomBar = {
-            InputPanel(state, viewModel)
+            InputPanel(state, viewModel, startSpeech, openSpeechSettings)
         },
         modifier = Modifier.fillMaxSize().imePadding(),
     ) { padding ->
@@ -202,7 +247,12 @@ private fun TranscriptBubble(item: TranscriptItem) {
 }
 
 @Composable
-private fun InputPanel(state: ThomasUiState, viewModel: ThomasViewModel) {
+private fun InputPanel(
+    state: ThomasUiState,
+    viewModel: ThomasViewModel,
+    onStartSpeech: () -> Unit,
+    onOpenSpeechSettings: () -> Unit,
+) {
     Surface(shadowElevation = 4.dp) {
         Column(Modifier.fillMaxWidth().padding(12.dp)) {
             when (state.mode) {
@@ -218,13 +268,16 @@ private fun InputPanel(state: ThomasUiState, viewModel: ThomasViewModel) {
                 )
                 Text("Private: use now, exclude from future memory", style = MaterialTheme.typography.labelMedium)
             }
+            SpeechControls(state, viewModel, onStartSpeech, onOpenSpeechSettings)
             OutlinedTextField(
                 value = state.draft,
                 onValueChange = viewModel::updateDraft,
-                label = { Text("Write in ${state.mode.displayName()}") },
+                label = { Text("Review or write in ${state.mode.displayName()}") },
                 minLines = 2,
                 maxLines = 5,
-                enabled = state.runtimeAvailable && !state.processing,
+                enabled = state.runtimeAvailable && !state.processing &&
+                    state.speechState != com.conundrum.thomas.v2.platform.speech.SpeechCaptureState.LISTENING &&
+                    state.speechState != com.conundrum.thomas.v2.platform.speech.SpeechCaptureState.FINALIZING,
                 modifier = Modifier.fillMaxWidth().testTag("turn-draft"),
             )
             Spacer(Modifier.height(8.dp))
@@ -240,20 +293,74 @@ private fun InputPanel(state: ThomasUiState, viewModel: ThomasViewModel) {
                     color = if (state.runtimeAvailable) MaterialTheme.colorScheme.onSurfaceVariant
                     else MaterialTheme.colorScheme.error,
                 )
-                OutlinedButton(
-                    onClick = {},
-                    enabled = false,
-                    modifier = Modifier.testTag("speech-unavailable"),
-                ) { Text("Speech unavailable") }
                 Button(
                     onClick = viewModel::submit,
                     enabled = state.runtimeAvailable && !state.processing && state.draft.isNotBlank(),
                     modifier = Modifier.testTag("commit-turn"),
                 ) {
-                    Text(if (state.processing) "Working…" else "Commit")
+                    Text(if (state.processing) "Working…" else "Send")
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun SpeechControls(
+    state: ThomasUiState,
+    viewModel: ThomasViewModel,
+    onStartSpeech: () -> Unit,
+    onOpenSpeechSettings: () -> Unit,
+) {
+    Row(
+        Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        when (state.speechState) {
+            com.conundrum.thomas.v2.platform.speech.SpeechCaptureState.LISTENING -> {
+                Button(
+                    onClick = viewModel::stopSpeech,
+                    modifier = Modifier.testTag("speech-stop"),
+                ) {
+                    Text("■  Done speaking")
+                }
+                OutlinedButton(
+                    onClick = viewModel::cancelSpeech,
+                    modifier = Modifier.testTag("speech-cancel"),
+                ) { Text("Cancel") }
+            }
+            com.conundrum.thomas.v2.platform.speech.SpeechCaptureState.FINALIZING -> {
+                Button(enabled = false, onClick = {}, modifier = Modifier.testTag("speech-stop")) {
+                    Text("…  Finalizing")
+                }
+                OutlinedButton(
+                    onClick = viewModel::cancelSpeech,
+                    modifier = Modifier.testTag("speech-cancel"),
+                ) { Text("Cancel") }
+            }
+            else -> {
+                Button(
+                    onClick = onStartSpeech,
+                    enabled = state.runtimeAvailable && !state.processing,
+                    modifier = Modifier.testTag("speech-start"),
+                ) {
+                    Text("🎙  Speak")
+                }
+            }
+        }
+        Text(
+            state.speechMessage ?: "Speech is primary; review before Send",
+            modifier = Modifier.weight(1f).testTag("speech-status"),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    if (state.speechPermissionDenied) {
+        TextButton(
+            onClick = onOpenSpeechSettings,
+            modifier = Modifier.testTag("speech-settings"),
+        ) { Text("Microphone settings") }
     }
 }
 

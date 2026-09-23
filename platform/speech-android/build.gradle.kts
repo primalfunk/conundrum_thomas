@@ -20,4 +20,5 @@ android {
 
 dependencies {
     implementation(project(":thomas:domain"))
+    testImplementation(libs.junit)
 }

@@ -6,6 +6,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.conundrum.thomas.v2.engine.ordinary.RequestedOrdinarySupport
 import com.conundrum.thomas.v2.journal.JournalResponsePreference
+import com.conundrum.thomas.v2.platform.speech.AndroidSpeechInputController
+import com.conundrum.thomas.v2.platform.speech.SpeechCaptureState
+import com.conundrum.thomas.v2.platform.speech.SpeechDraftSession
+import com.conundrum.thomas.v2.platform.speech.SpeechFailure
+import com.conundrum.thomas.v2.platform.speech.SpeechInputController
+import com.conundrum.thomas.v2.platform.speech.SpeechInputEvent
+import com.conundrum.thomas.v2.platform.speech.SpeechStartResult
+import com.conundrum.thomas.v2.platform.speech.userMessage
 import com.conundrum.thomas.v2.runtime.ProductionInputOrigin
 import com.conundrum.thomas.v2.runtime.ProductionSourceSummary
 import com.conundrum.thomas.v2.runtime.ProductionThomasMode
@@ -43,11 +51,23 @@ data class ThomasUiState(
     val explicitRecall: Boolean = false,
     val runtimeAvailable: Boolean = true,
     val status: String = "Ready",
+    val draftOrigin: ProductionInputOrigin = ProductionInputOrigin.TYPED,
+    val speechState: SpeechCaptureState = SpeechCaptureState.IDLE,
+    val speechMessage: String? = null,
+    val speechPermissionDenied: Boolean = false,
 )
 
 class ThomasViewModel(application: Application) : AndroidViewModel(application) {
     private val root = ThomasAndroidCompositionRoot.open(application)
     private val drafts = ProductionThomasMode.entries.associateWith { "" }.toMutableMap()
+    private val draftOrigins = ProductionThomasMode.entries
+        .associateWith { ProductionInputOrigin.TYPED }
+        .toMutableMap()
+    private val speechSession = SpeechDraftSession()
+    private val speechController: SpeechInputController = AndroidSpeechInputController(
+        application,
+        ::onSpeechEvent,
+    )
     private val mutableState = MutableStateFlow(
         ThomasUiState(
             runtimeAvailable = root.runtime != null,
@@ -60,17 +80,36 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
 
     fun updateDraft(value: String) {
         if (value.length > 4_096) return
-        drafts[mutableState.value.mode] = value
-        mutableState.value = mutableState.value.copy(draft = value)
+        val current = mutableState.value
+        if (isSpeechActive(current.speechState)) return
+        drafts[current.mode] = value
+        val origin = if (value.isBlank()) ProductionInputOrigin.TYPED else current.draftOrigin
+        draftOrigins[current.mode] = origin
+        mutableState.value = current.copy(
+            draft = value,
+            draftOrigin = origin,
+            speechState = if (current.speechState == SpeechCaptureState.ERROR ||
+                current.speechState == SpeechCaptureState.UNAVAILABLE
+            ) SpeechCaptureState.IDLE else current.speechState,
+            speechMessage = if (current.speechState == SpeechCaptureState.TRANSCRIPT_READY) {
+                "Transcript edited; review before sending"
+            } else {
+                null
+            },
+        )
     }
 
     fun selectMode(mode: ProductionThomasMode) {
         val current = mutableState.value
-        if (current.processing || current.mode == mode) return
+        if (current.processing || current.mode == mode || isSpeechActive(current.speechState)) return
         drafts[current.mode] = current.draft
+        draftOrigins[current.mode] = current.draftOrigin
         mutableState.value = current.copy(
             mode = mode,
             draft = drafts[mode].orEmpty(),
+            draftOrigin = draftOrigins[mode] ?: ProductionInputOrigin.TYPED,
+            speechState = SpeechCaptureState.IDLE,
+            speechMessage = null,
             status = "Mode: ${mode.displayName()}",
         )
         if (mode == ProductionThomasMode.BIOGRAPHER &&
@@ -96,10 +135,69 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         mutableState.value = mutableState.value.copy(explicitRecall = value)
     }
 
-    fun submit(origin: ProductionInputOrigin = ProductionInputOrigin.TYPED) {
+    fun startSpeech(permissionGranted: Boolean) {
         val before = mutableState.value
-        if (before.processing || !before.runtimeAvailable || before.draft.isBlank()) return
+        if (before.processing || isSpeechActive(before.speechState)) return
+        if (!permissionGranted) {
+            mutableState.value = before.copy(
+                speechState = SpeechCaptureState.ERROR,
+                speechMessage = "Microphone permission is off; typing remains available",
+                speechPermissionDenied = true,
+            )
+            return
+        }
+        if (!speechSession.begin(before.draft)) return
+        when (val result = speechController.start()) {
+            SpeechStartResult.Started,
+            SpeechStartResult.AlreadyActive,
+            -> Unit
+            SpeechStartResult.PermissionRequired -> speechPermissionDenied()
+            SpeechStartResult.Unavailable -> {
+                if (mutableState.value.speechState == SpeechCaptureState.IDLE) {
+                    onSpeechEvent(SpeechInputEvent.Failed(SpeechFailure.RECOGNIZER_UNAVAILABLE))
+                }
+            }
+            is SpeechStartResult.Failed -> {
+                if (mutableState.value.speechState == SpeechCaptureState.IDLE) {
+                    onSpeechEvent(SpeechInputEvent.Failed(result.failure))
+                }
+            }
+        }
+    }
+
+    fun stopSpeech() {
+        if (mutableState.value.speechState != SpeechCaptureState.LISTENING) return
+        speechSession.stopRequested()
+        mutableState.value = mutableState.value.copy(
+            speechState = SpeechCaptureState.FINALIZING,
+            speechMessage = "Finalizing transcript; review before sending",
+        )
+        speechController.stop()
+    }
+
+    fun cancelSpeech() {
+        if (!isSpeechActive(mutableState.value.speechState)) return
+        speechController.cancel()
+        if (isSpeechActive(mutableState.value.speechState)) {
+            onSpeechEvent(SpeechInputEvent.Cancelled)
+        }
+    }
+
+    fun speechPermissionDenied() {
+        mutableState.value = mutableState.value.copy(
+            speechState = SpeechCaptureState.ERROR,
+            speechMessage = "Microphone permission denied; typing remains available",
+            speechPermissionDenied = true,
+        )
+    }
+
+    fun submit(origin: ProductionInputOrigin? = null) {
+        val before = mutableState.value
+        if (before.processing || !before.runtimeAvailable || before.draft.isBlank() ||
+            isSpeechActive(before.speechState)
+        ) return
         val text = before.draft
+        val inputOrigin = origin ?: before.draftOrigin
         val turnIndex = allocateTurnIndex()
         mutableState.value = before.copy(processing = true, status = "Processing governed turn…")
         viewModelScope.launch {
@@ -109,7 +207,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                         clientTurnIndex = turnIndex,
                         mode = before.mode,
                         committedText = text,
-                        inputOrigin = origin,
+                        inputOrigin = inputOrigin,
                         privacy = if (before.privateTurn) {
                             ProductionTurnPrivacy.PRIVATE
                         } else {
@@ -151,11 +249,17 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                     }
                 }
                 drafts[before.mode] = ""
+                draftOrigins[before.mode] = ProductionInputOrigin.TYPED
+                speechSession.reset("")
                 mutableState.value = current.copy(
                     draft = "",
+                    draftOrigin = ProductionInputOrigin.TYPED,
                     transcript = messages,
                     sourceSummaries = root.runtime?.sourceSummaries().orEmpty(),
                     processing = false,
+                    speechState = SpeechCaptureState.IDLE,
+                    speechMessage = null,
+                    speechPermissionDenied = false,
                     status = result.disposition.name.replace('_', ' ').lowercase()
                         .replaceFirstChar(Char::uppercase),
                 )
@@ -171,6 +275,9 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                 runCatching { root.resetAndReopen() }.isSuccess
             }
             drafts.keys.forEach { drafts[it] = "" }
+            draftOrigins.keys.forEach { draftOrigins[it] = ProductionInputOrigin.TYPED }
+            speechController.cancel()
+            speechSession.reset("")
             mutableState.value = ThomasUiState(
                 runtimeAvailable = root.runtime != null,
                 status = if (succeeded) "All local Thomas personal data was reset" else "Reset failed closed",
@@ -225,8 +332,79 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     override fun onCleared() {
+        speechController.close()
         root.close()
     }
+
+    private fun onSpeechEvent(event: SpeechInputEvent) {
+        val current = mutableState.value
+        when (event) {
+            SpeechInputEvent.Listening -> mutableState.value = current.copy(
+                speechState = SpeechCaptureState.LISTENING,
+                speechMessage = "Listening; tap Done speaking when finished",
+                speechPermissionDenied = false,
+            )
+            is SpeechInputEvent.Partial -> {
+                val draft = speechSession.partial(event.text)
+                drafts[current.mode] = draft
+                draftOrigins[current.mode] = ProductionInputOrigin.SPEECH_TRANSCRIPT
+                mutableState.value = current.copy(
+                    draft = draft,
+                    draftOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT,
+                    speechState = SpeechCaptureState.LISTENING,
+                    speechMessage = "Listening; review the transcript before sending",
+                )
+            }
+            is SpeechInputEvent.Final -> {
+                val draft = speechSession.finish(event.text)
+                drafts[current.mode] = draft
+                draftOrigins[current.mode] = ProductionInputOrigin.SPEECH_TRANSCRIPT
+                mutableState.value = current.copy(
+                    draft = draft,
+                    draftOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT,
+                    speechState = SpeechCaptureState.TRANSCRIPT_READY,
+                    speechMessage = "Transcript ready; review or edit before sending",
+                )
+            }
+            is SpeechInputEvent.Failed -> {
+                val draft = speechSession.fail(event.failure)
+                drafts[current.mode] = draft
+                val permissionDenied = event.failure == SpeechFailure.PERMISSION_DENIED
+                val origin = if (draft.isBlank()) {
+                    ProductionInputOrigin.TYPED
+                } else {
+                    current.draftOrigin
+                }
+                draftOrigins[current.mode] = origin
+                mutableState.value = current.copy(
+                    draft = draft,
+                    draftOrigin = origin,
+                    speechState = speechSession.state,
+                    speechMessage = event.failure.userMessage(),
+                    speechPermissionDenied = permissionDenied,
+                )
+            }
+            SpeechInputEvent.Cancelled -> {
+                val draft = speechSession.cancel()
+                drafts[current.mode] = draft
+                val origin = if (draft.isBlank()) {
+                    ProductionInputOrigin.TYPED
+                } else {
+                    current.draftOrigin
+                }
+                draftOrigins[current.mode] = origin
+                mutableState.value = current.copy(
+                    draft = draft,
+                    draftOrigin = origin,
+                    speechState = SpeechCaptureState.IDLE,
+                    speechMessage = "Speech cancelled; existing text kept",
+                )
+            }
+        }
+    }
+
+    private fun isSpeechActive(state: SpeechCaptureState): Boolean =
+        state == SpeechCaptureState.LISTENING || state == SpeechCaptureState.FINALIZING
 
     private fun requestBiographerPrompt() {
         val runtime = root.runtime ?: return
