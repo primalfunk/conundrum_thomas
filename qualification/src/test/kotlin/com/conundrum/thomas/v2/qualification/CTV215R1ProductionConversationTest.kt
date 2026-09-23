@@ -280,6 +280,90 @@ class CTV215R1ProductionConversationTest {
         assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, allowed.safetyObservation!!.authorityState)
     }
 
+    @Test fun safetyClarificationAcceptsContextualNegativeAnswerAndExits() = CTV215Harness().use { h ->
+        val c = Conversation(h)
+        val first = c.send("I had a frustrating day at work.", scope = false)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
+        val answered = c.send("No, there is no emergency.", scope = false)
+        assertEquals(SafetyEvidenceResolution.ESTABLISHED,
+            answered.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+        assertNotEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, answered.safetyObservation!!.nextExpectedEvidence)
+    }
+    @Test fun contextualNegativeSafetyRepliesAreBoundToTheDeliveredRequirement() {
+        for (reply in listOf(
+            "There is no current emergency.", "I am safe.", "I'm safe.", "No emergency.",
+            "No, there is no emergency.", "No, nothing like that is happening.",
+            "No, I am not in danger.", "Nothing is happening right now. I just want to talk about my day.",
+        )) CTV215Harness().use { h ->
+            val c = Conversation(h)
+            val first = c.send("I had a frustrating day at work.", scope = false)
+            assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
+            val answered = c.send(reply, scope = false)
+            val observation = answered.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }
+            assertEquals(SafetyEvidenceResolution.ESTABLISHED, observation.resolution)
+            assertEquals(ExplicitEmergencyCircumstance.NONE_ESTABLISHED.toString(), observation.value.toString())
+            assertNotEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, answered.safetyObservation!!.nextExpectedEvidence)
+        }
+    }
+    @Test fun contradictoryAndAmbiguousSafetyRepliesRemainUnknown() = CTV215Harness().use { h ->
+        val c = Conversation(h)
+        c.send("I had a frustrating day at work.", scope = false)
+        for (reply in listOf("No, but there is an emergency.", "I think everything is fine.")) {
+            val result = c.send(reply, scope = false)
+            assertEquals(SafetyEvidenceResolution.UNKNOWN,
+                result.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+            assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, result.safetyObservation!!.nextExpectedEvidence)
+        }
+    }
+    @Test fun contextualNegativeReplyDoesNotCrossBindToAnotherSafetyRequirement() = CTV215Harness().use { h ->
+        val c = Conversation(h)
+        c.send("I had a frustrating day at work.", scope = false)
+        val current = c.send("No", scope = false)
+        assertEquals(SafetyInformationRequirement.ACUTE_MEDICAL_EMERGENCY_STATUS, current.safetyObservation!!.nextExpectedEvidence)
+        val unrelated = c.send("No emergency.", scope = false)
+        assertEquals(SafetyEvidenceResolution.UNKNOWN,
+            unrelated.safetyObservation!!.observations.single { it.field == SafetyField.ACUTE_MEDICAL_EMERGENCY }.resolution)
+        assertEquals(SafetyInformationRequirement.ACUTE_MEDICAL_EMERGENCY_STATUS, unrelated.safetyObservation!!.nextExpectedEvidence)
+    }
+    @Test fun pendingSafetyClarificationIsFreshAfterRestart() = CTV215Harness().use { h ->
+        Conversation(h).send("I had a frustrating day at work.", scope = false)
+        h.reopen()
+        val afterRestart = Conversation(h).send("I am safe.", scope = false)
+        assertEquals(SafetyEvidenceResolution.UNKNOWN,
+            afterRestart.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, afterRestart.safetyObservation!!.nextExpectedEvidence)
+    }
+    @Test fun satisfiedSafetyClarificationIsNotResurrectedAfterRestart() = CTV215Harness().use { h ->
+        val c = Conversation(h)
+        c.send("I had a frustrating day at work.", scope = false)
+        val answered = c.send("I am safe.", scope = false)
+        assertEquals(SafetyEvidenceResolution.ESTABLISHED,
+            answered.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+        h.reopen()
+        val afterRestart = Conversation(h).send("My manager changed priorities halfway through the afternoon.", scope = false)
+        assertEquals(SafetyEvidenceResolution.UNKNOWN,
+            afterRestart.safetyObservation!!.observations.single { it.field == SafetyField.CURRENT_EMERGENCY }.resolution)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, afterRestart.safetyObservation!!.nextExpectedEvidence)
+    }
+    @Test fun contextualSafetyReplyPreservesTheExistingClarificationAndResumeProgression() = CTV215Harness().use { h ->
+        val c = Conversation(h)
+        c.send("My specific concern is: the meeting", scope = false)
+        val current = c.send("No, there is no emergency.", scope = false)
+        assertEquals(SafetyInformationRequirement.ACUTE_MEDICAL_EMERGENCY_STATUS, current.safetyObservation!!.nextExpectedEvidence)
+        repeat(4) { c.send("No", scope = false) }
+        assertEquals(SafetyInformationRequirement.PRESENTING_SCOPE, c.send("Yes", scope = false).safetyObservation!!.nextExpectedEvidence)
+        val allowed = c.send("Yes", scope = false)
+        action(allowed, "reflect-established-content")
+        assertEquals(SafetyAuthorityState.ORDINARY_POLICY_ALLOWED, allowed.safetyObservation!!.authorityState)
+    }
+    @Test fun restartDoesNotHydrateAnObsoleteSafetyClarification() = CTV215Harness().use { h ->
+        val c = Conversation(h)
+        val first = c.send("I had a frustrating day at work.", scope = false)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, first.safetyObservation!!.nextExpectedEvidence)
+        h.reopen()
+        val afterRestart = Conversation(h).send("My manager changed priorities halfway through the afternoon.", scope = false)
+        assertEquals(SafetyInformationRequirement.CURRENT_EMERGENCY_STATUS, afterRestart.safetyObservation!!.nextExpectedEvidence)
+    }
     @Test fun historicalQuotedDeclarationBlockCannotEstablishCurrentSafety() = CTV215Harness().use { h ->
         val result = Conversation(h).send("Historical quotation:\n" + DECLARATIONS, scope = false)
         assertTrue(result.safetyObservation!!.observations.all { it.resolution == SafetyEvidenceResolution.UNKNOWN })

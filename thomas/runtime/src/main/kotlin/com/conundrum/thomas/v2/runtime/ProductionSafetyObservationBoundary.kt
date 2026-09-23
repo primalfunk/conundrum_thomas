@@ -4,7 +4,7 @@ import com.conundrum.thomas.v2.domain.mode.ThomasMode
 import com.conundrum.thomas.v2.safety.*
 
 /** Current-session declarations, never a diagnosis, screening tool, or scan of stored sources.
- * Exact, whole-line statements only; quotation/historical prefixes do not match.
+ * Explicit current-session statements and contextual replies only; quotation/historical prefixes do not match.
  * Session declarations expire when this runtime closes. Withdrawal resets a field to UNKNOWN.
  */
 internal class ProductionSafetyObservationBoundary {
@@ -13,7 +13,53 @@ internal class ProductionSafetyObservationBoundary {
     private var pending: SafetyInformationRequirement? = null
     fun delivered(requirement: SafetyInformationRequirement?) { pending = requirement }
     fun handlesReply(text: String): Boolean = pending != null &&
-        ProductionTherapyInputBoundary.normalize(text) in setOf("yes", "no", "i don't know", "i do not know", "i decline to answer")
+        (ProductionTherapyInputBoundary.normalize(text) in setOf("yes", "no", "i don't know", "i do not know", "i decline to answer") ||
+            contextualNegativeReply(text) != null)
+
+    /** Admit only an explicit contextual answer to the currently delivered safety question. */
+    private fun contextualNegativeReply(text: String): String? {
+        val normalized = contextualReplyKey(text)
+        val requirement = pending ?: return null
+        if (requirement.field != SafetyField.CURRENT_EMERGENCY) return null
+        val contradictory = normalized in setOf(
+            "there is an emergency",
+            "there is a current emergency",
+            "this is a current emergency",
+            "an emergency is happening",
+            "i am in danger",
+            "i'm in danger",
+            "i feel unsafe",
+            "i am unsafe",
+            "i'm unsafe",
+            "something urgent is happening",
+        ) || Regex("\\b(?:but|however)\\b.*\\b(?:emergency|danger|unsafe|urgent)\\b").containsMatchIn(normalized)
+        val explicitNegative = !contradictory && (
+            normalized in setOf(
+                "no emergency",
+                "no there is no emergency",
+                "no there is no current emergency",
+                "there is no emergency",
+                "there is no current emergency",
+                "no emergency is happening",
+                "nothing urgent is happening",
+                "no nothing like that is happening",
+                "nothing like that is happening",
+                "i am safe",
+                "i'm safe",
+                "no i am not in danger",
+                "i am not in danger",
+                "i'm not in danger",
+            ) || normalized.startsWith("nothing is happening right now ") ||
+            normalized.startsWith("no nothing like that is happening ")
+        )
+        return if (explicitNegative) "There is no current emergency" else null
+    }
+
+    private fun contextualReplyKey(text: String): String =
+        ProductionTherapyInputBoundary.normalize(text)
+            .replace(Regex("[^\\p{L}\\p{N}' ]"), " ")
+            .replace(Regex("\\s+"), " ")
+            .trim()
 
     private fun replyDeclaration(text: String): String? {
         if (!handlesReply(text)) return null
@@ -21,7 +67,7 @@ internal class ProductionSafetyObservationBoundary {
         if (pending!!.field == SafetyField.POPULATION_APPLICABILITY && !positive &&
             ProductionTherapyInputBoundary.normalize(text) != "i decline to answer")
             return "I withdraw: I am an adult in the supported setting"
-        val statement = when (pending!!.field) {
+        val statement = contextualNegativeReply(text) ?: when (pending!!.field) {
             SafetyField.CURRENT_EMERGENCY -> if (positive) "This is a current emergency" else "There is no current emergency"
             SafetyField.ACUTE_MEDICAL_EMERGENCY -> if (positive) "There is an acute medical emergency" else "There is no acute medical emergency"
             SafetyField.SELF_HARM_RELEVANCE -> if (positive) "Self-harm is relevant now" else "Self-harm is not relevant now"
