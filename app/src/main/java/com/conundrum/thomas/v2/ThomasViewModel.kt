@@ -408,16 +408,39 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
 
     private fun requestBiographerPrompt() {
         val runtime = root.runtime ?: return
-        val index = allocateTurnIndex()
-        val prompt = runCatching { runtime.nextBiographerPrompt(index) }.getOrNull() ?: return
-        mutableState.value = mutableState.value.copy(
-            transcript = mutableState.value.transcript + TranscriptItem(
-                "biographer-prompt-$index",
-                TranscriptRole.THOMAS,
-                ProductionThomasMode.BIOGRAPHER,
-                prompt.text,
-            ),
+        val before = mutableState.value
+        if (before.processing || before.mode != ProductionThomasMode.BIOGRAPHER) return
+        // nextBiographerPrompt can enter the bounded local realizer.  It must never run
+        // from the mode-selector click handler on the Android main thread.
+        mutableState.value = before.copy(
+            processing = true,
+            status = "Preparing governed biographer prompt…",
         )
+        viewModelScope.launch {
+            val prompt = withContext(Dispatchers.Default) {
+                val index = runtime.allocateTurnIndex()
+                index to runCatching { runtime.nextBiographerPrompt(index) }.getOrNull()
+            }
+            val current = mutableState.value
+            if (current.mode != ProductionThomasMode.BIOGRAPHER) return@launch
+            val (index, rendered) = prompt
+            mutableState.value = current.copy(
+                transcript = rendered?.let {
+                    current.transcript + TranscriptItem(
+                        "biographer-prompt-$index",
+                        TranscriptRole.THOMAS,
+                        ProductionThomasMode.BIOGRAPHER,
+                        it.text,
+                    )
+                } ?: current.transcript,
+                processing = false,
+                status = if (rendered == null) {
+                    "No governed biographer prompt available"
+                } else {
+                    "Biographer prompt ready"
+                },
+            )
+        }
     }
 
     private fun allocateTurnIndex(): Long = requireNotNull(root.runtime).allocateTurnIndex()

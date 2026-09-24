@@ -9,6 +9,7 @@ import com.conundrum.thomas.v2.languagerenderer.LanguageRealizer
 import com.conundrum.thomas.v2.languagerenderer.RendererInput
 import com.conundrum.thomas.v2.languagerenderer.SemanticAuthorityLabel
 import com.conundrum.thomas.v2.languagerenderer.GovernedRenderMode
+import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicReference
 
 /**
@@ -21,6 +22,7 @@ class ThomasLlamaLanguageRealizer(
 ) : LanguageRealizer, AutoCloseable {
     private val verifier = ThomasModelArtifactVerifier(context.noBackupFilesDir)
     private val statusRef = AtomicReference(ThomasRealizerStatus.UNLOADED)
+    private val closeRequested = AtomicBoolean(false)
     private var loaded = false
 
     @Volatile
@@ -31,6 +33,7 @@ class ThomasLlamaLanguageRealizer(
         get() = statusRef.get()
 
     override fun realize(input: RendererInput, attempt: Int): CandidateRealizationOutcome = synchronized(this) {
+        if (closeRequested.get()) return@synchronized CandidateRealizationOutcome.Unavailable("LOCAL_MODEL_CLOSING")
         if (input.mode == GovernedRenderMode.SAFETY) {
             // Fixed safety wording stays deterministic; a model never gets a safety decision path.
             return@synchronized CandidateRealizationOutcome.Unavailable("SAFETY_FIXED_REALIZATION")
@@ -63,10 +66,21 @@ class ThomasLlamaLanguageRealizer(
         }
     }
 
-    override fun close() = synchronized(this) {
-        if (loaded) NativeLlamaBridge.nativeUnload()
-        loaded = false
-        statusRef.set(ThomasRealizerStatus.UNLOADED)
+    override fun close() {
+        if (!closeRequested.compareAndSet(false, true)) return
+        // Activity teardown runs on the main thread. nativeGenerate is deliberately serialized
+        // with nativeUnload, so defer cleanup rather than waiting for a bounded generation here.
+        Thread({
+            synchronized(this) {
+                if (loaded) NativeLlamaBridge.nativeUnload()
+                loaded = false
+                statusRef.set(ThomasRealizerStatus.UNLOADED)
+                Log.i(LOG_TAG, "LOCAL_MODEL_UNLOADED")
+            }
+        }, "ThomasLlama-unload").apply {
+            isDaemon = true
+            start()
+        }
     }
 
     private fun ensureLoaded() {

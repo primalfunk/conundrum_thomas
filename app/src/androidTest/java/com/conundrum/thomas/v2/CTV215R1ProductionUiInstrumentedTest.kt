@@ -30,6 +30,21 @@ class CTV215R1ProductionUiInstrumentedTest {
         owner.javaClass.getDeclaredField(name).apply { isAccessible = true }.get(owner) as T
     private fun session(): CoreOrdinaryTherapyState = read(read<Any>(runtime, "therapyInput"), "session")
     private fun assistantCount() = model.state.value.transcript.count { it.role == TranscriptRole.THOMAS }
+
+    @Test fun aBiographerModeSelectionDoesNotRunLocalRealizationOnTheMainThread() {
+        compose.activityRule.scenario.onActivity { model = ViewModelProvider(it)[ThomasViewModel::class.java] }
+        val started = android.os.SystemClock.elapsedRealtime()
+        compose.onNodeWithTag("mode-biographer").performClick()
+        val elapsed = android.os.SystemClock.elapsedRealtime() - started
+        compose.runOnIdle {
+            assertEquals(ProductionThomasMode.BIOGRAPHER, model.state.value.mode)
+        }
+        assertTrue(
+            "Biographer mode selection must return control before bounded local realization completes",
+            elapsed < 2_000,
+        )
+    }
+
     private fun send(text: String, expectedAction: String?, silent: Boolean = false): CoreOrdinaryTherapyState {
         val before = assistantCount()
         val beforeUsers = model.state.value.transcript.count { it.role == TranscriptRole.USER }
