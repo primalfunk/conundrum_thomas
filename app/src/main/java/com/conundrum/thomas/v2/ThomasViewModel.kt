@@ -16,6 +16,12 @@ import com.conundrum.thomas.v2.platform.speech.SpeechInputController
 import com.conundrum.thomas.v2.platform.speech.SpeechInputEvent
 import com.conundrum.thomas.v2.platform.renderer.llama.ThomasRealizerStatus
 import com.conundrum.thomas.v2.platform.speech.SpeechStartResult
+import com.conundrum.thomas.v2.platform.speech.AndroidSystemThomasVoiceProvider
+import com.conundrum.thomas.v2.platform.speech.ThomasSpeechRate
+import com.conundrum.thomas.v2.platform.speech.ThomasVoiceEvent
+import com.conundrum.thomas.v2.platform.speech.ThomasVoicePresentation
+import com.conundrum.thomas.v2.platform.speech.ThomasVoiceProfile
+import com.conundrum.thomas.v2.platform.speech.ValidatedThomasResponse
 import com.conundrum.thomas.v2.platform.speech.userMessage
 import com.conundrum.thomas.v2.runtime.ProductionInputOrigin
 import com.conundrum.thomas.v2.runtime.ProductionSourceSummary
@@ -64,6 +70,9 @@ data class ThomasUiState(
     val speechState: SpeechCaptureState = SpeechCaptureState.IDLE,
     val speechMessage: String? = null,
     val speechPermissionDenied: Boolean = false,
+    val voicePreferences: ThomasVoicePreferences = ThomasVoicePreferences(),
+    val voicePlaying: Boolean = false,
+    val lastValidatedThomasResponse: String? = null,
 )
 
 class ThomasViewModel(application: Application) : AndroidViewModel(application) {
@@ -77,11 +86,14 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         application,
         ::onSpeechEvent,
     )
+    private val voicePreferencesStore = AndroidThomasVoicePreferences(application)
+    private val voiceProvider = AndroidSystemThomasVoiceProvider(application)
     private val mutableState = MutableStateFlow(
         ThomasUiState(
             runtimeAvailable = root.runtime != null,
             status = root.unavailableReason?.let { "Personal data unavailable: $it" } ?: "Ready",
             sourceSummaries = root.runtime?.sourceSummaries().orEmpty(),
+            voicePreferences = voicePreferencesStore.read(),
         ),
     )
 
@@ -111,6 +123,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
     fun selectMode(mode: ProductionThomasMode) {
         val current = mutableState.value
         if (current.processing || current.mode == mode || isSpeechActive(current.speechState)) return
+        stopVoice()
         drafts[current.mode] = current.draft
         draftOrigins[current.mode] = current.draftOrigin
         mutableState.value = current.copy(
@@ -147,6 +160,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
     fun startSpeech(permissionGranted: Boolean) {
         val before = mutableState.value
         if (before.processing || isSpeechActive(before.speechState)) return
+        if (before.voicePreferences.stopWhenMicrophoneStarts) stopVoice()
         if (!permissionGranted) {
             mutableState.value = before.copy(
                 speechState = SpeechCaptureState.ERROR,
@@ -190,6 +204,39 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         if (isSpeechActive(mutableState.value.speechState)) {
             onSpeechEvent(SpeechInputEvent.Cancelled)
         }
+    }
+
+    fun stopVoice() {
+        voiceProvider.stop()
+        mutableState.value = mutableState.value.copy(voicePlaying = false)
+    }
+
+    fun replayLastThomasResponse() {
+        val current = mutableState.value
+        val text = current.lastValidatedThomasResponse ?: return
+        speakValidatedResponse(text, current.voicePreferences)
+    }
+
+    fun setAutoSpeak(value: Boolean) = updateVoicePreferences { it.copy(autoSpeak = value) }
+
+    fun setVoiceProfile(value: ThomasVoiceProfile) = updateVoicePreferences { it.copy(profile = value) }
+
+    fun setSpeechRate(value: ThomasSpeechRate) = updateVoicePreferences { it.copy(rate = value) }
+
+    fun setStopWhenMicrophoneStarts(value: Boolean) =
+        updateVoicePreferences { it.copy(stopWhenMicrophoneStarts = value) }
+
+    fun previewVoice(profile: ThomasVoiceProfile) {
+        val current = mutableState.value
+        speakValidatedResponse(
+            "Hi. I'm Thomas. Take your time, and tell me what's on your mind.",
+            current.voicePreferences.copy(profile = profile),
+        )
+    }
+
+    fun onBackgrounded() {
+        cancelSpeech()
+        stopVoice()
     }
 
     fun speechPermissionDenied() {
@@ -249,6 +296,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                     status = "Protected persistence is unavailable",
                 )
             } else {
+                val response = result.assistantArtifact?.text
                 val messages = buildList {
                     addAll(current.transcript)
                     add(
@@ -279,7 +327,11 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                     speechPermissionDenied = false,
                     status = result.disposition.name.replace('_', ' ').lowercase()
                         .replaceFirstChar(Char::uppercase),
+                    lastValidatedThomasResponse = response ?: current.lastValidatedThomasResponse,
                 )
+                if (response != null && mutableState.value.voicePreferences.autoSpeak) {
+                    speakValidatedResponse(response, mutableState.value.voicePreferences)
+                }
             }
         }
     }
@@ -349,6 +401,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     override fun onCleared() {
+        voiceProvider.close()
         speechController.close()
         root.close()
     }
@@ -417,6 +470,30 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                     speechState = SpeechCaptureState.IDLE,
                     speechMessage = "Speech cancelled; existing text kept",
                 )
+            }
+        }
+    }
+
+    private fun updateVoicePreferences(transform: (ThomasVoicePreferences) -> ThomasVoicePreferences) {
+        val value = transform(mutableState.value.voicePreferences)
+        voicePreferencesStore.write(value)
+        mutableState.value = mutableState.value.copy(voicePreferences = value)
+    }
+
+    /** Only the already-rendered final assistant artifact reaches this method. */
+    private fun speakValidatedResponse(text: String, preferences: ThomasVoicePreferences) {
+        if (text.isBlank()) return
+        voiceProvider.speak(
+            ValidatedThomasResponse(text),
+            ThomasVoicePresentation(preferences.profile, preferences.rate),
+        ) { event ->
+            val current = mutableState.value
+            when (event) {
+                ThomasVoiceEvent.Started -> mutableState.value = current.copy(voicePlaying = true)
+                ThomasVoiceEvent.Completed, ThomasVoiceEvent.Stopped ->
+                    mutableState.value = current.copy(voicePlaying = false)
+                is ThomasVoiceEvent.Unavailable, is ThomasVoiceEvent.Failed ->
+                    mutableState.value = current.copy(voicePlaying = false)
             }
         }
     }

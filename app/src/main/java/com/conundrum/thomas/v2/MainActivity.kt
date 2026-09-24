@@ -63,6 +63,8 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.conundrum.thomas.v2.engine.ordinary.RequestedOrdinarySupport
 import com.conundrum.thomas.v2.journal.JournalResponsePreference
+import com.conundrum.thomas.v2.platform.speech.ThomasSpeechRate
+import com.conundrum.thomas.v2.platform.speech.ThomasVoiceProfile
 import com.conundrum.thomas.v2.runtime.ProductionThomasMode
 import com.conundrum.thomas.v2.runtime.ProductionSourceSummary
 import com.conundrum.thomas.v2.ui.theme.ConundrumThomasV2Theme
@@ -93,7 +95,7 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner, viewModel) {
         val observer = LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_STOP) viewModel.cancelSpeech()
+            if (event == Lifecycle.Event.ON_STOP) viewModel.onBackgrounded()
         }
         lifecycleOwner.lifecycle.addObserver(observer)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
@@ -313,6 +315,31 @@ private fun InputPanel(
                 .imePadding()
                 .padding(start = 12.dp, top = 12.dp, end = 12.dp, bottom = 28.dp),
         ) {
+            if (state.voicePlaying || state.lastValidatedThomasResponse != null) {
+                Row(
+                    Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    if (state.voicePlaying) {
+                        OutlinedButton(
+                            onClick = viewModel::stopVoice,
+                            modifier = Modifier.testTag("voice-stop"),
+                        ) { Text("Stop Thomas") }
+                    } else {
+                        OutlinedButton(
+                            onClick = viewModel::replayLastThomasResponse,
+                            modifier = Modifier.testTag("voice-replay"),
+                        ) { Text("Replay Thomas") }
+                    }
+                    Text(
+                        if (state.voicePlaying) "Thomas is speaking" else "Replay the latest reply",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                Spacer(Modifier.height(8.dp))
+            }
             SpeechControls(state, viewModel, onStartSpeech, onOpenSpeechSettings)
             OutlinedTextField(
                 value = state.draft,
@@ -371,6 +398,54 @@ private fun SettingsDialog(
         title = { Text("Settings") },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("Voice", style = MaterialTheme.typography.titleSmall)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(
+                        checked = state.voicePreferences.autoSpeak,
+                        onCheckedChange = viewModel::setAutoSpeak,
+                        modifier = Modifier.testTag("voice-auto-speak"),
+                    )
+                    Text("Speak Thomas replies", style = MaterialTheme.typography.labelMedium)
+                }
+                Text("Voice", style = MaterialTheme.typography.labelMedium)
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    ThomasVoiceProfile.entries.forEach { profile ->
+                        FilterChip(
+                            selected = state.voicePreferences.profile == profile,
+                            onClick = { viewModel.setVoiceProfile(profile) },
+                            label = { Text(profile.name.lowercase().replaceFirstChar(Char::uppercase)) },
+                            modifier = Modifier.testTag("voice-${profile.name.lowercase()}"),
+                        )
+                    }
+                }
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    ThomasVoiceProfile.entries.forEach { profile ->
+                        OutlinedButton(
+                            onClick = { viewModel.previewVoice(profile) },
+                            modifier = Modifier.testTag("voice-preview-${profile.name.lowercase()}"),
+                        ) { Text("Preview ${profile.name.lowercase().replaceFirstChar(Char::uppercase)}") }
+                    }
+                }
+                Text("Speech rate", style = MaterialTheme.typography.labelMedium)
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    ThomasSpeechRate.entries.forEach { rate ->
+                        FilterChip(
+                            selected = state.voicePreferences.rate == rate,
+                            onClick = { viewModel.setSpeechRate(rate) },
+                            label = { Text(rate.name.lowercase().replaceFirstChar(Char::uppercase)) },
+                            modifier = Modifier.testTag("voice-rate-${rate.name.lowercase()}"),
+                        )
+                    }
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(
+                        checked = state.voicePreferences.stopWhenMicrophoneStarts,
+                        onCheckedChange = viewModel::setStopWhenMicrophoneStarts,
+                        modifier = Modifier.testTag("voice-stop-on-microphone"),
+                    )
+                    Text("Stop Thomas when microphone starts", style = MaterialTheme.typography.labelMedium)
+                }
+                HorizontalDivider()
                 Text("Conversation", style = MaterialTheme.typography.titleSmall)
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Checkbox(
