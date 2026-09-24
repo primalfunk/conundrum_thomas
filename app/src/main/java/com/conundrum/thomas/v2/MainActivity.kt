@@ -35,7 +35,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -67,6 +66,9 @@ import com.conundrum.thomas.v2.journal.JournalResponsePreference
 import com.conundrum.thomas.v2.runtime.ProductionThomasMode
 import com.conundrum.thomas.v2.runtime.ProductionSourceSummary
 import com.conundrum.thomas.v2.ui.theme.ConundrumThomasV2Theme
+import com.conundrum.thomas.v2.ui.theme.IbmPlexMono
+import com.conundrum.thomas.v2.ui.thinking.ThomasThoughtLoom
+import com.conundrum.thomas.v2.ui.thinking.ThomasThoughtState
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -146,6 +148,7 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
                                         .testTag("dev-build-indicator"),
                                     color = MaterialTheme.colorScheme.onTertiaryContainer,
                                     style = MaterialTheme.typography.labelMedium,
+                                    fontFamily = IbmPlexMono,
                                     fontWeight = FontWeight.Bold,
                                 )
                             }
@@ -227,6 +230,13 @@ private fun Conversation(state: ThomasUiState, modifier: Modifier = Modifier) {
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     style = MaterialTheme.typography.bodyMedium,
                 )
+                state.modelActivity?.let { activity ->
+                    Spacer(Modifier.height(20.dp))
+                    ThomasThoughtLoom(
+                        state = activity.toThoughtState(),
+                        modifier = Modifier.testTag("thomas-thought-loom"),
+                    )
+                }
             }
         }
     } else {
@@ -237,6 +247,14 @@ private fun Conversation(state: ThomasUiState, modifier: Modifier = Modifier) {
         ) {
             item { Spacer(Modifier.height(12.dp)) }
             items(visible, key = { it.id }) { item -> TranscriptBubble(item) }
+            state.modelActivity?.let { activity ->
+                item {
+                    ThomasThoughtLoom(
+                        state = activity.toThoughtState(),
+                        modifier = Modifier.testTag("thomas-thought-loom"),
+                    )
+                }
+            }
             item { Spacer(Modifier.height(12.dp)) }
         }
     }
@@ -308,24 +326,22 @@ private fun InputPanel(
                 modifier = Modifier.fillMaxWidth().testTag("turn-draft"),
             )
             Spacer(Modifier.height(8.dp))
-            if (state.processing) {
-                LinearProgressIndicator(
-                    modifier = Modifier.fillMaxWidth().testTag("working-progress"),
-                )
-                Spacer(Modifier.height(8.dp))
-            }
             Row(
                 Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
-                    state.status,
-                    modifier = Modifier.weight(1f).testTag("runtime-status"),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = if (state.runtimeAvailable) MaterialTheme.colorScheme.onSurfaceVariant
-                    else MaterialTheme.colorScheme.error,
-                )
+                if (state.modelActivity == null) {
+                    Text(
+                        state.status,
+                        modifier = Modifier.weight(1f).testTag("runtime-status"),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = if (state.runtimeAvailable) MaterialTheme.colorScheme.onSurfaceVariant
+                        else MaterialTheme.colorScheme.error,
+                    )
+                } else {
+                    Spacer(Modifier.weight(1f))
+                }
                 Button(
                     onClick = viewModel::submit,
                     enabled = state.runtimeAvailable && !state.processing && state.draft.isNotBlank(),
@@ -336,6 +352,11 @@ private fun InputPanel(
             }
         }
     }
+}
+
+private fun ThomasModelActivity.toThoughtState(): ThomasThoughtState = when (this) {
+    ThomasModelActivity.WAKING -> ThomasThoughtState.WAKING
+    ThomasModelActivity.THINKING -> ThomasThoughtState.THINKING
 }
 
 @Composable
@@ -435,7 +456,7 @@ private fun SpeechControls(
                     onClick = viewModel::stopSpeech,
                     modifier = Modifier.testTag("speech-stop"),
                 ) {
-                    Text("■  Done speaking")
+                    Text("Done speaking")
                 }
                 OutlinedButton(
                     onClick = viewModel::cancelSpeech,
@@ -444,7 +465,7 @@ private fun SpeechControls(
             }
             com.conundrum.thomas.v2.platform.speech.SpeechCaptureState.FINALIZING -> {
                 Button(enabled = false, onClick = {}, modifier = Modifier.testTag("speech-stop")) {
-                    Text("…  Finalizing")
+                    Text("Finalizing…")
                 }
                 OutlinedButton(
                     onClick = viewModel::cancelSpeech,
@@ -457,7 +478,7 @@ private fun SpeechControls(
                     enabled = state.runtimeAvailable && !state.processing,
                     modifier = Modifier.testTag("speech-start"),
                 ) {
-                    Text("🎙  Speak")
+                    Text("Speak")
                 }
             }
         }

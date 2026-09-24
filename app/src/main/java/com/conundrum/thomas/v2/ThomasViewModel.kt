@@ -14,6 +14,7 @@ import com.conundrum.thomas.v2.platform.speech.SpeechDraftSession
 import com.conundrum.thomas.v2.platform.speech.SpeechFailure
 import com.conundrum.thomas.v2.platform.speech.SpeechInputController
 import com.conundrum.thomas.v2.platform.speech.SpeechInputEvent
+import com.conundrum.thomas.v2.platform.renderer.llama.ThomasRealizerStatus
 import com.conundrum.thomas.v2.platform.speech.SpeechStartResult
 import com.conundrum.thomas.v2.platform.speech.userMessage
 import com.conundrum.thomas.v2.runtime.ProductionInputOrigin
@@ -25,13 +26,18 @@ import com.conundrum.thomas.v2.runtime.TherapySafetyDeclaration
 import com.conundrum.thomas.v2.therapylongitudinal.TherapyMemoryIntent
 import java.time.Instant
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 
 enum class TranscriptRole { USER, THOMAS, SYSTEM }
+
+enum class ThomasModelActivity { WAKING, THINKING }
 
 data class TranscriptItem(
     val id: String,
@@ -47,6 +53,7 @@ data class ThomasUiState(
     val transcript: List<TranscriptItem> = emptyList(),
     val sourceSummaries: List<ProductionSourceSummary> = emptyList(),
     val processing: Boolean = false,
+    val modelActivity: ThomasModelActivity? = null,
     val privateTurn: Boolean = false,
     val journalPreference: JournalResponsePreference = JournalResponsePreference.NO_RESPONSE,
     val therapySupport: RequestedOrdinarySupport = RequestedOrdinarySupport.LISTEN,
@@ -203,31 +210,35 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         val turnIndex = allocateTurnIndex()
         val submittedAt = SystemClock.elapsedRealtime()
         Log.i("ThomasTiming", "THOMAS_UI_TIMING stage=send_received turn=$turnIndex origin=$inputOrigin")
-        mutableState.value = before.copy(processing = true, status = "Working…")
+        val activityObserver = beginModelActivity(before)
         viewModelScope.launch {
-            val result = withContext(Dispatchers.Default) {
-                root.runtime?.submit(
-                    ProductionTurnRequest(
-                        clientTurnIndex = turnIndex,
-                        mode = before.mode,
-                        committedText = text,
-                        inputOrigin = inputOrigin,
-                        privacy = if (before.privateTurn) {
-                            ProductionTurnPrivacy.PRIVATE
-                        } else {
-                            ProductionTurnPrivacy.ELIGIBLE
-                        },
-                        journalResponsePreference = before.journalPreference,
-                        requestedTherapySupport = before.therapySupport,
-                        therapyMemoryIntent = if (before.explicitRecall) {
-                            TherapyMemoryIntent.EXPLICIT_RECALL
-                        } else {
-                            TherapyMemoryIntent.ORDINARY
-                        },
-                        therapySafetyDeclaration = TherapySafetyDeclaration.UNSPECIFIED,
-                        committedAt = Instant.now(),
-                    ),
-                )
+            val result = try {
+                withContext(Dispatchers.Default) {
+                    root.runtime?.submit(
+                        ProductionTurnRequest(
+                            clientTurnIndex = turnIndex,
+                            mode = before.mode,
+                            committedText = text,
+                            inputOrigin = inputOrigin,
+                            privacy = if (before.privateTurn) {
+                                ProductionTurnPrivacy.PRIVATE
+                            } else {
+                                ProductionTurnPrivacy.ELIGIBLE
+                            },
+                            journalResponsePreference = before.journalPreference,
+                            requestedTherapySupport = before.therapySupport,
+                            therapyMemoryIntent = if (before.explicitRecall) {
+                                TherapyMemoryIntent.EXPLICIT_RECALL
+                            } else {
+                                TherapyMemoryIntent.ORDINARY
+                            },
+                            therapySafetyDeclaration = TherapySafetyDeclaration.UNSPECIFIED,
+                            committedAt = Instant.now(),
+                        ),
+                    )
+                }
+            } finally {
+                activityObserver.cancel()
             }
             val current = mutableState.value
             Log.i("ThomasTiming", "THOMAS_UI_TIMING stage=ui_ready turn=$turnIndex elapsed_ms=${SystemClock.elapsedRealtime() - submittedAt} result=${result?.disposition}")
@@ -262,6 +273,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                     transcript = messages,
                     sourceSummaries = root.runtime?.sourceSummaries().orEmpty(),
                     processing = false,
+                    modelActivity = null,
                     speechState = SpeechCaptureState.IDLE,
                     speechMessage = null,
                     speechPermissionDenied = false,
@@ -418,14 +430,15 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         if (before.processing || before.mode != ProductionThomasMode.BIOGRAPHER) return
         // nextBiographerPrompt can enter the bounded local realizer.  It must never run
         // from the mode-selector click handler on the Android main thread.
-        mutableState.value = before.copy(
-            processing = true,
-            status = "Preparing governed biographer prompt…",
-        )
+        val activityObserver = beginModelActivity(before)
         viewModelScope.launch {
-            val prompt = withContext(Dispatchers.Default) {
-                val index = runtime.allocateTurnIndex()
-                index to runCatching { runtime.nextBiographerPrompt(index) }.getOrNull()
+            val prompt = try {
+                withContext(Dispatchers.Default) {
+                    val index = runtime.allocateTurnIndex()
+                    index to runCatching { runtime.nextBiographerPrompt(index) }.getOrNull()
+                }
+            } finally {
+                activityObserver.cancel()
             }
             val current = mutableState.value
             if (current.mode != ProductionThomasMode.BIOGRAPHER) return@launch
@@ -440,6 +453,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                     )
                 } ?: current.transcript,
                 processing = false,
+                modelActivity = null,
                 status = if (rendered == null) {
                     "No governed biographer prompt available"
                 } else {
@@ -447,6 +461,40 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                 },
             )
         }
+    }
+
+    private fun beginModelActivity(before: ThomasUiState): Job {
+        val initialActivity = currentModelActivity()
+        mutableState.value = before.copy(
+            processing = true,
+            modelActivity = initialActivity,
+            status = waitingStatus(initialActivity),
+        )
+        return viewModelScope.launch {
+            while (isActive && mutableState.value.processing) {
+                val current = mutableState.value
+                val activity = currentModelActivity()
+                if (current.modelActivity != activity) {
+                    mutableState.value = current.copy(
+                        modelActivity = activity,
+                        status = waitingStatus(activity),
+                    )
+                }
+                delay(80)
+            }
+        }
+    }
+
+    private fun currentModelActivity(): ThomasModelActivity = when (root.localModelStatus) {
+        ThomasRealizerStatus.VERIFYING,
+        ThomasRealizerStatus.LOADING,
+        -> ThomasModelActivity.WAKING
+        else -> ThomasModelActivity.THINKING
+    }
+
+    private fun waitingStatus(activity: ThomasModelActivity): String = when (activity) {
+        ThomasModelActivity.WAKING -> "Thomas is waking up…"
+        ThomasModelActivity.THINKING -> "Working…"
     }
 
     private fun allocateTurnIndex(): Long = requireNotNull(root.runtime).allocateTurnIndex()

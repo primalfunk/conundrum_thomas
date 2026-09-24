@@ -3,11 +3,13 @@ package com.conundrum.thomas.v2
 import android.content.Context
 import com.conundrum.thomas.v2.personaldata.CompleteResetResult
 import com.conundrum.thomas.v2.personaldata.PersonalDataOpenResult
+import com.conundrum.thomas.v2.personaldata.ProtectedPersonalDataStore
 import com.conundrum.thomas.v2.personaldata.ProtectedBackupArtifact
 import com.conundrum.thomas.v2.personaldata.RecoveryKey
 import com.conundrum.thomas.v2.personaldata.RestoreResult
 import com.conundrum.thomas.v2.platform.persistence.AndroidPersonalDataPersistenceFactory
 import com.conundrum.thomas.v2.platform.renderer.llama.ThomasLlamaLanguageRealizer
+import com.conundrum.thomas.v2.platform.renderer.llama.ThomasRealizerStatus
 import com.conundrum.thomas.v2.runtime.ThomasProductionRuntime
 
 /** The single canonical Android production composition root for CT-V2-15. */
@@ -16,17 +18,23 @@ class ThomasAndroidCompositionRoot private constructor(
     private var runtimeHolder: ThomasProductionRuntime?,
     private var failureCode: String?,
 ) : AutoCloseable {
+    private var localRealizer: ThomasLlamaLanguageRealizer? = null
+
     val runtime: ThomasProductionRuntime?
         get() = runtimeHolder
 
     val unavailableReason: String?
         get() = failureCode
 
+    val localModelStatus: ThomasRealizerStatus
+        get() = localRealizer?.status ?: ThomasRealizerStatus.UNLOADED
+
     fun resetAndReopen(): CompleteResetResult {
         val active = requireNotNull(runtimeHolder) { "Runtime is unavailable" }
         val result = active.reset()
         active.close()
         runtimeHolder = null
+        localRealizer = null
         openRuntime()
         return result
     }
@@ -48,6 +56,7 @@ class ThomasAndroidCompositionRoot private constructor(
         }
         active.close()
         runtimeHolder = null
+        localRealizer = null
         val restored = AndroidPersonalDataPersistenceFactory.restoreIntoEmpty(
             applicationContext,
             artifact,
@@ -55,10 +64,7 @@ class ThomasAndroidCompositionRoot private constructor(
         ).getOrThrow()
         check(restored.restoredRevision == validated.sourceStoreRevision)
         check(restored.logicalStateDigest == validated.logicalStateDigest)
-        runtimeHolder = ThomasProductionRuntime(
-            restored.store,
-            externalRealizer = ThomasLlamaLanguageRealizer(applicationContext),
-        )
+        runtimeHolder = newRuntime(restored.store)
         failureCode = null
         restored
     }.onFailure {
@@ -68,15 +74,13 @@ class ThomasAndroidCompositionRoot private constructor(
     override fun close() {
         runtimeHolder?.close()
         runtimeHolder = null
+        localRealizer = null
     }
 
     private fun openRuntime() {
         when (val opened = AndroidPersonalDataPersistenceFactory.open(applicationContext)) {
             is PersonalDataOpenResult.Opened -> {
-                runtimeHolder = ThomasProductionRuntime(
-                    opened.store,
-                    externalRealizer = ThomasLlamaLanguageRealizer(applicationContext),
-                )
+                runtimeHolder = newRuntime(opened.store)
                 failureCode = null
             }
             is PersonalDataOpenResult.Unavailable -> {
@@ -84,6 +88,14 @@ class ThomasAndroidCompositionRoot private constructor(
                 failureCode = opened.reasonCode
             }
         }
+    }
+
+    private fun newRuntime(
+        store: ProtectedPersonalDataStore,
+    ): ThomasProductionRuntime {
+        val realizer = ThomasLlamaLanguageRealizer(applicationContext)
+        localRealizer = realizer
+        return ThomasProductionRuntime(store, externalRealizer = realizer)
     }
 
     companion object {
