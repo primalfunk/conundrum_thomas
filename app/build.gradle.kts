@@ -38,6 +38,7 @@ android {
 dependencies {
     implementation(project(":thomas:runtime"))
     implementation(project(":platform:persistence-android"))
+    implementation(project(":platform:renderer-llama-android"))
     implementation(project(":platform:speech-android"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)

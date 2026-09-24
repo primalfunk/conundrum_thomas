@@ -83,11 +83,11 @@ class FoundationArchitectureTest {
             projectDependencies("thomas/runtime/build.gradle.kts"),
         )
         assertEquals(
-            setOf(":thomas:runtime", ":platform:persistence-android", ":platform:speech-android"),
+            setOf(":thomas:runtime", ":platform:persistence-android", ":platform:renderer-llama-android", ":platform:speech-android"),
             projectDependencies("app/build.gradle.kts"),
         )
         assertEquals(setOf(":thomas:personal-data-persistence"), projectDependencies("platform/persistence-android/build.gradle.kts"))
-        assertEquals(setOf(":thomas:domain"), projectDependencies("platform/renderer-llama-android/build.gradle.kts"))
+        assertEquals(setOf(":thomas:domain", ":thomas:language-renderer"), projectDependencies("platform/renderer-llama-android/build.gradle.kts"))
         assertEquals(setOf(":thomas:domain"), projectDependencies("platform/speech-android/build.gradle.kts"))
     }
 
@@ -96,9 +96,10 @@ class FoundationArchitectureTest {
         val app = text("app/build.gradle.kts")
         val renderer = text("platform/renderer-llama-android/build.gradle.kts")
 
-        listOf(":thomas:engine", ":thomas:safety", ":platform:renderer-llama-android")
+        listOf(":thomas:engine", ":thomas:safety")
             .forEach { forbidden -> assertFalse("app must not depend on $forbidden", app.contains(forbidden)) }
         assertTrue("CT-V2-15 must compose protected Android persistence", app.contains(":platform:persistence-android"))
+        assertTrue("app must compose the admitted local renderer", app.contains(":platform:renderer-llama-android"))
 
         listOf(":thomas:engine", ":thomas:safety", ":thomas:provenance", ":thomas:runtime", ":platform:persistence-android")
             .forEach { forbidden -> assertFalse("renderer must not depend on $forbidden", renderer.contains(forbidden)) }
@@ -176,7 +177,10 @@ class FoundationArchitectureTest {
             .filter { it.isFile }
             .toList()
 
-        assertTrue(files.none { it.extension.lowercase() in forbiddenExtensions })
+        assertTrue(files.none {
+            it.extension.lowercase() in forbiddenExtensions &&
+                !it.toPath().startsWith(repositoryRoot.toPath().resolve("third_party/llama.cpp/models"))
+        })
         assertTrue(text(".gitignore").contains("/provenance/raw/"))
         assertTrue(text("provenance/.gitignore").contains("/raw/"))
         assertTrue(
@@ -186,7 +190,10 @@ class FoundationArchitectureTest {
                         it.name !in setOf(".gradle", ".idea", "build", "raw")
                 }
                 .filter { it.isFile }
-                .none { it.extension.lowercase() == "pdf" },
+                .none {
+                    it.extension.lowercase() == "pdf" &&
+                        !it.toPath().startsWith(repositoryRoot.toPath().resolve("third_party/llama.cpp"))
+                },
         )
         assertFalse(file("provenance/sources").exists())
         assertFalse(file("clinical-sources").exists())

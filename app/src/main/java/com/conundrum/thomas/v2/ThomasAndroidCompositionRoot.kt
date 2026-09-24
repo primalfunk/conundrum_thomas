@@ -7,6 +7,7 @@ import com.conundrum.thomas.v2.personaldata.ProtectedBackupArtifact
 import com.conundrum.thomas.v2.personaldata.RecoveryKey
 import com.conundrum.thomas.v2.personaldata.RestoreResult
 import com.conundrum.thomas.v2.platform.persistence.AndroidPersonalDataPersistenceFactory
+import com.conundrum.thomas.v2.platform.renderer.llama.ThomasLlamaLanguageRealizer
 import com.conundrum.thomas.v2.runtime.ThomasProductionRuntime
 
 /** The single canonical Android production composition root for CT-V2-15. */
@@ -54,7 +55,10 @@ class ThomasAndroidCompositionRoot private constructor(
         ).getOrThrow()
         check(restored.restoredRevision == validated.sourceStoreRevision)
         check(restored.logicalStateDigest == validated.logicalStateDigest)
-        runtimeHolder = ThomasProductionRuntime(restored.store)
+        runtimeHolder = ThomasProductionRuntime(
+            restored.store,
+            externalRealizer = ThomasLlamaLanguageRealizer(applicationContext),
+        )
         failureCode = null
         restored
     }.onFailure {
@@ -69,7 +73,10 @@ class ThomasAndroidCompositionRoot private constructor(
     private fun openRuntime() {
         when (val opened = AndroidPersonalDataPersistenceFactory.open(applicationContext)) {
             is PersonalDataOpenResult.Opened -> {
-                runtimeHolder = ThomasProductionRuntime(opened.store)
+                runtimeHolder = ThomasProductionRuntime(
+                    opened.store,
+                    externalRealizer = ThomasLlamaLanguageRealizer(applicationContext),
+                )
                 failureCode = null
             }
             is PersonalDataOpenResult.Unavailable -> {

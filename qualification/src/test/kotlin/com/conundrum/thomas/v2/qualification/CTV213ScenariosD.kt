@@ -46,8 +46,8 @@ internal object CTV213ScenariosD {
         125 -> assertEquals("ct-v2-12.therapy-longitudinal.v1", CT_V2_12_INTEGRATION_POLICY_VERSION)
         126 -> assertEquals(JournalResponsePreference.NO_RESPONSE, JournalResponsePreference.entries.first())
         127 -> v1RegisterDenied()
-        128 -> productionModelRootsZero()
-        129 -> androidRendererRootsZero()
+        128 -> productionModelRootAdmitted()
+        129 -> androidRendererRootAdmitted()
         130 -> canonicalGitRoot()
         131 -> temporaryGitMetadataZero()
         else -> error("Scenario D does not own $id")
@@ -159,17 +159,22 @@ internal object CTV213ScenariosD {
         assertEquals(24, Regex("\\\"disposition\\\"\\s*:\\s*\\\"DENIED\\\"").findAll(register).count())
     }
 
-    private fun productionModelRootsZero() {
+    private fun productionModelRootAdmitted() {
         val production = sourceText("app/src/main")
-        assertFalse(production.contains("GovernedLanguageRenderer"))
+        assertTrue(production.contains("ThomasLlamaLanguageRealizer"))
+        assertFalse(production.contains("https://"))
         val module = sourceText("thomas/language-renderer/src/main")
         listOf("llama", "gguf", "model adapter", "network client").forEach { assertFalse(module.contains(it, true)) }
     }
 
-    private fun androidRendererRootsZero() {
-        val build = root.resolve("thomas/language-renderer/build.gradle.kts").toFile().readText()
-        assertFalse(build.contains("android"))
-        assertFalse(sourceText("app/src/main").contains("languagerenderer"))
+    private fun androidRendererRootAdmitted() {
+        val build = root.resolve("platform/renderer-llama-android/build.gradle.kts").toFile().readText()
+        val artifact = root.resolve("platform/renderer-llama-android/src/main/kotlin/com/conundrum/thomas/v2/platform/renderer/llama/ThomasModelArtifact.kt").toFile().readText()
+        assertTrue(build.contains(":thomas:language-renderer"))
+        assertTrue(build.contains("externalNativeBuild"))
+        assertTrue(artifact.contains("Thomas-CT-R007-Merged-Q6_K.gguf"))
+        assertTrue(artifact.contains("d8a98b45c1c0e72ad63fe4a55105dbbc8c59bfa8910d37c0d0ff83d01125cb95"))
+        assertFalse(root.resolve("app/src/main").toFile().walkTopDown().any { it.isFile && it.extension.equals("gguf", true) })
     }
 
     private fun canonicalGitRoot() {

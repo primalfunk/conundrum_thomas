@@ -25,6 +25,7 @@ import com.conundrum.thomas.v2.languagerenderer.BiographerRenderCommandAdapter
 import com.conundrum.thomas.v2.languagerenderer.GovernedLanguageRenderer
 import com.conundrum.thomas.v2.languagerenderer.GovernedRenderCommand
 import com.conundrum.thomas.v2.languagerenderer.GovernedRenderResult
+import com.conundrum.thomas.v2.languagerenderer.LanguageRealizer
 import com.conundrum.thomas.v2.languagerenderer.JournalRenderCommandAdapter
 import com.conundrum.thomas.v2.languagerenderer.RenderHistoryState
 import com.conundrum.thomas.v2.languagerenderer.RenderQualificationAuthority
@@ -75,6 +76,7 @@ import java.time.ZoneOffset
 class ThomasProductionRuntime(
     private val store: ProtectedPersonalDataStore,
     private val renderer: GovernedLanguageRenderer = GovernedLanguageRenderer(),
+    private val externalRealizer: LanguageRealizer? = null,
 ) : AutoCloseable {
     private val journal = ProductionJournalPipeline(store)
     private val biographer = ProductionBiographerPipeline(store)
@@ -309,6 +311,7 @@ class ThomasProductionRuntime(
     }
 
     override fun close() {
+        (externalRealizer as? AutoCloseable)?.close()
         if (!closed) store.close()
         closed = true
     }
@@ -553,7 +556,7 @@ class ThomasProductionRuntime(
 
     private fun render(command: GovernedRenderCommand): GovernedRenderResult {
         rendererCalls += 1
-        return renderer.render(command, renderHistory).also { renderHistory = it.nextHistory }
+        return renderer.render(command, renderHistory, externalRealizer).also { renderHistory = it.nextHistory }
     }
 
     private fun GovernedRenderCommand.forProduction() =

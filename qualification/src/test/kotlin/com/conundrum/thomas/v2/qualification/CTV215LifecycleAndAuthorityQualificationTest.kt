@@ -211,16 +211,17 @@ class CTV215LifecycleAndAuthorityQualificationTest {
     }
 
     @Test
-    fun `production authority graph has one app root and no model or persistence bypass`() {
+    fun `production authority graph has one app root and bounded local model admission`() {
         val root = Path.of(requireNotNull(System.getProperty("thomas.repositoryRoot")))
         val appSources = kotlinSources(root.resolve("app/src/main"))
         val rendererSources = kotlinSources(root.resolve("thomas/language-renderer/src/main"))
         val runtimeSources = kotlinSources(root.resolve("thomas/runtime/src/main"))
 
         assertEquals(1, appSources.count { it.fileName.toString() == "ThomasAndroidCompositionRoot.kt" })
-        assertEquals(0, appSources.countText("Jdbc|SQLiteDatabase|RoomDatabase|LanguageModel|llama|GGUF"))
+        assertEquals(0, appSources.countText("Jdbc|SQLiteDatabase|RoomDatabase|LanguageModel|NativeLlamaBridge|llama.cpp|GGUF"))
         assertEquals(0, rendererSources.countText("ProtectedPersonalDataStore|LongitudinalAdmissionController|Jdbc|SQLite"))
         assertEquals(0, runtimeSources.countText("LanguageModel|llama|GGUF|https?://"))
+        assertTrue(appSources.countText("ThomasLlamaLanguageRealizer") >= 1)
         assertEquals(1, appSources.countText("AndroidPersonalDataPersistenceFactory.open"))
         assertEquals(0, appSources.countText("""store\.admission\.submit|LongitudinalAdmissionRequest\("""))
     }

@@ -65,7 +65,7 @@ class CTV213AcceptanceTest(private val scenario: Scenario) {
             "ct_v2_05_semantic_repetition_regression", "ct_v2_06_regression", "ct_v2_07_regression",
             "ct_v2_08_regression", "ct_v2_09_regression", "ct_v2_10_regression", "ct_v2_11_regression",
             "ct_v2_12_regression", "journal_default_no_response", "v1_twenty_four_denied",
-            "production_model_roots_zero", "android_renderer_roots_zero", "canonical_git_root_valid",
+            "production_model_root_admitted", "android_renderer_root_admitted", "canonical_git_root_valid",
             "temporary_git_metadata_zero",
         ).also { require(it.size == 131) }
     }
