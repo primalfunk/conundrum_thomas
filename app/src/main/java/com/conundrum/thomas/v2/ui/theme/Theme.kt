@@ -1,58 +1,47 @@
 package com.conundrum.thomas.v2.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
+import com.conundrum.thomas.v2.ThomasColorProfile
+import com.conundrum.thomas.v2.ThomasTextSize
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private fun dark(bg: Long, surface: Long, primary: Long, onBg: Long, variant: Long) = darkColorScheme(
+    primary = C(primary), onPrimary = C(0xFF101418), primaryContainer = C(variant), onPrimaryContainer = C(onBg),
+    secondary = C(onBg), onSecondary = C(0xFF101418), secondaryContainer = C(surface), onSecondaryContainer = C(onBg),
+    tertiary = C(primary), onTertiary = C(0xFF101418), tertiaryContainer = C(variant), onTertiaryContainer = C(onBg),
+    background = C(bg), onBackground = C(onBg), surface = C(surface), onSurface = C(onBg),
+    surfaceVariant = C(variant), onSurfaceVariant = C(onBg), outline = C(onBg), error = C(0xFFFFB4AB),
 )
-
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private fun light(bg: Long, surface: Long, primary: Long, ink: Long, variant: Long) = lightColorScheme(
+    primary = C(primary), onPrimary = C(0xFFFFFFFF), primaryContainer = C(variant), onPrimaryContainer = C(ink),
+    secondary = C(ink), onSecondary = C(0xFFFFFFFF), secondaryContainer = C(surface), onSecondaryContainer = C(ink),
+    tertiary = C(primary), onTertiary = C(0xFFFFFFFF), tertiaryContainer = C(variant), onTertiaryContainer = C(ink),
+    background = C(bg), onBackground = C(ink), surface = C(surface), onSurface = C(ink),
+    surfaceVariant = C(variant), onSurfaceVariant = C(ink), outline = C(ink), error = C(0xFFB3261E),
 )
+private fun C(value: Long) = androidx.compose.ui.graphics.Color(value)
 
 @Composable
 fun ConundrumThomasV2Theme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
+    profile: ThomasColorProfile = ThomasColorProfile.THOMAS_DARK,
+    textSize: ThomasTextSize = ThomasTextSize.STANDARD,
+    content: @Composable () -> Unit,
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    val density = LocalDensity.current
+    val colors = when (profile) {
+        ThomasColorProfile.THOMAS_DARK -> dark(0xFF121820, 0xFF1C2733, 0xFF9DCCFF, 0xFFF4F0E8, 0xFF293849)
+        ThomasColorProfile.MIDNIGHT -> dark(0xFF091523, 0xFF102235, 0xFF9DCCFF, 0xFFE5F2FF, 0xFF1B4160)
+        ThomasColorProfile.QUIET -> dark(0xFF201D1A, 0xFF2B2824, 0xFFE5C588, 0xFFF2E8D8, 0xFF5D4A2F)
+        ThomasColorProfile.PAPER -> light(0xFFFFF9EE, 0xFFF2EBDD, 0xFF1E4C72, 0xFF1B1A18, 0xFFC8E3FF)
+        ThomasColorProfile.HIGH_CONTRAST_DARK -> dark(0xFF000000, 0xFF000000, 0xFFFFFF00, 0xFFFFFFFF, 0xFF1A1A1A)
+        ThomasColorProfile.HIGH_CONTRAST_LIGHT -> light(0xFFFFFFFF, 0xFFFFFFFF, 0xFF000000, 0xFF000000, 0xFFF0F0F0)
     }
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(LocalDensity provides Density(density.density, density.fontScale * textSize.scale)) {
+        MaterialTheme(colorScheme = colors, typography = Typography, content = content)
+    }
 }

@@ -2,6 +2,7 @@ package com.conundrum.thomas.v2
 
 import android.app.Application
 import android.content.ContentResolver
+import android.net.Uri
 import android.os.SystemClock
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
@@ -87,6 +88,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         ::onSpeechEvent,
     )
     private val voicePreferencesStore = AndroidThomasVoicePreferences(application)
+    private val backgroundCustody = ThomasBackgroundCustody(application)
     private val voiceProvider = AndroidSystemThomasVoiceProvider(application)
     private val mutableState = MutableStateFlow(
         ThomasUiState(
@@ -225,6 +227,21 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
 
     fun setStopWhenMicrophoneStarts(value: Boolean) =
         updateVoicePreferences { it.copy(stopWhenMicrophoneStarts = value) }
+
+    fun setColorProfile(value: ThomasColorProfile) = updateVoicePreferences { it.copy(colorProfile = value) }
+    fun setTextSize(value: ThomasTextSize) = updateVoicePreferences { it.copy(textSize = value) }
+    fun setReduceMotion(value: Boolean) = updateVoicePreferences { it.copy(reduceMotion = value) }
+    fun setBackgroundDim(value: BackgroundDim) = updateVoicePreferences { it.copy(backgroundDim = value) }
+    fun setBackgroundBlur(value: Boolean) = updateVoicePreferences { it.copy(backgroundBlur = value) }
+    fun setBackgroundCrop(value: BackgroundCrop) = updateVoicePreferences { it.copy(backgroundCrop = value) }
+    fun importBackground(uri: Uri) {
+        val path = backgroundCustody.import(uri) ?: return
+        updateVoicePreferences { it.copy(backgroundPath = path) }
+    }
+    fun removeBackground() {
+        backgroundCustody.remove()
+        updateVoicePreferences { it.copy(backgroundPath = null) }
+    }
 
     fun previewVoice(profile: ThomasVoiceProfile) {
         val current = mutableState.value

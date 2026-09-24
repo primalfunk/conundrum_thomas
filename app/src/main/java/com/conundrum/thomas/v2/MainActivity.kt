@@ -12,6 +12,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -53,6 +54,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.draw.blur
+import android.graphics.BitmapFactory
+import java.io.File
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
@@ -81,9 +90,7 @@ class MainActivity : ComponentActivity() {
             "BUILD_IDENTITY:${BuildConfig.BUILD_IDENTITY}:package=$packageName:version=${BuildConfig.VERSION_NAME}",
         )
         setContent {
-            ConundrumThomasV2Theme(dynamicColor = false) {
-                ThomasApp()
-            }
+            ThomasApp()
         }
     }
 }
@@ -125,6 +132,12 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
     }
     var showData by remember { mutableStateOf(false) }
     var showSettings by remember { mutableStateOf(false) }
+    val backgroundLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.PickVisualMedia(),
+    ) { uri -> uri?.let(viewModel::importBackground) }
+    ConundrumThomasV2Theme(state.voicePreferences.colorProfile, state.voicePreferences.textSize) {
+    Box(Modifier.fillMaxSize()) {
+        ThomasBackground(state.voicePreferences)
     Scaffold(
         topBar = {
             Surface(shadowElevation = 2.dp) {
@@ -174,6 +187,7 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
             InputPanel(state, viewModel, startSpeech, openSpeechSettings)
         },
         modifier = Modifier.fillMaxSize(),
+        containerColor = Color.Transparent,
     ) { padding ->
         Conversation(
             state,
@@ -191,8 +205,27 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
                 showSettings = false
                 showData = true
             },
+            onChooseBackground = { backgroundLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) },
             onDismiss = { showSettings = false },
         )
+    }
+    }
+    }
+}
+
+@Composable
+private fun ThomasBackground(preferences: ThomasVoicePreferences) {
+    val bitmap = remember(preferences.backgroundPath) {
+        preferences.backgroundPath?.let { BitmapFactory.decodeFile(it) }?.asImageBitmap()
+    }
+    if (bitmap != null) {
+        Image(
+            bitmap = bitmap,
+            contentDescription = null,
+            contentScale = if (preferences.backgroundCrop == BackgroundCrop.CROP) ContentScale.Crop else ContentScale.Fit,
+            modifier = Modifier.fillMaxSize().then(if (preferences.backgroundBlur) Modifier.blur(10.dp) else Modifier),
+        )
+        Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background.copy(alpha = preferences.backgroundDim.alpha)))
     }
 }
 
@@ -236,6 +269,7 @@ private fun Conversation(state: ThomasUiState, modifier: Modifier = Modifier) {
                     Spacer(Modifier.height(20.dp))
                     ThomasThoughtLoom(
                         state = activity.toThoughtState(),
+                        reduceMotion = state.voicePreferences.reduceMotion,
                         modifier = Modifier.testTag("thomas-thought-loom"),
                     )
                 }
@@ -253,6 +287,7 @@ private fun Conversation(state: ThomasUiState, modifier: Modifier = Modifier) {
                 item {
                     ThomasThoughtLoom(
                         state = activity.toThoughtState(),
+                        reduceMotion = state.voicePreferences.reduceMotion,
                         modifier = Modifier.testTag("thomas-thought-loom"),
                     )
                 }
@@ -391,13 +426,14 @@ private fun SettingsDialog(
     state: ThomasUiState,
     viewModel: ThomasViewModel,
     onOpenData: () -> Unit,
+    onChooseBackground: () -> Unit,
     onDismiss: () -> Unit,
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Settings") },
         text = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Text("Voice", style = MaterialTheme.typography.titleSmall)
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Checkbox(
@@ -445,6 +481,49 @@ private fun SettingsDialog(
                     )
                     Text("Stop Thomas when microphone starts", style = MaterialTheme.typography.labelMedium)
                 }
+                HorizontalDivider()
+                Text("Appearance", style = MaterialTheme.typography.titleSmall)
+                Text("Color profile", style = MaterialTheme.typography.labelMedium)
+                ThomasColorProfile.entries.chunked(2).forEach { row ->
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        row.forEach { profile ->
+                            FilterChip(
+                                selected = state.voicePreferences.colorProfile == profile,
+                                onClick = { viewModel.setColorProfile(profile) },
+                                label = { Text(profile.name.replace('_', ' ').lowercase().replaceFirstChar(Char::uppercase)) },
+                                modifier = Modifier.testTag("color-${profile.name.lowercase()}"),
+                            )
+                        }
+                    }
+                }
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    OutlinedButton(onClick = onChooseBackground, modifier = Modifier.testTag("background-choose")) { Text("Choose image") }
+                    OutlinedButton(onClick = viewModel::removeBackground, enabled = state.voicePreferences.backgroundPath != null, modifier = Modifier.testTag("background-remove")) { Text("Remove") }
+                }
+                if (state.voicePreferences.backgroundPath != null) {
+                    Text("Background dim", style = MaterialTheme.typography.labelMedium)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        BackgroundDim.entries.forEach { dim -> FilterChip(state.voicePreferences.backgroundDim == dim, { viewModel.setBackgroundDim(dim) }, { Text(dim.name.lowercase().replaceFirstChar(Char::uppercase)) }) }
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Checkbox(state.voicePreferences.backgroundBlur, viewModel::setBackgroundBlur, Modifier.testTag("background-blur"))
+                        Text("Blur background", style = MaterialTheme.typography.labelMedium)
+                    }
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        BackgroundCrop.entries.forEach { crop -> FilterChip(state.voicePreferences.backgroundCrop == crop, { viewModel.setBackgroundCrop(crop) }, { Text(crop.name.lowercase().replaceFirstChar(Char::uppercase)) }) }
+                    }
+                }
+                HorizontalDivider()
+                Text("Accessibility", style = MaterialTheme.typography.titleSmall)
+                Text("Text size", style = MaterialTheme.typography.labelMedium)
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    ThomasTextSize.entries.forEach { size -> FilterChip(state.voicePreferences.textSize == size, { viewModel.setTextSize(size) }, { Text(size.name.replace('_', ' ').lowercase().replaceFirstChar(Char::uppercase)) }) }
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(state.voicePreferences.reduceMotion, viewModel::setReduceMotion, Modifier.testTag("reduce-motion"))
+                    Text("Reduce motion", style = MaterialTheme.typography.labelMedium)
+                }
+                Text("High contrast profiles are available under Color profile.", style = MaterialTheme.typography.labelSmall)
                 HorizontalDivider()
                 Text("Conversation", style = MaterialTheme.typography.titleSmall)
                 Row(verticalAlignment = Alignment.CenterVertically) {

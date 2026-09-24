@@ -39,10 +39,11 @@ enum class ThomasThoughtState { WAKING, THINKING }
 @Composable
 fun ThomasThoughtLoom(
     state: ThomasThoughtState,
+    reduceMotion: Boolean = false,
     modifier: Modifier = Modifier,
 ) {
     val transition = rememberInfiniteTransition(label = "thomas-thought-loom")
-    val breath = transition.animateFloat(
+    val animatedBreath = transition.animateFloat(
         initialValue = 0.94f,
         targetValue = 1.04f,
         animationSpec = infiniteRepeatable(
@@ -54,7 +55,7 @@ fun ThomasThoughtLoom(
         ),
         label = "thought-loom-breath",
     ).value
-    val weave = transition.animateFloat(
+    val animatedWeave = transition.animateFloat(
         initialValue = 0f,
         targetValue = 1f,
         animationSpec = infiniteRepeatable(
@@ -65,6 +66,9 @@ fun ThomasThoughtLoom(
         ),
         label = "thought-loom-weave",
     ).value
+    // Reduced motion retains the same F-shaped glyph and status, without weaving or scale motion.
+    val breath = if (reduceMotion) 1f else animatedBreath
+    val weave = if (reduceMotion) 0f else animatedWeave
     val assemble = if (state == ThomasThoughtState.WAKING) {
         transition.animateFloat(
             initialValue = 0.54f,
@@ -83,6 +87,9 @@ fun ThomasThoughtLoom(
     } else {
         "Thomas is forming a response"
     }
+    val luminous = MaterialTheme.colorScheme.primary
+    val luminousSecondary = MaterialTheme.colorScheme.tertiary
+    val highlight = MaterialTheme.colorScheme.onSurface
 
     Row(
         modifier = modifier
@@ -103,7 +110,13 @@ fun ThomasThoughtLoom(
                         .size(if (state == ThomasThoughtState.WAKING) 92.dp else 78.dp)
                         .graphicsLayer { scaleX = breath; scaleY = breath },
                 ) {
-                    drawThoughtLoom(weave = weave, assemble = assemble)
+                    drawThoughtLoom(
+                        weave = weave,
+                        assemble = assemble,
+                        luminous = luminous,
+                        luminousSecondary = luminousSecondary,
+                        highlight = highlight,
+                    )
                 }
                 Column(Modifier.padding(start = 10.dp)) {
                     Text("Thomas", style = MaterialTheme.typography.labelLarge)
@@ -119,15 +132,21 @@ fun ThomasThoughtLoom(
     }
 }
 
-private fun DrawScope.drawThoughtLoom(weave: Float, assemble: Float) {
+private fun DrawScope.drawThoughtLoom(
+    weave: Float,
+    assemble: Float,
+    luminous: Color,
+    luminousSecondary: Color,
+    highlight: Color,
+) {
     val w = size.width
     val h = size.height
     val center = Offset(w / 2f, h * 0.54f)
     val top = Offset(w / 2f, h * (0.11f + (1f - assemble) * 0.12f))
     val bottom = Offset(w / 2f, h * (0.9f - (1f - assemble) * 0.12f))
-    val ivory = Color(0xFFF6E7C9)
-    val blue = Color(0xFF8DC7FF)
-    val paleBlue = Color(0xFFD8EDFF)
+    val ivory = highlight
+    val blue = luminous
+    val paleBlue = luminousSecondary
     val phase = (weave - 0.5f) * w * 0.08f
 
     // The central pair cross and separate like the vertical core of concept F.
