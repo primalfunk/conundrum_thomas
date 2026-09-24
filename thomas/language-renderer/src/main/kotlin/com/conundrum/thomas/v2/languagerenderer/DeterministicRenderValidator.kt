@@ -7,6 +7,7 @@ class DeterministicRenderValidator {
         command: GovernedRenderCommand,
         candidate: CandidateRealization,
         history: RenderHistoryState,
+        externalCandidate: Boolean = false,
     ): RenderValidationResult {
         val text = candidate.text
         val authorityText = RenderText.unquotedText(text)
@@ -127,6 +128,9 @@ class DeterministicRenderValidator {
         if (command.fixedSafetyText != null && text != command.fixedSafetyText) {
             reasons += RenderValidationReason.FIXED_SAFETY_TEXT_MISMATCH
         }
+        if (externalCandidate && isShallowCurrentTextEcho(command, text)) {
+            reasons += RenderValidationReason.SHALLOW_CURRENT_TEXT_ECHO
+        }
 
         if (command.fixedSafetyText == null && text.isNotBlank()) {
             val recent = history.entries.takeLast(CT_V2_13_RECENT_RESPONSE_WINDOW)
@@ -159,7 +163,28 @@ class DeterministicRenderValidator {
     private fun containsLiteral(text: String, phrase: String): Boolean =
         text.lowercase(Locale.ROOT).contains(phrase.lowercase(Locale.ROOT))
 
+    /**
+     * A local model may express an authorized reflection, but it must contribute a
+     * conversational move rather than returning the current user data with only an
+     * article or inflection changed. This is a quality gate for external candidates;
+     * deterministic authorized fallback remains available when the candidate fails it.
+     */
+    private fun isShallowCurrentTextEcho(command: GovernedRenderCommand, text: String): Boolean {
+        val current = command.semanticUnits.firstOrNull {
+            it.authorityLabel == SemanticAuthorityLabel.CURRENT_USER_CONTENT_DATA
+        }?.surfaceMeaning ?: return false
+        val currentWords = lexicalWords(current)
+        if (currentWords.size < 3) return false
+        val responseWords = lexicalWords(text)
+        if (!responseWords.containsAll(currentWords)) return false
+        return responseWords.all { it in currentWords || it in trivialEchoWords }
+    }
+
+    private fun lexicalWords(text: String): Set<String> =
+        Regex("[\\p{L}\\p{N}]+").findAll(text.lowercase(Locale.ROOT)).map { it.value }.toSet()
+
     private companion object {
+        val trivialEchoWords = setOf("a", "an", "the")
         val diagnosisPhrases = setOf("i diagnose", "diagnosed you", "you have depression", "you have a disorder")
         val causePhrases = setOf("because of your childhood", "your trauma caused", "the root cause is")
         val motivePhrases = setOf("deep down you", "what you really want", "your unconscious")

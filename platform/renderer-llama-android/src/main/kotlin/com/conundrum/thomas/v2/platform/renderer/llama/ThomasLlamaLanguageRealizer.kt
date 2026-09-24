@@ -1,6 +1,7 @@
 package com.conundrum.thomas.v2.platform.renderer.llama
 
 import android.content.Context
+import android.util.Log
 import com.conundrum.thomas.v2.languagerenderer.CandidateManifest
 import com.conundrum.thomas.v2.languagerenderer.CandidateRealization
 import com.conundrum.thomas.v2.languagerenderer.CandidateRealizationOutcome
@@ -45,6 +46,7 @@ class ThomasLlamaLanguageRealizer(
             if (raw.isBlank()) return@synchronized CandidateRealizationOutcome.Failed("EMPTY_LOCAL_REALIZATION")
             statusRef.set(ThomasRealizerStatus.READY)
             lastDiagnostic = "LOCAL_MODEL_INVOKED:${RecoveredThomasQ6K.SHA256}"
+            Log.i(LOG_TAG, "LOCAL_MODEL_INVOKED")
             CandidateRealizationOutcome.Candidate(
                 CandidateRealization(
                     text = raw,
@@ -56,6 +58,7 @@ class ThomasLlamaLanguageRealizer(
         } catch (error: Throwable) {
             statusRef.set(ThomasRealizerStatus.ERROR)
             lastDiagnostic = "LOCAL_MODEL_FAILURE:${error.javaClass.simpleName}"
+            Log.w(LOG_TAG, "LOCAL_MODEL_FAILURE:${error.javaClass.simpleName}")
             CandidateRealizationOutcome.Unavailable("LOCAL_MODEL_UNAVAILABLE")
         }
     }
@@ -80,6 +83,7 @@ class ThomasLlamaLanguageRealizer(
         loaded = true
         statusRef.set(ThomasRealizerStatus.READY)
         lastDiagnostic = "MODEL_VERIFIED:${verified.actualSha256}:${verified.verifiedBytes}"
+        Log.i(LOG_TAG, "MODEL_VERIFIED_AND_LLAMA_LOADED:${verified.actualSha256}:${verified.verifiedBytes}")
     }
 
     private fun maximumTokens(input: RendererInput): Int =
@@ -101,8 +105,13 @@ class ThomasLlamaLanguageRealizer(
 
 enum class ThomasRealizerStatus { UNLOADED, VERIFYING, LOADING, READY, ERROR }
 
+private const val LOG_TAG = "ThomasLlama"
+
 internal object NativeLlamaBridge {
-    init { System.loadLibrary("thomas_renderer_llama") }
+    init {
+        System.loadLibrary("thomas_renderer_llama")
+        Log.i(LOG_TAG, "THOMAS_LLAMA_LIBRARY_LOADED")
+    }
 
     external fun nativeRuntimeIdentity(): String
     external fun nativeLoad(path: String): String

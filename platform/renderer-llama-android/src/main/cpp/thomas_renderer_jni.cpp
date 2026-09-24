@@ -16,6 +16,7 @@ namespace {
 constexpr int kContextLength = 4096;
 constexpr int kBatchSize = 512;
 constexpr int kThreads = 4;
+constexpr uint32_t kSamplerSeed = 0x54484f4d; // "THOM"; reproducible bounded realization sampling.
 
 struct Engine {
     std::mutex mutex;
@@ -186,7 +187,13 @@ Java_com_conundrum_thomas_v2_platform_renderer_llama_NativeLlamaBridge_nativeGen
         decode_tokens(prompt_tokens);
         llama_sampler * sampler = llama_sampler_chain_init(llama_sampler_chain_default_params());
         if (sampler == nullptr) throw std::runtime_error("Sampler creation failed");
-        llama_sampler_chain_add(sampler, llama_sampler_init_greedy());
+        // Greedy decoding collapsed the admitted conversational model into shallow echoes on
+        // device. Bounded stochastic realization improves expression only; the Kotlin
+        // validator still accepts or rejects every candidate and selects all fallbacks.
+        llama_sampler_chain_add(sampler, llama_sampler_init_top_k(40));
+        llama_sampler_chain_add(sampler, llama_sampler_init_top_p(0.90f, 1));
+        llama_sampler_chain_add(sampler, llama_sampler_init_temp(0.70f));
+        llama_sampler_chain_add(sampler, llama_sampler_init_dist(kSamplerSeed));
         std::string output;
         const auto * vocab = llama_model_get_vocab(g_engine.model);
         for (int token_index = 0; token_index < maximum_tokens; ++token_index) {

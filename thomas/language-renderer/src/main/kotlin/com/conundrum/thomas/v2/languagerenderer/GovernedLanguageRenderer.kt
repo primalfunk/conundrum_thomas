@@ -41,7 +41,7 @@ class GovernedLanguageRenderer(
             }
             when (outcome) {
                 is CandidateRealizationOutcome.Candidate -> {
-                    val validation = validator.validate(command, outcome.realization, history)
+                    val validation = validator.validate(command, outcome.realization, history, externalCandidate = true)
                     if (validation.accepted) {
                         return accepted(command, history, outcome.realization, validation, attempts, false,
                             AcceptedRealizationSource.EXTERNAL, RenderDisposition.ACCEPTED_EXTERNAL_REALIZATION, rejected)
