@@ -2,9 +2,11 @@ package com.conundrum.thomas.v2.platform.speech
 
 import android.content.Context
 import android.os.Bundle
+import android.os.SystemClock
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
+import android.util.Log
 import java.util.Locale
 import java.util.UUID
 
@@ -50,15 +52,32 @@ class AndroidSystemThomasVoiceProvider(context: Context) : ThomasVoiceProvider {
     private var ready = false
     private var activeListener: ThomasVoiceListener? = null
     private var activeId: String? = null
+    private var activeStartedAtMs = 0L
 
     init {
         engine = TextToSpeech(applicationContext) { status ->
             ready = status == TextToSpeech.SUCCESS
-            if (ready) engine?.language = Locale.US
+            if (ready) {
+                engine?.language = Locale.US
+                val catalog = engine?.voices.orEmpty()
+                    .filter {
+                        it.locale == Locale.US &&
+                            !it.isNetworkConnectionRequired &&
+                            "notInstalled" !in it.features.orEmpty()
+                    }
+                    .sortedBy { it.name }
+                    .joinToString(" | ") { voice ->
+                    "${voice.name};${voice.locale};network=${voice.isNetworkConnectionRequired};features=${voice.features.orEmpty().sorted()}"
+                }
+                Log.i(TAG, "SYSTEM_TTS_CATALOG $catalog")
+            }
         }.also { tts ->
             tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                 override fun onStart(utteranceId: String) {
-                    if (utteranceId == activeId) activeListener?.onVoiceEvent(ThomasVoiceEvent.Started)
+                    if (utteranceId == activeId) {
+                        Log.i(TAG, "SYSTEM_TTS_STARTED latency_ms=${SystemClock.elapsedRealtime() - activeStartedAtMs}")
+                        activeListener?.onVoiceEvent(ThomasVoiceEvent.Started)
+                    }
                 }
                 override fun onDone(utteranceId: String) {
                     if (utteranceId == activeId) {
@@ -86,6 +105,8 @@ class AndroidSystemThomasVoiceProvider(context: Context) : ThomasVoiceProvider {
         val id = "thomas-${UUID.randomUUID()}"
         activeId = id
         activeListener = listener
+        activeStartedAtMs = SystemClock.elapsedRealtime()
+        Log.i(TAG, "SYSTEM_TTS_REQUEST profile=${presentation.profile} voice=${voice?.name ?: "engine-default"}")
         val result = tts.speak(response.text, TextToSpeech.QUEUE_FLUSH, Bundle(), id)
         if (result != TextToSpeech.SUCCESS) {
             activeId = null
@@ -97,7 +118,10 @@ class AndroidSystemThomasVoiceProvider(context: Context) : ThomasVoiceProvider {
         val wasActive = activeId != null
         engine?.stop()
         activeId = null
-        if (wasActive) activeListener?.onVoiceEvent(ThomasVoiceEvent.Stopped)
+        if (wasActive) {
+            Log.i(TAG, "SYSTEM_TTS_STOP active_ms=${SystemClock.elapsedRealtime() - activeStartedAtMs}")
+            activeListener?.onVoiceEvent(ThomasVoiceEvent.Stopped)
+        }
     }
 
     override fun close() {
@@ -116,18 +140,18 @@ class AndroidSystemThomasVoiceProvider(context: Context) : ThomasVoiceProvider {
 
     private fun selectVoice(tts: TextToSpeech, profile: ThomasVoiceProfile): Voice? {
         val offline = tts.voices.orEmpty().filter {
-            it.locale.language == Locale.US.language && !it.isNetworkConnectionRequired
+            it.locale == Locale.US &&
+                !it.isNetworkConnectionRequired &&
+                "notInstalled" !in it.features.orEmpty()
         }.sortedBy { it.name }
         if (offline.isEmpty()) return null
-        val hinted = offline.filter { voice ->
-            val name = voice.name.lowercase(Locale.ROOT)
-            when (profile) {
-                ThomasVoiceProfile.MALE -> "male" in name || "am_" in name
-                ThomasVoiceProfile.FEMALE -> "female" in name || "af_" in name
-                ThomasVoiceProfile.NEUTRAL -> "neutral" in name || "androgyn" in name
-            }
+        val preferred = when (profile) {
+            ThomasVoiceProfile.MALE -> "en-us-x-iob-local"
+            ThomasVoiceProfile.FEMALE -> "en-us-x-iog-local"
+            ThomasVoiceProfile.NEUTRAL -> "en-us-x-iol-local"
         }
-        val candidates = if (hinted.isNotEmpty()) hinted else offline
-        return candidates[profile.ordinal % candidates.size]
+        return offline.firstOrNull { it.name == preferred } ?: offline[profile.ordinal % offline.size]
     }
+
+    private companion object { const val TAG = "ThomasSystemTts" }
 }
