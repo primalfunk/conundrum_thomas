@@ -21,6 +21,72 @@ data class ValidatedThomasResponse(val text: String) {
 enum class ThomasVoiceProfile { MALE, FEMALE, NEUTRAL }
 enum class ThomasSpeechRate(val multiplier: Float) { SLOW(0.84f), NORMAL(1.0f), FAST(1.16f) }
 
+/**
+ * Product-owned, offline Google voice identities for the TCL 9491G generation.
+ * These identifiers are intentionally not presentation labels: ordinary UI exposes
+ * only [ThomasVoiceProfile].  The secondary entries are the previously qualified
+ * per-profile fallbacks, not candidates for ordinary audition.
+ */
+object ThomasSystemVoiceMappings {
+    private val primary = mapOf(
+        ThomasVoiceProfile.MALE to "en-us-x-iob-local",
+        ThomasVoiceProfile.FEMALE to "en-us-x-iog-local",
+        ThomasVoiceProfile.NEUTRAL to "en-us-x-iol-local",
+    )
+    private val qualifiedFallback = mapOf(
+        ThomasVoiceProfile.MALE to "en-us-x-iom-local",
+        ThomasVoiceProfile.FEMALE to "en-us-x-sfg-local",
+        ThomasVoiceProfile.NEUTRAL to "en-us-x-tpc-local",
+    )
+
+    fun primaryFor(profile: ThomasVoiceProfile): String = checkNotNull(primary[profile])
+    fun qualifiedFallbackFor(profile: ThomasVoiceProfile): String = checkNotNull(qualifiedFallback[profile])
+}
+
+/** Android-independent voice facts, retained solely to make selection testable. */
+data class ThomasSystemVoiceCandidate(
+    val name: String,
+    val locale: Locale,
+    val networkConnectionRequired: Boolean,
+    val installed: Boolean,
+)
+
+enum class ThomasVoiceSelectionKind { PREFERRED, QUALIFIED_FALLBACK, SAFE_ENGLISH_FALLBACK, UNAVAILABLE }
+
+data class ThomasVoiceSelection(
+    val candidate: ThomasSystemVoiceCandidate?,
+    val kind: ThomasVoiceSelectionKind,
+)
+
+/**
+ * Resolves only installed, non-network voices. Exact product mappings must be US
+ * English; the final safety net remains an installed offline English system voice.
+ */
+fun selectThomasSystemVoice(
+    profile: ThomasVoiceProfile,
+    catalog: Collection<ThomasSystemVoiceCandidate>,
+): ThomasVoiceSelection {
+    fun isOffline(candidate: ThomasSystemVoiceCandidate) =
+        candidate.installed && !candidate.networkConnectionRequired
+    fun exact(name: String) = catalog.firstOrNull {
+        it.name == name && it.locale == Locale.US && isOffline(it)
+    }
+
+    exact(ThomasSystemVoiceMappings.primaryFor(profile))?.let {
+        return ThomasVoiceSelection(it, ThomasVoiceSelectionKind.PREFERRED)
+    }
+    exact(ThomasSystemVoiceMappings.qualifiedFallbackFor(profile))?.let {
+        return ThomasVoiceSelection(it, ThomasVoiceSelectionKind.QUALIFIED_FALLBACK)
+    }
+    return catalog.asSequence()
+        .filter(::isOffline)
+        .filter { it.locale.language == Locale.ENGLISH.language }
+        .sortedBy { it.name }
+        .firstOrNull()
+        ?.let { ThomasVoiceSelection(it, ThomasVoiceSelectionKind.SAFE_ENGLISH_FALLBACK) }
+        ?: ThomasVoiceSelection(null, ThomasVoiceSelectionKind.UNAVAILABLE)
+}
+
 data class ThomasVoicePresentation(
     val profile: ThomasVoiceProfile,
     val rate: ThomasSpeechRate,
@@ -59,17 +125,21 @@ class AndroidSystemThomasVoiceProvider(context: Context) : ThomasVoiceProvider {
             ready = status == TextToSpeech.SUCCESS
             if (ready) {
                 engine?.language = Locale.US
-                val catalog = engine?.voices.orEmpty()
-                    .filter {
-                        it.locale == Locale.US &&
-                            !it.isNetworkConnectionRequired &&
-                            "notInstalled" !in it.features.orEmpty()
-                    }
-                    .sortedBy { it.name }
+                val catalog = voiceCatalog(engine).filter { candidate ->
+                    candidate.installed && !candidate.networkConnectionRequired
+                }.sortedBy { it.name }
                     .joinToString(" | ") { voice ->
-                    "${voice.name};${voice.locale};network=${voice.isNetworkConnectionRequired};features=${voice.features.orEmpty().sorted()}"
+                    "${voice.name};${voice.locale};network=${voice.networkConnectionRequired};installed=${voice.installed}"
                 }
                 Log.i(TAG, "SYSTEM_TTS_CATALOG $catalog")
+                ThomasVoiceProfile.entries.forEach { profile ->
+                    val selection = selectThomasSystemVoice(profile, voiceCatalog(engine))
+                    Log.i(
+                        TAG,
+                        "SYSTEM_TTS_STARTUP_SELECTION profile=$profile kind=${selection.kind} " +
+                            "voice=${selection.candidate?.name ?: "none"}",
+                    )
+                }
             }
         }.also { tts ->
             tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
@@ -99,14 +169,21 @@ class AndroidSystemThomasVoiceProvider(context: Context) : ThomasVoiceProvider {
             return
         }
         stop()
-        val voice = selectVoice(tts, presentation.profile)
+        val selection = selectThomasSystemVoice(presentation.profile, voiceCatalog(tts))
+        val voice = selection.candidate?.let { selected ->
+            tts.voices.orEmpty().firstOrNull { it.name == selected.name }
+        }
         if (voice != null) tts.voice = voice
         tts.setSpeechRate(presentation.rate.multiplier)
         val id = "thomas-${UUID.randomUUID()}"
         activeId = id
         activeListener = listener
         activeStartedAtMs = SystemClock.elapsedRealtime()
-        Log.i(TAG, "SYSTEM_TTS_REQUEST profile=${presentation.profile} voice=${voice?.name ?: "engine-default"}")
+        Log.i(
+            TAG,
+            "SYSTEM_TTS_REQUEST profile=${presentation.profile} selection=${selection.kind} " +
+                "voice=${voice?.name ?: "engine-default"}",
+        )
         val result = tts.speak(response.text, TextToSpeech.QUEUE_FLUSH, Bundle(), id)
         if (result != TextToSpeech.SUCCESS) {
             activeId = null
@@ -138,20 +215,15 @@ class AndroidSystemThomasVoiceProvider(context: Context) : ThomasVoiceProvider {
         }
     }
 
-    private fun selectVoice(tts: TextToSpeech, profile: ThomasVoiceProfile): Voice? {
-        val offline = tts.voices.orEmpty().filter {
-            it.locale == Locale.US &&
-                !it.isNetworkConnectionRequired &&
-                "notInstalled" !in it.features.orEmpty()
-        }.sortedBy { it.name }
-        if (offline.isEmpty()) return null
-        val preferred = when (profile) {
-            ThomasVoiceProfile.MALE -> "en-us-x-iob-local"
-            ThomasVoiceProfile.FEMALE -> "en-us-x-iog-local"
-            ThomasVoiceProfile.NEUTRAL -> "en-us-x-iol-local"
+    private fun voiceCatalog(tts: TextToSpeech?): List<ThomasSystemVoiceCandidate> =
+        tts?.voices.orEmpty().map { voice ->
+            ThomasSystemVoiceCandidate(
+                name = voice.name,
+                locale = voice.locale,
+                networkConnectionRequired = voice.isNetworkConnectionRequired,
+                installed = "notInstalled" !in voice.features.orEmpty(),
+            )
         }
-        return offline.firstOrNull { it.name == preferred } ?: offline[profile.ordinal % offline.size]
-    }
 
     private companion object { const val TAG = "ThomasSystemTts" }
 }
