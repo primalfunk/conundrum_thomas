@@ -28,4 +28,21 @@ class LocalModelEchoGuardTest {
         assertTrue(RenderValidationReason.SHALLOW_CURRENT_TEXT_ECHO in result.rejectedCandidateReasons.flatten())
         assertTrue(result.finalText!!.startsWith("I hear that"))
     }
+
+    @Test fun `control language and prefixed current-text echo are rejected`() {
+        val command = TherapyRenderCommandAdapter.adapt(
+            CTV213TestSupport.id("local-model-control-leak"), 1, CTV213TestSupport.therapyEnvelope(),
+        )
+        val candidate = CandidateRealization(
+            "The authorized act is: I hear that The work felt exhausting today.",
+            "ct-v2-thomas-llama", "device-fixture", CTV213TestSupport.manifest(command),
+        )
+        val result = GovernedLanguageRenderer().render(command, externalRealizer = LanguageRealizer { _, _ ->
+            CandidateRealizationOutcome.Candidate(candidate)
+        })
+
+        assertEquals(RenderDisposition.FALLBACK_REALIZATION, result.disposition)
+        assertTrue(RenderValidationReason.CONTROL_LANGUAGE_LEAKAGE in result.rejectedCandidateReasons.flatten())
+        assertTrue(RenderValidationReason.SHALLOW_CURRENT_TEXT_ECHO in result.rejectedCandidateReasons.flatten())
+    }
 }

@@ -128,6 +128,9 @@ class DeterministicRenderValidator {
         if (command.fixedSafetyText != null && text != command.fixedSafetyText) {
             reasons += RenderValidationReason.FIXED_SAFETY_TEXT_MISMATCH
         }
+        if (externalCandidate && containsAny(authorityText, controlLanguagePhrases)) {
+            reasons += RenderValidationReason.CONTROL_LANGUAGE_LEAKAGE
+        }
         if (externalCandidate && isShallowCurrentTextEcho(command, text)) {
             reasons += RenderValidationReason.SHALLOW_CURRENT_TEXT_ECHO
         }
@@ -177,7 +180,12 @@ class DeterministicRenderValidator {
         if (currentWords.size < 3) return false
         val responseWords = lexicalWords(text)
         if (!responseWords.containsAll(currentWords)) return false
-        return responseWords.all { it in currentWords || it in trivialEchoWords }
+        if (responseWords.all { it in currentWords || it in trivialEchoWords }) return true
+        val normalizedCurrent = current.lowercase(Locale.ROOT).replace(Regex("[^\\p{L}\\p{N}]+"), " ").trim()
+        val normalizedResponse = text.lowercase(Locale.ROOT).replace(Regex("[^\\p{L}\\p{N}]+"), " ").trim()
+        val prefix = normalizedResponse.substringBefore(normalizedCurrent, missingDelimiterValue = "")
+        return normalizedResponse.endsWith(normalizedCurrent) && prefix.isNotBlank() &&
+            lexicalWords(prefix).size <= 8
     }
 
     private fun lexicalWords(text: String): Set<String> =
@@ -185,6 +193,11 @@ class DeterministicRenderValidator {
 
     private companion object {
         val trivialEchoWords = setOf("a", "an", "the")
+        val controlLanguagePhrases = setOf(
+            "authorized act", "authorized_act", "authorized act unit", "contract version",
+            "response posture", "semantic act", "policy identifier", "policy id",
+            "render command", "governed semantic", "implementation detail",
+        )
         val diagnosisPhrases = setOf("i diagnose", "diagnosed you", "you have depression", "you have a disorder")
         val causePhrases = setOf("because of your childhood", "your trauma caused", "the root cause is")
         val motivePhrases = setOf("deep down you", "what you really want", "your unconscious")

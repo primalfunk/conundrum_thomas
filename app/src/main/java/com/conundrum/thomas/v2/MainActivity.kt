@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -34,6 +35,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -118,6 +120,7 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
         )
     }
     var showData by remember { mutableStateOf(false) }
+    var showSettings by remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
             Surface(shadowElevation = 2.dp) {
@@ -148,9 +151,9 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
                             }
                         }
                         TextButton(
-                            onClick = { showData = true },
-                            modifier = Modifier.testTag("data-custody"),
-                        ) { Text("Your data") }
+                            onClick = { showSettings = true },
+                            modifier = Modifier.testTag("settings"),
+                        ) { Text("Settings") }
                     }
                     Spacer(Modifier.height(10.dp))
                     ModeSelector(
@@ -165,7 +168,7 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
         bottomBar = {
             InputPanel(state, viewModel, startSpeech, openSpeechSettings)
         },
-        modifier = Modifier.fillMaxSize().imePadding(),
+        modifier = Modifier.fillMaxSize(),
     ) { padding ->
         Conversation(
             state,
@@ -174,6 +177,17 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
     }
     if (showData) {
         DataCustodyDialog(viewModel, onDismiss = { showData = false })
+    }
+    if (showSettings) {
+        SettingsDialog(
+            state = state,
+            viewModel = viewModel,
+            onOpenData = {
+                showSettings = false
+                showData = true
+            },
+            onDismiss = { showSettings = false },
+        )
     }
 }
 
@@ -275,20 +289,12 @@ private fun InputPanel(
     onOpenSpeechSettings: () -> Unit,
 ) {
     Surface(shadowElevation = 4.dp) {
-        Column(Modifier.fillMaxWidth().padding(12.dp)) {
-            when (state.mode) {
-                ProductionThomasMode.JOURNAL -> JournalControls(state, viewModel)
-                ProductionThomasMode.THERAPY -> TherapyControls(state, viewModel)
-                ProductionThomasMode.BIOGRAPHER -> Unit
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = state.privateTurn,
-                    onCheckedChange = viewModel::setPrivate,
-                    modifier = Modifier.testTag("private-turn"),
-                )
-                Text("Private: use now, exclude from future memory", style = MaterialTheme.typography.labelMedium)
-            }
+        Column(
+            Modifier.fillMaxWidth()
+                .navigationBarsPadding()
+                .imePadding()
+                .padding(start = 12.dp, top = 12.dp, end = 12.dp, bottom = 28.dp),
+        ) {
             SpeechControls(state, viewModel, onStartSpeech, onOpenSpeechSettings)
             OutlinedTextField(
                 value = state.draft,
@@ -302,6 +308,12 @@ private fun InputPanel(
                 modifier = Modifier.fillMaxWidth().testTag("turn-draft"),
             )
             Spacer(Modifier.height(8.dp))
+            if (state.processing) {
+                LinearProgressIndicator(
+                    modifier = Modifier.fillMaxWidth().testTag("working-progress"),
+                )
+                Spacer(Modifier.height(8.dp))
+            }
             Row(
                 Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
@@ -319,11 +331,90 @@ private fun InputPanel(
                     enabled = state.runtimeAvailable && !state.processing && state.draft.isNotBlank(),
                     modifier = Modifier.testTag("commit-turn"),
                 ) {
-                    Text(if (state.processing) "Working…" else "Send")
+                    Text("Send")
                 }
             }
         }
     }
+}
+
+@Composable
+private fun SettingsDialog(
+    state: ThomasUiState,
+    viewModel: ThomasViewModel,
+    onOpenData: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Settings") },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("Conversation", style = MaterialTheme.typography.titleSmall)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(
+                        checked = state.explicitRecall,
+                        onCheckedChange = viewModel::setExplicitRecall,
+                        modifier = Modifier.testTag("therapy-explicit-recall"),
+                    )
+                    Text("Look back at eligible earlier context", style = MaterialTheme.typography.labelMedium)
+                }
+                HorizontalDivider()
+                Text("Privacy", style = MaterialTheme.typography.titleSmall)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(
+                        checked = state.privateTurn,
+                        onCheckedChange = viewModel::setPrivate,
+                        modifier = Modifier.testTag("private-turn"),
+                    )
+                    Text("Private: use now, exclude from future memory", style = MaterialTheme.typography.labelMedium)
+                }
+                if (state.mode == ProductionThomasMode.THERAPY) {
+                    HorizontalDivider()
+                    Text("Therapy", style = MaterialTheme.typography.titleSmall)
+                    Text("Support style", style = MaterialTheme.typography.labelMedium)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        listOf(
+                            RequestedOrdinarySupport.LISTEN to "Listen",
+                            RequestedOrdinarySupport.UNDERSTAND to "Understand",
+                            RequestedOrdinarySupport.PRACTICAL_HELP to "Practical",
+                        ).forEach { (support, label) ->
+                            FilterChip(
+                                selected = state.therapySupport == support,
+                                onClick = { viewModel.setTherapySupport(support) },
+                                label = { Text(label) },
+                                modifier = Modifier.testTag("therapy-${support.name.lowercase()}"),
+                            )
+                        }
+                    }
+                }
+                if (state.mode == ProductionThomasMode.JOURNAL) {
+                    HorizontalDivider()
+                    Text("Journal", style = MaterialTheme.typography.titleSmall)
+                    Text("After committing", style = MaterialTheme.typography.labelMedium)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        listOf(
+                            JournalResponsePreference.NO_RESPONSE to "Silence",
+                            JournalResponsePreference.REFLECT to "Reflect",
+                            JournalResponsePreference.ASK_ONE_QUESTION to "One question",
+                        ).forEach { (preference, label) ->
+                            FilterChip(
+                                selected = state.journalPreference == preference,
+                                onClick = { viewModel.setJournalPreference(preference) },
+                                label = { Text(label) },
+                                modifier = Modifier.testTag("journal-${preference.name.lowercase()}"),
+                            )
+                        }
+                    }
+                }
+                HorizontalDivider()
+                TextButton(onClick = onOpenData, modifier = Modifier.testTag("data-custody")) {
+                    Text("Your data")
+                }
+            }
+        },
+        confirmButton = { TextButton(onClick = onDismiss) { Text("Done") } },
+    )
 }
 
 @Composable

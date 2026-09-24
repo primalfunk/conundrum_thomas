@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <atomic>
+#include <chrono>
 #include <mutex>
 #include <sstream>
 #include <stdexcept>
@@ -15,13 +16,14 @@ namespace {
 
 constexpr int kContextLength = 4096;
 constexpr int kBatchSize = 512;
-constexpr int kThreads = 4;
+constexpr int kThreads = 6;
 constexpr uint32_t kSamplerSeed = 0x54484f4d; // "THOM"; reproducible bounded realization sampling.
 
 struct Engine {
     std::mutex mutex;
     llama_model * model = nullptr;
     llama_context * context = nullptr;
+    std::vector<llama_token> cached_prompt_tokens;
     std::atomic_bool generating{false};
 };
 
@@ -45,6 +47,7 @@ void release_locked() {
         llama_model_free(g_engine.model);
         g_engine.model = nullptr;
     }
+    g_engine.cached_prompt_tokens.clear();
 }
 
 std::vector<llama_token> tokenize(const llama_vocab * vocab, const std::string & text) {
@@ -131,6 +134,7 @@ extern "C" JNIEXPORT jstring JNICALL
 Java_com_conundrum_thomas_v2_platform_renderer_llama_NativeLlamaBridge_nativeLoad(
     JNIEnv * env, jobject, jstring path) {
     try {
+        const auto started = std::chrono::steady_clock::now();
         const std::string model_path = from_java(env, path);
         if (model_path.empty()) throw std::invalid_argument("Model path is empty");
         std::lock_guard<std::mutex> lock(g_engine.mutex);
@@ -153,6 +157,11 @@ Java_com_conundrum_thomas_v2_platform_renderer_llama_NativeLlamaBridge_nativeLoa
         }
         char description[256] = {};
         llama_model_desc(g_engine.model, description, sizeof(description));
+        const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::steady_clock::now() - started).count();
+        __android_log_print(ANDROID_LOG_INFO, "ThomasLlamaNative",
+            "THOMAS_NATIVE_LOAD_TIMING total_ms=%lld threads=%d context=%d",
+            static_cast<long long>(elapsed), kThreads, kContextLength);
         return result_or_throw(env, description);
     } catch (const std::exception & error) {
         release_locked();
@@ -165,10 +174,12 @@ extern "C" JNIEXPORT jstring JNICALL
 Java_com_conundrum_thomas_v2_platform_renderer_llama_NativeLlamaBridge_nativeGenerate(
     JNIEnv * env, jobject, jstring system_prompt, jstring user_prompt, jint maximum_tokens) {
     try {
+        const auto requested = std::chrono::steady_clock::now();
         if (maximum_tokens < 1 || maximum_tokens > 256) {
             throw std::invalid_argument("Maximum generation length is outside the governed range");
         }
         std::lock_guard<std::mutex> lock(g_engine.mutex);
+        const auto locked = std::chrono::steady_clock::now();
         if (g_engine.model == nullptr || g_engine.context == nullptr) {
             throw std::runtime_error("Governed model is not loaded");
         }
@@ -183,8 +194,24 @@ Java_com_conundrum_thomas_v2_platform_renderer_llama_NativeLlamaBridge_nativeGen
         if (prompt_tokens.empty() || prompt_tokens.size() + static_cast<size_t>(maximum_tokens) > kContextLength) {
             throw std::runtime_error("Governed prompt exceeds the pinned context length");
         }
-        llama_memory_clear(llama_get_memory(g_engine.context), true);
-        decode_tokens(prompt_tokens);
+        size_t reusable_prefix_tokens = 0;
+        while (reusable_prefix_tokens < prompt_tokens.size() &&
+            reusable_prefix_tokens < g_engine.cached_prompt_tokens.size() &&
+            prompt_tokens[reusable_prefix_tokens] == g_engine.cached_prompt_tokens[reusable_prefix_tokens]) {
+            ++reusable_prefix_tokens;
+        }
+        const auto memory = llama_get_memory(g_engine.context);
+        if (reusable_prefix_tokens == 0 ||
+            !llama_memory_seq_rm(memory, 0, static_cast<llama_pos>(reusable_prefix_tokens), -1)) {
+            reusable_prefix_tokens = 0;
+            llama_memory_clear(memory, true);
+        }
+        const auto prefill_started = std::chrono::steady_clock::now();
+        std::vector<llama_token> suffix(
+            prompt_tokens.begin() + static_cast<std::ptrdiff_t>(reusable_prefix_tokens), prompt_tokens.end());
+        decode_tokens(suffix);
+        const auto prefill_finished = std::chrono::steady_clock::now();
+        g_engine.cached_prompt_tokens = prompt_tokens;
         llama_sampler * sampler = llama_sampler_chain_init(llama_sampler_chain_default_params());
         if (sampler == nullptr) throw std::runtime_error("Sampler creation failed");
         // Greedy decoding collapsed the admitted conversational model into shallow echoes on
@@ -196,11 +223,16 @@ Java_com_conundrum_thomas_v2_platform_renderer_llama_NativeLlamaBridge_nativeGen
         llama_sampler_chain_add(sampler, llama_sampler_init_dist(kSamplerSeed));
         std::string output;
         const auto * vocab = llama_model_get_vocab(g_engine.model);
+        int generated_tokens = 0;
+        long long first_token_ms = -1;
         for (int token_index = 0; token_index < maximum_tokens; ++token_index) {
             const llama_token token = llama_sampler_sample(sampler, g_engine.context, -1);
             if (llama_vocab_is_eog(vocab, token)) break;
             llama_sampler_accept(sampler, token);
             output += token_piece(vocab, token);
+            generated_tokens += 1;
+            if (first_token_ms < 0) first_token_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                std::chrono::steady_clock::now() - requested).count();
             llama_token next = token;
             llama_batch batch = llama_batch_get_one(&next, 1);
             if (llama_decode(g_engine.context, batch) != 0) {
@@ -209,6 +241,16 @@ Java_com_conundrum_thomas_v2_platform_renderer_llama_NativeLlamaBridge_nativeGen
             }
         }
         llama_sampler_free(sampler);
+        const auto completed = std::chrono::steady_clock::now();
+        const auto lock_wait_ms = std::chrono::duration_cast<std::chrono::milliseconds>(locked - requested).count();
+        const auto prefill_ms = std::chrono::duration_cast<std::chrono::milliseconds>(prefill_finished - prefill_started).count();
+        const auto generation_ms = std::chrono::duration_cast<std::chrono::milliseconds>(completed - prefill_finished).count();
+        const auto total_ms = std::chrono::duration_cast<std::chrono::milliseconds>(completed - requested).count();
+        __android_log_print(ANDROID_LOG_INFO, "ThomasLlamaNative",
+            "THOMAS_NATIVE_GENERATE_TIMING lock_wait_ms=%lld prompt_tokens=%zu reused_prefix_tokens=%zu prefill_ms=%lld first_token_ms=%lld generation_ms=%lld generated_tokens=%d total_ms=%lld max_tokens=%d threads=%d",
+            static_cast<long long>(lock_wait_ms), prompt_tokens.size(), reusable_prefix_tokens, static_cast<long long>(prefill_ms),
+            first_token_ms, static_cast<long long>(generation_ms), generated_tokens,
+            static_cast<long long>(total_ms), maximum_tokens, kThreads);
         return result_or_throw(env, output);
     } catch (const std::invalid_argument & error) {
         throw_argument(env, error.what());

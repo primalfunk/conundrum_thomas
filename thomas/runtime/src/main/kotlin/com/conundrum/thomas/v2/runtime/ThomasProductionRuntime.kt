@@ -122,6 +122,8 @@ class ThomasProductionRuntime(
     }
 
     fun submit(request: ProductionTurnRequest): ProductionTurnResult {
+        val started = System.nanoTime()
+        timing(request.clientTurnIndex, "send_received", started, "mode=${request.mode} origin=${request.inputOrigin}")
         if (closed) return unavailable(request, "RUNTIME_CLOSED")
         if (request.committedText.isBlank()) {
             return baseResult(request, ProductionTurnDisposition.REJECTED_BLANK, "BLANK_INPUT_NOT_COMMITTED")
@@ -130,11 +132,14 @@ class ThomasProductionRuntime(
             return baseResult(request, ProductionTurnDisposition.REJECTED_BUSY, "TURN_ALREADY_PROCESSING")
         }
         return try {
-            when (request.mode) {
+            val result = when (request.mode) {
                 ProductionThomasMode.JOURNAL -> submitJournal(request)
                 ProductionThomasMode.BIOGRAPHER -> submitBiographer(request)
                 ProductionThomasMode.THERAPY -> submitTherapy(request)
             }
+            timing(request.clientTurnIndex, "runtime_complete", started,
+                "disposition=${result.disposition} rendered=${result.renderResult?.disposition}")
+            result
         } catch (_: RuntimeException) {
             baseResult(request, ProductionTurnDisposition.PERSISTENCE_UNAVAILABLE, "GOVERNED_RUNTIME_OPERATION_FAILED")
         } finally {
@@ -462,6 +467,7 @@ class ThomasProductionRuntime(
     }
 
     private fun submitTherapy(request: ProductionTurnRequest): ProductionTurnResult {
+        val started = System.nanoTime()
         val identity = identity("therapy", request)
         val proceduralText = if (safetyObservations.handlesReply(request.committedText)) "" else request.committedText
         val lines = proceduralText.lineSequence().toList()
@@ -473,6 +479,7 @@ class ThomasProductionRuntime(
             .map { therapyInput.observe(request.copy(committedText = it)) }.last()
         val safetyInput = safetyObservations.observe(request)
         val safety = safetyGate.govern(safetyInput)
+        timing(request.clientTurnIndex, "input_interpreted", started, "safety=${safety.authorityState}")
         updateBiographerSafetyInterruption(safety)
         val preTurnRevision = store.reader.currentStoreRevision()
         val turnId = TherapyTurnId.parse(identity)
@@ -495,6 +502,8 @@ class ThomasProductionRuntime(
             ),
         )
         val plan = integrated.plan
+        timing(request.clientTurnIndex, "policy_action_selected", started,
+            "has_plan=${plan != null} safety=${safety.authorityState}")
         plan?.let {
             therapyMemory = it.nextSessionMemoryState
         }
@@ -516,6 +525,10 @@ class ThomasProductionRuntime(
                 requireNotNull(plan.renderSupport),
             ).forProduction()
             else -> null
+        }
+        command?.let {
+            timing(request.clientTurnIndex, "render_command_and_context_ready", started,
+                "mode=${it.mode} act=${it.semanticAct} units=${it.semanticUnits.size} memories=${it.historicalSupport.size}")
         }
         if (command == null) {
             val disposition = if (safety.authorityState != SafetyAuthorityState.ORDINARY_POLICY_ALLOWED) {
@@ -555,8 +568,20 @@ class ThomasProductionRuntime(
     }
 
     private fun render(command: GovernedRenderCommand): GovernedRenderResult {
+        val started = System.nanoTime()
+        timing(command.turnIndex.toLong(), "render_start", started,
+            "mode=${command.mode} act=${command.semanticAct}")
         rendererCalls += 1
-        return renderer.render(command, renderHistory, externalRealizer).also { renderHistory = it.nextHistory }
+        return renderer.render(command, renderHistory, externalRealizer).also {
+            renderHistory = it.nextHistory
+            timing(command.turnIndex.toLong(), "validation_complete", started,
+                "disposition=${it.disposition} source=${it.realizationSource} attempts=${it.candidateAttemptCount} reasons=${it.validation.reasonCodes}")
+        }
+    }
+
+    private fun timing(turn: Long, stage: String, started: Long, detail: String) {
+        val elapsedMs = (System.nanoTime() - started) / 1_000_000
+        println("THOMAS_RUNTIME_TIMING turn=$turn stage=$stage elapsed_ms=$elapsedMs $detail")
     }
 
     private fun GovernedRenderCommand.forProduction() =

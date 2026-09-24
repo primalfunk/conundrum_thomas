@@ -1,6 +1,7 @@
 package com.conundrum.thomas.v2.platform.renderer.llama
 
 import android.content.Context
+import android.os.SystemClock
 import android.util.Log
 import com.conundrum.thomas.v2.languagerenderer.CandidateManifest
 import com.conundrum.thomas.v2.languagerenderer.CandidateRealization
@@ -40,12 +41,16 @@ class ThomasLlamaLanguageRealizer(
         }
         if (attempt !in 1..2) return@synchronized CandidateRealizationOutcome.Failed("INVALID_ATTEMPT")
         try {
+            val started = SystemClock.elapsedRealtime()
+            Log.i(LOG_TAG, "THOMAS_REALIZER_TIMING stage=invoked attempt=$attempt mode=${input.mode} act=${input.semanticAct}")
             ensureLoaded()
+            val generationStarted = SystemClock.elapsedRealtime()
             val raw = NativeLlamaBridge.nativeGenerate(
                 ThomasRealizationPrompt.system(input),
                 ThomasRealizationPrompt.user(input),
                 maximumTokens(input),
             ).trim()
+            Log.i(LOG_TAG, "THOMAS_REALIZER_TIMING stage=generation_complete ms=${SystemClock.elapsedRealtime() - generationStarted} total_ms=${SystemClock.elapsedRealtime() - started} chars=${raw.length}")
             if (raw.isBlank()) return@synchronized CandidateRealizationOutcome.Failed("EMPTY_LOCAL_REALIZATION")
             statusRef.set(ThomasRealizerStatus.READY)
             lastDiagnostic = "LOCAL_MODEL_INVOKED:${RecoveredThomasQ6K.SHA256}"
@@ -85,15 +90,19 @@ class ThomasLlamaLanguageRealizer(
 
     private fun ensureLoaded() {
         if (loaded) return
+        val verificationStarted = SystemClock.elapsedRealtime()
         statusRef.set(ThomasRealizerStatus.VERIFYING)
         val verified = verifier.verify(artifact)
+        Log.i(LOG_TAG, "THOMAS_REALIZER_TIMING stage=model_verified ms=${SystemClock.elapsedRealtime() - verificationStarted}")
         val identity = NativeLlamaBridge.nativeRuntimeIdentity().split('\t')
         check(identity.size >= 2 && identity[0] == RecoveredThomasQ6K.LLAMA_CPP_RELEASE &&
             identity[1] == RecoveredThomasQ6K.LLAMA_CPP_COMMIT) {
             "Pinned llama.cpp runtime identity mismatch"
         }
         statusRef.set(ThomasRealizerStatus.LOADING)
+        val loadStarted = SystemClock.elapsedRealtime()
         NativeLlamaBridge.nativeLoad(verified.artifact.path.absolutePath)
+        Log.i(LOG_TAG, "THOMAS_REALIZER_TIMING stage=model_loaded ms=${SystemClock.elapsedRealtime() - loadStarted}")
         loaded = true
         statusRef.set(ThomasRealizerStatus.READY)
         lastDiagnostic = "MODEL_VERIFIED:${verified.actualSha256}:${verified.verifiedBytes}"
@@ -103,8 +112,8 @@ class ThomasLlamaLanguageRealizer(
     private fun maximumTokens(input: RendererInput): Int =
         when (input.budget.maximumSentences) {
             0 -> 1
-            1, 2 -> 96
-            else -> 160
+            1, 2 -> 40
+            else -> 56
         }
 
     private fun manifest(input: RendererInput): CandidateManifest = CandidateManifest(

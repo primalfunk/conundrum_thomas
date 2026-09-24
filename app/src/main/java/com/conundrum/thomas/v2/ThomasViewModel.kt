@@ -2,6 +2,8 @@ package com.conundrum.thomas.v2
 
 import android.app.Application
 import android.content.ContentResolver
+import android.os.SystemClock
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.conundrum.thomas.v2.engine.ordinary.RequestedOrdinarySupport
@@ -199,7 +201,9 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
         val text = before.draft
         val inputOrigin = origin ?: before.draftOrigin
         val turnIndex = allocateTurnIndex()
-        mutableState.value = before.copy(processing = true, status = "Processing governed turn…")
+        val submittedAt = SystemClock.elapsedRealtime()
+        Log.i("ThomasTiming", "THOMAS_UI_TIMING stage=send_received turn=$turnIndex origin=$inputOrigin")
+        mutableState.value = before.copy(processing = true, status = "Working…")
         viewModelScope.launch {
             val result = withContext(Dispatchers.Default) {
                 root.runtime?.submit(
@@ -226,6 +230,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                 )
             }
             val current = mutableState.value
+            Log.i("ThomasTiming", "THOMAS_UI_TIMING stage=ui_ready turn=$turnIndex elapsed_ms=${SystemClock.elapsedRealtime() - submittedAt} result=${result?.disposition}")
             if (result == null) {
                 mutableState.value = current.copy(
                     processing = false,
@@ -359,6 +364,7 @@ class ThomasViewModel(application: Application) : AndroidViewModel(application) 
                 val draft = speechSession.finish(event.text)
                 drafts[current.mode] = draft
                 draftOrigins[current.mode] = ProductionInputOrigin.SPEECH_TRANSCRIPT
+                Log.i("ThomasTiming", "THOMAS_UI_TIMING stage=stt_finalized composer_ready=true")
                 mutableState.value = current.copy(
                     draft = draft,
                     draftOrigin = ProductionInputOrigin.SPEECH_TRANSCRIPT,
