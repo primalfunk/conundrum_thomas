@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
@@ -69,6 +70,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        Log.i(
+            "ThomasBuild",
+            "BUILD_IDENTITY:${BuildConfig.BUILD_IDENTITY}:package=$packageName:version=${BuildConfig.VERSION_NAME}",
+        )
         setContent {
             ConundrumThomasV2Theme(dynamicColor = false) {
                 ThomasApp()
@@ -125,6 +130,22 @@ private fun ThomasApp(viewModel: ThomasViewModel = viewModel()) {
                                 style = MaterialTheme.typography.labelMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
+                        }
+                        if (BuildConfig.IS_PRINCIPAL_DEV) {
+                            Surface(
+                                modifier = Modifier.padding(end = 6.dp),
+                                color = MaterialTheme.colorScheme.tertiaryContainer,
+                                shape = RoundedCornerShape(12.dp),
+                            ) {
+                                Text(
+                                    "DEV BUILD",
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
+                                        .testTag("dev-build-indicator"),
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                                    style = MaterialTheme.typography.labelMedium,
+                                    fontWeight = FontWeight.Bold,
+                                )
+                            }
                         }
                         TextButton(
                             onClick = { showData = true },

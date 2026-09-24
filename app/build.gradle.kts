@@ -19,6 +19,22 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions += "distribution"
+    productFlavors {
+        create("production") {
+            dimension = "distribution"
+            buildConfigField("boolean", "IS_PRINCIPAL_DEV", "false")
+            buildConfigField("String", "BUILD_IDENTITY", "\"production\"")
+        }
+        create("principalDev") {
+            dimension = "distribution"
+            applicationIdSuffix = ".principaldev"
+            versionNameSuffix = "-principaldev"
+            buildConfigField("boolean", "IS_PRINCIPAL_DEV", "true")
+            buildConfigField("String", "BUILD_IDENTITY", "\"principal-dev\"")
+        }
+    }
+
     buildTypes {
         release {
             optimization {
@@ -31,6 +47,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
