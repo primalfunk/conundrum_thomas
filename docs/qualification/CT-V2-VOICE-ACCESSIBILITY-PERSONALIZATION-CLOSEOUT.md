@@ -3,10 +3,10 @@
 ## Disposition
 
 `CT_V2_THOMAS_VOICE_ACCESSIBILITY_PERSONALIZATION_QUALIFIED` is **not
-claimed** by this record. The mechanical/device gates below passed, but the
-closeout remains incomplete because the live Principal speech session and
-full physical visual review were not performed in this run, and the complete
-qualification task remains red on five repository-boundary assertions.
+claimed** by this record. The mechanical/device gates and complete automated
+qualification now pass, but the closeout remains incomplete because the live
+Principal speech session and full physical visual/background review were not
+performed in this run.
 
 No completion tag was created.
 
@@ -106,6 +106,32 @@ Full custom-background dim/blur/crop/readability and all-size visual
 clipping/landscape checks remain unperformed. Therapy, Journal, Biographer,
 and live safety-mode physical smoke also remain unperformed in this run.
 
+## Workspace artifact reconciliation
+
+The pre-cleanup complete qualification run reported five failures caused by
+ignored copied workspaces under `out\\`:
+
+* `CTV211AcceptanceTest` production-writer scan;
+* `FoundationArchitectureTest` restricted-artifact scan;
+* `JournalAuthorityQualificationTest` writer scan;
+* `LanguageEvidenceBoundaryQualificationTest` language/store consumer scans;
+* `LongitudinalStoreBoundaryQualificationTest` store consumer scan.
+
+The offending files were generated copies such as
+`out/ct-v2-15r1-dispatch/workspace/qualification/build.gradle.kts`, not
+canonical source. The eight `ct-v2-15r1-*` trees were retained because tracked
+qualification documents explicitly identify them as historical evidence. The
+other 41 ignored, untracked generated trees—including the rejected
+`neural-tts` and `tts-bakeoff` trees—were removed after confirming there were
+no tracked-document references. No tracked source or canonical evidence was
+deleted.
+
+The four remaining boundary scans were repaired narrowly to traverse the
+canonical repository tree and exclude retained ignored `out/` evidence
+snapshots. The restricted-artifact failure also passed after removal of the
+ignored neural-TTS artifacts. The repair is committed separately as
+`0e57fa5`.
+
 ## Automated results
 
 Passing focused commands:
@@ -116,20 +142,16 @@ Passing focused commands:
 * `:app:assemblePrincipalDevDebug`
 * `:app:assembleProductionDebug`
 
-The complete command reached build, production compile, lint, speech, and
-qualification tasks, but `:qualification:test` finished with **863 tests
-completed, 5 failed**:
+The complete post-repair command passed:
 
-1. `CTV211AcceptanceTest > acceptanceScenario[90_production_writers_zero]`;
-2. `FoundationArchitectureTest > no restricted source or model artifact is present`;
-3. `JournalAuthorityQualificationTest > acceptance57ProductionLongitudinalAndJournalWritersRemainZero`;
-4. `LanguageEvidenceBoundaryQualificationTest > onlyAuthorizedSyntheticCaptureAndQualificationModulesConsumeLanguageEvidence`;
-5. `LongitudinalStoreBoundaryQualificationTest > only qualification module consumes complete store`.
+* `:app:assemblePrincipalDevDebug`;
+* `:app:assembleProductionDebug`;
+* `:app:lint`;
+* `:platform:speech-android:test`;
+* `:qualification:test` — **863 tests, 0 failures, 0 errors, 0 skips**.
 
-The failure diagnostics identify pre-existing ignored `out\\` artifacts and
-historical generated qualification material as inputs to those repository
-boundary scans. Those artifacts were preserved. No test was weakened and no
-source repair was made.
+No assertion was weakened. The canonical-tree repair only prevents historical
+ignored evidence snapshots from being mistaken for live repository modules.
 
 ## Build and source-control evidence
 
@@ -142,7 +164,7 @@ DEV APK:
 * version: `1.0-principaldev`;
 * version code: `1`.
 
-No product code or configuration was changed for this closeout. This evidence
-file is the only intended repository change. No repair commit, completion tag,
-or qualification claim is made until the unresolved physical and automated
-gates are completed.
+No product code or configuration was changed for this closeout. One narrow
+qualification-test repair was committed as `0e57fa5`; this evidence update is
+separate. Both commits were pushed to `origin/main`. No completion tag or
+qualification claim is made until the unresolved physical gates are completed.
