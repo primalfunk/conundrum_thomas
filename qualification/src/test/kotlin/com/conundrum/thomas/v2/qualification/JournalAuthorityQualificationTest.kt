@@ -60,7 +60,7 @@ class JournalAuthorityQualificationTest {
     }
 
     @Test fun acceptance57ProductionLongitudinalAndJournalWritersRemainZero() {
-        val consumers = root.toFile().walkTopDown().filter { file ->
+        val consumers = root.toFile().walkCanonicalTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:journal")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
         assertEquals(

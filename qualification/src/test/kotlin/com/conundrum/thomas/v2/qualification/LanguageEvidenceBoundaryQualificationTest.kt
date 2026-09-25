@@ -20,7 +20,7 @@ class LanguageEvidenceBoundaryQualificationTest {
     }
 
     @Test fun onlyAuthorizedSyntheticCaptureAndQualificationModulesConsumeLanguageEvidence() {
-        val consumers = root.toFile().walkTopDown().filter { file ->
+        val consumers = root.toFile().walkCanonicalTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:language-evidence")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
         assertEquals(
@@ -33,7 +33,7 @@ class LanguageEvidenceBoundaryQualificationTest {
             ),
             consumers,
         )
-        val storeConsumers = root.toFile().walkTopDown().filter { file ->
+        val storeConsumers = root.toFile().walkCanonicalTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:longitudinal-store")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.sorted().toList()
         assertEquals(listOf("qualification/build.gradle.kts"), storeConsumers)

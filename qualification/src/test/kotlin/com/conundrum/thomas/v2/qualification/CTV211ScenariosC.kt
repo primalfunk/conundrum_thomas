@@ -213,7 +213,7 @@ internal object CTV211ScenariosC {
         assertEquals(AdmissionDisposition.ACCEPTED, harness.store.reader.redactedAdmissionHistory().first().disposition)
     }
 
-    private fun sourceText(relative: String): String = File(root.toFile(), relative).walkTopDown()
+    private fun sourceText(relative: String): String = File(root.toFile(), relative).walkCanonicalTopDown()
         .filter { it.isFile && (it.extension == "kt" || it.extension == "kts") }.joinToString("\n") { it.readText() }
     private fun assertNoDependency(relative: String, forbidden: String) {
         assertFalse(sourceText(relative).contains(forbidden))
@@ -227,11 +227,11 @@ internal object CTV211ScenariosC {
         val text = sourceText("thomas/retrieval") + sourceText("thomas/context-packet")
         tokens.forEach { assertFalse("Forbidden authority token: $it", text.contains(it)) }
     }
-    private fun gradleFiles(): String = root.toFile().walkTopDown().filter {
+    private fun gradleFiles(): String = root.toFile().walkCanonicalTopDown().filter {
         it.isFile && it.name.endsWith(".gradle.kts") && "build" !in it.toPath().map(Path::toString)
     }.joinToString("\n") { it.readText() }
     private fun assertProductionCompositionRootsZero() {
-        val consumers = root.toFile().walkTopDown().filter { file ->
+        val consumers = root.toFile().walkCanonicalTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" &&
                 "build" !in file.toPath().map(Path::toString) &&
                 (file.readText().contains(":thomas:retrieval") || file.readText().contains(":thomas:context-packet"))

@@ -63,7 +63,7 @@ class LongitudinalStoreBoundaryQualificationTest {
     }
 
     @Test fun `only qualification module consumes complete store`() {
-        val matches = root.toFile().walkTopDown().filter { file ->
+        val matches = root.toFile().walkCanonicalTopDown().filter { file ->
             file.isFile && file.name == "build.gradle.kts" && file.readText().contains(":thomas:longitudinal-store")
         }.map { it.relativeTo(root.toFile()).invariantSeparatorsPath }.toList()
         assertEquals(listOf("qualification/build.gradle.kts"), matches)
